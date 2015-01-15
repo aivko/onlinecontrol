@@ -3,13 +3,13 @@
 
     <persistence-unit name="jpa.unit">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
-        <class>com.vizaco.onlinecontrol.model.Parent</class>
+        <class>com.vizaco.onlinecontrol.model.User</class>
         <class>com.vizaco.onlinecontrol.model.Student</class>
-        <class>com.vizaco.onlinecontrol.model.Attendance</class>
-        <class>com.vizaco.onlinecontrol.model.Grades</class>
-        <class>com.vizaco.onlinecontrol.model.News</class>
-        <class>com.vizaco.onlinecontrol.model.Shedule</class>
+        <class>com.vizaco.onlinecontrol.model.Role</class>
         <class>com.vizaco.onlinecontrol.model.Teacher</class>
+        <class>com.vizaco.onlinecontrol.model.Subject</class>
+        <class>com.vizaco.onlinecontrol.model.School</class>
+        <class>com.vizaco.onlinecontrol.model.News</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine" />
