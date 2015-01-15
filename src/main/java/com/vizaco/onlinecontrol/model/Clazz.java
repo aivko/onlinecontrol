@@ -17,7 +17,7 @@ public class Clazz {
     @Id
     @Column(name = "clazz_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String clazztId;
+    private String clazzId;
 
     @Column(name = "name")
     private String name;
@@ -25,5 +25,35 @@ public class Clazz {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Student> students;
 
+    public Clazz() {
+    }
 
+    public Clazz(String name, Set<Student> students) {
+        this.name = name;
+        this.students = students;
+    }
+
+    public String getClazzId() {
+        return clazzId;
+    }
+
+    public void setClazzId(String clazzId) {
+        this.clazzId = clazzId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 }

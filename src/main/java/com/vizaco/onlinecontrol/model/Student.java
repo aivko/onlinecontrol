@@ -55,6 +55,9 @@ public class Student {
         this.clazz = clazz;
     }
 
+    public Student() {
+    }
+
     public String getStudentId() {
         return studentId;
     }

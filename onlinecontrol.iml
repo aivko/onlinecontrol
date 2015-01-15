@@ -11,6 +11,7 @@
         </fileset>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/application-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/datasource-config.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -60,6 +61,15 @@
     <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-jpa-query:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.0-release" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty:6.1.25" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-util:6.1.25" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:servlet-api:2.5-20081211" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-embedded:6.1.26" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-sslengine:6.1.26" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-naming:6.1.26" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />

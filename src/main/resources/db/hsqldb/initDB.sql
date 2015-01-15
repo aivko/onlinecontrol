@@ -1,59 +1,87 @@
 DROP TABLE users IF EXISTS;
 DROP TABLE students IF EXISTS;
+DROP TABLE teachers IF EXISTS;
+DROP TABLE subjects IF EXISTS;
+DROP TABLE clazzes IF EXISTS;
+DROP TABLE roles IF EXISTS;
 
+
+CREATE TABLE clazzes (
+  clazz_id        VARCHAR(30) PRIMARY KEY,
+  name            VARCHAR(80)
+);
+CREATE INDEX clazzes_name ON clazzes (name);
+
+CREATE TABLE subjects (
+  subject_id      VARCHAR(30) PRIMARY KEY,
+  name            VARCHAR(30)
+);
+CREATE INDEX subjects_name ON subjects (name);
+
+CREATE TABLE roles (
+  role_id         VARCHAR(30) PRIMARY KEY,
+  name            VARCHAR(30)
+);
+CREATE INDEX roles_name ON roles (name);
 
 CREATE TABLE users (
-  id         INTEGER IDENTITY PRIMARY KEY,
-  first_name VARCHAR(30),
-  last_name  VARCHAR(30)
+  user_id         VARCHAR(30) PRIMARY KEY,
+  login           VARCHAR(30),
+  password        VARCHAR(30),
+  first_name      VARCHAR(30),
+  last_name       VARCHAR(30),
+  middle_name     VARCHAR(30)
 );
-CREATE INDEX vets_last_name ON vets (last_name);
+CREATE INDEX users_last_name ON users (last_name);
 
 CREATE TABLE students (
-  id   INTEGER IDENTITY PRIMARY KEY,
-  name VARCHAR(80)
+  student_id      VARCHAR(30) PRIMARY KEY,
+  first_name      VARCHAR(30),
+  last_name       VARCHAR(30),
+  middle_name     VARCHAR(30),
+  date_of_birth   DATE,
+  gender          INTEGER NOT NULL,
+  clazz_id        VARCHAR(30)
 );
-CREATE INDEX specialties_name ON specialties (name);
+ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);
+CREATE INDEX students_last_name ON students (last_name);
 
-CREATE TABLE vet_specialties (
-  vet_id       INTEGER NOT NULL,
-  specialty_id INTEGER NOT NULL
+CREATE TABLE users_students (
+  user_id         VARCHAR(30) NOT NULL,
+  student_id      VARCHAR(30) NOT NULL
 );
-ALTER TABLE vet_specialties ADD CONSTRAINT fk_vet_specialties_vets FOREIGN KEY (vet_id) REFERENCES vets (id);
-ALTER TABLE vet_specialties ADD CONSTRAINT fk_vet_specialties_specialties FOREIGN KEY (specialty_id) REFERENCES specialties (id);
+ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (user_id);
+ALTER TABLE users_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (student_id);
 
-CREATE TABLE types (
-  id   INTEGER IDENTITY PRIMARY KEY,
-  name VARCHAR(80)
+CREATE TABLE users_roles (
+  user_id         VARCHAR(30) NOT NULL,
+  role_id         VARCHAR(30) NOT NULL
 );
-CREATE INDEX types_name ON types (name);
+ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_users FOREIGN KEY (user_id) REFERENCES users (user_id);
+ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_roles FOREIGN KEY (role_id) REFERENCES roles (role_id);
 
-CREATE TABLE owners (
-  id         INTEGER IDENTITY PRIMARY KEY,
-  first_name VARCHAR(30),
-  last_name  VARCHAR(30),
-  address    VARCHAR(255),
-  city       VARCHAR(80),
-  telephone  VARCHAR(20)
+CREATE TABLE teachers (
+  teacher_id      VARCHAR(30) PRIMARY KEY,
+  first_name      VARCHAR(30),
+  last_name       VARCHAR(30),
+  middle_name     VARCHAR(30),
+  gender          INTEGER NOT NULL
 );
-CREATE INDEX owners_last_name ON owners (last_name);
+CREATE INDEX teachers_last_name ON teachers (last_name);
 
-CREATE TABLE pets (
-  id         INTEGER IDENTITY PRIMARY KEY,
-  name       VARCHAR(30),
-  birth_date DATE,
-  type_id    INTEGER NOT NULL,
-  owner_id   INTEGER NOT NULL
+CREATE TABLE teachers_subjects (
+  teacher_id      VARCHAR(30) NOT NULL,
+  subject_id      VARCHAR(30) NOT NULL
 );
-ALTER TABLE pets ADD CONSTRAINT fk_pets_owners FOREIGN KEY (owner_id) REFERENCES owners (id);
-ALTER TABLE pets ADD CONSTRAINT fk_pets_types FOREIGN KEY (type_id) REFERENCES types (id);
-CREATE INDEX pets_name ON pets (name);
+ALTER TABLE teachers_subjects ADD CONSTRAINT fk_teachers_subjects_teachers FOREIGN KEY (teacher_id) REFERENCES teachers (teacher_id);
+ALTER TABLE teachers_subjects ADD CONSTRAINT fk_teachers_subjects_subjects FOREIGN KEY (subject_id) REFERENCES subjects (subject_id);
 
-CREATE TABLE visits (
-  id          INTEGER IDENTITY PRIMARY KEY,
-  pet_id      INTEGER NOT NULL,
-  visit_date  DATE,
-  description VARCHAR(255)
+CREATE TABLE teachers_clazzes (
+  teacher_id      VARCHAR(30) NOT NULL,
+  clazz_id        VARCHAR(30) NOT NULL
 );
-ALTER TABLE visits ADD CONSTRAINT fk_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
-CREATE INDEX visits_pet_id ON visits (pet_id);
+ALTER TABLE teachers_clazzes ADD CONSTRAINT fk_teachers_clazzes_teachers FOREIGN KEY (teacher_id) REFERENCES teachers (teacher_id);
+ALTER TABLE teachers_clazzes ADD CONSTRAINT fk_teachers_clazzes_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);
+
+
+

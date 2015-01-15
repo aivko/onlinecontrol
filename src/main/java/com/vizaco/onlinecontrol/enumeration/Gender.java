@@ -5,12 +5,14 @@ package com.vizaco.onlinecontrol.enumeration;
  *
  */
 public enum Gender {
-    MALE("Мужчина"),
-    FEMALE("Женщина");
+    MALE("Мужчина", 1),
+    FEMALE("Женщина", 2);
 
     private final String mf;
+    private final int number;
 
-    Gender(String mf) {
+    Gender(String mf, int number) {
         this.mf = mf;
+        this.number = number;
     }
 }

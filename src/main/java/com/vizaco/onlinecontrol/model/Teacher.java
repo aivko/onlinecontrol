@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import com.vizaco.onlinecontrol.enumeration.Gender;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -25,6 +27,9 @@ public class Teacher {
     @Column(name = "middle_name")
     private String middleName;
 
+    @Column(name = "gender")
+    private Gender gender;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "teachers_subjects", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
@@ -39,10 +44,11 @@ public class Teacher {
     public Teacher() {
     }
 
-    public Teacher(String firstName, String lastName, String middleName, Set<Subject> subjects, Set<Clazz> clazzes) {
+    public Teacher(String firstName, String lastName, String middleName, Gender gender, Set<Subject> subjects, Set<Clazz> clazzes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
+        this.gender = gender;
         this.subjects = subjects;
         this.clazzes = clazzes;
     }
@@ -93,5 +99,13 @@ public class Teacher {
 
     public void setClazzes(Set<Clazz> clazzes) {
         this.clazzes = clazzes;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }
