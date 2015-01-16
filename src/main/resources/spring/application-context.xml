@@ -3,19 +3,22 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xmlns:jee="http://www.springframework.org/schema/jee"
-       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/cache
-       http://www.springframework.org/schema/cache/spring-cache.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/jdbc
-       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-       http://www.springframework.org/schema/jee
-       http://www.springframework.org/schema/jee/spring-jee.xsd">
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <context:component-scan
+            base-package="com.vizaco.onlinecontrol.service"/>
+
+    <!-- enables scanning for @Transactional annotations -->
+    <tx:annotation-driven />
 
     <!-- ========================= DATASOURCE DEFINITION ========================= -->
 
@@ -32,7 +35,7 @@
             <value>${jdbc.username}</value>
         </property>
         <property name="password">
-            <value>{jdbc.password}</value>
+            <value>${jdbc.password}</value>
         </property>
     </bean>
 
@@ -43,10 +46,43 @@
         <jdbc:script location="${jdbc.dataLocation}"/>
     </jdbc:initialize-database>
 
-    <beans profile="javaee">
-        <!-- JNDI DataSource for JEE environments -->
-        <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/onlinecontrol"/>
+    <beans profile="jpa">
+        <!--
+            Loads JPA beans
+            Will automatically be transactional due to @Transactional.
+            EntityManager will be auto-injected due to @PersistenceContext.
+            PersistenceExceptions will be auto-translated due to @Repository.
+        -->
+        <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
+
+
+        <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+              p:dataSource-ref="dataSource">
+            <property name="jpaVendorAdapter">
+                <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+                      p:database="${jpa.database}" p:showSql="${jpa.showSql}"/>
+                <!-- the 'database' parameter refers to the database dialect being used.
+                	By default, Hibernate will use a 'HSQL' dialect because 'jpa.database' has been set to 'HSQL'
+                	inside file spring/data-access.properties
+
+                 -->
+            </property>
+        </bean>
+
+        <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
+        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+              p:entityManagerFactory-ref="entityManagerFactory"/>
+
+
+        <!--
+            Post-processor to perform exception translation on @Repository classes (from native
+            exceptions such as JPA PersistenceExceptions to Spring's DataAccessException hierarchy).
+        -->
+        <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
     </beans>
+
+
 
 
 </beans>

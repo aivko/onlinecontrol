@@ -33,8 +33,8 @@ public class Student {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
 
-    @Column(name = "gender")
-    private Gender gender;
+//    @Column(name = "gender")
+//    private Gender gender;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "student_id"),
@@ -50,7 +50,7 @@ public class Student {
         this.lastName = lastName;
         this.middleName = middleName;
         this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
+//        this.gender = gender;
         this.users = users;
         this.clazz = clazz;
     }
@@ -98,13 +98,13 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+//    public Gender getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(Gender gender) {
+//        this.gender = gender;
+//    }
 
     public Set<User> getUsers() {
         return users;

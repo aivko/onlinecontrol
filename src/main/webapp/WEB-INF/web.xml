@@ -5,6 +5,11 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
            version="3.0">
 
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>jpa</param-value>
+    </context-param>
+
     <!-- Location of the XML file that defines the root application context	-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
