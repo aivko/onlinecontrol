@@ -40,7 +40,7 @@ CREATE TABLE students (
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
   date_of_birth   DATE,
---   gender          VARCHAR(30),
+  gender          VARCHAR(30),
   clazz_id        VARCHAR(30)
 );
 ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);

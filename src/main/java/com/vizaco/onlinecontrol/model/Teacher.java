@@ -28,6 +28,7 @@ public class Teacher {
     private String middleName;
 
     @Column(name = "gender")
+    @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
     @ManyToMany(fetch = FetchType.LAZY)

@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: i.vartanian
-  Date: 14.01.2015
-  Time: 14:41
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +8,9 @@
 <body>
 
 <div>
-    Starting page
+    <h1>Start page</h1>
+    <h2>Find students</h2>
+    <a href='<spring:url value="/students/find" htmlEscape="true"/>'>Find</a>
 </div>
 
 </body>

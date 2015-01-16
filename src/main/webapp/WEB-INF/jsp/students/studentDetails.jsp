@@ -23,7 +23,11 @@
         </tr>
         <tr>
             <th>Class</th>
-            <td><c:out value="${student.clazz}"/></td>
+            <td><c:out value="${student.clazz.name}"/></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td><c:out value="${student.gender}"/></td>
         </tr>
     </table>
 
@@ -38,7 +42,7 @@
                         <dd><c:out value="${user.firstName}"/></dd>
                         <dt>Middle name</dt>
                         <dd><c:out value="${user.middleName}"/></dd>
-                        <dt>Type</dt>
+                        <dt>Last name</dt>
                         <dd><c:out value="${user.lastName}"/></dd>
                     </dl>
                 </td>
