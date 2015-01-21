@@ -36,7 +36,7 @@
     <!--  all resources <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> folder src/main/webapp/resources are mapped so they can be refered to inside JSP files
         (see header.jsp for more details) -->
-    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <mvc:view-controller path="/" view-name="index" />
 

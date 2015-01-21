@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,10 +13,10 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
-    @Id
     @Column(name = "user_id")
     private String userId;
 
+    @Id
     @Column(name = "login")
     private String login;
 

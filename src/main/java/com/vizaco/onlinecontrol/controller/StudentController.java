@@ -19,6 +19,7 @@ import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.service.OnlineControlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,12 +29,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Collection;
 import java.util.Map;
 
-/**
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- * @author Michael Isvy
- */
 @Controller
 @SessionAttributes(types = Student.class)
 public class StudentController {
@@ -75,6 +70,12 @@ public class StudentController {
             student = results.iterator().next();
             return "redirect:/students/" + student.getStudentId();
         }
+    }
+
+    @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.PUT)
+    public String processUpdateOwnerForm(Student student) {
+        this.onlineControlService.saveStudent(student);
+        return "redirect:/students/{studentId}";
     }
 
     @RequestMapping("/students/{studentId}")

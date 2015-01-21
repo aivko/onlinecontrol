@@ -122,5 +122,10 @@ public class Student {
     public void setClazz(Clazz clazz) {
         this.clazz = clazz;
     }
+
+    public boolean isNew() {
+        return (this.studentId == null);
+    }
+
 }
 
