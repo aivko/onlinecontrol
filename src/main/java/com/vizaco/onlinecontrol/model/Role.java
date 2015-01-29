@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements GrantedAuthority {
 
     @Id
     @Column(name = "role_id")
@@ -39,5 +41,17 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getAuthority() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer();
+        sb.append(name);
+        return sb.toString();
     }
 }

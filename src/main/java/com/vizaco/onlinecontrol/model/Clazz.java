@@ -56,4 +56,12 @@ public class Clazz {
     public void setStudents(Set<Student> students) {
         this.students = students;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Clazz{");
+        sb.append("name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

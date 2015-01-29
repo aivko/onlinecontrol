@@ -1,25 +1,9 @@
-/*
- * Copyright 2002-2013 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.vizaco.onlinecontrol.controller;
 
 import com.vizaco.onlinecontrol.model.Student;
-import com.vizaco.onlinecontrol.service.OnlineControlService;
+import com.vizaco.onlinecontrol.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,12 +17,12 @@ import java.util.Map;
 @SessionAttributes(types = Student.class)
 public class StudentController {
 
-    private final OnlineControlService onlineControlService;
+    private final StudentService studentService;
 
 
     @Autowired
-    public StudentController(OnlineControlService onlineControlService) {
-        this.onlineControlService = onlineControlService;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @RequestMapping(value = "/students/find", method = RequestMethod.GET)
@@ -56,7 +40,7 @@ public class StudentController {
         }
 
         // find students by last name
-        Collection<Student> results = this.onlineControlService.findStudentByLastName(student.getLastName());
+        Collection<Student> results = this.studentService.findStudentByLastName(student.getLastName());
         if (results.size() < 1) {
             // no owners found
             return "students/findStudents";
@@ -74,14 +58,14 @@ public class StudentController {
 
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.PUT)
     public String processUpdateOwnerForm(Student student) {
-        this.onlineControlService.saveStudent(student);
+        this.studentService.saveStudent(student);
         return "redirect:/students/{studentId}";
     }
 
     @RequestMapping("/students/{studentId}")
     public ModelAndView showOwner(@PathVariable("studentId") String studentId) {
         ModelAndView mav = new ModelAndView("students/studentDetails");
-        mav.addObject(this.onlineControlService.findStudentById(studentId));
+        mav.addObject(this.studentService.findStudentById(studentId));
         return mav;
     }
 

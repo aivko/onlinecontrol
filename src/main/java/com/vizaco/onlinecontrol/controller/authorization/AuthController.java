@@ -1,25 +1,30 @@
 package com.vizaco.onlinecontrol.controller.authorization;
 
-import com.vizaco.onlinecontrol.service.OnlineControlService;
+import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.StudentService;
+import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Map;
-
-/**
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- * @author Michael Isvy
- */
 @Controller
 public class AuthController {
 
-    @RequestMapping(value = "/auth", method = RequestMethod.GET)
-    public String initAuthForm() {
-        return "auth/auth";
+    private final UserService userService;
+
+    @Autowired
+    public AuthController(UserService userService) {
+        this.userService = userService;
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String initAuthForm() {
+        return "auth/login";
+    }
+
 
 }

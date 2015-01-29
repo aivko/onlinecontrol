@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by i.vartanian on 17.01.2015.
- */
 public class JsonUtil {
 
     public static String getJsonElement(String tokenRequest, String key) throws IOException {

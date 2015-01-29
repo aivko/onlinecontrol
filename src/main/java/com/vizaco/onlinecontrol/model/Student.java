@@ -1,9 +1,12 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.vizaco.onlinecontrol.enumeration.Gender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -39,7 +42,7 @@ public class Student {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            inverseJoinColumns = @JoinColumn(name = "login"))
     private Set<User> users;
 
     @ManyToOne
@@ -127,5 +130,13 @@ public class Student {
         return (this.studentId == null);
     }
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer();
+        sb.append(lastName).append(' ');
+        sb.append(firstName).append(' ');
+        sb.append(middleName);
+        return sb.toString();
+    }
 }
 

@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by i.vartanian on 17.01.2015.
- */
 public class OAuthUtil {
 
     public static String sendHttpRequest(String methodName, String url, String[] names, String[] values) throws IOException {

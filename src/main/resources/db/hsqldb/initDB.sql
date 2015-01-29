@@ -27,7 +27,7 @@ CREATE INDEX roles_name ON roles (name);
 CREATE TABLE users (
   user_id         VARCHAR(30),
   login           VARCHAR(30) PRIMARY KEY,
-  password        VARCHAR(30),
+  password        VARCHAR(50),
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30)

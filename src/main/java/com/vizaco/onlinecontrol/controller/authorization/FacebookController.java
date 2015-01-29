@@ -20,10 +20,6 @@ import org.springframework.web.client.RestOperations;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author Ryan Heaton
- * @author Dave Syer
- */
 @Controller
 public class FacebookController {
 
