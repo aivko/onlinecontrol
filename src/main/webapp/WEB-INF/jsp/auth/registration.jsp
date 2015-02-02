@@ -15,31 +15,31 @@
 
     <h1>Register New User</h1>
 
-    <form:form modelAttribute="userAttribute" method="POST" action="${registration}">
+    <form:form modelAttribute="user" method="POST" action="${registration}">
         <table class="horiz">
             <tr>
                 <td><form:label path="login">Login:</form:label></td>
-                <td><form:input path="login"/></td>
+                <td><form:input path="login"/><form:errors path="login" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="firstName">First name:</form:label></td>
-                <td><form:input path="firstName"/></td>
+                <td><form:input path="firstName"/><form:errors path="firstName" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="middleName">Middle name:</form:label></td>
-                <td><form:input path="middleName"/></td>
+                <td><form:input path="middleName"/><form:errors path="middleName" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="lastName">Last name:</form:label></td>
-                <td><form:input path="lastName"/></td>
+                <td><form:input path="lastName"/><form:errors path="lastName" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
-                <td><label path="password">Password:</label></td>
-                <td><form:password path="password"/></td>
+                <td><form:label path="password">Password:</form:label></td>
+                <td><form:password path="password"/><form:errors path="password" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>

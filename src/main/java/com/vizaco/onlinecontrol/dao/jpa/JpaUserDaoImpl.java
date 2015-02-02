@@ -34,14 +34,30 @@ public class JpaUserDaoImpl implements UserDao {
     public User findByLogin(String login) throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.login =:login");
         query.setParameter("login", login);
-        return (User) query.getSingleResult();
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (User)resultList.get(0);
+        }
+        
+//        return (User) query.getSingleResult();
     }
 
     @Override
     public User findById(String id) {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.userId =:id");
         query.setParameter("id", id);
-        return (User) query.getSingleResult();
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (User)resultList.get(0);
+        }
+        
+//        return (User) query.getSingleResult();
     }
 
     @Override
@@ -55,7 +71,15 @@ public class JpaUserDaoImpl implements UserDao {
     public Role getRoleById(String id) throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.roleId =:id");
         query.setParameter("id", id);
-        return (Role) query.getSingleResult();
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Role)resultList.get(0);
+        }
+        
+//        return (Role) query.getSingleResult();
     }
 
     @Override
