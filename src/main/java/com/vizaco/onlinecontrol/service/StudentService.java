@@ -21,4 +21,5 @@ public interface StudentService {
 
     void saveStudent(Student student) throws DataAccessException;
 
+    Student getStudentById(String studentId) throws DataAccessException;
 }

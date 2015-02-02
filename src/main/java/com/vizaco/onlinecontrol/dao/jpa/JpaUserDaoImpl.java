@@ -5,6 +5,7 @@ import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -66,6 +67,7 @@ public class JpaUserDaoImpl implements UserDao {
 
 
     @Override
+    @Transactional
     public void save(User user) {
     	if (user.getUserId() == null) {
     		this.em.persist(user);

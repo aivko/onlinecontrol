@@ -38,17 +38,20 @@
             </tr>
 
             <tr>
-                <td><form:label path="password">Password:</form:label></td>
+                <td><label path="password">Password:</label></td>
                 <td><form:password path="password"/></td>
             </tr>
 
             <tr>
                 <td><label path="roles" for="roles">Roles:</label></td>
                 <td>
-                    <form:select path="roles" id="roles">
-                        <c:forEach items="${roles}" var="role" varStatus="vs">
-                            <form:option value="${role}">${role}</form:option>
-                        </c:forEach>
+                    <%--<form:select path="roles" id="roles">--%>
+                        <%--<c:forEach items="${roles}" var="role" varStatus="vs">--%>
+                            <%--<form:option value="${role}">${role}</form:option>--%>
+                        <%--</c:forEach>--%>
+                    <%--</form:select>--%>
+                    <form:select path="roles">
+                        <form:options items="${roles}" itemValue="roleId" itemLabel="name"/>;
                     </form:select>
                 </td>
             </tr>
@@ -63,7 +66,7 @@
             <%--</tr>--%>
 
             <tr>
-                <td><form:label path="students">Students:</form:label></td>
+                <td><label for="students">Students:</label></td>
                 <td>
                     <form:select path="students">
                         <form:options items="${students}" itemValue="studentId" itemLabel="lastName"/>;

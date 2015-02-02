@@ -13,6 +13,10 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+    @Override
+    public Student getStudentById(String studentId) throws DataAccessException {
+        return studentDao.findById(studentId);
+    }
 
     private StudentDao studentDao;
 
