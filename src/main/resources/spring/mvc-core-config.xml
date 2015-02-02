@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- enables scanning for @Controller annotations -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <mvc:view-resolvers>
         <mvc:content-negotiation use-not-acceptable="true">

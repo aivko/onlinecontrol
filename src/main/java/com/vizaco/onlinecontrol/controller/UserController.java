@@ -126,8 +126,6 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, HttpServletRequest request) throws IOException {
-        //TODO: why Springnis not doing it automatically???
-        populateCollections(user, request);
 
         if(result.hasErrors()){
             return "/auth/registration";
@@ -137,18 +135,4 @@ public class UserController {
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return "redirect:/users/account/" + principal.getLogin();
     }
-
-    private void populateCollections(User user, HttpServletRequest request) {
-        user.setStudents((Set<Student>) conversionService
-                .convert(request.getParameterValues("students"),
-                        TypeDescriptor.forObject(request.getParameterValues("students")),
-                        TypeDescriptor.collection(Set.class, TypeDescriptor.valueOf(Student.class))));
-
-        user.setRoles((Set<Role>) conversionService
-                .convert(request.getParameterValues("roles"),
-                        TypeDescriptor.forObject(request.getParameterValues("roles")),
-                        TypeDescriptor.collection(Set.class, TypeDescriptor.valueOf(Role.class))));
-    }
-
-
 }
