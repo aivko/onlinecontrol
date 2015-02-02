@@ -46,15 +46,7 @@
         <jdbc:script location="${jdbc.dataLocation}"/>
     </jdbc:initialize-database>
 
-    <beans profile="jpa">
-        <!--
-            Loads JPA beans
-            Will automatically be transactional due to @Transactional.
-            EntityManager will be auto-injected due to @PersistenceContext.
-            PersistenceExceptions will be auto-translated due to @Repository.
-        -->
         <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
-
 
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
               p:dataSource-ref="dataSource">
@@ -75,20 +67,13 @@
 
         <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    </beans>
-
     <!-- SECURITY -->
-    <beans>
         <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
-    </beans>
 
     <!-- Validators -->
-    <beans>
         <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
-    </beans>
 
     <!-- Messages -->
-    <beans>
         <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
             <property name="basename" value="classpath:messages"/>
             <property name="defaultEncoding" value="UTF-8"/>
@@ -96,10 +81,8 @@
         <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
             <property name="defaultLocale" value="ru" />
         </bean>
-    </beans>
 
     <!-- Converters -->
-    <beans>
         <bean id="conversionService"
               class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
             <property name="converters">
@@ -109,6 +92,5 @@
                 </set>
             </property>
         </bean>
-    </beans>
 
 </beans>
