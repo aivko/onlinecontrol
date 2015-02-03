@@ -96,7 +96,7 @@ public class UserController {
 
         ModelAndView mav = new ModelAndView("/users/account");
         
-        //TODO: May be using principal
+        //TODO: May be using principal (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()
         User user = userService.findUserByLogin(login);
 
         mav.addObject("user", user);
@@ -104,10 +104,10 @@ public class UserController {
         return mav;
     }
     
-    @RequestMapping(value = "/users/usersList")
+    @RequestMapping(value = "/users")
     public ModelAndView initAccountForm() {
 
-        ModelAndView mav = new ModelAndView();
+        ModelAndView mav = new ModelAndView("users/users");
 
         List<User> allUsers = userService.getAllUsers();
 

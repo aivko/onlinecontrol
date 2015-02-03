@@ -15,7 +15,7 @@
 
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p><a href='<spring:url value="/registration" htmlEscape="true"/>' role="button">Зарегистрировать пользователя</a></p>
-        <p><a href='<spring:url value="/users/usersList" htmlEscape="true"/>' role="button">Список пользователей</a></p>
+        <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
     </sec:authorize>
 
 
