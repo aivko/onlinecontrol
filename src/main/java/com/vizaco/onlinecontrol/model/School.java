@@ -13,7 +13,7 @@ public class School {
     @Id
     @Column(name = "school_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String schoolId;
+    private Long schoolId;
 
     @Column(name = "name")
     private String name;
@@ -33,11 +33,11 @@ public class School {
         this.description = description;
     }
 
-    public String getSchoolId() {
+    public Long getSchoolId() {
         return schoolId;
     }
 
-    public void setSchoolId(String schoolId) {
+    public void setSchoolId(Long schoolId) {
         this.schoolId = schoolId;
     }
 

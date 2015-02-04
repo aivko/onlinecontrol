@@ -5,9 +5,6 @@ import com.vizaco.onlinecontrol.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 
-import java.util.Collections;
-import java.util.Set;
-
 /**
  * Converter for Student control.
  *
@@ -22,6 +19,7 @@ public class StringToStudent implements Converter<String, Student> {
 
     @Override
     public Student convert(String studentId) {
-        return studentService.findStudentById(studentId);
+
+        return studentService.findStudentById(Long.parseLong(studentId));
     }
 }

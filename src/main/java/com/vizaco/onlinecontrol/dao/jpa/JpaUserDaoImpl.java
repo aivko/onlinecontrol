@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public class JpaUserDaoImpl implements UserDao {
@@ -46,7 +45,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findById(String id) {
+    public User findById(Long id) {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.userId =:id");
         query.setParameter("id", id);
 
@@ -68,7 +67,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public Role getRoleById(String id) throws DataAccessException {
+    public Role getRoleById(Long id) throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.roleId =:id");
         query.setParameter("id", id);
 

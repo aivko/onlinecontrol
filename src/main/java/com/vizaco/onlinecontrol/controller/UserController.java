@@ -1,14 +1,11 @@
 package com.vizaco.onlinecontrol.controller;
 
-import com.vizaco.onlinecontrol.model.Role;
-import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
-import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +16,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class UserController {
@@ -92,7 +86,7 @@ public class UserController {
 
     
     @RequestMapping(value = "/users/{userId}/account")
-    public ModelAndView initAccountForm(@PathVariable("userId") String userId) {
+    public ModelAndView initAccountForm(@PathVariable("userId") Long userId) {
 
         ModelAndView mav = new ModelAndView("/users/account");
         
@@ -135,6 +129,6 @@ public class UserController {
 
         userService.saveUser(user);
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "redirect:/users/account/" + principal.getUserId();
+        return "redirect:/users/" + principal.getUserId() + "/account/";
     }
 }

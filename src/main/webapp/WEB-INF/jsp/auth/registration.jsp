@@ -51,7 +51,7 @@
                         <%--</c:forEach>--%>
                     <%--</form:select>--%>
                     <form:select path="roles">
-                        <form:options items="${roles}" itemValue="roleId" itemLabel="name"/>;
+                        <form:options items="${roles}" itemValue="roleId" itemLabel="name"></form:options>;
                     </form:select>
                 </td>
             </tr>
@@ -69,7 +69,11 @@
                 <td><label for="students">Students:</label></td>
                 <td>
                     <form:select path="students">
-                        <form:options items="${students}" itemValue="studentId" itemLabel="lastName"/>;
+                        <%--<c:forEach items="${students}" var="student" varStatus="vs">--%>
+                            <%--<form:option value="${student}">${student.lastName} ${student.firstName} ${student.middleName}</form:option>--%>
+                        <%--</c:forEach>--%>
+
+                        <form:options items="${students}" itemValue="studentId" itemLabel="lastName"></form:options>;
                     </form:select>
                 </td>
             </tr>

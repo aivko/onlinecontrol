@@ -63,7 +63,7 @@ public class StudentController {
     }
 
     @RequestMapping("/students/{studentId}")
-    public ModelAndView showOwner(@PathVariable("studentId") String studentId) {
+    public ModelAndView showOwner(@PathVariable("studentId") Long studentId) {
         ModelAndView mav = new ModelAndView("students/studentDetails");
         mav.addObject(this.studentService.findStudentById(studentId));
         return mav;

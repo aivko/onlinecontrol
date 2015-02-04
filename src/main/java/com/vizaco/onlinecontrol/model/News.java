@@ -16,7 +16,7 @@ public class News {
     @Id
     @Column(name = "news_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String newsId;
+    private Long newsId;
 
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -37,11 +37,11 @@ public class News {
         this.text = text;
     }
 
-    public String getNewsId() {
+    public Long getNewsId() {
         return newsId;
     }
 
-    public void setNewsId(String newsId) {
+    public void setNewsId(Long newsId) {
         this.newsId = newsId;
     }
 

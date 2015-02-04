@@ -2,7 +2,6 @@ package com.vizaco.onlinecontrol.dao;
 
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
-import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.dao.DataAccessException;
 
 import java.util.Collection;
@@ -14,11 +13,11 @@ public interface UserDao {
     
     User findByLogin(String login) throws DataAccessException;
 
-    User findById(String id) throws DataAccessException;
+    User findById(Long id) throws DataAccessException;
     
     List<Role> getAllRoles() throws DataAccessException;
     
-    Role getRoleById(String id) throws DataAccessException;
+    Role getRoleById(Long id) throws DataAccessException;
     
     List<User> getAllUsers() throws DataAccessException;
 

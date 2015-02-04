@@ -13,7 +13,7 @@ public class Subject {
     @Id
     @Column(name = "subject_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String subjectId;
+    private Long subjectId;
 
     @Column(name = "name")
     private String name;
@@ -25,11 +25,11 @@ public class Subject {
         this.name = name;
     }
 
-    public String getSubjectId() {
+    public Long getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(String subjectId) {
+    public void setSubjectId(Long subjectId) {
         this.subjectId = subjectId;
     }
 

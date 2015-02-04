@@ -13,10 +13,6 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-    @Override
-    public Student getStudentById(String studentId) throws DataAccessException {
-        return studentDao.findById(studentId);
-    }
 
     private StudentDao studentDao;
 
@@ -30,7 +26,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Student findStudentById(String id) throws DataAccessException {
+    public Student findStudentById(Long id) throws DataAccessException {
         return studentDao.findById(id);
     }
 

@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User findUserById(String id) throws DataAccessException {
+    public User findUserById(Long id) throws DataAccessException {
         return userDao.findById(id);
     }
 
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Role getRoleById(String id) throws DataAccessException {
+    public Role getRoleById(Long id) throws DataAccessException {
         return userDao.getRoleById(id);
     }
 

@@ -1,9 +1,6 @@
 package com.vizaco.onlinecontrol.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -17,7 +14,7 @@ public class Clazz {
     @Id
     @Column(name = "clazz_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String clazzId;
+    private Long clazzId;
 
     @Column(name = "name")
     private String name;
@@ -33,11 +30,11 @@ public class Clazz {
         this.students = students;
     }
 
-    public String getClazzId() {
+    public Long getClazzId() {
         return clazzId;
     }
 
-    public void setClazzId(String clazzId) {
+    public void setClazzId(Long clazzId) {
         this.clazzId = clazzId;
     }
 
@@ -59,7 +56,7 @@ public class Clazz {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Clazz{");
+        final StringBuilder sb = new StringBuilder("Clazz{");
         sb.append("name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();

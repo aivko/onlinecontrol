@@ -1,12 +1,9 @@
 package com.vizaco.onlinecontrol.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
@@ -21,7 +18,7 @@ public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @Column(name = "login")
     private String login;
@@ -51,8 +48,7 @@ public class User implements UserDetails{
     public User() {
     }
 
-    public User(String userId, String login, String password, String firstName, String lastName, String middleName, Set<Student> students, Set<Role> roles) {
-        this.userId = userId;
+    public User(String login, String password, String firstName, String lastName, String middleName, Set<Student> students, Set<Role> roles) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -62,11 +58,11 @@ public class User implements UserDetails{
         this.roles = roles;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

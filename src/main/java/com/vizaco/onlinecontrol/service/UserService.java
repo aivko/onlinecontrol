@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    User findUserById(String id) throws DataAccessException;
+    User findUserById(Long id) throws DataAccessException;
 
     Collection<User> findUserByLastName(String lastName) throws DataAccessException;
     
@@ -22,7 +22,7 @@ public interface UserService {
 
     List<Role> getAllRoles() throws DataAccessException;
 
-    Role getRoleById(String id) throws DataAccessException;
+    Role getRoleById(Long id) throws DataAccessException;
 
     List<User> getAllUsers() throws DataAccessException;
 

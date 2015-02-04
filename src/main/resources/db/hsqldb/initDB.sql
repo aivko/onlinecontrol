@@ -25,7 +25,7 @@ CREATE TABLE roles (
 CREATE INDEX roles_name ON roles (name);
 
 CREATE TABLE users (
-  user_id         VARCHAR(30) PRIMARY KEY,
+  user_id         INTEGER IDENTITY PRIMARY KEY,
   login           VARCHAR(30),
   password        VARCHAR(50),
   first_name      VARCHAR(30),
@@ -35,7 +35,7 @@ CREATE TABLE users (
 CREATE INDEX users_last_name ON users (last_name);
 
 CREATE TABLE students (
-  student_id      VARCHAR(30) PRIMARY KEY,
+  student_id      INTEGER IDENTITY PRIMARY KEY,
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
@@ -47,14 +47,14 @@ ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) R
 CREATE INDEX students_last_name ON students (last_name);
 
 CREATE TABLE users_students (
-  user_id         VARCHAR(30) NOT NULL,
-  student_id      VARCHAR(30) NOT NULL
+  user_id         INTEGER NOT NULL,
+  student_id      INTEGER NOT NULL
 );
 ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (user_id);
 ALTER TABLE users_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (student_id);
 
 CREATE TABLE users_roles (
-  user_id         VARCHAR(30) NOT NULL,
+  user_id         INTEGER NOT NULL,
   role_id         VARCHAR(30) NOT NULL
 );
 ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_users FOREIGN KEY (user_id) REFERENCES users (user_id);

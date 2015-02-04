@@ -1,12 +1,9 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.vizaco.onlinecontrol.enumeration.Gender;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -21,7 +18,7 @@ public class Student {
     @Id
     @Column(name = "student_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String studentId;
+    private Long studentId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -62,11 +59,11 @@ public class Student {
     public Student() {
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
