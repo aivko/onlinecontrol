@@ -91,13 +91,13 @@ public class UserController {
     }
 
     
-    @RequestMapping(value = "/users/account/{login}")
-    public ModelAndView initAccountForm(@PathVariable("login") String login) {
+    @RequestMapping(value = "/users/{userId}/account")
+    public ModelAndView initAccountForm(@PathVariable("userId") String userId) {
 
         ModelAndView mav = new ModelAndView("/users/account");
         
         //TODO: May be using principal (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()
-        User user = userService.findUserByLogin(login);
+        User user = userService.findUserById(userId);
 
         mav.addObject("user", user);
 
@@ -125,14 +125,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, HttpServletRequest request) throws IOException {
+    public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) throws IOException {
 
         if(result.hasErrors()){
+            model.addAttribute("roles", userService.getAllRoles());
+            model.addAttribute("students", studentService.getAllStudents());
             return "/auth/registration";
         }
 
         userService.saveUser(user);
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "redirect:/users/account/" + principal.getLogin();
+        return "redirect:/users/account/" + principal.getUserId();
     }
 }

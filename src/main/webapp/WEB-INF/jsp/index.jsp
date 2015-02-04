@@ -6,7 +6,7 @@
 <head>
     <title>Online control</title>
     <sec:authorize access="isAuthenticated()">
-        <sec:authentication property="principal.username" var="userName"/>
+        <sec:authentication property="principal.userId" var="userId"/>
     </sec:authorize>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <h1>Start page</h1>
 
     <sec:authorize access="isAuthenticated()">
-        <p><a href='<spring:url value="/users/account/${userName}" htmlEscape="true"/>' role="button">Account</a></p>
+        <p><a href='<spring:url value="/users/${userId}/account" htmlEscape="true"/>' role="button">Account</a></p>
     </sec:authorize>
     <sec:authorize access="!isAuthenticated()">
         <p><a href='<spring:url value="/login" htmlEscape="true"/>' role="button">Войти</a></p>

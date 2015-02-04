@@ -18,10 +18,11 @@ import java.util.Set;
 @Table(name = "users")
 public class User implements UserDetails{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private String userId;
 
-    @Id
     @Column(name = "login")
     private String login;
 
@@ -38,12 +39,12 @@ public class User implements UserDetails{
     private String middleName;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "login"),
+    @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
     private Set<Student> students;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "login"),
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 

@@ -20,7 +20,7 @@
             <th>Gender</th>
             <th>Details</th>
         </tr>
-        <c:forEach var="student" items="${selections}">
+        <c:forEach var="student" items="${students}">
             <tr>
                 <td>
                     <c:out value="${student.firstName}"/>

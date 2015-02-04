@@ -47,8 +47,8 @@ public class StudentController {
         }
         if (results.size() > 1) {
             // multiple students found
-            model.put("selections", results);
-            return "students/studentsList";
+            model.put("students", results);
+            return "students/students";
         } else {
             // 1 owner found
             student = results.iterator().next();
