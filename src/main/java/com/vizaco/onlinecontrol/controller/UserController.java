@@ -40,48 +40,9 @@ public class UserController {
         this.studentService = studentService;
     }
 
-//    @InitBinder
-//    protected void initBinder(WebDataBinder binder) throws Exception {
     @InitBinder("user")
     protected void initBinder(WebDataBinder binder) throws Exception {
         binder.setValidator(userValidator);
-//        binder.registerCustomEditor(List.class, "roles", new CustomCollectionEditor(List.class){
-//
-//            @Override
-//            protected Role convertElement(Object element) {
-//                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 convert element" + element);
-//                String roleId = (String) element;
-//                Role role = userService.getRoleById(roleId);
-//                return role;
-//            }
-//        });
-//
-//        binder.registerCustomEditor(List.class, "students", new CustomCollectionEditor(List.class){
-//
-//            @Override
-//            protected Student convertElement(Object element) {
-//                String studentId = (String) element;
-//                Student student = studentService.getStudentById(studentId);
-//                return student;
-//            }
-//        });
-//
-//
-//    }
-//
-//            @Override
-//            public void setAsText(String text) {
-//                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 set method" + text);
-//                Role role = userService.getRoleById(text);
-//                setValue(role);
-//            }
-//
-//            @Override
-//            public String getAsText() {
-//                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! get metod");
-//                return super.getAsText();
-//            }
-//        });
     }
 
     
