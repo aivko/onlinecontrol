@@ -26,7 +26,7 @@ public class JpaUserDaoImpl implements UserDao {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.lastName LIKE :lastName");
         query.setParameter("lastName", lastName);
         List resultList = query.getResultList();
-        return query.getResultList();
+        return resultList;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class JpaUserDaoImpl implements UserDao {
     public List<Role> getAllRoles() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role");
         List resultList = query.getResultList();
-        return query.getResultList();
+        return resultList;
     }
 
     @Override
@@ -85,9 +85,8 @@ public class JpaUserDaoImpl implements UserDao {
     public List<User> getAllUsers() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user");
         List resultList = query.getResultList();
-        return query.getResultList();
+        return resultList;
     }
-
 
     @Override
     @Transactional

@@ -1,3 +1,4 @@
+DROP TABLE persistent_logins IF EXISTS;
 DROP TABLE users IF EXISTS;
 DROP TABLE students IF EXISTS;
 DROP TABLE teachers IF EXISTS;
@@ -5,6 +6,13 @@ DROP TABLE subjects IF EXISTS;
 DROP TABLE clazzes IF EXISTS;
 DROP TABLE roles IF EXISTS;
 
+
+CREATE TABLE persistent_logins (
+  username varchar(64) not null,
+  series varchar(64) primary key,
+  token varchar(64) not null,
+  last_used timestamp not null
+);
 
 CREATE TABLE clazzes (
   clazz_id        VARCHAR(30) PRIMARY KEY,

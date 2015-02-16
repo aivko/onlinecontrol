@@ -92,4 +92,5 @@ public class UserController {
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return "redirect:/users/" + principal.getUserId() + "/account/";
     }
+
 }
