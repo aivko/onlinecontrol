@@ -24,6 +24,7 @@
 
         <p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>
     </sec:authorize>
+    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
 
 </div>
 

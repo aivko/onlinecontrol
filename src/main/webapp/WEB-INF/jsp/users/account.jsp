@@ -17,7 +17,7 @@
         <p><a href='<spring:url value="/registration" htmlEscape="true"/>' role="button">Зарегистрировать пользователя</a></p>
         <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
     </sec:authorize>
-
+    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
 
 </div>
 

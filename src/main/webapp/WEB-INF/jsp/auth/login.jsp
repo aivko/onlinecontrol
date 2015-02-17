@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,7 +8,7 @@
 
 <body>
 
-<form action="j_spring_security_check" method="post">
+<form:form action="j_spring_security_check" method="post">
     <h2>Авторизация</h2>
 
     <div>
@@ -36,8 +37,8 @@
         <a href='<spring:url value="/registrate/google" htmlEscape="true"/>'
            class="googlePlus icon-google-plus-sign">Google+</a>
     </div>
-
-</form>
+    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+</form:form>
 
 </body>
 </html>
