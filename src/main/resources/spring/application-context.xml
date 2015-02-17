@@ -46,51 +46,68 @@
         <jdbc:script location="${jdbc.dataLocation}"/>
     </jdbc:initialize-database>
 
-        <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
+    <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
 
-        <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-              p:dataSource-ref="dataSource">
-            <property name="jpaVendorAdapter">
-                <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-                      p:database="${jpa.database}" p:showSql="${jpa.showSql}"/>
-                <!-- the 'database' parameter refers to the database dialect being used.
-                	By default, Hibernate will use a 'HSQL' dialect because 'jpa.database' has been set to 'HSQL'
-                	inside file spring/data-access.properties
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:dataSource-ref="dataSource">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+                  p:database="${jpa.database}" p:showSql="${jpa.showSql}"/>
+            <!-- the 'database' parameter refers to the database dialect being used.
+                By default, Hibernate will use a 'HSQL' dialect because 'jpa.database' has been set to 'HSQL'
+                inside file spring/data-access.properties
 
-                 -->
-            </property>
-        </bean>
+             -->
+        </property>
+    </bean>
 
-        <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
-        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-              p:entityManagerFactory-ref="entityManagerFactory"/>
+    <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory"/>
 
-        <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
     <!-- SECURITY -->
-        <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
+    <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
 
     <!-- Validators -->
-        <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
+    <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
 
     <!-- Messages -->
-        <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-            <property name="basename" value="classpath:messages"/>
-            <property name="defaultEncoding" value="UTF-8"/>
-        </bean>
-        <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-            <property name="defaultLocale" value="ru" />
-        </bean>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="ru"/>
+    </bean>
 
     <!-- Converters -->
-        <bean id="conversionService"
-              class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-            <property name="converters">
-                <set>
-                    <bean class="com.vizaco.onlinecontrol.converters.StringToRole"/>
-                    <bean class="com.vizaco.onlinecontrol.converters.StringToStudent"/>
-                </set>
-            </property>
-        </bean>
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.vizaco.onlinecontrol.converters.StringToRole"/>
+                <bean class="com.vizaco.onlinecontrol.converters.StringToStudent"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Remember me in DB -->
+    <bean id="rememberMeFilter" class=
+            "org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+        <constructor-arg name="authenticationManager" ref="authenticationManager"/>
+        <constructor-arg name="rememberMeServices" ref="rememberMeServices"/>
+    </bean>
+    <bean id="rememberMeServices" class=
+            "org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+        <constructor-arg name="key" value="onlinecontrol"/>
+        <constructor-arg name="userDetailsService" ref="userDetailsServiceImpl"/>
+    </bean>
+    <bean id="rememberMeAuthenticationProvider" class=
+            "org.springframework.security.authentication.RememberMeAuthenticationProvider">
+        <constructor-arg name="key" value="onlinecontrol"/>
+    </bean>
+    <!-- Remember me in DB -->
 
 </beans>

@@ -37,7 +37,7 @@
         <a href='<spring:url value="/registrate/google" htmlEscape="true"/>'
            class="googlePlus icon-google-plus-sign">Google+</a>
     </div>
-    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form:form>
 
 </body>

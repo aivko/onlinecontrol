@@ -5,7 +5,7 @@ DROP TABLE teachers IF EXISTS;
 DROP TABLE subjects IF EXISTS;
 DROP TABLE clazzes IF EXISTS;
 DROP TABLE roles IF EXISTS;
-
+DROP TABLE roles IF EXISTS;
 
 CREATE TABLE persistent_logins (
   username varchar(64) not null,

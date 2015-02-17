@@ -17,9 +17,10 @@
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <form-login login-page="/login" login-processing-url="/j_spring_security_check"
                     authentication-failure-url="/login?error" username-parameter="j_username" password-parameter="j_password"/>
-        <logout logout-url="/logout" delete-cookies="JSESSIONID"/>
+        <logout logout-url="/logout" logout-success-url="/"
+                invalidate-session="true" delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
         <remember-me data-source-ref="dataSource" token-validity-seconds="3600"/>
-        <!--<csrf/>-->
+        <csrf/>
     </http>
 
     <authentication-manager alias="authenticationManager">
