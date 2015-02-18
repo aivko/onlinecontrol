@@ -32,9 +32,9 @@
         <a href="#" class="forgetPassword">Забыл пароль</a>
     </div>
     <div>
-        <a href='<spring:url value="/registrate/facebook" htmlEscape="true"/>'
+        <a href='<spring:url value="/registration/facebook" htmlEscape="true"/>'
            class="facebook icon-facebook">Facebook</a>
-        <a href='<spring:url value="/registrate/google" htmlEscape="true"/>'
+        <a href='<spring:url value="/registration/google" htmlEscape="true"/>'
            class="googlePlus icon-google-plus-sign">Google+</a>
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

@@ -14,7 +14,6 @@ import java.util.Collection;
 import java.util.Map;
 
 @Controller
-@SessionAttributes(types = Student.class)
 public class StudentController {
 
     private final StudentService studentService;

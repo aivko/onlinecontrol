@@ -44,4 +44,14 @@
     Required when both servlet-mapping is '/' and static resources need to be served -->
     <mvc:default-servlet-handler />
 
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--&lt;!&ndash; view name resolved using bean of type InternalResourceViewResolver &ndash;&gt;-->
+        <!--<property name="defaultErrorView" value="exception"/>-->
+        <!--&lt;!&ndash; results into 'WEB-INF/jsp/exception.jsp' &ndash;&gt;-->
+        <!--<property name="warnLogCategory" value="warn"/>-->
+        <!--&lt;!&ndash; needed otherwise exceptions won't be logged anywhere &ndash;&gt;-->
+    <!--</bean>-->
+
+    <mvc:annotation-driven/>
+
 </beans>

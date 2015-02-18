@@ -16,7 +16,7 @@ import java.util.Map;
 @Controller
 public class FacebookControllerManual implements Authorization {
 
-//    @RequestMapping(value = "/registrate/facebook", method = RequestMethod.GET)
+//    @RequestMapping(value = "/registration/facebook", method = RequestMethod.GET)
 //    public ModelAndView facebookRegistration() {
 //        return new ModelAndView(new RedirectView(FACEBOOK_URL + "?client_id=" + FACEBOOK_API_KEY +
 //                "&redirect_uri=" + FACEBOOK_URL_CALLBACK_REGISTRATION +

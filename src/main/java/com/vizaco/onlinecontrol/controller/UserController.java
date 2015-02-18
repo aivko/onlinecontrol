@@ -6,6 +6,7 @@ import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -47,12 +50,15 @@ public class UserController {
 
     
     @RequestMapping(value = "/users/{userId}/account")
-    public ModelAndView initAccountForm(@PathVariable("userId") Long userId) {
+    public ModelAndView initAccountForm(@PathVariable("userId") Long userId) throws NoHandlerFoundException {
 
         ModelAndView mav = new ModelAndView("/users/account");
         
-        //TODO: May be using principal (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()
         User user = userService.findUserById(userId);
+
+        if (user == null){
+            throw new RuntimeException("404 Page not found");
+        }
 
         mav.addObject("user", user);
 

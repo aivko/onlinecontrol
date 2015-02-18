@@ -16,7 +16,7 @@ import java.util.Map;
 @Controller
 public class GoogleController implements Authorization {
 
-    @RequestMapping(value = "/registrate/google", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration/google", method = RequestMethod.GET)
     public ModelAndView googleRegistration() {
 
         String url = GOOGLE_URL + "?client_id=" + GOOGLE_API_KEY + "&redirect_uri=" + GOOGLE_URL_CALLBACK_REGISTRATION + "&response_type=code" +

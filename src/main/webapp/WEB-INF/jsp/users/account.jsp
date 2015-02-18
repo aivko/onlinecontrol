@@ -16,9 +16,7 @@
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p><a href='<spring:url value="/registration" htmlEscape="true"/>' role="button">Зарегистрировать пользователя</a></p>
         <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
-        <p><a href='<spring:url value="/remember" htmlEscape="true"/>' role="button">See DB Remember Me</a></p>
     </sec:authorize>
-    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
 
 </div>
 

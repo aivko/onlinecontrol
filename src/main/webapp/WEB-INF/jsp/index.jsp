@@ -9,6 +9,7 @@
     <title>Online control</title>
     <sec:authorize access="isAuthenticated()">
         <sec:authentication property="principal.userId" var="userId"/>
+        <sec:authentication property="principal.login" var="login"/>
     </sec:authorize>
 </head>
 <body>
@@ -22,12 +23,12 @@
         <p><a href='<spring:url value="/login" htmlEscape="true"/>' role="button">Войти</a></p>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
-        <p>Ваш логин: ${userName}</p>
+        <p>Ваш логин: ${login}</p>
 
         <%--<p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>--%>
         <c:url var="logoutUrl" value="/logout"/>
-        <form action="${logoutUrl}" method="post">
-            <input type="submit" value="Log out" />
+        <form class="logout" action="${logoutUrl}" method="post">
+            <input class="buttonLogout" type="submit" value="Выход" />
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
     </sec:authorize>

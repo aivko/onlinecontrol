@@ -25,7 +25,7 @@ public class FacebookController {
 
 	private RestOperations facebookRestTemplate;
 
-	@RequestMapping("/registrate/facebook")
+	@RequestMapping("/registration/facebook")
 	public String photos(Model model) throws Exception {
 
 		AuthorizationCodeResourceDetails details = new AuthorizationCodeResourceDetails();
