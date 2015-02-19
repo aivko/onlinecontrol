@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,10 +10,10 @@ import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMeth
 @ControllerAdvice
 public class ExceptionsController {
 
-    @ExceptionHandler({NoHandlerFoundException.class, NoSuchRequestHandlingMethodException.class, RuntimeException.class, Exception.class})
-    public ModelAndView handlePageNotFoundException(Throwable ex) {
+    @ExceptionHandler(CustomGenericException.class)
+    public ModelAndView handlePageNotFoundException(CustomGenericException ex) {
 
-        ModelAndView model = new ModelAndView("errors/404");
+        ModelAndView model = new ModelAndView("errors/exception");
         model.addObject("exception", ex);
         return model;
 

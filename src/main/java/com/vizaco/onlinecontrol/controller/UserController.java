@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -44,20 +45,28 @@ public class UserController {
     }
 
     @InitBinder("user")
-    protected void initBinder(WebDataBinder binder) throws Exception {
+    protected void initBinder(WebDataBinder binder) {
         binder.setValidator(userValidator);
     }
 
     
     @RequestMapping(value = "/users/{userId}/account")
-    public ModelAndView initAccountForm(@PathVariable("userId") Long userId) throws NoHandlerFoundException {
+    public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
 
         ModelAndView mav = new ModelAndView("/users/account");
-        
+
+        Long userId = null;
+
+        try {
+            userId = Long.valueOf(userIdStr);
+        }catch (NumberFormatException ex){
+            throw new CustomGenericException("404", "Page not found for the user with the ID " + userIdStr);
+        }
+
         User user = userService.findUserById(userId);
 
         if (user == null){
-            throw new RuntimeException("404 Page not found");
+            throw new CustomGenericException("404", "Page not found for the user with the ID " + userId);
         }
 
         mav.addObject("user", user);
@@ -86,7 +95,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) throws IOException {
+    public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
 
         if(result.hasErrors()){
             model.addAttribute("roles", userService.getAllRoles());
