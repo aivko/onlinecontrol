@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/exceptions/CustomGenericException.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/404.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ExceptionsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ExceptionsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/exception.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/exception.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,28 +59,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42632172" vertical-offset="506" max-vertical-offset="1395">
-              <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exception.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/exception.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="360">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.57817775" vertical-offset="191" max-vertical-offset="1395">
+              <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -137,8 +110,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ExceptionsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/exceptions/CustomGenericException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/exception.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -951,7 +924,7 @@
       <workItem from="1423839550088" duration="2630000" />
       <workItem from="1424070613506" duration="5734000" />
       <workItem from="1424156891186" duration="12172000" />
-      <workItem from="1424242752080" duration="22101000" />
+      <workItem from="1424242752080" duration="22306000" />
     </task>
     <task id="LOCAL-00001" summary="user ID as primary">
       <created>1423066646052</created>
@@ -983,11 +956,17 @@
       <option name="project" value="LOCAL" />
       <updated>1424275472966</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added exception handler">
+      <created>1424359800557</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1424359800557</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60773000" />
+    <option name="totallyTimeSpent" value="60978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="23" width="1928" height="1034" extended-state="6" />
@@ -1045,7 +1024,8 @@
     </option>
     <MESSAGE value="user ID as primary" />
     <MESSAGE value="RememberME as Persistent Token Approach" />
-    <option name="LAST_COMMIT_MESSAGE" value="RememberME as Persistent Token Approach" />
+    <MESSAGE value="Added exception handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added exception handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1487,7 +1467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/exception.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="360">
+        <state vertical-scroll-proportion="0.2601156" vertical-offset="0" max-vertical-offset="865">
           <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding />
         </state>
@@ -1495,7 +1475,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+        <state vertical-scroll-proportion="0.26996624" vertical-offset="0" max-vertical-offset="975">
           <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding />
         </state>
@@ -1503,8 +1483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42632172" vertical-offset="506" max-vertical-offset="1395">
-          <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.57817775" vertical-offset="191" max-vertical-offset="1395">
+          <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
           <folding />
         </state>
       </provider>

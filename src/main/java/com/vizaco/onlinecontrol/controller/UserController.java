@@ -55,7 +55,7 @@ public class UserController {
 
         ModelAndView mav = new ModelAndView("/users/account");
 
-        Long userId = null;
+        Long userId;
 
         try {
             userId = Long.valueOf(userIdStr);
