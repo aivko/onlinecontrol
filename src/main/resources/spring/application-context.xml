@@ -93,21 +93,4 @@
         </property>
     </bean>
 
-    <!-- Remember me in DB -->
-    <bean id="rememberMeFilter" class=
-            "org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
-        <constructor-arg name="authenticationManager" ref="authenticationManager"/>
-        <constructor-arg name="rememberMeServices" ref="rememberMeServices"/>
-    </bean>
-    <bean id="rememberMeServices" class=
-            "org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
-        <constructor-arg name="key" value="onlinecontrol"/>
-        <constructor-arg name="userDetailsService" ref="userDetailsServiceImpl"/>
-    </bean>
-    <bean id="rememberMeAuthenticationProvider" class=
-            "org.springframework.security.authentication.RememberMeAuthenticationProvider">
-        <constructor-arg name="key" value="onlinecontrol"/>
-    </bean>
-    <!-- Remember me in DB -->
-
 </beans>

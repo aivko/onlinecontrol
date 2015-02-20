@@ -23,4 +23,6 @@ public interface UserDao {
 
     void save(User user) throws DataAccessException;
 
+    void delete(User user) throws DataAccessException;
+
 }

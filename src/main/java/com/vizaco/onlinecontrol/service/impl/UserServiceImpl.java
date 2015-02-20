@@ -66,4 +66,14 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
+    @Override
+    @Transactional
+    public void deleteUser(Long id) throws DataAccessException {
+        User user = userDao.findById(id);
+        if (user == null){
+            return;
+        }
+        userDao.delete(user);
+    }
+
 }

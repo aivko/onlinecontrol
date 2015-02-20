@@ -4,9 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
-
+<head>
+</head>
 <body>
 <div>
 
@@ -21,6 +23,8 @@
             <th>Last name</th>
             <th>Students</th>
             <th>Roles</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <c:forEach var="user" items="${users}">
             <tr>
@@ -50,7 +54,16 @@
                         <c:out value="${role.name}"/><br>
                     </c:forEach>
                 </td>
-
+                <td>
+                    <a href='<spring:url value="/users/${user.userId}/edit" htmlEscape="true"/>' role="button">Edit</a></p>
+                </td>
+                <td>
+                    <spring:url value="/users/${user.userId}/delete" htmlEscape="true" var="action"/>
+                    <form:form method="delete" action="${action}">
+                        <p class="submit"><input type="submit" value="Delete"/></p>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form:form>
+                </td>
             </tr>
         </c:forEach>
     </table>

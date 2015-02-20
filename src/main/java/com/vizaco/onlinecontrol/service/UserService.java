@@ -28,4 +28,7 @@ public interface UserService {
 
     void saveUser(User user) throws DataAccessException;
 
+    void deleteUser(Long id) throws DataAccessException;
+
+
 }

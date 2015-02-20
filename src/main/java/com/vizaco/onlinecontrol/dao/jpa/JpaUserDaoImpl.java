@@ -55,8 +55,6 @@ public class JpaUserDaoImpl implements UserDao {
         } else {
             return (User)resultList.get(0);
         }
-        
-//        return (User) query.getSingleResult();
     }
 
     @Override
@@ -77,8 +75,6 @@ public class JpaUserDaoImpl implements UserDao {
         } else {
             return (Role)resultList.get(0);
         }
-        
-//        return (Role) query.getSingleResult();
     }
 
     @Override
@@ -97,7 +93,15 @@ public class JpaUserDaoImpl implements UserDao {
     	else {
     		this.em.merge(user);
     	}
+    }
 
+    @Override
+    @Transactional
+    public void delete(User user) throws DataAccessException {
+        if (user == null){
+            return;
+        }
+        this.em.remove(user);
     }
 
 }
