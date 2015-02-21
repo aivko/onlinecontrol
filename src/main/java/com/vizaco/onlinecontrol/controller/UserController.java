@@ -1,15 +1,13 @@
 package com.vizaco.onlinecontrol.controller;
 
-import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.UsersUtils;
-import com.vizaco.onlinecontrol.validators.UserValidatorEdit;
+import com.vizaco.onlinecontrol.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
-import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,11 +17,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.NoHandlerFoundException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -49,23 +44,6 @@ public class UserController {
     @InitBinder("user")
     protected void initBinder(WebDataBinder binder) {
         binder.setValidator(userValidator);
-    }
-
-    @RequestMapping(value = "/users/{userId}")
-    public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
-
-        User user = UsersUtils.getUser(userIdStr, userService);
-
-        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (user.getUserId() != principal.getUserId()){
-            return new ModelAndView("redirect:/exception/403");
-        }
-
-        ModelAndView mav = new ModelAndView("/users/account");
-
-        mav.addObject("user", user);
-
-        return mav;
     }
 
     @RequestMapping(value = "/users")
@@ -104,7 +82,26 @@ public class UserController {
         return "redirect:/users/" + principal.getUserId();
     }
 
-    //EDIT USER
+    //READ USER
+
+    @RequestMapping(value = "/users/{userId}")
+    public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
+
+        User user = UsersUtils.getUser(userIdStr, userService);
+
+        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (user.getUserId() != principal.getUserId()){
+            return new ModelAndView("redirect:/exception/403");
+        }
+
+        ModelAndView mav = new ModelAndView("/users/account");
+
+        mav.addObject("user", user);
+
+        return mav;
+    }
+
+    //UPDATE USER
 
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("userId") String userIdStr) {
@@ -124,7 +121,7 @@ public class UserController {
 
         User userEdit = UsersUtils.getUser(userIdStr, userService);
 
-        new UserValidatorEdit().validate(user, result);
+        new UserValidator(userService).validateEdit(user, result);
 
         if(result.hasErrors()){
             model.addAttribute("roles", userEdit.getRoles());
@@ -151,6 +148,5 @@ public class UserController {
         return new ModelAndView("redirect:/users");
 
     }
-
 
 }

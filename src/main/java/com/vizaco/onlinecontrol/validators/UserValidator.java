@@ -45,5 +45,16 @@ public class UserValidator implements Validator {
         }
 
     }
-    
+
+    public void validateEdit(User user, Errors errors) {
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "user.lastName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "user.firstName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "middleName", "user.middleName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "user.login.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.required");
+
+    }
+
+
 }
