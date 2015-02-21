@@ -9,6 +9,7 @@
 
     <global-method-security>
         <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers())" access="ROLE_ADMIN"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser())" access="ROLE_ADMIN"/>
     </global-method-security>
     
     <http pattern="/resources/**" security="none" />
