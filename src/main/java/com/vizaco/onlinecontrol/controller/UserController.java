@@ -5,6 +5,7 @@ import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.UsersUtils;
+import com.vizaco.onlinecontrol.validators.UserValidatorEdit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
@@ -109,7 +110,7 @@ public class UserController {
     public ModelAndView edit(@PathVariable("userId") String userIdStr) {
 
         User user = UsersUtils.getUser(userIdStr, userService);
-        ModelAndView mav = new ModelAndView("/users/account");
+        ModelAndView mav = new ModelAndView("/users/createOrUpdateUserForm");
 
         mav.addObject("user", user);
         mav.addObject("roles", user.getRoles());
@@ -119,9 +120,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.PUT)
-    public String edit(@PathVariable("userId") String userIdStr, @ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
+    public String edit(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
 
         User userEdit = UsersUtils.getUser(userIdStr, userService);
+
+        new UserValidatorEdit().validate(user, result);
 
         if(result.hasErrors()){
             model.addAttribute("roles", userEdit.getRoles());
