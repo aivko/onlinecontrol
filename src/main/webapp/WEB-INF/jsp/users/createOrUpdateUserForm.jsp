@@ -39,29 +39,35 @@
 
             <tr>
                 <td><form:label path="firstName">First name:</form:label></td>
-                <td><form:input path="firstName"/><form:errors path="firstName" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:input path="firstName"/><form:errors path="firstName" cssStyle="color:red;"
+                                                               cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="middleName">Middle name:</form:label></td>
-                <td><form:input path="middleName"/><form:errors path="middleName" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:input path="middleName"/><form:errors path="middleName" cssStyle="color:red;"
+                                                                cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="lastName">Last name:</form:label></td>
-                <td><form:input path="lastName"/><form:errors path="lastName" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:input path="lastName"/><form:errors path="lastName" cssStyle="color:red;"
+                                                              cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><form:label path="password">Password:</form:label></td>
-                <td><form:password path="password"/><form:errors path="password" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:password path="password"/><form:errors path="password" cssStyle="color:red;"
+                                                                 cssclass="error"/></td>
             </tr>
 
             <tr>
                 <td><label path="roles" for="roles">Roles:</label></td>
                 <td>
                     <form:select path="roles">
-                        <form:options items="${roles}" itemValue="roleId" itemLabel="name"></form:options>;
+                        <c:forEach items="${roles}" var="role">
+                            <form:option value="${role.roleId}">${role.name}</form:option>
+                        </c:forEach>
                     </form:select>
                 </td>
             </tr>
@@ -69,7 +75,10 @@
                 <td><label for="students">Students:</label></td>
                 <td>
                     <form:select path="students">
-                        <form:options items="${students}" itemValue="studentId" itemLabel="lastName"></form:options>;
+                        <c:forEach items="${students}" var="student">
+                            <form:option
+                                    value="${student.studentId}">${student.lastName} ${student.firstName} ${student.middleName}</form:option>
+                        </c:forEach>
                     </form:select>
                 </td>
             </tr>
