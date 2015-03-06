@@ -51,6 +51,13 @@
         <webjars-jquery-ui.version>1.11.3</webjars-jquery-ui.version>
         <webjars-jquery.version>2.1.3</webjars-jquery.version>
 
+        <!-- Sonar integration test coverage  -->
+        <sonar.language>java</sonar.language>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.jacoco.itReportPath>${project.basedir}/../target/itjacoco.exec</sonar.jacoco.itReportPath>
+
     </properties>
 
     <repositories>
@@ -221,11 +228,11 @@
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-test</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+        <!--</dependency>-->
 
 
         <!-- Webjars (static dependencies distributed as JAR files) -->
@@ -311,17 +318,16 @@
 
         <plugins>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.16</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.16</version>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.16</version>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
+                <!--<version>2.16</version>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
@@ -330,12 +336,12 @@
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
-                    <stopPort>10200</stopPort>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>10201</port>
-                        </connector>
-                    </connectors>
+                    <stopPort>10201</stopPort>
+                    <!--<connectors>-->
+                        <!--<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">-->
+                            <!--<port>10202</port>-->
+                        <!--</connector>-->
+                    <!--</connectors>-->
                 </configuration>
                 <executions>
                     <execution>
