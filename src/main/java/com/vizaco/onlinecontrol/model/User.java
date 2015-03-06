@@ -58,6 +58,19 @@ public class User implements UserDetails{
         this.roles = roles;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("login='").append(login).append('\'');
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", middleName='").append(middleName).append('\'');
+        sb.append(", students=").append(students);
+        sb.append(", roles=").append(roles);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public Long getUserId() {
         return userId;
     }
