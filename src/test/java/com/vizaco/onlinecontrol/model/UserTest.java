@@ -54,257 +54,239 @@ public class UserTest {
 
     @Test
     public void oneTimeSetMiddleNameTest(){
-        Student student = new Student();
-        student.setMiddleName("John");
-        assertEquals("John", student.getMiddleName());
+        User user = new User();
+        user.setMiddleName("John");
+        assertEquals("John", user.getMiddleName());
     }
 
     @Test
     public void twoTimeSetMiddleNameTest(){
-        Student student = new Student();
-        student.setMiddleName("John");
-        student.setMiddleName("Smith");
-        assertEquals("Smith", student.getMiddleName());
+        User user = new User();
+        user.setMiddleName("John");
+        user.setMiddleName("Smith");
+        assertEquals("Smith", user.getMiddleName());
     }
 
     @Test
     public void setMiddleNameThroughConstructorTest(){
-        Student student = new Student("John", "Travolta", "Middle", new GregorianCalendar(1985, 10, 10).getTime(), Gender.MALE, null, null);
-        assertEquals("Middle", student.getMiddleName());
+        User user = new User(null, null, "John", "Travolta", "Middle", null, null);
+        assertEquals("Middle", user.getMiddleName());
     }
 
     @Test
     public void setMiddleNameNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getMiddleName());
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getMiddleName());
     }
 
     @Test
     public void setMiddleNameNullThroughNoArgConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getMiddleName());
+        User user = new User();
+        assertEquals(null, user.getMiddleName());
     }
 
     @Test
     public void oneTimeSetLastNameTest(){
-        Student student = new Student();
-        student.setLastName("John");
-        assertEquals("John", student.getLastName());
+        User user = new User();
+        user.setLastName("John");
+        assertEquals("John", user.getLastName());
     }
 
     @Test
     public void twoTimeSetLastNameTest(){
-        Student student = new Student();
-        student.setLastName("John");
-        student.setLastName("Smith");
-        assertEquals("Smith", student.getLastName());
+        User user = new User();
+        user.setLastName("John");
+        user.setLastName("Smith");
+        assertEquals("Smith", user.getLastName());
     }
 
     @Test
     public void setLastNameThroughConstructorTest(){
-        Student student = new Student("John", "Travolta", "Middle", new GregorianCalendar(1985, 10, 10).getTime(), Gender.MALE, null, null);
-        assertEquals("Travolta", student.getLastName());
+        User user = new User(null, null, "John", "Travolta", "Middle", null, null);
+        assertEquals("Travolta", user.getLastName());
     }
 
     @Test
     public void setLastNameNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getLastName());
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getLastName());
     }
 
     @Test
     public void setLastNameNullThroughNoArgConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getLastName());
+        User user = new User();
+        assertEquals(null, user.getLastName());
     }
 
     @Test
-    public void oneTimeSetDateOfBirthTest(){
-        Date dateOfBirth = new GregorianCalendar(1985, 10, 10).getTime();
-        Student student = new Student();
-        student.setDateOfBirth(new GregorianCalendar(1985, 10, 10).getTime());
-        assertEquals(dateOfBirth, student.getDateOfBirth());
+    public void oneTimeSetLoginTest(){
+        User user = new User();
+        user.setLogin("John");
+        assertEquals("John", user.getLogin());
     }
 
     @Test
-    public void twoTimeSetDateOfBirthTest(){
-        Date dateOfBirth = new GregorianCalendar(1985, 10, 20).getTime();
-        Student student = new Student();
-        student.setDateOfBirth(new GregorianCalendar(1985, 10, 10).getTime());
-        student.setDateOfBirth(new GregorianCalendar(1985, 10, 20).getTime());
-        assertEquals(dateOfBirth, student.getDateOfBirth());
+    public void twoTimeSetLoginTest(){
+        User user = new User();
+        user.setLogin("John");
+        user.setLogin("Smith");
+        assertEquals("Smith", user.getLogin());
     }
 
     @Test
-    public void setDateOfBirthThroughConstructorTest(){
-        Date dateOfBirth = new GregorianCalendar(1985, 10, 11).getTime();
-        Student student = new Student("John", "Travolta", "Middle", new GregorianCalendar(1985, 10, 11).getTime(), Gender.MALE, null, null);
-        assertEquals(dateOfBirth, student.getDateOfBirth());
+    public void setLoginThroughConstructorTest(){
+        User user = new User("John", null, null, null, null, null, null);
+        assertEquals("John", user.getLogin());
     }
 
     @Test
-    public void setDateOfBirthNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getDateOfBirth());
+    public void setLoginNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getLogin());
     }
 
     @Test
-    public void setDateOfBirthNullThroughNoArgConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getDateOfBirth());
+    public void setLoginNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getLogin());
     }
 
     @Test
-    public void oneTimeSetGenderTest(){
-        Student student = new Student();
-        student.setGender(Gender.MALE);
-        assertEquals(Gender.MALE, student.getGender());
+    public void oneTimeSetPasswordTest(){
+        User user = new User();
+        user.setPassword("John");
+        assertEquals("John", user.getPassword());
     }
 
     @Test
-    public void twoTimeSetGenderTest(){
-        Student student = new Student();
-        student.setGender(Gender.MALE);
-        student.setGender(Gender.FEMALE);
-        assertEquals(Gender.FEMALE, student.getGender());
+    public void twoTimeSetPasswordTest(){
+        User user = new User();
+        user.setPassword("John");
+        user.setPassword("Smith");
+        assertEquals("Smith", user.getPassword());
     }
 
     @Test
-    public void setGenderThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, Gender.MALE, null, null);
-        assertEquals(Gender.MALE, student.getGender());
+    public void setPasswordThroughConstructorTest(){
+        User user = new User(null, "aaa", null, null, null, null, null);
+        assertEquals("aaa", user.getPassword());
     }
 
     @Test
-    public void setGenderNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getGender());
+    public void setPasswordNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getPassword());
     }
 
     @Test
-    public void setGenderNullThroughNoArgConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getGender());
+    public void setPasswordNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getPassword());
     }
 
     @Test
-    public void oneTimeSetStudentIdTest(){
+    public void oneTimeSetUserIdTest(){
         Long expected = 1L;
-        Student student = new Student();
-        student.setStudentId(1L);
-        assertEquals(expected, student.getStudentId());
+        User user = new User();
+        user.setUserId(1L);
+        assertEquals(expected, user.getUserId());
     }
 
     @Test
-    public void twoTimeSetStudentIdTest(){
+    public void twoTimeSetUserIdTest(){
         Long expected = 2L;
-        Student student = new Student();
-        student.setStudentId(1L);
-        student.setStudentId(2L);
-        assertEquals(expected, student.getStudentId());
+        User user = new User();
+        user.setUserId(1L);
+        user.setUserId(2L);
+        assertEquals(expected, user.getUserId());
     }
 
     @Test
-    public void oneTimeSetClazzTest(){
-        Clazz expected = new Clazz();
-        expected.setName("1-A");
-        Student student = new Student();
-        Clazz actual = new Clazz();
-        actual.setName("1-A");
-        student.setClazz(actual);
-        assertEquals(expected.getName(), student.getClazz().getName());
+    public void addTwoStudentTest(){
+        HashSet<Student> students = new HashSet<>();
+        Student student1 = new Student();
+        student1.setStudentId(1L);
+        Student student2 = new Student();
+        student2.setStudentId(2L);
+
+        students.add(student1);
+        students.add(student2);
+
+        User user = new User();
+        user.setStudents(students);
+        assertEquals(students.size(), user.getStudents().size());
     }
 
     @Test
-    public void twoTimeSetClazzTest(){
-        Clazz expected = new Clazz();
-        expected.setName("1-B");
-        Student student = new Student();
-        Clazz temp = new Clazz();
-        temp.setName("1-A");
-        Clazz actual = new Clazz();
-        actual.setName("1-B");
-        student.setClazz(temp);
-        student.setClazz(actual);
-        assertEquals(expected.getName(), student.getClazz().getName());
+    public void addZeroStudentTest(){
+        HashSet<Student> students = new HashSet<>();
+
+        User user = new User();
+        user.setStudents(students);
+        assertEquals(students.size(), user.getStudents().size());
     }
 
     @Test
-    public void setClazzNullTest(){
-        Student student = new Student();
-        assertEquals(null, student.getClazz());
+    public void setStudentsNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getStudents());
     }
 
     @Test
-    public void setClazzNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getClazz());
+    public void setStudentsNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getStudents());
     }
 
     @Test
-    public void setClazzNullThroughNoArgConstructorTest(){
-        Student student = new Student();
-        assertEquals(null, student.getClazz());
+    public void addTwoRoleTest(){
+        HashSet<Role> roles = new HashSet<>();
+        Role role1 = new Role();
+        role1.setRoleId(1L);
+        Role role2 = new Role();
+        role2.setRoleId(2L);
+
+        roles.add(role1);
+        roles.add(role2);
+
+        User user = new User();
+        user.setRoles(roles);
+        assertEquals(roles.size(), user.getRoles().size());
     }
 
     @Test
-    public void setClazzThroughConstructorTest(){
-        Clazz expected = new Clazz();
-        expected.setName("1-A");
-        Clazz actual = new Clazz();
-        actual.setName("1-A");
-        Student student = new Student(null, null, null, null, null, null, actual);
-        assertEquals(expected.getName(), student.getClazz().getName());
+    public void addZeroRoleTest(){
+        HashSet<Role> roles = new HashSet<>();
+
+        User user = new User();
+        user.setRoles(roles);
+        assertEquals(roles.size(), user.getRoles().size());
     }
 
     @Test
-    public void addTwoUserTest(){
-        HashSet<User> users = new HashSet<>();
-        User user1 = new User();
-        user1.setUserId(1L);
-        User user2 = new User();
-        user2.setUserId(2L);
-
-        users.add(user1);
-        users.add(user2);
-
-        Student student = new Student();
-        student.setUsers(users);
-        assertEquals(users.size(), student.getUsers().size());
+    public void setRolesNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getRoles());
     }
 
     @Test
-    public void addZeroUserTest(){
-        HashSet<User> users = new HashSet<>();
-
-        Student student = new Student();
-        student.setUsers(new HashSet<>());
-        assertEquals(users.size(), student.getUsers().size());
+    public void setRolesNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getRoles());
     }
 
     @Test
-    public void setUsersNullThroughConstructorTest(){
-        Student student = new Student(null, null, null, null, null, null, null);
-        assertEquals(null, student.getUsers());
+    public void isNewUserTest(){
+        User user = new User();
+        assertEquals(true, user.isNew());
     }
 
     @Test
-    public void setUsersNullThroughNoArgConstructorTest(){
-        Student student = new Student();
-        assertEquals(null, student.getUsers());
+    public void isNotNewUserTest(){
+        User user = new User();
+        user.setUserId(1L);
+        assertEquals(false, user.isNew());
     }
 
-    @Test
-    public void isNewStudentTest(){
-        Student student = new Student();
-        assertEquals(true, student.isNew());
-    }
-
-    @Test
-    public void isNotNewStudentTest(){
-        Student student = new Student();
-        student.setStudentId(1L);
-        assertEquals(false, student.isNew());
-    }
 
 }
