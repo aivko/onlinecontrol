@@ -15,8 +15,8 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by super on 3/10/15.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
 public class UserTest {
 
     @Test
@@ -203,7 +203,7 @@ public class UserTest {
 
     @Test
     public void addTwoStudentTest(){
-        HashSet<Student> students = new HashSet<>();
+        HashSet<Student> students = new HashSet();
         Student student1 = new Student();
         student1.setStudentId(1L);
         Student student2 = new Student();
@@ -219,7 +219,7 @@ public class UserTest {
 
     @Test
     public void addZeroStudentTest(){
-        HashSet<Student> students = new HashSet<>();
+        HashSet<Student> students = new HashSet();
 
         User user = new User();
         user.setStudents(students);
@@ -240,7 +240,7 @@ public class UserTest {
 
     @Test
     public void addTwoRoleTest(){
-        HashSet<Role> roles = new HashSet<>();
+        HashSet<Role> roles = new HashSet();
         Role role1 = new Role();
         role1.setRoleId(1L);
         Role role2 = new Role();
@@ -256,7 +256,7 @@ public class UserTest {
 
     @Test
     public void addZeroRoleTest(){
-        HashSet<Role> roles = new HashSet<>();
+        HashSet<Role> roles = new HashSet();
 
         User user = new User();
         user.setRoles(roles);
