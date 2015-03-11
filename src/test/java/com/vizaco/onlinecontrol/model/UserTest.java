@@ -288,5 +288,67 @@ public class UserTest {
         assertEquals(false, user.isNew());
     }
 
+    @Test
+    public void getTwoAuthoritiesTest(){
+        HashSet<Role> roles = new HashSet();
+        Role role1 = new Role();
+        role1.setRoleId(1L);
+        Role role2 = new Role();
+        role2.setRoleId(2L);
+
+        roles.add(role1);
+        roles.add(role2);
+
+        User user = new User();
+        user.setRoles(roles);
+        assertEquals(roles.size(), user.getAuthorities().size());
+    }
+
+    @Test
+    public void getZeroAuthoritiesTest(){
+        HashSet<Role> roles = new HashSet();
+
+        User user = new User();
+        user.setRoles(roles);
+        assertEquals(roles.size(), user.getAuthorities().size());
+    }
+
+    @Test
+    public void getAuthoritiesNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getAuthorities());
+    }
+
+    @Test
+    public void getAuthoritiesNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getAuthorities());
+    }
+
+    @Test
+    public void oneTimeGetUsernameTest(){
+        User user = new User();
+        user.setLogin("John");
+        assertEquals("John", user.getUsername());
+    }
+
+    @Test
+    public void getUsernameThroughConstructorTest(){
+        User user = new User("John", null, null, null, null, null, null);
+        assertEquals("John", user.getUsername());
+    }
+
+    @Test
+    public void getUsernameNullThroughConstructorTest(){
+        User user = new User(null, null, null, null, null, null, null);
+        assertEquals(null, user.getUsername());
+    }
+
+    @Test
+    public void getUsernameNullThroughNoArgConstructorTest(){
+        User user = new User();
+        assertEquals(null, user.getUsername());
+    }
+
 
 }
