@@ -11,6 +11,10 @@ public class JsonUtil {
 
     public static String getJsonElement(String tokenRequest, String key) throws IOException {
 
+        if (key == null || tokenRequest == null){
+            return null;
+        }
+
         ObjectMapper mapper = new ObjectMapper();
         JsonNode jsonNode = mapper.readTree(tokenRequest);
         String value = jsonNode.get(key).asText();
@@ -19,6 +23,10 @@ public class JsonUtil {
     }
 
     public static Map<String, Object> getMapFromJsonElement(String tokenRequest) throws IOException {
+
+        if (tokenRequest == null){
+            return null;
+        }
 
         ObjectMapper mapper = new ObjectMapper();
         Map result = mapper.readValue(tokenRequest, HashMap.class);

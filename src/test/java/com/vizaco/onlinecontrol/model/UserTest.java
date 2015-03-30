@@ -1,13 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
-import com.vizaco.onlinecontrol.enumeration.Gender;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashSet;
 
 import static org.junit.Assert.assertEquals;
