@@ -26,15 +26,17 @@ public class FacebookControllerManual implements Authorization {
 //    @RequestMapping(value = "/callback/facebook/registration", params = "code")
 //    public String registrationAccessCode(@RequestParam("code") String code) {
 //
+//        OAuthUtil oAuthUtil = new OAuthUtil();
+//
 //        String authRequest = null;
 //        Map<String, Object> userData = null;
 //        try {
-//            authRequest = OAuthUtil.sendHttpRequest("GET", FACEBOOK_URL_ACCESS_TOKEN,
+//            authRequest = oAuthUtil.sendHttpRequest("GET", FACEBOOK_URL_ACCESS_TOKEN,
 //                    new String[]{"client_id", "redirect_uri", "client_secret", "code"},
 //                    new String[]{FACEBOOK_API_KEY, FACEBOOK_URL_CALLBACK_REGISTRATION, FACEBOOK_API_SECRET, code});
 //
-//            String token = OAuthUtil.parseURLQuery(authRequest).get("access_token");
-//            String tokenRequest = OAuthUtil.sendHttpRequest("GET", FACEBOOK_URL_ME, new String[]{"access_token"}, new String[]{token});
+//            String token = oAuthUtil.parseURLQuery(authRequest).get("access_token");
+//            String tokenRequest = oAuthUtil.sendHttpRequest("GET", FACEBOOK_URL_ME, new String[]{"access_token"}, new String[]{token});
 //
 //            userData = JsonUtil.getMapFromJsonElement(tokenRequest);
 //

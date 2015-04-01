@@ -14,7 +14,18 @@ import java.util.Map;
 
 public class OAuthUtil {
 
-    public static String sendHttpRequest(String methodName, String url, String[] names, String[] values) throws IOException {
+    public String sendHttpRequest(String methodName, String url, String[] names, String[] values) throws IOException {
+
+        HttpMethod method = getHttpMethod(methodName, url, names, values);
+        return getBodyResult(method);
+
+    }
+
+    public HttpMethod getHttpMethod(String methodName, String url, String[] names, String[] values) {
+
+        if (names == null || values == null){
+            return null;
+        }
 
         if (names.length != values.length) {
             return null;
@@ -24,7 +35,7 @@ public class OAuthUtil {
         }
 
         HttpMethod method;
-        if (methodName.equalsIgnoreCase("GET")) {
+        if ("GET".equalsIgnoreCase(methodName)) {
             StringBuilder stringBuilder = new StringBuilder();
             ArrayList parameters = new ArrayList();
             for (int i = 0; i < names.length; i++) {
@@ -41,12 +52,18 @@ public class OAuthUtil {
             }
             method.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         }
-        new HttpClient().executeMethod(method);
-        return method.getResponseBodyAsString();
-
+        return method;
     }
 
-    public static Map<String, String> parseURLQuery(String query) throws UnsupportedEncodingException {
+    public String getBodyResult(HttpMethod method) throws IOException {
+        if (method == null){
+            return null;
+        }
+        new HttpClient().executeMethod(method);
+        return method.getResponseBodyAsString();
+    }
+
+    public Map<String, String> parseURLQuery(String query) throws UnsupportedEncodingException {
 
         Map<String, String> result = new HashMap<String, String>();
         String params[] = query.split("&");

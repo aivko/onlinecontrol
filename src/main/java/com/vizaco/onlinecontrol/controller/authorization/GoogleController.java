@@ -28,15 +28,17 @@ public class GoogleController implements Authorization {
     @RequestMapping(value = "/callback/google/registration", params = "code")
     public String registrationAccessCode(@RequestParam("code") String code) {
 
+        OAuthUtil oAuthUtil = new OAuthUtil();
+
         String authRequest = null;
         Map<String, Object> userData = null;
         try {
-            authRequest = OAuthUtil.sendHttpRequest("POST", GOOGLE_URL_ACCESS_TOKEN,
+            authRequest = oAuthUtil.sendHttpRequest("POST", GOOGLE_URL_ACCESS_TOKEN,
                     new String[]{"client_id", "redirect_uri", "client_secret", "code", "grant_type"},
                     new String[]{GOOGLE_API_KEY, GOOGLE_URL_CALLBACK_REGISTRATION, GOOGLE_API_SECRET, code, "authorization_code"});
 
             String token = JsonUtil.getJsonElement(authRequest, "access_token");
-            String tokenRequest = OAuthUtil.sendHttpRequest("GET", GOOGLE_URL_ME, new String[]{"access_token"}, new String[]{token});
+            String tokenRequest = oAuthUtil.sendHttpRequest("GET", GOOGLE_URL_ME, new String[]{"access_token"}, new String[]{token});
 
             userData = JsonUtil.getMapFromJsonElement(tokenRequest);
 

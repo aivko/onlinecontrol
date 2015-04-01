@@ -20,6 +20,10 @@ public class JpaStudentDaoImpl implements StudentDao {
     public JpaStudentDaoImpl() {
     }
 
+    public JpaStudentDaoImpl(EntityManager em) {
+        this.em = em;
+    }
+
     public Collection<Student> findByLastName(String lastName) {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.users WHERE student.lastName LIKE :lastName");
         query.setParameter("lastName", lastName + "%");

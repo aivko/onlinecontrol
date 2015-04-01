@@ -14,8 +14,13 @@ import org.springframework.core.convert.converter.Converter;
  * @since ???
  */
 public class StringToRole implements Converter<String, Role> {
+
+    private UserService userService;
+
     @Autowired
-    UserService userService;
+    public StringToRole(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public Role convert(String roleId) {

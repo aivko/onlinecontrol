@@ -14,12 +14,16 @@ import org.springframework.core.convert.converter.Converter;
  * @since ???
  */
 public class StringToStudent implements Converter<String, Student> {
+
+    private StudentService studentService;
+
     @Autowired
-    StudentService studentService;
+    public StringToStudent(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @Override
     public Student convert(String studentId) {
-
         return studentService.findStudentById(Long.parseLong(studentId));
     }
 }
