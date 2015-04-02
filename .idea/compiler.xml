@@ -25,5 +25,8 @@
         <module name="onlinecontrol" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="onlinecontrol" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
