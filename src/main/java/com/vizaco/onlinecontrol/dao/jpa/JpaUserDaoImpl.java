@@ -22,7 +22,11 @@ public class JpaUserDaoImpl implements UserDao {
     public JpaUserDaoImpl() {
     }
 
-    public Collection<User> findByLastName(String lastName) {
+    public JpaUserDaoImpl(EntityManager em) {
+        this.em = em;
+    }
+
+    public List<User> findByLastName(String lastName) {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.lastName LIKE :lastName");
         query.setParameter("lastName", lastName);
         List resultList = query.getResultList();
@@ -85,7 +89,6 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    @Transactional
     public void save(User user) {
     	if (user.getUserId() == null) {
     		this.em.persist(user);
@@ -96,7 +99,6 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    @Transactional
     public void delete(User user) throws DataAccessException {
         if (user == null){
             return;

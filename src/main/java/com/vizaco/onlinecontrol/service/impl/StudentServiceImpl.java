@@ -24,6 +24,10 @@ public class StudentServiceImpl implements StudentService {
         this.studentDao = studentDao;
     }
 
+    public StudentDao getStudentDao() {
+        return studentDao;
+    }
+
     @Override
     @Transactional(readOnly = true)
     public Student findStudentById(Long id) throws DataAccessException {

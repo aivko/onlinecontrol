@@ -25,6 +25,10 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+    public UserDao getUserDao() {
+        return userDao;
+    }
+
     @Override
     @Transactional(readOnly = true)
     public User findUserById(Long id) throws DataAccessException {

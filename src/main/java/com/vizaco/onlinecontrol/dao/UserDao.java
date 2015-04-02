@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    Collection<User> findByLastName(String lastName) throws DataAccessException;
+    List<User> findByLastName(String lastName) throws DataAccessException;
     
     User findByLogin(String login) throws DataAccessException;
 

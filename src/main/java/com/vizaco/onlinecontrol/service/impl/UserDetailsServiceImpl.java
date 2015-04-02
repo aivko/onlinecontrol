@@ -16,8 +16,19 @@ import java.util.Collection;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
     private UserService userService;
+
+    public UserDetailsServiceImpl() {
+    }
+
+    @Autowired
+    public UserDetailsServiceImpl(UserService userService) {
+        this.userService = userService;
+    }
+
+    public UserService getUserService() {
+        return userService;
+    }
 
     @Override
     @Transactional(readOnly = true)

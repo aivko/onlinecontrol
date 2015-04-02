@@ -10,7 +10,7 @@ public interface StudentDao {
 
     Student findById(Long id) throws DataAccessException;
 
-    Collection<Student> findByLastName(String lastName) throws DataAccessException;
+    List<Student> findByLastName(String lastName) throws DataAccessException;
 
     List<Student> getAllStudents() throws DataAccessException;
 
