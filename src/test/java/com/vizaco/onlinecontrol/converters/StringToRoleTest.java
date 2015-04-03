@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
  * Created by super on 3/10/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
+@ContextConfiguration(locations = {"classpath:spring/application-context.xml"})
 public class StringToRoleTest {
 
     @Autowired

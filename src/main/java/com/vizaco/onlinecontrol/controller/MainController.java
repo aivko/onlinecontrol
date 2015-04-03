@@ -30,7 +30,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/**")
-    public String crash(Principal user) {
+    public void crash(Principal user) {
 
         String errorMsg;
         if (user != null) {

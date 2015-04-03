@@ -22,7 +22,7 @@
         <appengine.target.version>1.9.8</appengine.target.version>
 
         <!-- Servlets -->
-        <servlet.version>2.5</servlet.version>
+        <servlet.version>3.0.1</servlet.version>
 
         <!-- Spring -->
         <spring.version>4.1.4.RELEASE</spring.version>
@@ -152,7 +152,7 @@
         <!-- SERVLETS -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>

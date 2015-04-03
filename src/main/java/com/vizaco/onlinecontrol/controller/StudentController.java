@@ -18,7 +18,6 @@ public class StudentController {
 
     private final StudentService studentService;
 
-
     @Autowired
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -33,13 +32,16 @@ public class StudentController {
     @RequestMapping(value = "/students", method = RequestMethod.GET)
     public String processFindForm(Student student, Map<String, Object> model) {
 
+        String lastName;
         // allow parameterless GET       request for /student to return all records
-        if (student.getLastName() == null) {
-            student.setLastName(""); // empty string signifies broadest possible search
+        if (student != null) {
+            lastName = student.getLastName(); // empty string signifies broadest possible search
+        }else {
+            return "students/findStudents";
         }
 
         // find students by last name
-        Collection<Student> results = this.studentService.findStudentByLastName(student.getLastName());
+        Collection<Student> results = this.studentService.findStudentByLastName(lastName);
         if (results.size() < 1) {
             // no owners found
             return "students/findStudents";
