@@ -9,8 +9,6 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by super on 3/10/15.
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
 public class RoleTest {
 
     @Test

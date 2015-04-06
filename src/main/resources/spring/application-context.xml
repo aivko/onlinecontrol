@@ -26,6 +26,13 @@
     <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
     <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
 
+    <!-- Database initializer. If any of the script fails, the initialization stops. -->
+    <!-- As an alternative, for embedded databases see <jdbc:embedded-database/>. -->
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="${jdbc.initLocation}"/>
+        <jdbc:script location="${jdbc.dataLocation}"/>
+    </jdbc:initialize-database>
+
     <!-- DataSource configuration for the Jetty jdbc connection -->
     <bean id="dataSource" class="org.hsqldb.jdbc.JDBCDataSource">
         <property name="url">
@@ -39,12 +46,6 @@
         </property>
     </bean>
 
-    <!-- Database initializer. If any of the script fails, the initialization stops. -->
-    <!-- As an alternative, for embedded databases see <jdbc:embedded-database/>. -->
-    <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="${jdbc.initLocation}"/>
-        <jdbc:script location="${jdbc.dataLocation}"/>
-    </jdbc:initialize-database>
 
     <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
 

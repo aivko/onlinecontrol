@@ -24,16 +24,16 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Created by super on 3/10/15.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/application-context.xml", "classpath:spring/mvc-core-config.xml"})
 public class StudentControllerTest {
 
@@ -127,5 +127,62 @@ public class StudentControllerTest {
 
     }
 
+    @Test
+    public void processUpdateUserFormStudentTest() throws Exception {
+
+
+        Student modelStudent = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
+        modelStudent.setStudentId(1L);
+
+        doNothing().when(mockStudentService).saveStudent(modelStudent);
+
+        MockHttpServletRequestBuilder requestBuilder = put("/students/1/edit").flashAttr("student", modelStudent);
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(status().is3xxRedirection());
+        resultActions.andExpect(redirectedUrl("/students/1"));
+        resultActions.andExpect(view().name("redirect:/students/{studentId}"));
+
+        verify(mockStudentService).saveStudent(modelStudent);
+
+    }
+
+    @Test
+    public void processUpdateUserFormNullStudentTest() throws Exception {
+
+        Student modelStudent = null;
+
+        doNothing().when(mockStudentService).saveStudent(modelStudent);
+
+        MockHttpServletRequestBuilder requestBuilder = put("/students/1/edit");
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(status().is3xxRedirection());
+        resultActions.andExpect(redirectedUrl("/students/1"));
+        resultActions.andExpect(view().name("redirect:/students/{studentId}"));
+
+//        verify(mockStudentService).saveStudent(modelStudent);
+
+    }
+
+    @Test
+    public void showStudentTest() throws Exception {
+
+        Student modelStudent = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
+        modelStudent.setStudentId(1L);
+
+        when(mockStudentService.findStudentById(1L)).thenReturn(modelStudent);
+
+        MockHttpServletRequestBuilder requestBuilder = get("/students/1").flashAttr("studentId", 1L);
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+
+        resultActions.andExpect(model().attributeExists("student"));
+        resultActions.andExpect(view().name("students/studentDetails"));
+
+        Student student = (Student) resultActions.andReturn().getModelAndView().getModel().get("student");
+        assertEquals(modelStudent, student);
+
+    }
 
 }

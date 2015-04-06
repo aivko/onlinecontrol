@@ -1,10 +1,9 @@
 DROP TABLE persistent_logins IF EXISTS;
--- DROP TABLE users IF EXISTS;
 DROP TABLE students IF EXISTS;
+DROP TABLE users IF EXISTS;
 DROP TABLE teachers IF EXISTS;
 DROP TABLE subjects IF EXISTS;
 DROP TABLE clazzes IF EXISTS;
-DROP TABLE roles IF EXISTS;
 DROP TABLE roles IF EXISTS;
 
 CREATE TABLE persistent_logins (

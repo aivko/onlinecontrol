@@ -7,7 +7,11 @@ import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
@@ -17,11 +21,8 @@ import static org.mockito.Mockito.when;
 /**
  * Created by super on 3/10/15.
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
 public class StringToStudentTest {
 
-    @Autowired
     private StudentService mockStudentService;
 
     private StringToStudent stringToStudent;

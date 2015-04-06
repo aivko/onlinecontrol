@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
@@ -27,8 +28,6 @@ import static org.mockito.Mockito.*;
 /**
  * Created by super on 3/10/15.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/application-context.xml"})
 public class JpaStudentDaoImplTest {
 
     @PersistenceContext
@@ -206,6 +205,20 @@ public class JpaStudentDaoImplTest {
         studentDao.save(student1);
 
         verify(mockEntityManager).merge(student1);
+
+    }
+
+    @Test
+    public void saveNullStudentTest(){
+
+        Student student1 = null;
+
+        JpaStudentDaoImpl studentDao = getStudentDao(null);
+
+        studentDao.save(student1);
+
+        verify(mockEntityManager, never()).persist(student1);
+        verify(mockEntityManager, never()).merge(student1);
 
     }
 

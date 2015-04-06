@@ -90,6 +90,11 @@ public class JpaUserDaoImpl implements UserDao {
 
     @Override
     public void save(User user) {
+
+        if (user == null){
+            return;
+        }
+
     	if (user.getUserId() == null) {
     		this.em.persist(user);
     	}

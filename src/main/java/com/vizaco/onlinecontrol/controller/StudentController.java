@@ -58,13 +58,13 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.PUT)
-    public String processUpdateOwnerForm(Student student) {
+    public String processUpdateUserForm(Student student) {
         this.studentService.saveStudent(student);
         return "redirect:/students/{studentId}";
     }
 
     @RequestMapping("/students/{studentId}")
-    public ModelAndView showOwner(@PathVariable("studentId") Long studentId) {
+    public ModelAndView showStudent(@PathVariable("studentId") Long studentId) {
         ModelAndView mav = new ModelAndView("students/studentDetails");
         mav.addObject(this.studentService.findStudentById(studentId));
         return mav;

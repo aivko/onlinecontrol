@@ -56,6 +56,11 @@ public class JpaStudentDaoImpl implements StudentDao {
 
     @Override
     public void save(Student student) {
+
+        if (student == null){
+            return;
+        }
+
     	if (student.getStudentId() == null) {
     		this.em.persist(student);
     	}
