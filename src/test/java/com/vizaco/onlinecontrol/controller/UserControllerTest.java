@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.controller;
 
 import com.vizaco.onlinecontrol.model.Student;
+import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.junit.Before;
@@ -54,28 +55,50 @@ public class UserControllerTest {
     }
 
     @Test
-    public void processFindForm2InDbTest() throws Exception {
+    public void initAccountForm1InDbTest() throws Exception {
 
-        Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
-        student1.setStudentId(1L);
-        Student student2 = new Student("firstName2", "lastName1", "middleName2", null, null, null, null);
-        student2.setStudentId(2L);
-        List<Student> resultList  = Arrays.asList(student1, student2);
-        when(mockStudentService.findStudentByLastName("lastName1")).thenReturn(resultList);
+        User user1 = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+        user1.setUserId(1L);
+        List<User> resultList  = Arrays.asList(user1);
+        when(mockUserService.getAllUsers()).thenReturn(resultList);
 
-        Student modelStudent = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
-        modelStudent.setStudentId(1L);
+        User modelUser = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+        modelUser.setUserId(1L);
 
-        MockHttpServletRequestBuilder requestBuilder = get("/students").flashAttr("student", modelStudent);
+        MockHttpServletRequestBuilder requestBuilder = get("/users");
 
         ResultActions resultActions = mockMvc.perform(requestBuilder);
-        resultActions.andExpect(view().name("students/students"));
-        resultActions.andExpect(forwardedUrl("students/students"));
-        resultActions.andExpect(redirectedUrl(null));
-        resultActions.andExpect(model().attributeExists("students"));
+        resultActions.andExpect(view().name("users/users"));
+        resultActions.andExpect(forwardedUrl("users/users"));
+        resultActions.andExpect(model().attributeExists("users"));
 
-        List<Student> students = (List<Student>) resultActions.andReturn().getModelAndView().getModel().get("students");
-        assertEquals(2, students.size());
+        List<User> users = (List<User>) resultActions.andReturn().getModelAndView().getModel().get("users");
+        assertEquals(1, users.size());
+
+    }
+
+    @Test
+    public void initAccountForm2InDbTest() throws Exception {
+
+        User user1 = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+        user1.setUserId(1L);
+        User user2 = new User("login2", "password2", "firstName2", "lastName2", "middleName2", null, null);
+        user2.setUserId(2L);
+        List<User> resultList  = Arrays.asList(user1, user2);
+        when(mockUserService.getAllUsers()).thenReturn(resultList);
+
+        User modelUser = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+        modelUser.setUserId(1L);
+
+        MockHttpServletRequestBuilder requestBuilder = get("/users");
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(view().name("users/users"));
+        resultActions.andExpect(forwardedUrl("users/users"));
+        resultActions.andExpect(model().attributeExists("users"));
+
+        List<User> users = (List<User>) resultActions.andReturn().getModelAndView().getModel().get("users");
+        assertEquals(2, users.size());
 
     }
 
