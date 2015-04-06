@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
@@ -24,6 +25,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -101,5 +103,92 @@ public class UserControllerTest {
         assertEquals(2, users.size());
 
     }
+
+    @Test
+    public void registerGet1Role1StudentTest() throws Exception {
+
+        Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
+        student1.setStudentId(1L);
+        List<Student> resultListStudents  = Arrays.asList(student1);
+        Role role1 = new Role("role1");
+        role1.setRoleId(1L);
+        List<Role> resultListRoles  = Arrays.asList(role1);
+        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
+
+        MockHttpServletRequestBuilder requestBuilder = get("/registration");
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(view().name("/users/createOrUpdateUserForm"));
+        resultActions.andExpect(forwardedUrl("/users/createOrUpdateUserForm"));
+        resultActions.andExpect(model().attributeExists("user"));
+        resultActions.andExpect(model().attributeExists("roles"));
+        resultActions.andExpect(model().attributeExists("students"));
+
+        List<Role> roles = (List<Role>) resultActions.andReturn().getModelAndView().getModel().get("roles");
+        assertEquals(1, roles.size());
+        List<Student> students = (List<Student>) resultActions.andReturn().getModelAndView().getModel().get("students");
+        assertEquals(1, students.size());
+
+    }
+
+    @Test
+    public void registerGet2Roles2StudentsTest() throws Exception {
+
+        Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
+        student1.setStudentId(1L);
+        Student student2 = new Student("firstName2", "lastName2", "middleName2", null, null, null, null);
+        student1.setStudentId(2L);
+        List<Student> resultListStudents  = Arrays.asList(student1, student2);
+        Role role1 = new Role("role1");
+        role1.setRoleId(1L);
+        Role role2 = new Role("role2");
+        role2.setRoleId(2L);
+        List<Role> resultListRoles  = Arrays.asList(role1, role2);
+        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
+
+        MockHttpServletRequestBuilder requestBuilder = get("/registration");
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(view().name("/users/createOrUpdateUserForm"));
+        resultActions.andExpect(forwardedUrl("/users/createOrUpdateUserForm"));
+        resultActions.andExpect(model().attributeExists("user"));
+        resultActions.andExpect(model().attributeExists("roles"));
+        resultActions.andExpect(model().attributeExists("students"));
+
+        List<Role> roles = (List<Role>) resultActions.andReturn().getModelAndView().getModel().get("roles");
+        assertEquals(resultListRoles.size(), roles.size());
+        List<Student> students = (List<Student>) resultActions.andReturn().getModelAndView().getModel().get("students");
+        assertEquals(resultListStudents.size(), students.size());
+
+    }
+
+    @Test
+    public void registerPost1Role1StudentTest() throws Exception {
+
+        User modelUser = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+        modelUser.setUserId(1L);
+
+        Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
+        student1.setStudentId(1L);
+        List<Student> resultListStudents  = Arrays.asList(student1);
+        Role role1 = new Role("role1");
+        role1.setRoleId(1L);
+        List<Role> resultListRoles  = Arrays.asList(role1);
+        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
+
+        MockHttpServletRequestBuilder requestBuilder = post("/registration").flashAttr("user", modelUser);
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder);
+        resultActions.andExpect(status().is3xxRedirection());
+        resultActions.andExpect(redirectedUrl("redirect:/users/1"));
+        resultActions.andExpect(view().name("redirect:/users/1"));
+
+        verify(mockUserService).saveUser(modelUser);
+
+    }
+
 
 }
