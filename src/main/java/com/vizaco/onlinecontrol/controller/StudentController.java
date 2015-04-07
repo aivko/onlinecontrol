@@ -29,7 +29,7 @@ public class StudentController {
         return "students/findStudents";
     }
 
-    @RequestMapping(value = "/students", method = RequestMethod.GET)
+    @RequestMapping(value = "/students"/*, method = RequestMethod.POST*/)
     public String processFindForm(Student student, Map<String, Object> model) {
 
         String lastName;

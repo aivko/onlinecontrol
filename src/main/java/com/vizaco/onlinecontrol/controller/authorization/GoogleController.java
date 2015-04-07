@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.controller.authorization;
 import com.vizaco.onlinecontrol.constants.Authorization;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.OAuthUtil;
+import com.vizaco.onlinecontrol.utils.UsersUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,7 @@ public class GoogleController implements Authorization {
     public String registrationAccessCode(@RequestParam("code") String code) {
 
         OAuthUtil oAuthUtil = new OAuthUtil();
+        JsonUtil jsonUtil = new JsonUtil();
 
         String authRequest = null;
         Map<String, Object> userData = null;
@@ -37,10 +39,10 @@ public class GoogleController implements Authorization {
                     new String[]{"client_id", "redirect_uri", "client_secret", "code", "grant_type"},
                     new String[]{GOOGLE_API_KEY, GOOGLE_URL_CALLBACK_REGISTRATION, GOOGLE_API_SECRET, code, "authorization_code"});
 
-            String token = JsonUtil.getJsonElement(authRequest, "access_token");
+            String token = jsonUtil.getJsonElement(authRequest, "access_token");
             String tokenRequest = oAuthUtil.sendHttpRequest("GET", GOOGLE_URL_ME, new String[]{"access_token"}, new String[]{token});
 
-            userData = JsonUtil.getMapFromJsonElement(tokenRequest);
+            userData = jsonUtil.getMapFromJsonElement(tokenRequest);
 
         } catch (Exception e) {
             //TODO: return client to registration page with errorMessage

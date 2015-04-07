@@ -27,6 +27,8 @@ public class UserController {
     @Autowired
     ConversionService conversionService;
 
+    private UsersUtils usersUtils = new UsersUtils();
+
     private final UserService userService;
 
     private final StudentService studentService;
@@ -87,7 +89,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}")
     public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
 
-        User user = UsersUtils.getUser(userIdStr, userService);
+        User user = usersUtils.getUser(userIdStr, userService);
 
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user.getUserId() != principal.getUserId()){
@@ -106,7 +108,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("userId") String userIdStr) {
 
-        User user = UsersUtils.getUser(userIdStr, userService);
+        User user = usersUtils.getUser(userIdStr, userService);
         ModelAndView mav = new ModelAndView("/users/createOrUpdateUserForm");
 
         mav.addObject("user", user);
@@ -119,7 +121,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
 
-        User userEdit = UsersUtils.getUser(userIdStr, userService);
+        User userEdit = usersUtils.getUser(userIdStr, userService);
 
         new UserValidator(userService).validateEdit(user, result);
 
@@ -140,10 +142,8 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("userId") String userIdStr) {
 
-        User user = UsersUtils.getUser(userIdStr, userService);
+        User user = usersUtils.getUser(userIdStr, userService);
         userService.deleteUser(user.getUserId());
-
-        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         return new ModelAndView("redirect:/users");
 

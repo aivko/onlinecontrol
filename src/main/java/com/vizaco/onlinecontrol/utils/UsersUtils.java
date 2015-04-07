@@ -9,7 +9,7 @@ import com.vizaco.onlinecontrol.service.UserService;
  */
 public class UsersUtils {
 
-    public static User getUser(String userIdStr, UserService userService) {
+    public User getUser(String userIdStr, UserService userService) {
 
         Long userId;
 

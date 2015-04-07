@@ -16,6 +16,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -24,78 +25,85 @@ import static org.mockito.Mockito.when;
  */
 public class JsonUtilTest {
 
+    private JsonUtil jsonUtil;
+
+    @Before
+    public void setUp() throws Exception {
+        jsonUtil = new JsonUtil();
+    }
+
     @Test
     public void getJsonElementWithKey1Test() throws IOException {
         String jsonText = "{\"key1\":\"value1\", \"key2\":\"value2\", \"key3\":\"value3\"}";
-        String actual = JsonUtil.getJsonElement(jsonText, "key1");
+        String actual = jsonUtil.getJsonElement(jsonText, "key1");
         assertEquals("value1", actual);
     }
 
     @Test
     public void getJsonElementWithKey3Test() throws IOException {
         String jsonText = "{\"key1\":\"value1\", \"key2\":\"value2\", \"key3\":\"value3\"}";
-        String actual = JsonUtil.getJsonElement(jsonText, "key3");
+        String actual = jsonUtil.getJsonElement(jsonText, "key3");
         assertEquals("value3", actual);
     }
 
     @Test
     public void getJsonElementWithNullKeyTest() throws IOException {
         String jsonText = "{\"key1\":\"value1\", \"key2\":\"value2\", \"key3\":\"value3\"}";
-        String actual = JsonUtil.getJsonElement(jsonText, null);
+        String actual = jsonUtil.getJsonElement(jsonText, null);
         assertEquals(null, actual);
     }
 
     @Test
     public void getJsonElementWithZeroKeyTest() throws IOException {
         String jsonText = "{}";
-        String actual = JsonUtil.getJsonElement(jsonText, null);
+        String actual = jsonUtil.getJsonElement(jsonText, null);
         assertEquals(null, actual);
     }
 
     @Test(expected = IOException.class)
     public void getJsonElementWithIncorrectJsonTextTest() throws IOException {
         String jsonText = "{abc.xyz}";
-        String actual = JsonUtil.getJsonElement(jsonText, "key");
+        String actual = jsonUtil.getJsonElement(jsonText, "key");
     }
 
     @Test
     public void getJsonElementWithNullJsonTextTest() throws IOException {
         String jsonText = null;
-        String actual = JsonUtil.getJsonElement(jsonText, "key");
+        String actual = jsonUtil.getJsonElement(jsonText, "key");
         assertEquals(null, actual);
     }
 
     @Test
     public void getMapFromJsonElementWith3KeyTest() throws IOException {
         String jsonText = "{\"key1\":\"value1\", \"key2\":\"value2\", \"key3\":\"value3\"}";
-        Map<String, Object> mapFromJsonElement = JsonUtil.getMapFromJsonElement(jsonText);
+        Map<String, Object> mapFromJsonElement = jsonUtil.getMapFromJsonElement(jsonText);
         assertEquals(3, mapFromJsonElement.size());
     }
 
     @Test
     public void getMapFromJsonElementWith2KeyTest() throws IOException {
         String jsonText = "{\"key1\":\"value1\", \"key3\":\"value3\"}";
-        Map<String, Object> mapFromJsonElement = JsonUtil.getMapFromJsonElement(jsonText);
+        Map<String, Object> mapFromJsonElement = jsonUtil.getMapFromJsonElement(jsonText);
         assertEquals(2, mapFromJsonElement.size());
     }
 
     @Test
     public void getMapFromJsonElementWithZeroKeyTest() throws IOException {
         String jsonText = "{}";
-        Map<String, Object> mapFromJsonElement = JsonUtil.getMapFromJsonElement(jsonText);
+        Map<String, Object> mapFromJsonElement = jsonUtil.getMapFromJsonElement(jsonText);
         assertEquals(0, mapFromJsonElement.size());
     }
 
     @Test(expected = IOException.class)
     public void getMapFromJsonElementWithIncorrectJsonTextTest() throws IOException {
         String jsonText = "{abc.xyz}";
-        Map<String, Object> mapFromJsonElement = JsonUtil.getMapFromJsonElement(jsonText);
+        Map<String, Object> mapFromJsonElement = jsonUtil.getMapFromJsonElement(jsonText);
     }
 
     @Test
     public void getMapFromJsonElementWithNullJsonTextTest() throws IOException {
         String jsonText = null;
-        Map<String, Object> mapFromJsonElement = JsonUtil.getMapFromJsonElement(jsonText);
+        Map<String, Object> mapFromJsonElement = jsonUtil.getMapFromJsonElement(jsonText);
         assertEquals(null, mapFromJsonElement);
     }
 

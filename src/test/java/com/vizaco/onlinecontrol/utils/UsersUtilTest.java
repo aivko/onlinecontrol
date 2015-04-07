@@ -30,6 +30,8 @@ public class UsersUtilTest {
 
     private UserService mockUserService;
 
+    private UsersUtils usersUtils;
+
     @Before
     public void setUp() throws Exception {
         mockUserService = mock(UserService.class);
@@ -40,30 +42,32 @@ public class UsersUtilTest {
         User user2 = new User();
         user2.setUserId(2L);
         when(mockUserService.findUserById(2L)).thenReturn(user2);
+
+        usersUtils = new UsersUtils();
     }
 
     @Test
     public void getUserWithId1Test(){
         Long expected = 1L;
-        User actualUser = UsersUtils.getUser("1", mockUserService);
+        User actualUser = usersUtils.getUser("1", mockUserService);
         assertEquals(expected, actualUser.getUserId());
     }
 
     @Test
     public void getUserWithId2Test(){
         Long expected = 2L;
-        User actualUser = UsersUtils.getUser("2", mockUserService);
+        User actualUser = usersUtils.getUser("2", mockUserService);
         assertEquals(expected, actualUser.getUserId());
     }
 
     @Test(expected=CustomGenericException.class)
     public void getUserWithIncorrictNumberIdTest(){
-        User actualUser = UsersUtils.getUser("abc", mockUserService);
+        User actualUser = usersUtils.getUser("abc", mockUserService);
     }
 
     @Test(expected=CustomGenericException.class)
     public void getUserWithNoExistIdIdTest(){
-        User actualUser = UsersUtils.getUser("100", mockUserService);
+        User actualUser = usersUtils.getUser("100", mockUserService);
     }
 
 }

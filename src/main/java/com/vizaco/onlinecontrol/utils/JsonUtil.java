@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class JsonUtil {
 
-    public static String getJsonElement(String tokenRequest, String key) throws IOException {
+    public String getJsonElement(String tokenRequest, String key) throws IOException {
 
         if (key == null || tokenRequest == null){
             return null;
@@ -22,7 +22,7 @@ public class JsonUtil {
 
     }
 
-    public static Map<String, Object> getMapFromJsonElement(String tokenRequest) throws IOException {
+    public Map<String, Object> getMapFromJsonElement(String tokenRequest) throws IOException {
 
         if (tokenRequest == null){
             return null;

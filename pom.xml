@@ -18,9 +18,6 @@
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- Google Appengine -->
-        <appengine.target.version>1.9.8</appengine.target.version>
-
         <!-- Servlets -->
         <servlet.version>3.1.0</servlet.version>
 
@@ -101,7 +98,7 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>${appengine.target.version}</version>
+            <version>1.9.18</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
@@ -116,22 +113,22 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-core</artifactId>
-            <version>3.1.1</version>
+            <version>4.1.0-m3</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-api-jpa</artifactId>
-            <version>3.1.1</version>
+            <version>4.1.0-m3</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-jpa-query</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-enhancer</artifactId>
-            <version>3.1.0-release</version>
+            <version>3.1.1</version>
         </dependency>
 
         <!-- JETTY -->
@@ -146,7 +143,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -196,6 +193,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>${spring.security}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <version>4.0.0.M1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

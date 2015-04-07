@@ -27,6 +27,7 @@ public class FacebookControllerManual implements Authorization {
 //    public String registrationAccessCode(@RequestParam("code") String code) {
 //
 //        OAuthUtil oAuthUtil = new OAuthUtil();
+//        JsonUtil jsonUtil = new JsonUtil();
 //
 //        String authRequest = null;
 //        Map<String, Object> userData = null;
@@ -38,7 +39,7 @@ public class FacebookControllerManual implements Authorization {
 //            String token = oAuthUtil.parseURLQuery(authRequest).get("access_token");
 //            String tokenRequest = oAuthUtil.sendHttpRequest("GET", FACEBOOK_URL_ME, new String[]{"access_token"}, new String[]{token});
 //
-//            userData = JsonUtil.getMapFromJsonElement(tokenRequest);
+//            userData = jsonUtil.getMapFromJsonElement(tokenRequest);
 //
 //        } catch (Exception e) {
 //            //TODO: return client to registration page with errorMessage

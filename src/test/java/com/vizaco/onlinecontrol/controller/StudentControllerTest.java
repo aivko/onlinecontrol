@@ -136,7 +136,7 @@ public class StudentControllerTest {
 
         doNothing().when(mockStudentService).saveStudent(modelStudent);
 
-        MockHttpServletRequestBuilder requestBuilder = put("/students/1/edit").flashAttr("student", modelStudent);
+        MockHttpServletRequestBuilder requestBuilder = put("/students/{studentId}/edit", 1L).flashAttr("student", modelStudent);
 
         ResultActions resultActions = mockMvc.perform(requestBuilder);
         resultActions.andExpect(status().is3xxRedirection());
@@ -154,7 +154,7 @@ public class StudentControllerTest {
 
         doNothing().when(mockStudentService).saveStudent(modelStudent);
 
-        MockHttpServletRequestBuilder requestBuilder = put("/students/1/edit");
+        MockHttpServletRequestBuilder requestBuilder = put("/students/{studentId}/edit", 1L);
 
         ResultActions resultActions = mockMvc.perform(requestBuilder);
         resultActions.andExpect(status().is3xxRedirection());
@@ -173,7 +173,7 @@ public class StudentControllerTest {
 
         when(mockStudentService.findStudentById(1L)).thenReturn(modelStudent);
 
-        MockHttpServletRequestBuilder requestBuilder = get("/students/1").flashAttr("studentId", 1L);
+        MockHttpServletRequestBuilder requestBuilder = get("/students/{studentId}", 1L).flashAttr("studentId", 1L);
 
         ResultActions resultActions = mockMvc.perform(requestBuilder);
 

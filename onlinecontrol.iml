@@ -45,7 +45,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -75,15 +75,15 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.1" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.4" level="project" />
-    <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.8" level="project" />
+    <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.18" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:javax.persistence:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine.orm:datanucleus-appengine:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:3.2.0-m4" level="project" />
     <orderEntry type="library" name="Maven: javax.jdo:jdo-api:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:3.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jpa:3.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-jpa-query:3.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.0-release" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jpa:4.1.0-m3" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-jpa-query:4.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:4.0" level="project" />
     <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty:6.1.26" level="project" />
     <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-util:6.1.26" level="project" />
@@ -105,6 +105,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-test:4.0.0.M1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.4.RELEASE" level="project" />

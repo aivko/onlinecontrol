@@ -14,17 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AuthController {
 
-    private final UserService userService;
-
-    @Autowired
-    public AuthController(UserService userService) {
-        this.userService = userService;
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String initAuthForm() {
         return "auth/login";
     }
-
 
 }

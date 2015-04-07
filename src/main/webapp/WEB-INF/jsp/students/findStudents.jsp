@@ -1,7 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html lang="en">
+
+<head>
+    <spring:url value="/students" htmlEscape="true" var="action"/>
+</head>
 
 <body>
 <div>
@@ -10,7 +16,7 @@
 
 </div>
 
-<form:form modelAttribute="student" action="/students" method="post">
+<form:form modelAttribute="student" action="${action}" method="post">
 
     <div>
         <form:label path="lastName">Введите фамилию:</form:label>

@@ -19,15 +19,15 @@
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.1.1" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.1" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
-          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.8" />
+          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.18" />
           <element id="library" level="project" name="Maven: org.datanucleus:javax.persistence:2.1.0" />
           <element id="library" level="project" name="Maven: com.google.appengine.orm:datanucleus-appengine:2.1.1" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:3.2.0-m4" />
           <element id="library" level="project" name="Maven: javax.jdo:jdo-api:3.0.1" />
           <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:3.1.1" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-api-jpa:3.1.1" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-jpa-query:3.0.2" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.0-release" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-api-jpa:4.1.0-m3" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-jpa-query:4.0.4" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.1" />
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.0" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty:6.1.26" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:6.1.26" />
@@ -47,6 +47,7 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-test:4.0.0.M1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.4.RELEASE" />
