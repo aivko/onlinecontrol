@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  *  Simple business object representing a school.
@@ -24,13 +25,21 @@ public class School {
     @Column(name = "description")
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
+    private Set<Clazz> clazzes;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
+    private Set<News> news;
+
     public School() {
     }
 
-    public School(String name, String director, String description) {
+    public School(String name, String director, String description, Set<Clazz> clazzes, Set<News> news) {
         this.name = name;
         this.director = director;
         this.description = description;
+        this.clazzes = clazzes;
+        this.news = news;
     }
 
     public Long getSchoolId() {
@@ -63,5 +72,21 @@ public class School {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Clazz> getClazzes() {
+        return clazzes;
+    }
+
+    public void setClazzes(Set<Clazz> clazzes) {
+        this.clazzes = clazzes;
+    }
+
+    public Set<News> getNews() {
+        return news;
+    }
+
+    public void setNews(Set<News> news) {
+        this.news = news;
     }
 }

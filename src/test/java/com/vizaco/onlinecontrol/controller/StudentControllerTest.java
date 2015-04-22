@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
+import com.vizaco.onlinecontrol.service.impl.StudentServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,7 +49,7 @@ public class StudentControllerTest {
     @Before
     public void setUp() throws Exception {
 
-        mockStudentService = mock(StudentService.class);
+        mockStudentService = mock(StudentServiceImpl.class);
         mockMvc = MockMvcBuilders.standaloneSetup(new StudentController(mockStudentService)).build();
     }
 

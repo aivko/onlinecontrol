@@ -28,13 +28,18 @@ public class News {
     @Column(name = "text")
     private String text;
 
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="school_id")
+    private School school;
+
     public News() {
     }
 
-    public News(Date date, String topic, String text) {
+    public News(Date date, String topic, String text, School school) {
         this.date = date;
         this.topic = topic;
         this.text = text;
+        this.school = school;
     }
 
     public Long getNewsId() {
@@ -67,5 +72,13 @@ public class News {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }

@@ -30,7 +30,7 @@ public class Student {
     private String middleName;
 
     @Column(name = "date_of_birth")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date dateOfBirth;
 
     @Column(name = "gender")

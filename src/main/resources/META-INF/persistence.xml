@@ -13,7 +13,6 @@
         <class>com.vizaco.onlinecontrol.model.Shedule</class>
         <class>com.vizaco.onlinecontrol.model.Grade</class>
         <class>com.vizaco.onlinecontrol.model.Clazz</class>
-        <class>com.vizaco.onlinecontrol.model.Attendance</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine" />

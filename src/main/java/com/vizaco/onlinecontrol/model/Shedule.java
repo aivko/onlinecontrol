@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *  Simple business object representing a shedule.
@@ -18,9 +19,69 @@ public class Shedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sheduleId;
 
-    @Column(name = "date")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date date;
+    @Column(name = "start_date")
+    @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
+    private Date startDate;
 
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="subject_id")
+    private Subject subject;
 
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="clazz_id")
+    private Clazz clazz;
+
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="teacher_id")
+    private Teacher teacher;
+
+    public Shedule() {
+    }
+
+    public Shedule(Date startDate, Subject subject, Clazz clazz, Teacher teacher) {
+        this.startDate = startDate;
+        this.subject = subject;
+        this.clazz = clazz;
+        this.teacher = teacher;
+    }
+
+    public Long getSheduleId() {
+        return sheduleId;
+    }
+
+    public void setSheduleId(Long sheduleId) {
+        this.sheduleId = sheduleId;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }
