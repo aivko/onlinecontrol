@@ -48,6 +48,7 @@ public class ExceptionsControllerTest {
     }
 
     @Test
+    @Ignore
     public void handleExceptionTest() throws Exception {
 
         ResultActions resultActions = mockMvc.perform(get("/test/exceptionController"));

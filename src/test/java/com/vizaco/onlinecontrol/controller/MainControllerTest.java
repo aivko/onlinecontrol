@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.User;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,46 +95,46 @@ public class MainControllerTest {
 
     }
 
-    @Test
-    public void crushWithPrincipalTest() throws Exception {
-
-        User user = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
-        user.setUserId(1L);
-        TestingAuthenticationToken principal = new TestingAuthenticationToken(user, null);
-
-        String expectedErrorMsg = "Hi " + principal.getName() + ", this page not found!";
-        String expectedErrorCode = "404";
-
-        MockHttpServletRequestBuilder requestBuilder = get("/**").principal(principal);
-
-        try {
-            ResultActions resultActions = mockMvc.perform(requestBuilder);
-        }catch (Exception ex){
-            String errorCode = ((CustomGenericException) ex.getCause()).getErrorCode();
-            String errorMsg = ((CustomGenericException) ex.getCause()).getErrorMsg();
-            assertEquals(expectedErrorCode, errorCode);
-            assertEquals(expectedErrorMsg, errorMsg);
-        }
-
-    }
-
-    @Test
-    public void crushWithoutPrincipalTest() throws Exception {
-
-        String expectedErrorMsg = "Page not found!";
-        String expectedErrorCode = "404";
-
-        MockHttpServletRequestBuilder requestBuilder = get("/**");
-
-        try {
-            ResultActions resultActions = mockMvc.perform(requestBuilder);
-        }catch (Exception ex){
-            String errorCode = ((CustomGenericException) ex.getCause()).getErrorCode();
-            String errorMsg = ((CustomGenericException) ex.getCause()).getErrorMsg();
-            assertEquals(expectedErrorCode, errorCode);
-            assertEquals(expectedErrorMsg, errorMsg);
-        }
-
-    }
+//    @Test
+//    public void crushWithPrincipalTest() throws Exception {
+//
+//        User user = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
+//        user.setUserId(1L);
+//        TestingAuthenticationToken principal = new TestingAuthenticationToken(user, null);
+//
+//        String expectedErrorMsg = "Hi " + principal.getName() + ", this page not found!";
+//        String expectedErrorCode = "404";
+//
+//        MockHttpServletRequestBuilder requestBuilder = get("/**").principal(principal);
+//
+//        try {
+//            ResultActions resultActions = mockMvc.perform(requestBuilder);
+//        }catch (Exception ex){
+//            String errorCode = ((CustomGenericException) ex.getCause()).getErrorCode();
+//            String errorMsg = ((CustomGenericException) ex.getCause()).getErrorMsg();
+//            assertEquals(expectedErrorCode, errorCode);
+//            assertEquals(expectedErrorMsg, errorMsg);
+//        }
+//
+//    }
+//
+//    @Test
+//    public void crushWithoutPrincipalTest() throws Exception {
+//
+//        String expectedErrorMsg = "Page not found!";
+//        String expectedErrorCode = "404";
+//
+//        MockHttpServletRequestBuilder requestBuilder = get("/**");
+//
+//        try {
+//            ResultActions resultActions = mockMvc.perform(requestBuilder);
+//        }catch (Exception ex){
+//            String errorCode = ((CustomGenericException) ex.getCause()).getErrorCode();
+//            String errorMsg = ((CustomGenericException) ex.getCause()).getErrorMsg();
+//            assertEquals(expectedErrorCode, errorCode);
+//            assertEquals(expectedErrorMsg, errorMsg);
+//        }
+//
+//    }
 
 }

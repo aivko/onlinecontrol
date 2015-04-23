@@ -29,16 +29,16 @@ public class MainController {
 
     }
 
-    @RequestMapping(value = "/**")
-    public void crash(Principal user) {
-
-        String errorMsg;
-        if (user != null) {
-            errorMsg = "Hi " + user.getName() + ", this page not found!";
-        } else {
-            errorMsg = "Page not found!";
-        }
-        throw new CustomGenericException("404", errorMsg);
-    }
+//    @RequestMapping(value = "/**")
+//    public void crash(Principal user) {
+//
+//        String errorMsg;
+//        if (user != null) {
+//            errorMsg = "Hi " + user.getName() + ", this page not found!";
+//        } else {
+//            errorMsg = "Page not found!";
+//        }
+//        throw new CustomGenericException("404", errorMsg);
+//    }
 
 }
