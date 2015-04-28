@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.model.Role;
+import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -64,9 +66,10 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String register(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("roles", userService.getAllRoles());
-        model.addAttribute("students", studentService.getAllStudents());
+        User attributeValue = new User();
+        attributeValue.setRoles(new ArrayList(userService.getAllRoles()));
+        attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
+        model.addAttribute("user", attributeValue);
         return "/users/createOrUpdateUserForm";
     }
 

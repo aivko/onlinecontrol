@@ -3,7 +3,7 @@
 <spring:url value="/resources/css/jquery-ui.css" var="jQueryCss"/>
 <link href="${jQueryCss}" rel="stylesheet"/>
 
-<spring:url value="/resources/js/jquery.js" var="jQuery"/>
+<spring:url value="/webjars/jquery/2.1.3/jquery.js" var="jQuery"/>
 <script src="${jQuery}"></script>
 
 <spring:url value="/resources/js/jquery-ui.js" var="jQueryUi"/>

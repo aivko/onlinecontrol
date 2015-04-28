@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -38,17 +39,17 @@ public class User implements UserDetails{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private Set<Student> students;
+    private List<Student> students;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private List<Role> roles;
 
     public User() {
     }
 
-    public User(String login, String password, String firstName, String lastName, String middleName, Set<Student> students, Set<Role> roles) {
+    public User(String login, String password, String firstName, String lastName, String middleName, List<Student> students, List<Role> roles) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -115,19 +116,19 @@ public class User implements UserDetails{
         this.middleName = middleName;
     }
 
-    public Set<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

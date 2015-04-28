@@ -25,15 +25,14 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
-    <spring:url value="/resources/css/onlinecontrolDialog.css" var="onlinecontrolDialogCss"/>
-    <link href="${onlinecontrolDialogCss}" rel="stylesheet"/>
-
-    <spring:url value="/resources/js/onlinecontrolDialog.js" var="onlinecontrolDialog"/>
-    <script src="${onlinecontrolDialog}"></script>
-
     <spring:url value="/resources/css/onlinecontrol.css" var="onlinecontrolCss"/>
     <link href="${onlinecontrolCss}" rel="stylesheet"/>
 
+    <spring:url value="/resources/css/onlinecontrolDialog.css" var="onlinecontrolDialogCss"/>
+    <link href="${onlinecontrolDialogCss}" rel="stylesheet"/>
+
+    <spring:url value="/resources/js/onlinecontrolDialog.js" var="onlinecontrolDialogJs"/>
+    <script src="${onlinecontrolDialogJs}"></script>
 
 </head>
 <body>
@@ -75,72 +74,56 @@
 
         </table>
 
-        <div><label path="roles">Roles:</label></div>
-        <div>
-            <%--<table class="fixed_headers">--%>
-                <%--<thead class="thead">--%>
-                <%--<tr class="tr">--%>
-                    <%--<th class="th">Role</th>--%>
-                <%--</tr>--%>
-                <%--</thead>--%>
-                <%--<tbody class="tbody">--%>
-                <%--<c:forEach items="${roles}" var="role">--%>
-                    <%--<tr class="tr">--%>
-                        <%--<td class="td">${role.name}</td>--%>
-                    <%--</tr>--%>
-                <%--</c:forEach>--%>
-                <%--</tbody>--%>
-            <%--</table>--%>
+        <hr>
 
-                <%--<form:select path="roles">--%>
-                <%--<c:forEach items="${roles}" var="role">--%>
-                <%--<form:option value="${role.roleId}">${role.name}</form:option>--%>
-                <%--</c:forEach>--%>
-                <%--</form:select>--%>
-
-                <<c:forEach items="${user.roles}" varStatus="vs">
-                    <div class="field">
-                        <div class="label required">
-                            <form:label path="roles[${vs.index}].name" cssErrorClass="invalid">Role Name</form:label>
-                        </div>
-                        <div class="input">
-                            <form:input path="roles[${vs.index}].name" cssErrorClass="invalid "/>
-                            <form:label path="roles[${vs.index}].name" cssErrorClass="icon invalid"/>
-                            <form:errors path="roles[${vs.index}].name" cssClass="inline_invalid"/>
-                        </div>
-                    </div>
-                    <form:hidden path="roles[${vs.index}].roleId"/>
-                    <hr/>
-                </c:forEach>
-
-        </div>
-        <div><label>Students:</label></div>
-        <div>
-            <table class="fixed_headers">
-                <thead class="thead">
-                <tr class="tr">
-                    <th class="th">Last name</th>
-                    <th class="th">First name</th>
-                    <th class="th">Middle name</th>
+        <div id="users-contain" class="ui-widget">
+            <h1>Roles:</h1>
+            <table id="roles" class="ui-widget ui-widget-content">
+                <thead>
+                <tr class="ui-widget-header ">
+                    <th>Name</th>
                 </tr>
                 </thead>
-                <tbody class="tbody">
-                <c:forEach items="${students}" var="student">
-                    <tr class="tr">
-                        <td class="td">${student.lastName}</td>
-                        <td class="td">${student.firstName}</td>
-                        <td class="td">${student.middleName}</td>
+                <tbody>
+                <c:forEach items="${user.roles}" varStatus="vs">
+                    <tr>
+                        <td>${user.roles[vs.index].name}</td>
+                        <form:hidden path="roles[${vs.index}].roleId"/>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-                <%--<form:select path="students">--%>
-                <%--<c:forEach items="${students}" var="student">--%>
-                <%--<form:option--%>
-                <%--value="${student.studentId}">${student.lastName} ${student.firstName} ${student.middleName}</form:option>--%>
-                <%--</c:forEach>--%>
-                <%--</form:select>--%>
         </div>
+        <button class="create-role">Add role</button>
+
+        <hr>
+
+        <div id="users-contain" class="ui-widget">
+            <h1>Students:</h1>
+            <table id="students" class="ui-widget ui-widget-content">
+                <thead>
+                <tr class="ui-widget-header">
+                    <th>Last name</th>
+                    <th>First name</th>
+                    <th>Middle name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${user.students}" varStatus="vs">
+                    <tr>
+                        <td>${user.students[vs.index].lastName}</td>
+                        <td>${user.students[vs.index].firstName}</td>
+                        <td>${user.students[vs.index].middleName}</td>
+                        <form:hidden path="students[${vs.index}].studentId"/>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <button class="create-student">Add student</button>
+
+        <hr>
+        <br>
 
         <input type="submit" value="Save"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -148,44 +131,44 @@
 
 </div>
 
-<%--<div id="dialog-form" title="Create new user">--%>
-<%--<p class="validateTips">All form fields are required.</p>--%>
+<div id="dialog-form" title="Create new user">
+    <p class="validateTips">All form fields are required.</p>
 
-<%--<form>--%>
-<%--<fieldset>--%>
-<%--<label for="name">Name</label>--%>
-<%--<input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">--%>
-<%--<label for="email">Email</label>--%>
-<%--<input type="text" name="email" id="email" value="jane@smith.com"--%>
-<%--class="text ui-widget-content ui-corner-all">--%>
-<%--<label for="password">Password</label>--%>
-<%--<input type="password" name="password" id="password" value="xxxxxxx"--%>
-<%--class="text ui-widget-content ui-corner-all">--%>
-<%--<!-- Allow form submission with keyboard without duplicating the dialog button -->--%>
-<%--<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">--%>
-<%--</fieldset>--%>
-<%--</form>--%>
-<%--</div>--%>
-<%--<div id="users-contain" class="ui-widget">--%>
-<%--<h1>Existing Users:</h1>--%>
-<%--<table id="users" class="ui-widget ui-widget-content">--%>
-<%--<thead>--%>
-<%--<tr class="ui-widget-header ">--%>
-<%--<th>Name</th>--%>
-<%--<th>Email</th>--%>
-<%--<th>Password</th>--%>
-<%--</tr>--%>
-<%--</thead>--%>
-<%--<tbody>--%>
-<%--<tr>--%>
-<%--<td>John Doe</td>--%>
-<%--<td>john.doe@example.com</td>--%>
-<%--<td>johndoe1</td>--%>
-<%--</tr>--%>
-<%--</tbody>--%>
-<%--</table>--%>
-<%--</div>--%>
-<%--<button id="create-user">Create new user</button>--%>
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com"
+                   class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx"
+                   class="text ui-widget-content ui-corner-all">
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+<div id="users-contain" class="ui-widget">
+    <h1>Existing Users:</h1>
+    <table id="users" class="ui-widget ui-widget-content">
+        <thead>
+        <tr class="ui-widget-header ">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>johndoe1</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button id="create-user">Create new user</button>
 
 </body>
 </html>

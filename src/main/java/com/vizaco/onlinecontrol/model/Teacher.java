@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.model;
 import com.vizaco.onlinecontrol.enumeration.Gender;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -34,18 +35,18 @@ public class Teacher {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "teachers_subjects", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
-    private Set<Subject> subjects;
+    private List<Subject> subjects;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "teachers_clazzes", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "clazz_id"))
-    private Set<Clazz> clazzes;
+    private List<Clazz> clazzes;
 
 
     public Teacher() {
     }
 
-    public Teacher(String firstName, String lastName, String middleName, Gender gender, Set<Subject> subjects, Set<Clazz> clazzes) {
+    public Teacher(String firstName, String lastName, String middleName, Gender gender, List<Subject> subjects, List<Clazz> clazzes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -86,19 +87,19 @@ public class Teacher {
         this.middleName = middleName;
     }
 
-    public Set<Subject> getSubjects() {
+    public List<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(Set<Subject> subjects) {
+    public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
     }
 
-    public Set<Clazz> getClazzes() {
+    public List<Clazz> getClazzes() {
         return clazzes;
     }
 
-    public void setClazzes(Set<Clazz> clazzes) {
+    public void setClazzes(List<Clazz> clazzes) {
         this.clazzes = clazzes;
     }
 

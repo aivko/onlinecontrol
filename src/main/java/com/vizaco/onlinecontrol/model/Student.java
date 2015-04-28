@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -40,13 +41,13 @@ public class Student {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> users;
+    private List<User> users;
 
     @ManyToOne
     @JoinColumn(name = "clazz_id")
     private Clazz clazz;
 
-    public Student(String firstName, String lastName, String middleName, Date dateOfBirth, Gender gender, Set<User> users, Clazz clazz) {
+    public Student(String firstName, String lastName, String middleName, Date dateOfBirth, Gender gender, List<User> users, Clazz clazz) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -107,11 +108,11 @@ public class Student {
         this.gender = gender;
     }
 
-    public Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
