@@ -77,8 +77,7 @@ public class UserController {
     public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
 
         if(result.hasErrors()){
-            model.addAttribute("roles", userService.getAllRoles());
-            model.addAttribute("students", studentService.getAllStudents());
+            model.addAttribute("user", user);
             return "/users/createOrUpdateUserForm";
         }
 
@@ -129,8 +128,7 @@ public class UserController {
         new UserValidator(userService).validateEdit(user, result);
 
         if(result.hasErrors()){
-            model.addAttribute("roles", userEdit.getRoles());
-            model.addAttribute("students", userEdit.getStudents());
+            model.addAttribute("user", user);
             return "/users/createOrUpdateUserForm";
         }
 

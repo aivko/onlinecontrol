@@ -62,7 +62,7 @@ $(function () {
         return valid;
     }
 
-    dialog = $("#dialog-form").dialog({
+    dialog = $("#dialog").dialog({
         autoOpen: false,
         height: 300,
         width: 350,
@@ -79,12 +79,12 @@ $(function () {
         }
     });
 
-    form = dialog.find("form").on("submit", function (event) {
+    form = dialog.find("form").on("submit", function (event) {[]
         event.preventDefault();
         addUser();
     });
 
-    $("#create-user").button().on("click", function () {
+    $(".add-role").button().on("click", function () {
         dialog.dialog("open");
     });
 });

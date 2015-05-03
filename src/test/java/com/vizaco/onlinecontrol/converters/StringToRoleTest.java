@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by super on 3/10/15.
  */
+@Ignore
 public class StringToRoleTest {
 
     private UserService mockUserService;
