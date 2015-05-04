@@ -4,9 +4,10 @@ import com.vizaco.onlinecontrol.controller.securityContextMock.WithMockUser;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
-import com.vizaco.onlinecontrol.utils.UsersUtils;
+import com.vizaco.onlinecontrol.utils.Utils;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -27,7 +28,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -66,6 +66,9 @@ public class UserControllerTest {
     private UserService mockUserService;
 
     @Autowired
+    private RoleService mockRoleService;
+
+    @Autowired
     @Qualifier("userValidator")
     private Validator userValidator;
 
@@ -76,7 +79,7 @@ public class UserControllerTest {
 
         mockStudentService = mock(StudentService.class);
         mockUserService = mock(UserService.class);
-        userController = new UserController(mockUserService, mockStudentService);
+        userController = new UserController(mockUserService, mockStudentService, mockRoleService);
         ReflectionTestUtils.setField(userController, "userValidator", userValidator);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
     }
@@ -135,10 +138,10 @@ public class UserControllerTest {
         Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
         student1.setStudentId(1L);
         List<Student> resultListStudents  = Arrays.asList(student1);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
         List<Role> resultListRoles  = Arrays.asList(role1);
-        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockRoleService.getAllRoles()).thenReturn(resultListRoles);
         when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
 
         MockHttpServletRequestBuilder requestBuilder = get("/registration");
@@ -165,12 +168,12 @@ public class UserControllerTest {
         Student student2 = new Student("firstName2", "lastName2", "middleName2", null, null, null, null);
         student1.setStudentId(2L);
         List<Student> resultListStudents  = Arrays.asList(student1, student2);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
-        Role role2 = new Role("role2");
+        Role role2 = new Role("role2", "role2");
         role2.setRoleId(2L);
         List<Role> resultListRoles  = Arrays.asList(role1, role2);
-        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockRoleService.getAllRoles()).thenReturn(resultListRoles);
         when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
 
         MockHttpServletRequestBuilder requestBuilder = get("/registration");
@@ -219,10 +222,10 @@ public class UserControllerTest {
         Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
         student1.setStudentId(1L);
         List<Student> resultListStudents  = Arrays.asList(student1);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
         List<Role> resultListRoles  = Arrays.asList(role1);
-        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockRoleService.getAllRoles()).thenReturn(resultListRoles);
         when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
 
         MockHttpServletRequestBuilder requestBuilder = post("/registration")
@@ -254,10 +257,10 @@ public class UserControllerTest {
         Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
         student1.setStudentId(1L);
         List<Student> resultListStudents  = Arrays.asList(student1);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
         List<Role> resultListRoles  = Arrays.asList(role1);
-        when(mockUserService.getAllRoles()).thenReturn(resultListRoles);
+        when(mockRoleService.getAllRoles()).thenReturn(resultListRoles);
         when(mockStudentService.getAllStudents()).thenReturn(resultListStudents);
 
         MockHttpServletRequestBuilder requestBuilder = post("/registration")
@@ -287,7 +290,7 @@ public class UserControllerTest {
         User modelUser = new User("login", "password", "firstName1", "lastName1", "middleName1", null, null);
         modelUser.setUserId(1L);
 
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 
@@ -312,7 +315,7 @@ public class UserControllerTest {
         User modelUser = new User("login", "password", "firstName1", "lastName1", "middleName1", null, null);
         modelUser.setUserId(1L);
 
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 
@@ -331,13 +334,13 @@ public class UserControllerTest {
         Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
         student1.setStudentId(1L);
         List<Student> resultListStudents  = Arrays.asList(student1);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
         List<Role> resultListRoles  = Arrays.asList(role1);
 
         User modelUser = new User("login", "password", "firstName1", "lastName1", "middleName1", new ArrayList(resultListStudents), new ArrayList(resultListRoles));
         modelUser.setUserId(1L);
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 
@@ -364,7 +367,7 @@ public class UserControllerTest {
         User modelUser = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
         modelUser.setUserId(1L);
 
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 
@@ -389,14 +392,14 @@ public class UserControllerTest {
         Student student1 = new Student("firstName1", "lastName1", "middleName1", null, null, null, null);
         student1.setStudentId(1L);
         List<Student> resultListStudents  = Arrays.asList(student1);
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
         List<Role> resultListRoles  = Arrays.asList(role1);
 
         User modelUser = new User(null, "password", "firstName1", "lastName1", "middleName1", new ArrayList(resultListStudents), new ArrayList(resultListRoles));
         modelUser.setUserId(1L);
 
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 
@@ -427,7 +430,7 @@ public class UserControllerTest {
         User modelUser = new User("login1", "password1", "firstName1", "lastName1", "middleName1", null, null);
         modelUser.setUserId(1L);
 
-        UsersUtils mockUsersUtil = mock(UsersUtils.class);
+        Utils mockUsersUtil = mock(Utils.class);
         when(mockUsersUtil.getUser("1", mockUserService)).thenReturn(modelUser);
         ReflectionTestUtils.setField(userController, "usersUtils", mockUsersUtil);
 

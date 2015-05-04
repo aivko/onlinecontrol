@@ -47,7 +47,8 @@ CREATE INDEX subjects_name ON subjects (name);
 
 CREATE TABLE roles (
   role_id         BIGINT IDENTITY PRIMARY KEY,
-  name            VARCHAR(30)
+  name            VARCHAR(30),
+  description     VARCHAR(30)
 );
 CREATE INDEX roles_name ON roles (name);
 

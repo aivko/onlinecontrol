@@ -3,7 +3,6 @@ package com.vizaco.onlinecontrol.controller.authorization;
 import com.vizaco.onlinecontrol.constants.Authorization;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.OAuthUtil;
-import com.vizaco.onlinecontrol.utils.UsersUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.IOException;
 import java.util.Map;
 
 @Controller

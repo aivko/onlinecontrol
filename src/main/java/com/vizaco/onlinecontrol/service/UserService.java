@@ -20,10 +20,6 @@ public interface UserService {
     
     User findUserByLogin(String login) throws DataAccessException;
 
-    List<Role> getAllRoles() throws DataAccessException;
-
-    Role getRoleById(Long id) throws DataAccessException;
-
     List<User> getAllUsers() throws DataAccessException;
 
     void saveUser(User user) throws DataAccessException;

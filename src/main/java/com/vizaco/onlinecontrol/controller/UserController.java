@@ -1,11 +1,10 @@
 package com.vizaco.onlinecontrol.controller;
 
-import com.vizaco.onlinecontrol.model.Role;
-import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
-import com.vizaco.onlinecontrol.utils.UsersUtils;
+import com.vizaco.onlinecontrol.utils.Utils;
 import com.vizaco.onlinecontrol.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,20 +28,23 @@ public class UserController {
     @Autowired
     ConversionService conversionService;
 
-    private UsersUtils usersUtils = new UsersUtils();
+    private Utils utils = new Utils();
 
     private final UserService userService;
 
     private final StudentService studentService;
+
+    private final RoleService roleService;
 
     @Autowired
     @Qualifier("userValidator")
     private Validator userValidator;
     
     @Autowired
-    public UserController(UserService userService, StudentService studentService) {
+    public UserController(UserService userService, StudentService studentService, RoleService roleService) {
         this.userService = userService;
         this.studentService = studentService;
+        this.roleService = roleService;
     }
 
     @InitBinder("user")
@@ -67,7 +69,7 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String register(Model model) {
         User attributeValue = new User();
-        attributeValue.setRoles(new ArrayList(userService.getAllRoles()));
+        attributeValue.setRoles(new ArrayList(roleService.getAllRoles()));
         attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
         model.addAttribute("user", attributeValue);
         return "/users/createOrUpdateUserForm";
@@ -91,7 +93,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}")
     public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
 
-        User user = usersUtils.getUser(userIdStr, userService);
+        User user = utils.getUser(userIdStr, userService);
 
         User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user.getUserId() != principal.getUserId()){
@@ -110,12 +112,10 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("userId") String userIdStr) {
 
-        User user = usersUtils.getUser(userIdStr, userService);
+        User user = utils.getUser(userIdStr, userService);
         ModelAndView mav = new ModelAndView("/users/createOrUpdateUserForm");
 
         mav.addObject("user", user);
-        mav.addObject("roles", user.getRoles());
-        mav.addObject("students", user.getStudents());
 
         return mav;
     }
@@ -123,7 +123,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
 
-        User userEdit = usersUtils.getUser(userIdStr, userService);
+        User userEdit = utils.getUser(userIdStr, userService);
 
         new UserValidator(userService).validateEdit(user, result);
 
@@ -143,7 +143,7 @@ public class UserController {
     @RequestMapping(value = "/users/{userId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("userId") String userIdStr) {
 
-        User user = usersUtils.getUser(userIdStr, userService);
+        User user = utils.getUser(userIdStr, userService);
         userService.deleteUser(user.getUserId());
 
         return new ModelAndView("redirect:/users");

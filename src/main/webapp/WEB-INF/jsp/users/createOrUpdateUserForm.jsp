@@ -25,15 +25,6 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
-    <spring:url value="/resources/css/onlinecontrol.css" var="onlinecontrolCss"/>
-    <link href="${onlinecontrolCss}" rel="stylesheet"/>
-
-    <spring:url value="/resources/css/onlinecontrolDialog.css" var="onlinecontrolDialogCss"/>
-    <link href="${onlinecontrolDialogCss}" rel="stylesheet"/>
-
-    <spring:url value="/resources/js/onlinecontrolDialog.js" var="onlinecontrolDialogJs"/>
-    <script src="${onlinecontrolDialogJs}"></script>
-
 </head>
 <body>
 
@@ -65,7 +56,6 @@
                 <td><form:input path="lastName"/><form:errors path="lastName" cssStyle="color:red;"
                                                               cssclass="error"/></td>
             </tr>
-
             <tr>
                 <td><form:label path="password">Password:</form:label></td>
                 <td><form:password path="password"/><form:errors path="password" cssStyle="color:red;"
@@ -124,7 +114,7 @@
                 </tbody>
             </table>
         </div>
-        <button class="create-student">Add student</button>
+        <button class="add-student">Add student</button>
 
         <hr>
         <br>

@@ -17,9 +17,9 @@ INSERT INTO shedule VALUES (2, '2015-01-01 08:45:00', 1, 2, 2);
 INSERT INTO shedule VALUES (3, '2015-01-01 09:30:00', 2, 1, 3);
 INSERT INTO shedule VALUES (4, '2015-01-01 09:30:00', 3, 3, 1);
 
-INSERT INTO roles VALUES (1, 'ROLE_USER');
-INSERT INTO roles VALUES (2, 'ROLE_ADMIN');
-INSERT INTO roles VALUES (3, 'ROLE_MANAGER');
+INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
+INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');
+INSERT INTO roles VALUES (3, 'ROLE_MANAGER', 'Manager');
 
 INSERT INTO users VALUES (1, 'petr', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Petr', 'Petrov', 'Petrovich');
 INSERT INTO users VALUES (2, 'ivan', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Ivan', 'Ivanov', 'Ivanovich');

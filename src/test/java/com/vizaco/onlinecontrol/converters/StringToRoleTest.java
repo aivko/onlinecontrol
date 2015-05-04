@@ -2,6 +2,7 @@ package com.vizaco.onlinecontrol.converters;
 
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -25,21 +26,22 @@ import static org.mockito.Mockito.when;
 public class StringToRoleTest {
 
     private UserService mockUserService;
+    private RoleService mockRoleService;
 
     private StringToRole stringToRole;
 
     @Before
     public void setUp() throws Exception {
         mockUserService = mock(UserService.class);
-        when(mockUserService.getRoleById(anyLong())).thenReturn(null);
+        when(mockRoleService.findRoleById(anyLong())).thenReturn(null);
         Role role1 = new Role();
         role1.setRoleId(1L);
-        when(mockUserService.getRoleById(1L)).thenReturn(role1);
+        when(mockRoleService.findRoleById(1L)).thenReturn(role1);
         Role role2 = new Role();
         role2.setRoleId(2L);
-        when(mockUserService.getRoleById(2L)).thenReturn(role2);
+        when(mockRoleService.findRoleById(2L)).thenReturn(role2);
 
-        stringToRole = new StringToRole(mockUserService);
+        stringToRole = new StringToRole(mockRoleService);
     }
 
     @Test

@@ -35,15 +35,25 @@ public class JpaUserDaoImplTest {
         mockEntityManager = mock(EntityManager.class);
     }
 
-    private JpaUserDaoImpl getUserDao(List<?> resultList) {
+    private void mockEM(List<?> resultList) {
         Query spyQuery = spy(Query.class);
         when(spyQuery.getResultList()).thenReturn(resultList);
 
         when(mockEntityManager.createQuery(anyString())).thenReturn(spyQuery);
         when(mockEntityManager.createNamedQuery(anyString())).thenReturn(spyQuery);
         when(mockEntityManager.createNativeQuery(anyString())).thenReturn(spyQuery);
+    }
+
+    private JpaUserDaoImpl getUserDao(List<?> resultList) {
+        mockEM(resultList);
 
         return new JpaUserDaoImpl(mockEntityManager);
+    }
+
+    private JpaRoleDaoImpl getRoleDao(List<?> resultList) {
+        mockEM(resultList);
+
+        return new JpaRoleDaoImpl(mockEntityManager);
     }
 
     @Test
@@ -232,13 +242,13 @@ public class JpaUserDaoImplTest {
     @Test
     public void getAllRoles1InDBTest(){
 
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
 
         List<Role> resultList  = Arrays.asList(role1);
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Collection<Role> actual = userDao.getAllRoles();
+        Collection<Role> actual = roleDao.getAllRoles();
 
         assertEquals(1, actual.size());
 
@@ -247,15 +257,15 @@ public class JpaUserDaoImplTest {
     @Test
     public void getAllRoles2InDBTest(){
 
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
-        Role role2 = new Role("role2");
+        Role role2 = new Role("role2", "role2");
         role1.setRoleId(2L);
 
         List<Role> resultList  = Arrays.asList(role1, role2);
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Collection<Role> actual = userDao.getAllRoles();
+        Collection<Role> actual = roleDao.getAllRoles();
 
         assertEquals(2, actual.size());
 
@@ -264,13 +274,13 @@ public class JpaUserDaoImplTest {
     @Test
     public void getRoleById1InDBTest(){
 
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
 
         List<Role> resultList  = Arrays.asList(role1);
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Role actual = userDao.getRoleById(1L);
+        Role actual = roleDao.findById(1L);
 
         assertEquals(role1.getRoleId(), actual.getRoleId());
         assertEquals(role1.getRoleId(), actual.getRoleId());
@@ -280,15 +290,15 @@ public class JpaUserDaoImplTest {
     @Test
     public void getRoleById2InDBTest(){
 
-        Role role1 = new Role("role1");
+        Role role1 = new Role("role1", "role1");
         role1.setRoleId(1L);
-        Role role2 = new Role("role2");
+        Role role2 = new Role("role2", "role2");
         role1.setRoleId(2L);
 
         List<Role> resultList  = Arrays.asList(role1, role2);
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Role actual = userDao.getRoleById(1L);
+        Role actual = roleDao.findById(1L);
 
         assertEquals(role1.getRoleId(), actual.getRoleId());
         assertEquals(role1.getRoleId(), actual.getRoleId());
@@ -299,9 +309,9 @@ public class JpaUserDaoImplTest {
     public void getRoleByIdEmptyInDBTest(){
 
         List<Role> resultList  = Collections.EMPTY_LIST;
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Role actual = userDao.getRoleById(99999L);
+        Role actual = roleDao.findById(99999L);
 
         assertEquals(null, actual);
 
@@ -311,9 +321,9 @@ public class JpaUserDaoImplTest {
     public void getRoleByIdWithNullArgumentTest(){
 
         List<Role> resultList  = Collections.EMPTY_LIST;
-        JpaUserDaoImpl userDao = getUserDao(resultList);
+        JpaRoleDaoImpl roleDao = getRoleDao(resultList);
 
-        Role actual = userDao.getRoleById(null);
+        Role actual = roleDao.findById(null);
 
         assertEquals(null, actual);
 

@@ -62,26 +62,6 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<Role> getAllRoles() throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role");
-        List resultList = query.getResultList();
-        return resultList;
-    }
-
-    @Override
-    public Role getRoleById(Long id) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.roleId =:id");
-        query.setParameter("id", id);
-
-        List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
-            return (Role)resultList.get(0);
-        }
-    }
-
-    @Override
     public List<User> getAllUsers() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user");
         List resultList = query.getResultList();

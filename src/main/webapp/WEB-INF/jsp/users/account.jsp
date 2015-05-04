@@ -17,6 +17,11 @@
         <p><a href='<spring:url value="/registration" htmlEscape="true"/>' role="button">Зарегистрировать пользователя</a></p>
         <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
     </sec:authorize>
+    <hr/>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p><a href='<spring:url value="/roles/new" htmlEscape="true"/>' role="button">Добавить роль</a></p>
+        <p><a href='<spring:url value="/roles" htmlEscape="true"/>' role="button">Список ролей</a></p>
+    </sec:authorize>
 
 </div>
 

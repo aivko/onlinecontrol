@@ -15,10 +15,6 @@ public interface UserDao {
 
     User findById(Long id) throws DataAccessException;
     
-    List<Role> getAllRoles() throws DataAccessException;
-    
-    Role getRoleById(Long id) throws DataAccessException;
-    
     List<User> getAllUsers() throws DataAccessException;
 
     void save(User user) throws DataAccessException;

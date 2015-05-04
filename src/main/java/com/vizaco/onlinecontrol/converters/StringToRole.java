@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.converters;
 
 import com.vizaco.onlinecontrol.model.Role;
+import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
@@ -15,15 +16,15 @@ import org.springframework.core.convert.converter.Converter;
  */
 public class StringToRole implements Converter<String, Role> {
 
-    private UserService userService;
+    private RoleService roleService;
 
     @Autowired
-    public StringToRole(UserService userService) {
-        this.userService = userService;
+    public StringToRole(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @Override
     public Role convert(String roleId) {
-        return userService.getRoleById(Long.parseLong(roleId));
+        return roleService.findRoleById(Long.parseLong(roleId));
     }
 }

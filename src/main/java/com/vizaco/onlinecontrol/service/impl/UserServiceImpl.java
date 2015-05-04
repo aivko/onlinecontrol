@@ -49,17 +49,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Role> getAllRoles() throws DataAccessException {
-        return userDao.getAllRoles();
-    }
-
-    @Override
-    public Role getRoleById(Long id) throws DataAccessException {
-        return userDao.getRoleById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public List<User> getAllUsers() throws DataAccessException {
         return userDao.getAllUsers();
     }

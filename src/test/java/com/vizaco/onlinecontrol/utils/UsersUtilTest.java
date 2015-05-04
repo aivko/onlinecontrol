@@ -1,25 +1,14 @@
 package com.vizaco.onlinecontrol.utils;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
-import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.UserService;
-import com.vizaco.onlinecontrol.service.impl.UserServiceImpl;
-import com.vizaco.onlinecontrol.validators.UserValidator;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.validation.BeanPropertyBindingResult;
-import org.springframework.validation.BindingResult;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -30,7 +19,7 @@ public class UsersUtilTest {
 
     private UserService mockUserService;
 
-    private UsersUtils usersUtils;
+    private Utils utils;
 
     @Before
     public void setUp() throws Exception {
@@ -43,31 +32,31 @@ public class UsersUtilTest {
         user2.setUserId(2L);
         when(mockUserService.findUserById(2L)).thenReturn(user2);
 
-        usersUtils = new UsersUtils();
+        utils = new Utils();
     }
 
     @Test
     public void getUserWithId1Test(){
         Long expected = 1L;
-        User actualUser = usersUtils.getUser("1", mockUserService);
+        User actualUser = utils.getUser("1", mockUserService);
         assertEquals(expected, actualUser.getUserId());
     }
 
     @Test
     public void getUserWithId2Test(){
         Long expected = 2L;
-        User actualUser = usersUtils.getUser("2", mockUserService);
+        User actualUser = utils.getUser("2", mockUserService);
         assertEquals(expected, actualUser.getUserId());
     }
 
     @Test(expected=CustomGenericException.class)
     public void getUserWithIncorrictNumberIdTest(){
-        User actualUser = usersUtils.getUser("abc", mockUserService);
+        User actualUser = utils.getUser("abc", mockUserService);
     }
 
     @Test(expected=CustomGenericException.class)
     public void getUserWithNoExistIdIdTest(){
-        User actualUser = usersUtils.getUser("100", mockUserService);
+        User actualUser = utils.getUser("100", mockUserService);
     }
 
 }

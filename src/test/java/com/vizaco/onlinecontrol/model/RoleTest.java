@@ -30,26 +30,26 @@ public class RoleTest {
 
     @Test
     public void setNameThroughConstructorTest(){
-        Role role = new Role("Admin");
+        Role role = new Role("Admin", "Admin");
         assertEquals("Admin", role.getName());
     }
 
     @Test
     public void setNameNullThroughConstructorTest(){
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         assertEquals(null, role.getName());
     }
 
     @Test
     public void setNameNullThroughNoArgConstructorTest(){
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         assertEquals(null, role.getName());
     }
 
     @Test
     public void oneTimeSetRoleIdTest(){
         Long expected = 1L;
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         role.setRoleId(1L);
         assertEquals(expected, role.getRoleId());
     }
@@ -57,7 +57,7 @@ public class RoleTest {
     @Test
     public void twoTimeSetRoleIdTest(){
         Long expected = 2L;
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         role.setRoleId(1L);
         role.setRoleId(2L);
         assertEquals(expected, role.getRoleId());
@@ -80,19 +80,19 @@ public class RoleTest {
 
     @Test
     public void setAuthorityThroughConstructorTest(){
-        Role role = new Role("Admin");
+        Role role = new Role("Admin", "Admin");
         assertEquals("Admin", role.getAuthority());
     }
 
     @Test
     public void setAuthorityNullThroughConstructorTest(){
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         assertEquals(null, role.getAuthority());
     }
 
     @Test
     public void setAuthorityNullThroughNoArgConstructorTest(){
-        Role role = new Role(null);
+        Role role = new Role(null, null);
         assertEquals(null, role.getAuthority());
     }
 
