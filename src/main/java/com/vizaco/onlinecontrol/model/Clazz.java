@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,6 +18,7 @@ public class Clazz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clazzId;
 
+    @NotEmpty
     @Column(name = "name")
     private String name;
 
@@ -77,6 +80,10 @@ public class Clazz {
 
     public void setShedule(Set<Shedule> shedule) {
         this.shedule = shedule;
+    }
+
+    public boolean isNew() {
+        return (this.clazzId == null);
     }
 
     @Override

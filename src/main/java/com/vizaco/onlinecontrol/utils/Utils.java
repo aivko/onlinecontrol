@@ -1,9 +1,11 @@
 package com.vizaco.onlinecontrol.utils;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
+import com.vizaco.onlinecontrol.model.Clazz;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -65,6 +67,24 @@ public class Utils {
             throw new CustomGenericException("404", "Page not found for the student with the ID " + studentId);
         }
         return student;
+    }
+
+    public Clazz getClazz(String clazzIdStr, ClazzService clazzService) {
+
+        Long clazzId;
+
+        try {
+            clazzId = Long.valueOf(clazzIdStr);
+        }catch (NumberFormatException ex){
+            throw new CustomGenericException("404", "Page not found for the class with the ID " + clazzIdStr);
+        }
+
+        Clazz clazz = clazzService.findClazzById(clazzId);
+
+        if (clazz == null){
+            throw new CustomGenericException("404", "Page not found for the student with the ID " + clazzId);
+        }
+        return clazz;
     }
 
 }

@@ -26,7 +26,7 @@ CREATE TABLE persistent_logins (
 CREATE TABLE clazzes (
   clazz_id        BIGINT IDENTITY PRIMARY KEY,
   name            VARCHAR(80),
-  school_id       BIGINT NOT NULL
+  school_id       BIGINT
 );
 CREATE INDEX clazzes_name ON clazzes (name);
 

@@ -96,8 +96,7 @@ public class UserController {
         }
 
         userService.saveUser(user);
-        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "redirect:/users/" + principal.getUserId();
+        return "redirect:/users/" + user.getUserId();
     }
 
     //READ USER
@@ -141,8 +140,7 @@ public class UserController {
 
         user.setUserId(userEdit.getUserId());
         userService.saveUser(user);
-        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "redirect:/users/" + principal.getUserId();
+        return "redirect:/users/" + user.getUserId();
     }
 
     //DELETE USER

@@ -23,15 +23,15 @@ public class Shedule {
     @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
     private Date startDate;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="subject_id")
     private Subject subject;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="clazz_id")
     private Clazz clazz;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 

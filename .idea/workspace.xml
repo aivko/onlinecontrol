@@ -2,46 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/ClazzDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/ClazzService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/ClazzServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_api_jdo_4_1_0_m4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_datatables_1_10_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/createOrUpdateStudentForm.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrol.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_appengine_orm_datanucleus_appengine_2_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_jdo_jdo_api_3_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_jta_1_1.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_core_3_2_0_m4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_core_4_1_0_m4.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_jpa_2_1_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_rdbms_4_1_0_m4.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/account.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/RoleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/StudentDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/StudentDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/StudentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/StudentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/StudentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/StudentServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ClazzController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classDetails.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classes.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/createOrUpdateClassForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Clazz.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Clazz.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Teacher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/onlinecontrol.iml" afterPath="$PROJECT_DIR$/onlinecontrol.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -55,58 +32,58 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol in onlinecontrol Coverage Results" MODIFIED="1428073477785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$StringToRoleTest.coverage" NAME="StringToRoleTest Coverage Results" MODIFIED="1428071248667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/onlinecontrol$StringToStudentTest.coverage" NAME="StringToStudentTest Coverage Results" MODIFIED="1428071263474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.converters.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$JpaStudentDaoImplTest.coverage" NAME="JpaStudentDaoImplTest Coverage Results" MODIFIED="1427972414720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.dao.jpa.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$MainControllerTest.coverage" NAME="MainControllerTest Coverage Results" MODIFIED="1428052935052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
+    <SUITE FILE_PATH="coverage/onlinecontrol$OAuthUtilTest.coverage" NAME="OAuthUtilTest Coverage Results" MODIFIED="1427892893586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.utils.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_utils_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.utils in onlinecontrol Coverage Results" MODIFIED="1428073460444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.utils.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$StringToStudentTest.coverage" NAME="StringToStudentTest Coverage Results" MODIFIED="1428071263474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.converters.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_validators_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.validators in onlinecontrol Coverage Results" MODIFIED="1428073471518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.validators.*</FILTER>
+    <SUITE FILE_PATH="coverage/onlinecontrol$JpaStudentDaoImplTest.coverage" NAME="JpaStudentDaoImplTest Coverage Results" MODIFIED="1427972414720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.dao.jpa.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/onlinecontrol$AuthControllerTest.coverage" NAME="AuthControllerTest Coverage Results" MODIFIED="1428414952125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.controller.authorization.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$StudentControllerTest.coverage" NAME="StudentControllerTest Coverage Results" MODIFIED="1428066767384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/onlinecontrol$StringToRoleTest.coverage" NAME="StringToRoleTest Coverage Results" MODIFIED="1428071248667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.converters.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$ExceptionsControllerTest.coverage" NAME="ExceptionsControllerTest Coverage Results" MODIFIED="1428059461309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$All_in_onlinecontrol.coverage" NAME="All in onlinecontrol Coverage Results" MODIFIED="1429622067884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_model_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.model in onlinecontrol Coverage Results" MODIFIED="1428073441171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_converters_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.converters in onlinecontrol Coverage Results" MODIFIED="1427895860544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.converters.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol in onlinecontrol Coverage Results" MODIFIED="1428073477785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$MainControllerTest.coverage" NAME="MainControllerTest Coverage Results" MODIFIED="1428052935052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/onlinecontrol$All_in_onlinecontrol__1_.coverage" NAME="All in onlinecontrol (1) Coverage Results" MODIFIED="1425993687892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_service_impl_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.service.impl in onlinecontrol Coverage Results" MODIFIED="1428073450263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.service.impl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$ExceptionsControllerTest.coverage" NAME="ExceptionsControllerTest Coverage Results" MODIFIED="1428059461309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_dao_jpa_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.dao.jpa in onlinecontrol Coverage Results" MODIFIED="1428073426045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.dao.jpa.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/onlinecontrol$StudentControllerTest.coverage" NAME="StudentControllerTest Coverage Results" MODIFIED="1428066767384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$All_in_onlinecontrol.coverage" NAME="All in onlinecontrol Coverage Results" MODIFIED="1429622067884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_validators_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.validators in onlinecontrol Coverage Results" MODIFIED="1428073471518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.vizaco.onlinecontrol.validators.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/onlinecontrol$UserControllerTest.coverage" NAME="UserControllerTest Coverage Results" MODIFIED="1428414545387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_converters_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.converters in onlinecontrol Coverage Results" MODIFIED="1427895860544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.converters.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_controller_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.controller in onlinecontrol Coverage Results" MODIFIED="1428331708393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.vizaco.onlinecontrol.controller.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_model_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.model in onlinecontrol Coverage Results" MODIFIED="1428073441171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.model.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$OAuthUtilTest.coverage" NAME="OAuthUtilTest Coverage Results" MODIFIED="1427892893586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.utils.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/onlinecontrol$com_vizaco_onlinecontrol_dao_jpa_in_onlinecontrol.coverage" NAME="com.vizaco.onlinecontrol.dao.jpa in onlinecontrol Coverage Results" MODIFIED="1428073426045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.vizaco.onlinecontrol.dao.jpa.*</FILTER>
     </SUITE>
   </component>
   <component name="CoverageOptionsProvider">
@@ -133,71 +110,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="studentDetails.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp">
+      <file leaf-file-name="News.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/News.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.166667">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java">
+      <file leaf-file-name="Grade.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6923077">
-              <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp">
+      <file leaf-file-name="Clazz.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Clazz.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.5">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectStudent.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.416666">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jQueryLib.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75">
-              <caret line="14" column="50" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.43638393">
+              <caret line="38" column="39" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userDetails.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp">
+      <file leaf-file-name="roleDetails.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roleDetails.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.916666">
-              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roles.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp">
+      <file leaf-file-name="classDetails.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classDetails.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.416666">
-              <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -206,18 +183,28 @@
       <file leaf-file-name="students.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.416666">
-              <caret line="50" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state vertical-scroll-proportion="-29.423077">
+              <caret line="48" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp">
+      <file leaf-file-name="classes.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classes.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.541666">
-              <caret line="62" column="117" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="117" />
+            <state vertical-scroll-proportion="-19.153847">
+              <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClazzController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ClazzController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -231,10 +218,9 @@
         <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
-        <option value="Jsp File" />
-        <option value="Html5" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -249,57 +235,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roleDetails.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/RoleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/RoleDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaRoleDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/UserControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/securityContextMock/WithMockUserSecurityContextFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/model/RoleTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/converters/StringToRoleTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/service/impl/UserServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/application-context-security.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/StudentDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/StudentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/StudentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/account.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages_en.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages_ru.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrolSelect.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/onlinecontrolSelect.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/ClazzDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/ClazzService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/ClazzServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrol.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/createOrUpdateStudentForm.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grades.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/School.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/News.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b04543f3-dd43-46a6-b7d1-72d0795065e2/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/hsqldb/populateDB.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/ExceptionsControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/staticFiles.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-ui.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-ui.min.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-ui.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/onlinecontrolLib.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrolDialog.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/onlinecontrol.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/onlinecontrolDialog.css" />
+        <option value="localhost:10201/onlinecontrol/webjars/jquery/2.1.3/jquery.js" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/converters/StringToRoleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/converters/StringToStudentTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/authorization/AuthControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/MainControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/mvc-core-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrolDialog.js" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/data-access.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/application-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/createOrUpdateClassForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Clazz.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classDetails.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Teacher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classes.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ClazzController.java" />
       </list>
     </option>
   </component>
@@ -310,7 +296,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$USER_HOME$/apache-maven-3.2.5" />
+        <option name="mavenHome" value="C:/Program Files/maven" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -419,10 +405,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="31" />
-    <option name="width" value="1928" />
-    <option name="height" value="1053" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1924" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -468,7 +454,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -725,7 +710,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -784,6 +769,14 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -803,12 +796,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'messages'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -936,34 +933,8 @@
               <option name="myItemId" value="onlinecontrol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="validators" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -990,14 +961,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1028,36 +991,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlinecontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="enumeration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1217,6 +1150,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1226,7 +1160,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-2.1.3.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="options.lastSelected" value="MavenSettings" />
@@ -1265,33 +1199,576 @@
     <property name="Console.TableResult.DefaultCopyAction" value="Comma-separated Values (CSV)" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-2.1.3.js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.vizaco.onlinecontrol.service.impl" />
-      <recent name="com.vizaco.onlinecontrol.service" />
-      <recent name="com.vizaco.onlinecontrol.dao.jpa" />
-      <recent name="com.vizaco.onlinecontrol.dao" />
-      <recent name="com.vizaco.onlinecontrol.controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users" />
+      <recent name="D:\Igor\JAVA\workspaceIDEA\onlinecontrol\src\main\webapp\WEB-INF\jsp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css/ui/1.11.4" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/css/external/jquery" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.vizaco.onlinecontrol.controller.authorization" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vizaco.onlinecontrol.controller" />
+      <recent name="com.vizaco.onlinecontrol.service.impl" />
+      <recent name="com.vizaco.onlinecontrol.dao.jpa" />
+      <recent name="com.vizaco.onlinecontrol.converters" />
+      <recent name="com.vizaco.onlinecontrol.utils" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/compiler.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/log/log.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/onlinecontrol.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/authorization/GoogleController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/StudentDao.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/UserDao.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Role.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/StudentService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/UserService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/StudentServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/UserServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/db/hsqldb/populateDB.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/messages_en.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/messages_ru.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/UserControllerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/securityContextMock/WithMockUserSecurityContextFactory.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/converters/StringToRoleTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImplTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/model/RoleTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/service/impl/UserServiceImplTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/utils/UsersUtilTest.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_core_2_4_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_api_jdo_4_1_0_m4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_api_jpa_4_1_0_m4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_core_4_1_0_m4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_rdbms_4_1_0_m4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_0_Beta2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_ehcache_5_0_0_Beta2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_0_Beta2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_0_Beta1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jdeparser_jdeparser_1_0_0_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_2_1_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_annotations_1_2_0_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_processor_1_2_0_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_7_0_0_pre5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_7_0_0_pre5.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_3_0_pre4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_6_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_3_3_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_datatables_1_10_7.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/RoleController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/ClazzDao.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/RoleDao.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaRoleDaoImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/ClazzService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/RoleService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/ClazzServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/RoleServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roleDetails.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/createOrUpdateStudentForm.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrol.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_google_appengine_orm_datanucleus_appengine_2_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_3_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__javax_jdo_jdo_api_3_0_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_jta_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_api_jpa_4_1_0_m3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_datanucleus_datanucleus_core_3_2_0_m4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_3_8_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_3_8_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_3_Final.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_annotations_1_2_0_Beta1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_26.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_4_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/UsersUtils.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/account.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/css/onlinecontrol.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/css/onlinecontrolDialog.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/Contributing.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/column_render.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/complex_header.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/defaults.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/dom_multiple_elements.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/dom_toolbar.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/dt_events.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/events_live.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/footer_callback.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/html5-data-attributes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/html5-data-options.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/language_file.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/length_menu.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/object_dom_read.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/row_callback.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/row_grouping.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/advanced_init/sort_direction_control.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/custom_data_flat.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/custom_data_property.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/arrays.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/arrays_custom_prop.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/arrays_subobjects.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/objects.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/objects_deep.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/objects_root_array.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/objects_subarrays.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/data/orthogonal.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/deep.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/defer_render.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/null_data_source.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/objects.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/objects_subarrays.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/orthogonal-data.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/ajax/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/add_row.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/api_in_init.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/counter_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/form.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/highlight.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/multi_filter.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/multi_filter_select.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/regex.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/row_details.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/select_row.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/select_single_row.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/show_hide.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/api/tabs_and_scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/alt_pagination.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/comma-decimal.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/complex_header.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/dom.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/filter_only.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/flexible_width.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/hidden_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/language.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/multi_col_sort.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/multiple_tables.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/scroll_x.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/scroll_xy.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/scroll_y.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/scroll_y_theme.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/state_save.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/table_sorting.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/basic_init/zero_configuration.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/data_sources/ajax.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/data_sources/dom.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/data_sources/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/data_sources/js_array.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/data_sources/server_side.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/api.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/dom_sort.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/range_filtering.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/sorting_auto.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/plug-ins/sorting_manual.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/demo.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/demo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/details_close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/details_open.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/examples.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/syntax/Syntax Highlighter license</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/syntax/shCore.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/resources/syntax/shCore.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/custom_vars.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/defer_loading.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/ids.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/jsonp.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/object_data.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/pipeline.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/post.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/row_details.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/ids-arrays.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/ids-objects.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/jsonp.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/mysql.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/objects.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/post.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/postgres.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/server_processing.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/sqlite.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/sqlserver.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/scripts/ssp.class.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/select_rows.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/server_side/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/bootstrap.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/cell-border.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/compact.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/display.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/foundation.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/hover.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/jqueryUI.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/no-classes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/order-column.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/row-border.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/examples/styling/stripe.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/Readme.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/css/dataTables.autoFill.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/css/dataTables.autoFill.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/complete-callback.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/fill-both.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/fill-horizontal.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/examples/step-callback.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/images/filler.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/js/dataTables.autoFill.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/AutoFill/js/dataTables.autoFill.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/License.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/css/dataTables.colReorder.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/css/dataTables.colReorder.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/alt_insert.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/col_filter.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/colvis.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/fixedcolumns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/fixedheader.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/jqueryui.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/new_init.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/predefined.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/realtime.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/reset.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/server_side.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/examples/state_save.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/images/insert.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/js/dataTables.colReorder.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColReorder/js/dataTables.colReorder.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/License.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/css/dataTables.colVis.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/css/dataTables.colVis.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/css/dataTables.colvis.jqueryui.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/button_order.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/exclude_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/group_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/jqueryui.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/mouseover.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/new_init.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/restore.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/text.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/title_callback.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/two_tables.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/examples/two_tables_identical.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/js/dataTables.colVis.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/ColVis/js/dataTables.colVis.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/License.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/css/dataTables.fixedColumns.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/css/dataTables.fixedColumns.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/bootstrap.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/col_filter.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/colvis.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/css_size.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/index_column.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/left_right_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/right_column.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/rowspan.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/server-side-processing.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/size_fixed.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/size_fluid.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/examples/two_columns.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/js/dataTables.fixedColumns.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedColumns/js/dataTables.fixedColumns.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/Readme.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/css/dataTables.fixedHeader.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/css/dataTables.fixedHeader.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/header_footer.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/top_left_right.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/two_tables.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/examples/zIndexes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/js/dataTables.fixedHeader.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/FixedHeader/js/dataTables.fixedHeader.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/Readme.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/css/dataTables.keyTable.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/css/dataTables.keyTable.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/examples/events.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/examples/html.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/examples/scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/js/dataTables.keyTable.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/KeyTable/js/dataTables.keyTable.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/License.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/css/dataTables.responsive.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/css/dataTables.responsive.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/column-control.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/custom-renderer.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/disable-child-rows.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/right-column.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/child-rows/whole-row-control.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/display-control/auto.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/display-control/classes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/display-control/fixedHeader.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/display-control/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/display-control/init-classes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/ajax.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/className.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/default.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/new.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/initialisation/option.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/styling/bootstrap.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/styling/compact.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/styling/foundation.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/styling/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/examples/styling/scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/js/dataTables.responsive.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Responsive/js/dataTables.responsive.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/Readme.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/css/dataTables.scroller.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/css/dataTables.scroller.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/api_scrolling.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/data/2500.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/data/ssp.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/large_js_source.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/server-side_processing.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/examples/state_saving.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/images/loading-background.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/js/dataTables.scroller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/Scroller/js/dataTables.scroller.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/Readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/css/dataTables.tableTools.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/css/dataTables.tableTools.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/ajax.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/alter_buttons.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/bootstrap.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/button_text.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/collection.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/defaults.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/jqueryui.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/multi_instance.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/multiple_tables.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/new_init.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/pdf_message.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/plug-in.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/select_column.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/select_multi.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/select_os.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/select_single.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/simple.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/examples/swf_path.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/collection.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/collection_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/copy.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/copy_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/csv.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/csv_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/pdf.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/pdf_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/print.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/print_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/psd/collection.psd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/psd/copy document.psd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/psd/file_types.psd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/psd/printer.psd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/xls.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/images/xls_hover.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/js/dataTables.tableTools.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/js/dataTables.tableTools.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/swf/copy_csv_xls.swf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/extensions/TableTools/swf/copy_csv_xls_pdf.swf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/license.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/css/jquery.dataTables.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/css/jquery.dataTables.min.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/css/jquery.dataTables_themeroller.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/Sorting icons.psd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/favicon.ico</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/sort_asc.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/sort_asc_disabled.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/sort_both.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/sort_desc.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/images/sort_desc_disabled.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/js/jquery.dataTables.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/js/jquery.dataTables.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/dataTables_1.10.6/media/js/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrolDialog.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Maven.Jetty">
     <configuration default="false" name="All in onlinecontrol" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -1582,6 +2059,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
     <configuration default="false" name="Jetty" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -1617,10 +2100,14 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Maven.Jetty" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Onlinecontrol edit" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.All in onlinecontrol" />
+    <configuration default="false" name="JS Debug" type="JavascriptDebugType" factoryName="JavaScript Debug" editBeforeRun="true" uri="http://localhost:10201/onlinecontrol/users/4/edit">
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Onlinecontrol edit" />
+      <item index="1" class="java.lang.String" itemvalue="Maven.Jetty" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.JS Debug" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in onlinecontrol" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -1745,12 +2232,13 @@
       <workItem from="1429596504911" duration="632000" />
       <workItem from="1429616279472" duration="36728000" />
       <workItem from="1429781194759" duration="262764000" />
-      <workItem from="1430142968013" duration="52000" />
-      <workItem from="1430464054612" duration="601000" />
-      <workItem from="1430476168208" duration="2331000" />
-      <workItem from="1430723258702" duration="20662000" />
-      <workItem from="1430806141863" duration="24115000" />
-      <workItem from="1430835610453" duration="2574000" />
+      <workItem from="1430142968013" duration="16000" />
+      <workItem from="1430243558000" duration="2450000" />
+      <workItem from="1430246073333" duration="4825000" />
+      <workItem from="1430653984141" duration="450000" />
+      <workItem from="1430654675468" duration="9325000" />
+      <workItem from="1430672791043" duration="5829000" />
+      <workItem from="1430847310893" duration="6641000" />
     </task>
     <task id="LOCAL-00001" summary="user ID as primary">
       <created>1423066646052</created>
@@ -1909,22 +2397,22 @@
       <updated>1430114172403</updated>
     </task>
     <task id="LOCAL-00027" summary="Tests">
-      <created>1430142996037</created>
+      <created>1430251526948</created>
       <option name="number" value="00027" />
       <option name="project" value="LOCAL" />
-      <updated>1430142996037</updated>
+      <updated>1430251526948</updated>
     </task>
-    <task id="LOCAL-00028" summary="Tests">
-      <created>1430751868495</created>
+    <task id="LOCAL-00028" summary="user form">
+      <created>1430679115418</created>
       <option name="number" value="00028" />
       <option name="project" value="LOCAL" />
-      <updated>1430751868495</updated>
+      <updated>1430679115418</updated>
     </task>
     <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="640614000" />
+    <option name="totallyTimeSpent" value="619815000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1936,82 +2424,83 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="31" width="1928" height="1053" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5058698" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39701173" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5037433" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.4945055" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22523962" sideWeight="0.4941302" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.4945055" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31657755" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5058698" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19796138" sideWeight="0.4941302" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5037433" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29220778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3037433" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.50549453" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32834226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3037433" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26730564" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32085562" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40427807" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3180363" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.4945055" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29329005" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3037433" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31657755" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.50549453" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5058698" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2905983" sideWeight="0.4941302" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27103302" sideWeight="0.5037433" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32834226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2034,28 +2523,26 @@
     <MESSAGE value="Tests Student, User" />
     <MESSAGE value="Tests exceptions" />
     <MESSAGE value="Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests" />
+    <MESSAGE value="user form" />
+    <option name="LAST_COMMIT_MESSAGE" value="user form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.1.4.RELEASE/spring-test-4.1.4.RELEASE-sources.jar!/org/springframework/test/context/support/AbstractGenericContextLoader.java</url>
           <line>118</line>
           <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class</url>
-          <line>95</line>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java</url>
+          <line>26</line>
           <properties />
-          <option name="timeStamp" value="187" />
+          <option name="timeStamp" value="188" />
         </line-breakpoint>
       </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-      <option name="time" value="196" />
+      <option name="time" value="204" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="MavenRunConfiguration">
@@ -2070,340 +2557,153 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/cfg/Settings.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE-sources.jar!/org/springframework/aop/support/AopUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
-          <folding>
-            <element signature="e#10371#10372#0" expanded="false" />
-          </folding>
+          <caret line="316" column="0" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/engine/jdbc/internal/JdbcCoordinatorImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.4.RELEASE/spring-tx-4.1.4.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
+          <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/action/internal/EntityAction.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.4.RELEASE/spring-tx-4.1.4.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#3886#3887#0" expanded="false" />
-            <element signature="e#3908#3909#0" expanded="false" />
-            <element signature="e#4084#4085#0" expanded="false" />
-            <element signature="e#4209#4210#0" expanded="false" />
-            <element signature="e#4232#4233#0" expanded="false" />
-          </folding>
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/internal/SessionFactoryImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="748" column="0" selection-start-line="748" selection-start-column="0" selection-end-line="748" selection-end-column="0" />
+          <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/internal/AbstractSessionImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#4720#4721#0" expanded="false" />
-            <element signature="e#5384#5385#0" expanded="false" />
-            <element signature="e#5426#5427#0" expanded="false" />
-          </folding>
+          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/internal/SessionImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.4.RELEASE/spring-tx-4.1.4.RELEASE-sources.jar!/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1428" column="0" selection-start-line="1428" selection-start-column="0" selection-end-line="1428" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/tuple/entity/EntityMetamodel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1065" column="0" selection-start-line="1065" selection-start-column="0" selection-end-line="1065" selection-end-column="0" />
-          <folding>
-            <element signature="e#32873#32874#0" expanded="false" />
-            <element signature="e#32891#32892#0" expanded="false" />
-            <element signature="e#35750#35751#0" expanded="false" />
-            <element signature="e#35777#35778#0" expanded="false" />
-            <element signature="e#35814#35815#0" expanded="false" />
-            <element signature="e#35841#35842#0" expanded="false" />
-            <element signature="e#36337#36338#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/persister/entity/AbstractEntityPersister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4302" column="0" selection-start-line="4302" selection-start-column="0" selection-end-line="4302" selection-end-column="0" />
-          <folding>
-            <element signature="e#139071#139072#0" expanded="false" />
-            <element signature="e#139110#139111#0" expanded="false" />
-            <element signature="e#147466#147467#0" expanded="false" />
-            <element signature="e#147514#147515#0" expanded="false" />
-            <element signature="e#147551#147552#0" expanded="false" />
-            <element signature="e#147599#147600#0" expanded="false" />
-            <element signature="e#148419#148420#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/type/AbstractStandardBasicType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
-          <folding>
-            <element signature="e#5818#5819#0" expanded="false" />
-            <element signature="e#5858#5859#0" expanded="false" />
-            <element signature="e#5877#5878#0" expanded="false" />
-            <element signature="e#5914#5915#0" expanded="false" />
-            <element signature="e#5933#5934#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/engine/internal/NonNullableTransientDependencies.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="e#2991#2992#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/engine/internal/ForeignKeys.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="343" column="0" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/action/internal/EntityIdentityInsertAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
-          <folding>
-            <element signature="e#8033#8034#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/event/internal/AbstractSaveEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4438326">
-          <caret line="280" column="0" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/event/internal/DefaultPersistEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47136563">
-          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3061674">
+        <state vertical-scroll-proportion="0.3328">
           <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/4.1.6.RELEASE/spring-orm-4.1.6.RELEASE-sources.jar!/org/springframework/orm/jpa/SharedEntityManagerCreator.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE-sources.jar!/org/springframework/aop/target/SingletonTargetSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19603524">
-          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3328">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.0.0.Beta2/hibernate-entitymanager-5.0.0.Beta2-sources.jar!/org/hibernate/jpa/spi/AbstractEntityManagerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19603524">
-          <caret line="1178" column="0" selection-start-line="1178" selection-start-column="0" selection-end-line="1178" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4832">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/engine/spi/ActionQueue.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.1.4.RELEASE/spring-context-4.1.4.RELEASE-sources.jar!/org/springframework/format/support/FormattingConversionServiceFactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19603524">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.1296">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.0.0.Beta2/hibernate-core-5.0.0.Beta2-sources.jar!/org/hibernate/action/internal/AbstractEntityInsertAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/mvc-core-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19603524">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding>
-            <element signature="e#3108#3109#0" expanded="false" />
-            <element signature="e#3127#3128#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages_ru.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32386363">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages_en.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28977272">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/populateDB.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19603524">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/ClazzServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7929515">
-          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.62460065">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/ClazzService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31387666">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.6805112">
+          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/webjars/jquery/2.1.3/jquery-2.1.3.jar!/META-INF/resources/webjars/jquery/2.1.3/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83480173">
-          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/ClazzDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.280837">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/RoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.066079296">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/vizaco/onlinecontrol/controller/StudentControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7947761">
-          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34251103">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="4706" column="4" selection-start-line="4706" selection-start-column="4" selection-end-line="4706" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery-ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8315" column="44" selection-start-line="8315" selection-start-column="44" selection-end-line="8315" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.27647716">
+          <caret line="8104" column="23" selection-start-line="8104" selection-start-column="23" selection-end-line="8104" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9504792">
+          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3733108">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/onlinecontrol.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6442731">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36343613">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3445946">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26431718">
-          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/findStudents.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1486784">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state vertical-scroll-proportion="12.884615">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/createOrUpdateStudentForm.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5260181">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        <state vertical-scroll-proportion="38.384617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2411,107 +2711,256 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1768#1769#0" expanded="false" />
-            <element signature="e#1818#1819#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.041667">
-          <caret line="17" column="75" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.541666">
-          <caret line="62" column="117" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/userDetails.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.916666">
-          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.416666">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42857143">
-          <caret line="245" column="21" selection-start-line="245" selection-start-column="21" selection-end-line="245" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragments/jQueryLib.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.166667">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/webjars/datatables/1.10.7/datatables-1.10.7.jar!/META-INF/resources/webjars/datatables/1.10.7/js/jquery.dataTables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3423729">
-          <caret line="14773" column="4" selection-start-line="14773" selection-start-column="4" selection-end-line="14773" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.416666">
-          <caret line="50" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/selectStudent.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.416666">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state vertical-scroll-proportion="-15.153846">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/StudentController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/populateDB.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6923077">
-          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+        <state vertical-scroll-proportion="-4.6896553">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/data-access.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/application-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+          <folding>
+            <element signature="e#2666#2683#0" expanded="true" />
+            <element signature="e#2694#2710#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54464287">
+          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/createOrUpdateUserForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roles.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.26923">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/studentDetails.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.461538">
+          <caret line="57" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/account.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327787">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/createOrUpdateStudentForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="25.5">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/createOrUpdateRoleForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8461539">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/createOrUpdateClassForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.653846">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="5" selection-start-line="61" selection-start-column="4" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="e#1254#1255#0" expanded="true" />
+            <element signature="e#1298#1299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/School.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/News.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/roles/roleDetails.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classDetails.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/students/students.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077">
+          <caret line="48" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/classes/classes.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.153847">
+          <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/ClazzController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Clazz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43638393">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="39" />
           <folding />
         </state>
       </provider>

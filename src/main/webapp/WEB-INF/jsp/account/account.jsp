@@ -21,11 +21,16 @@
         <p><a href='<spring:url value="/roles" htmlEscape="true"/>' role="button">Список ролей</a></p>
     </sec:authorize>
     <hr/>
-    <a href='<spring:url value="/students/find" htmlEscape="true"/>'>Найти студента</a>
-    <a href='<spring:url value="/students/selectStudent" htmlEscape="true"/>'>Выбрать студента</a>
+    <p><a href='<spring:url value="/students/find" htmlEscape="true"/>'>Найти студента</a></p>
+    <p><a href='<spring:url value="/students/selectStudent" htmlEscape="true"/>'>Выбрать студента</a></p>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p><a href='<spring:url value="/students/new" htmlEscape="true"/>' role="button">Добавить студента</a></p>
         <p><a href='<spring:url value="/students" htmlEscape="true"/>' role="button">Список студентов</a></p>
+    </sec:authorize>
+    <hr/>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p><a href='<spring:url value="/classes/new" htmlEscape="true"/>' role="button">Добавить класс</a></p>
+        <p><a href='<spring:url value="/classes" htmlEscape="true"/>' role="button">Список классов</a></p>
     </sec:authorize>
 
 </div>
