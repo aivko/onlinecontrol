@@ -2,8 +2,10 @@ package com.vizaco.onlinecontrol.utils;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.Role;
+import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.RoleService;
+import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 
 /**
@@ -45,6 +47,24 @@ public class Utils {
             throw new CustomGenericException("404", "Page not found for the role with the ID " + roleId);
         }
         return role;
+    }
+
+    public Student getStudent(String studentIdStr, StudentService studentService) {
+
+        Long studentId;
+
+        try {
+            studentId = Long.valueOf(studentIdStr);
+        }catch (NumberFormatException ex){
+            throw new CustomGenericException("404", "Page not found for the student with the ID " + studentIdStr);
+        }
+
+        Student student = studentService.findStudentById(studentId);
+
+        if (student == null){
+            throw new CustomGenericException("404", "Page not found for the student with the ID " + studentId);
+        }
+        return student;
     }
 
 }

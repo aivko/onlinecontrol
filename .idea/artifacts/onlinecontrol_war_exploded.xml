@@ -21,15 +21,13 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
           <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.18" />
           <element id="library" level="project" name="Maven: org.datanucleus:javax.persistence:2.1.0" />
-          <element id="library" level="project" name="Maven: com.google.appengine.orm:datanucleus-appengine:2.1.1" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:3.2.0-m4" />
-          <element id="library" level="project" name="Maven: javax.jdo:jdo-api:3.0.1" />
-          <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:4.1.0-m4" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-api-jpa:4.1.0-m4" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-jpa-query:4.0.4" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-enhancer:3.1.1" />
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.0" />
-          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-jpa:2.1.8" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-api-jdo:4.1.0-m4" />
+          <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-rdbms:4.1.0-m4" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty:7.0.0.pre5" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api:3.0.pre4" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:7.0.0.pre5" />
@@ -55,6 +53,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.webjars:bootstrap:3.3.4" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.3" />
+          <element id="library" level="project" name="Maven: org.webjars:datatables:1.10.7" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.0.0.Beta2" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.2.1.Final" />

@@ -69,7 +69,7 @@ CREATE TABLE students (
   middle_name     VARCHAR(30),
   date_of_birth   DATE,
   gender          VARCHAR(30) NOT NULL,
-  clazz_id        BIGINT NOT NULL
+  clazz_id        BIGINT
 );
 CREATE INDEX students_last_name ON students (last_name);
 -- ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);

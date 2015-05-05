@@ -15,7 +15,7 @@
     <c:choose>
         <c:when test="${user['new']}">
             <c:set var="method" value="post"/>
-            <spring:url value="/registration" htmlEscape="true" var="action"/>
+            <spring:url value="/users/new" htmlEscape="true" var="action"/>
         </c:when>
         <c:otherwise>
             <c:set var="method" value="put"/>
@@ -66,55 +66,58 @@
 
         <hr>
 
-        <div id="users-contain" class="ui-widget">
-            <h1>Roles:</h1>
-            <table id="roles" class="ui-widget ui-widget-content">
-                <thead>
-                <tr class="ui-widget-header ">
-                    <th>Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${user.roles}" varStatus="vs">
-                    <tr>
-                        <td>${user.roles[vs.index].name}</td>
-                        <form:hidden path="roles[${vs.index}].roleId"/>
-                        <form:hidden path="roles[${vs.index}].name"/>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
-        <button class="add-role">Add role</button>
+        <%--<div id="users-contain" class="ui-widget">--%>
+            <%--<h1>Roles:</h1>--%>
+            <%--<table id="roles" class="ui-widget ui-widget-content">--%>
+                <%--<thead>--%>
+                <%--<tr class="ui-widget-header ">--%>
+                    <%--<th>Name</th>--%>
+                    <%--<th>Description</th>--%>
+                <%--</tr>--%>
+                <%--</thead>--%>
+                <%--<tbody>--%>
+                <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
+                    <%--<tr>--%>
+                        <%--<td>${user.roles[vs.index].name}</td>--%>
+                        <%--<td>${user.roles[vs.index].description}</td>--%>
+                        <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].name"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].description"/>--%>
+                    <%--</tr>--%>
+                <%--</c:forEach>--%>
+                <%--</tbody>--%>
+            <%--</table>--%>
+        <%--</div>--%>
+        <%--<button id="add-role">Add role</button>--%>
 
-        <hr>
+        <%--<hr>--%>
 
-        <div id="users-contain" class="ui-widget">
-            <h1>Students:</h1>
-            <table id="students" class="ui-widget ui-widget-content">
-                <thead>
-                <tr class="ui-widget-header">
-                    <th>Last name</th>
-                    <th>First name</th>
-                    <th>Middle name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${user.students}" varStatus="vs">
-                    <tr>
-                        <td>${user.students[vs.index].lastName}</td>
-                        <td>${user.students[vs.index].firstName}</td>
-                        <td>${user.students[vs.index].middleName}</td>
-                        <form:hidden path="students[${vs.index}].studentId"/>
-                        <form:hidden path="students[${vs.index}].lastName"/>
-                        <form:hidden path="students[${vs.index}].firstName"/>
-                        <form:hidden path="students[${vs.index}].middleName"/>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
-        <button class="add-student">Add student</button>
+        <%--<div id="users-contain" class="ui-widget">--%>
+            <%--<h1>Students:</h1>--%>
+            <%--<table id="students" class="ui-widget ui-widget-content">--%>
+                <%--<thead>--%>
+                <%--<tr class="ui-widget-header">--%>
+                    <%--<th>Last name</th>--%>
+                    <%--<th>First name</th>--%>
+                    <%--<th>Middle name</th>--%>
+                <%--</tr>--%>
+                <%--</thead>--%>
+                <%--<tbody>--%>
+                <%--<c:forEach items="${user.students}" varStatus="vs">--%>
+                    <%--<tr>--%>
+                        <%--<td>${user.students[vs.index].lastName}</td>--%>
+                        <%--<td>${user.students[vs.index].firstName}</td>--%>
+                        <%--<td>${user.students[vs.index].middleName}</td>--%>
+                        <%--<form:hidden path="students[${vs.index}].studentId"/>--%>
+                        <%--<form:hidden path="students[${vs.index}].lastName"/>--%>
+                        <%--<form:hidden path="students[${vs.index}].firstName"/>--%>
+                        <%--<form:hidden path="students[${vs.index}].middleName"/>--%>
+                    <%--</tr>--%>
+                <%--</c:forEach>--%>
+                <%--</tbody>--%>
+            <%--</table>--%>
+        <%--</div>--%>
+        <%--<button class="add-student">Add student</button>--%>
 
         <hr>
         <br>

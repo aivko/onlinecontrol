@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.StudentDao;
+import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -68,6 +69,14 @@ public class JpaStudentDaoImpl implements StudentDao {
     		this.em.merge(student);
     	}
 
+    }
+
+    @Override
+    public void delete(Student student) throws DataAccessException {
+        if (student == null){
+            return;
+        }
+        this.em.remove(student);
     }
 
 }

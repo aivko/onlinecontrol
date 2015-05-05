@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <spring:url value="/students" htmlEscape="true" var="action"/>
+    <spring:url value="/students/find" htmlEscape="true" var="action"/>
 </head>
 
 <body>

@@ -1,9 +1,12 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.vizaco.onlinecontrol.enumeration.Gender;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -21,19 +24,24 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
 
+    @NotEmpty
     @Column(name = "first_name")
     private String firstName;
 
+    @NotEmpty
     @Column(name = "last_name")
     private String lastName;
 
+    @NotEmpty
     @Column(name = "middle_name")
     private String middleName;
 
+    @NotNull
     @Column(name = "date_of_birth")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date dateOfBirth;
 
+    @NotNull
     @Column(name = "gender")
     @Enumerated(value = EnumType.STRING)
     private Gender gender;

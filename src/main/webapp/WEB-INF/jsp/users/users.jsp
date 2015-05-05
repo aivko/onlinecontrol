@@ -25,6 +25,7 @@
             <th>Students</th>
             <th>Roles</th>
             <th>Edit</th>
+            <th>Details</th>
             <th>Delete</th>
         </tr>
         <c:forEach var="user" items="${users}">
@@ -57,6 +58,9 @@
                 </td>
                 <td>
                     <a href='<spring:url value="/users/${user.userId}/edit" htmlEscape="true"/>' role="button">Edit</a></p>
+                </td>
+                <td>
+                    <a href='<spring:url value="/users/${user.userId}" htmlEscape="true"/>' role="button">Details</a></p>
                 </td>
                 <td>
                     <spring:url value="/users/${user.userId}/delete" htmlEscape="true" var="action"/>

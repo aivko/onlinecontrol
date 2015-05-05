@@ -77,7 +77,7 @@ public class RoleController {
 
         Role role = utils.getRole(roleIdStr, roleService);
 
-        ModelAndView mav = new ModelAndView("/roles/roleDetail");
+        ModelAndView mav = new ModelAndView("/roles/roleDetails");
 
         mav.addObject("role", role);
 

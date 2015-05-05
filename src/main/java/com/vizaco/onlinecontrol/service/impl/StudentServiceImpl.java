@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.service.impl;
 
 import com.vizaco.onlinecontrol.dao.StudentDao;
+import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,16 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public void saveStudent(Student student) throws DataAccessException {
         studentDao.save(student);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudent(Long id) throws DataAccessException {
+        Student student = studentDao.findById(id);
+        if (student == null){
+            return;
+        }
+        studentDao.delete(student);
     }
 
 }

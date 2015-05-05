@@ -52,8 +52,20 @@ public class UserController {
         binder.setValidator(userValidator);
     }
 
+    @RequestMapping(value = "/users/{userId}/account")
+    public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
+
+        ModelAndView mav = new ModelAndView("account/account");
+
+        User user = utils.getUser(userIdStr, userService);
+
+        mav.addObject("user", user);
+
+        return mav;
+    }
+
     @RequestMapping(value = "/users")
-    public ModelAndView initAccountForm() {
+    public ModelAndView initUsersForm() {
 
         ModelAndView mav = new ModelAndView("users/users");
 
@@ -66,8 +78,8 @@ public class UserController {
 
     //CREATE USER
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String register(Model model) {
+    @RequestMapping(value = "/users/new", method = RequestMethod.GET)
+    public String createUser(Model model) {
         User attributeValue = new User();
         attributeValue.setRoles(new ArrayList(roleService.getAllRoles()));
         attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
@@ -75,8 +87,8 @@ public class UserController {
         return "/users/createOrUpdateUserForm";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
+    @RequestMapping(value = "/users/new", method = RequestMethod.POST)
+    public String createUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
 
         if(result.hasErrors()){
             model.addAttribute("user", user);
@@ -91,16 +103,11 @@ public class UserController {
     //READ USER
 
     @RequestMapping(value = "/users/{userId}")
-    public ModelAndView initAccountForm(@PathVariable("userId") String userIdStr) {
+    public ModelAndView readUser(@PathVariable("userId") String userIdStr) {
 
         User user = utils.getUser(userIdStr, userService);
 
-        User principal = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (user.getUserId() != principal.getUserId()){
-            return new ModelAndView("redirect:/exception/403");
-        }
-
-        ModelAndView mav = new ModelAndView("/users/account");
+        ModelAndView mav = new ModelAndView("/users/userDetails");
 
         mav.addObject("user", user);
 
@@ -110,7 +117,7 @@ public class UserController {
     //UPDATE USER
 
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.GET)
-    public ModelAndView edit(@PathVariable("userId") String userIdStr) {
+    public ModelAndView editUser(@PathVariable("userId") String userIdStr) {
 
         User user = utils.getUser(userIdStr, userService);
         ModelAndView mav = new ModelAndView("/users/createOrUpdateUserForm");
@@ -121,7 +128,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.PUT)
-    public String edit(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
+    public String editUser(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
 
         User userEdit = utils.getUser(userIdStr, userService);
 

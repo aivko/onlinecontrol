@@ -34,22 +34,27 @@
 
     <h2>Parents</h2>
 
-    <c:forEach var="user" items="${student.users}">
-        <table class="table" style="width:600px;">
+    <table class="horiz">
+
+        <thead>
+        <tr class="ui-widget-header ">
+            <th>Last name</th>
+            <th>First name</th>
+            <th>Middle name</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach items="${student.users}" var="user">
             <tr>
-                <td valign="top" style="width: 120px;">
-                    <dl class="dl-horizontal">
-                        <dt>Name</dt>
-                        <dd><c:out value="${user.firstName}"/></dd>
-                        <dt>Middle name</dt>
-                        <dd><c:out value="${user.middleName}"/></dd>
-                        <dt>Last name</dt>
-                        <dd><c:out value="${user.lastName}"/></dd>
-                    </dl>
-                </td>
+                <td>${user.lastName}</td>
+                <td>${user.firstName}</td>
+                <td>${user.middleName}</td>
             </tr>
-        </table>
-    </c:forEach>
+        </c:forEach>
+        </tbody>
+
+    </table>
 
 </div>
 

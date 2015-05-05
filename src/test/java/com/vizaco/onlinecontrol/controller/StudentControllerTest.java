@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.impl.StudentServiceImpl;
 import org.junit.Before;
@@ -47,12 +48,14 @@ public class StudentControllerTest {
 
     @Autowired
     private StudentService mockStudentService;
+    @Autowired
+    private ClazzService mockClazzService;
 
     @Before
     public void setUp() throws Exception {
 
         mockStudentService = mock(StudentServiceImpl.class);
-        mockMvc = MockMvcBuilders.standaloneSetup(new StudentController(mockStudentService)).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(new StudentController(mockStudentService, mockClazzService)).build();
     }
 
     @Test

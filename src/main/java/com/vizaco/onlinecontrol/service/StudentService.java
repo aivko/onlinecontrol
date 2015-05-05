@@ -21,4 +21,6 @@ public interface StudentService {
 
     void saveStudent(Student student) throws DataAccessException;
 
+    void deleteStudent(Long id) throws DataAccessException;
+
 }
