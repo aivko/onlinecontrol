@@ -22,11 +22,11 @@ public class Grade {
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
-    @OneToOne(fetch=FetchType.EAGER)
+    @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="subject_id")
     private Subject subject;
 
-    @OneToOne(fetch=FetchType.EAGER)
+    @OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="student_id")
     private Student student;
 

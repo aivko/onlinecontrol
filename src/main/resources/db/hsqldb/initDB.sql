@@ -75,7 +75,7 @@ CREATE INDEX students_last_name ON students (last_name);
 -- ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);
 
 CREATE TABLE teachers (
-  teacher_id      BIGINT NOT NULL,
+  teacher_id      BIGINT IDENTITY PRIMARY KEY,
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
@@ -84,7 +84,7 @@ CREATE TABLE teachers (
 CREATE INDEX teachers_last_name ON teachers (last_name);
 
 CREATE TABLE schools (
-  school_id       BIGINT NOT NULL,
+  school_id       BIGINT IDENTITY PRIMARY KEY,
   name            VARCHAR(30),
   director        VARCHAR(30),
   description     VARCHAR(30)

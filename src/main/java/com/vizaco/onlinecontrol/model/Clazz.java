@@ -22,10 +22,10 @@ public class Clazz {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Student> students;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Shedule> shedule;
 
     @ManyToOne(fetch=FetchType.EAGER)

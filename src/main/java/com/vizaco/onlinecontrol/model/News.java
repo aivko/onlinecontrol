@@ -28,7 +28,7 @@ public class News {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="school_id")
     private School school;
 

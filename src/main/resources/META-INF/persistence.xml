@@ -17,7 +17,10 @@
         <properties>
             <property name="datanucleus.ConnectionURL" value="appengine" />
             <property name="datanucleus.appengine.ignorableMetaDataBehavior" value="NONE" />
+            <property name="format_sql" value="true"/>
         </properties>
+
     </persistence-unit>
+    
 
 </persistence>

@@ -1,13 +1,8 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.vizaco.onlinecontrol.enumeration.Gender;
-import org.junit.Assert;
-import org.junit.Assert.*;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.*;
 
@@ -259,7 +254,7 @@ public class StudentTest {
 
     @Test
     public void addTwoUserTest(){
-        List<User> users = new ArrayList();
+        List<User> users = new ArrayList<User>();
         User user1 = new User();
         user1.setUserId(1L);
         User user2 = new User();
@@ -275,10 +270,10 @@ public class StudentTest {
 
     @Test
     public void addZeroUserTest(){
-        List<User> users = new ArrayList();
+        ArrayList users = new ArrayList();
 
         Student student = new Student();
-        student.setUsers(new ArrayList());
+        student.setUsers(new ArrayList<User>());
         assertEquals(users.size(), student.getUsers().size());
     }
 
