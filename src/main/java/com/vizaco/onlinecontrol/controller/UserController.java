@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.model.Role;
+import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
@@ -76,6 +78,7 @@ public class UserController {
         return mav;
     }
 
+    //<editor-fold desc="CRUD USER">
     //CREATE USER
 
     @RequestMapping(value = "/users/new", method = RequestMethod.GET)
@@ -153,6 +156,71 @@ public class UserController {
 
         return new ModelAndView("redirect:/users");
 
+    }
+    //</editor-fold>
+
+    @RequestMapping(value = "/users/{userId}/students/add", method = RequestMethod.GET)
+    public String addStudent(@PathVariable("userId") String userIdStr, Model model) {
+        User user = utils.getUser(userIdStr, userService);
+        model.addAttribute("user", user);
+        model.addAttribute("students", studentService.getAllStudents());
+        return "/students/selectStudent";
+    }
+
+    @RequestMapping(value = "/users/{userId}/students/{studentId}/add", method = RequestMethod.POST)
+    public String addStudent(@PathVariable("userId") String userIdStr, @PathVariable("studentId") String studentIdStr) {
+
+        User user = utils.getUser(userIdStr, userService);
+        Student student = utils.getStudent(studentIdStr, studentService);
+        List<Student> students = user.getStudents();
+        students.add(student);
+
+        userService.saveUser(user);
+        return "redirect:/users/" + user.getUserId();
+    }
+
+    @RequestMapping(value = "/users/{userId}/students/{studentId}/delete", method = RequestMethod.POST)
+    public String deleteStudent(@PathVariable("userId") String userIdStr, @PathVariable("studentId") String studentIdStr) {
+
+        User user = utils.getUser(userIdStr, userService);
+        Student student = utils.getStudent(studentIdStr, studentService);
+        List<Student> students = user.getStudents();
+        students.remove(student);
+
+        userService.saveUser(user);
+        return "redirect:/users/" + user.getUserId();
+    }
+
+    @RequestMapping(value = "/users/{userId}/roles/add", method = RequestMethod.GET)
+    public String addRole(@PathVariable("userId") String userIdStr, Model model) {
+        User user = utils.getUser(userIdStr, userService);
+        model.addAttribute("user", user);
+        model.addAttribute("roles", roleService.getAllRoles());
+        return "/roles/selectRole";
+    }
+
+    @RequestMapping(value = "/users/{userId}/roles/{roleId}/add", method = RequestMethod.POST)
+    public String addRole(@PathVariable("userId") String userIdStr, @PathVariable("roleId") String roleIdStr) {
+
+        User user = utils.getUser(userIdStr, userService);
+        Role role = utils.getRole(roleIdStr, roleService);
+        List<Role> roles = user.getRoles();
+        roles.add(role);
+
+        userService.saveUser(user);
+        return "redirect:/users/" + user.getUserId();
+    }
+
+    @RequestMapping(value = "/users/{userId}/roles/{roleId}/delete", method = RequestMethod.POST)
+    public String deleteRole(@PathVariable("userId") String userIdStr, @PathVariable("roleId") String roleIdStr) {
+
+        User user = utils.getUser(userIdStr, userService);
+        Role role = utils.getRole(roleIdStr, roleService);
+        List<Role> roles = user.getRoles();
+        roles.remove(role);
+
+        userService.saveUser(user);
+        return "redirect:/users/" + user.getUserId();
     }
 
 }

@@ -89,10 +89,10 @@ public class StudentController {
         return mav;
     }
 
-    @RequestMapping(value = "/students/selectStudent")
+    @RequestMapping(value = "/students/select")
     public ModelAndView testForm() {
 
-        ModelAndView mav = new ModelAndView("students/selectStudent");
+        ModelAndView mav = new ModelAndView("students/select");
 
         List<Student> students = studentService.getAllStudents();
 
@@ -101,7 +101,8 @@ public class StudentController {
         return mav;
     }
 
-    //CREATE ROLE
+    //<editor-fold desc="CRUD STUDENT">
+    //CREATE STUDENT
 
     @RequestMapping(value = "/students/new", method = RequestMethod.GET)
     public String register(Model model) {
@@ -122,7 +123,7 @@ public class StudentController {
         return "redirect:/students/";
     }
 
-    //READ ROLE
+    //READ STUDENT
 
     @RequestMapping(value = "/students/{studentsId}")
     public ModelAndView initAccountForm(@PathVariable("studentsId") String studentIdStr) {
@@ -136,7 +137,7 @@ public class StudentController {
         return mav;
     }
 
-    //UPDATE ROLE
+    //UPDATE STUDENT
 
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("studentId") String studentIdStr) {
@@ -164,7 +165,7 @@ public class StudentController {
         return "redirect:/students/";
     }
 
-    //DELETE ROLE
+    //DELETE STUDENT
 
     @RequestMapping(value = "/students/{studentId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("studentId") String studentIdStr) {
@@ -175,5 +176,6 @@ public class StudentController {
         return new ModelAndView("redirect:/students");
 
     }
+    //</editor-fold>
 
 }

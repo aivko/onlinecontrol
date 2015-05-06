@@ -11,7 +11,7 @@
 <body>
 <div>
 
-    <h2>Students Information</h2>
+    <h2>Список студентов</h2>
 
     <table border="1">
         <tr>

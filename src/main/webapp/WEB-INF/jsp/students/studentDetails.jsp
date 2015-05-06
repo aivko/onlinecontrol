@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <th>Date of Birth</th>
-            <td><c:out value="${student.dateOfBirth}"/></td>
+            <td><fmt:formatDate pattern="dd.MM.yyyy" value="${student.dateOfBirth}"/></td>
         </tr>
         <tr>
             <th>Class</th>

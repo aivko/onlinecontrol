@@ -8,43 +8,66 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
+<head>
 
+    <spring:url value="/webjars/jquery/2.1.3/jquery.js" var="jQuery"/>
+    <script src="${jQuery}"></script>
+
+    <jsp:include page="../fragments/datatablesLib.jsp"/>
+
+    <script>
+        $(document).ready(function() {
+            var tableRoles = $('#roles').DataTable({
+                "scrollY":        "200px",
+                "scrollCollapse": true,
+                "paging":         false
+            } );
+            var tableStudents = $('#students').DataTable({
+                "scrollY":        "200px",
+                "scrollCollapse": true,
+                "paging":         false
+            } );
+        } );
+    </script>
+
+</head>
 <body>
 <div class="container">
 
-    <h2>User Information</h2>
+    <h2>Информация пользователя</h2>
 
-    <table class="horiz">
+    <table>
         <tr>
             <td>Login:</td>
             <td><c:out value="${user.login}"/></td>
         </tr>
 
         <tr>
-            <td>First name:</td>
+            <td>Фамилия:</td>
+            <td><c:out value="${user.lastName}"/></td>
+        </tr>
+
+        <tr>
+            <td>Имя:</td>
             <td><c:out value="${user.firstName}"/></td>
         </tr>
 
         <tr>
-            <td>Middle name:</td>
+            <td>Отчество:</td>
             <td><c:out value="${user.middleName}"/></td>
-        </tr>
-
-        <tr>
-            <td>Last name:</td>
-            <td><c:out value="${user.lastName}"/></td>
         </tr>
 
     </table>
 
-    <h4>Roles</h4>
+    <h4>Роли</h4>
 
-    <table class="horiz">
+    <table id="roles" class="display compact cell-border" cellspacing="0" width="100%">
 
         <thead>
         <tr class="ui-widget-header ">
-            <th>Name</th>
-            <th>Description</th>
+            <th>Имя</th>
+            <th>Описание</th>
+            <th>Удалить роль</th>
         </tr>
         </thead>
 
@@ -53,22 +76,37 @@
             <tr>
                 <td>${role.name}</td>
                 <td>${role.description}</td>
+
+                <td>
+                    <spring:url value="/users/${user.userId}/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
+                    <form:form method="delete" action="${action}">
+                        <p class="submit"><input type="submit" value="Удалить"/></p>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form:form>
+                </td>
+
             </tr>
         </c:forEach>
         </tbody>
 
     </table>
-    <a href='<spring:url value="/users/${user.userId}/roles/" htmlEscape="true"/>' role="button">Add role</a>
+    <a href='<spring:url value="/users/${user.userId}/roles/add" htmlEscape="true"/>' role="button">Добавить роль</a>
 
-    <h4>Students</h4>
+    <hr/>
 
-    <table class="horiz">
+    <h4>Студенты</h4>
+
+    <table id="students" class="display compact cell-border" cellspacing="0" width="100%">
 
         <thead>
         <tr class="ui-widget-header ">
-            <th>Last name</th>
-            <th>First name</th>
-            <th>Middle name</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th>Пол</th>
+            <th>Класс</th>
+            <th>Удалить студента</th>
         </tr>
         </thead>
 
@@ -78,11 +116,26 @@
                 <td>${student.lastName}</td>
                 <td>${student.firstName}</td>
                 <td>${student.middleName}</td>
+                <td><fmt:formatDate pattern="dd.MM.yyyy" value="${student.dateOfBirth}"/></td>
+                <td>${student.gender}</td>
+                <td>${student.clazz.name}</td>
+
+                <td>
+                    <spring:url value="/users/${user.userId}/students/${student.studentId}/delete" htmlEscape="true" var="action"/>
+                    <form:form method="delete" action="${action}">
+                        <p class="submit"><input type="submit" value="Удалить"/></p>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form:form>
+                </td>
+
             </tr>
         </c:forEach>
         </tbody>
 
     </table>
+    <span>
+        <a href='<spring:url value="/users/${user.userId}/students/add" htmlEscape="true"/>' role="button">Добавить студента</a>
+    </span>
 
 </div>
 
