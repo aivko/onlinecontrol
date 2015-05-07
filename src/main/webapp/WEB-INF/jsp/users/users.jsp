@@ -31,6 +31,7 @@
         <thead>
         <tr>
             <th>Login</th>
+            <th>Password</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
@@ -46,6 +47,9 @@
             <tr>
                 <td>
                     <c:out value="${user.login}"/>
+                </td>
+                <td>
+                    <c:out value="${user.password}"/>
                 </td>
                 <td>
                     <c:out value="${user.lastName}"/>

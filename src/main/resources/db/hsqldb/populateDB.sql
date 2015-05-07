@@ -21,7 +21,7 @@ INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');
 INSERT INTO roles VALUES (3, 'ROLE_MANAGER', 'Manager');
 
-INSERT INTO users VALUES (1, 'petr', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Petr', 'Petrov', 'Petrovich');
+INSERT INTO users VALUES (1, 'petr', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Petr', 'Petrov', 'Petrovich');
 INSERT INTO users VALUES (2, 'ivan', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Ivan', 'Ivanov', 'Ivanovich');
 INSERT INTO users VALUES (3, 'olga', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Olga', 'Ivanova', 'Ivanovna');
 INSERT INTO users VALUES (4, 'igor', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Igor', 'Dub', 'Nikolaevich');

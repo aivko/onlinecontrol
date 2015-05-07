@@ -37,7 +37,9 @@
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="userDetailsServiceImpl">
-            <password-encoder ref="passwordEncoder" hash="sha"></password-encoder>
+            <password-encoder ref="passwordEncoder">
+                <salt-source ref="saltSource"/>
+            </password-encoder>
         </authentication-provider>
     </authentication-manager>
 
