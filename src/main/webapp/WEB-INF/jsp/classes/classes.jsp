@@ -10,43 +10,55 @@
 
 <html lang="en">
 <head>
+
+    <spring:url value="/webjars/jquery/2.1.3/jquery.js" var="jQuery"/>
+    <script src="${jQuery}"></script>
+
+    <jsp:include page="../fragments/datatablesLib.jsp"/>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#classes').DataTable();
+        } );
+    </script>
+
 </head>
 <body>
 <div>
 
-    <h2>Classes Information</h2>
+    <h2>Список классов</h2>
 
-    <table border="1">
+    <table id="classes" class="display" cellspacing="0" width="100%">
+        <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Detail</th>
+            <th>Имя</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+            <th>Детали</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="clazz" items="${clazzes}">
             <tr>
-                <td>
-                    <c:out value="${clazz.clazzId}"/>
-                </td>
                 <td>
                     <c:out value="${clazz.name}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/classes/${clazz.clazzId}/edit" htmlEscape="true"/>' role="button">Edit</a></p>
+                    <a href='<spring:url value="/classes/${clazz.clazzId}/edit" htmlEscape="true"/>' role="button">Редактировать класс</a></p>
                 </td>
                 <td>
                     <spring:url value="/classes/${clazz.clazzId}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
-                        <p class="submit"><input type="submit" value="Delete"/></p>
+                        <p class="submit"><input type="submit" value="Удалить класс"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form:form>
                 </td>
                 <td>
-                    <a href='<spring:url value="/classes/${clazz.clazzId}" htmlEscape="true"/>'>Detail</a>
+                    <a href='<spring:url value="/classes/${clazz.clazzId}" htmlEscape="true"/>'>Детальное описание</a>
                 </td>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 
 </div>

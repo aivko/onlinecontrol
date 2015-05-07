@@ -60,7 +60,7 @@ CREATE TABLE users (
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30)
 );
-CREATE INDEX users_last_name ON users (last_name);
+CREATE INDEX users_user_id ON users (user_id);
 
 CREATE TABLE students (
   student_id      BIGINT IDENTITY PRIMARY KEY,
@@ -69,9 +69,9 @@ CREATE TABLE students (
   middle_name     VARCHAR(30),
   date_of_birth   DATE,
   gender          VARCHAR(30) NOT NULL,
-  clazz_id        BIGINT
+  clazz_id        BIGINT NOT NULL
 );
-CREATE INDEX students_last_name ON students (last_name);
+CREATE INDEX students_student_id ON students (student_id);
 ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (clazz_id);
 
 CREATE TABLE teachers (

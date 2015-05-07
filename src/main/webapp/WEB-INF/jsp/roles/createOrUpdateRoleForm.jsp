@@ -8,9 +8,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
-    <sec:authorize access="isAuthenticated()">
-        <sec:authentication property="principal.userId" var="userId"/>
-    </sec:authorize>
     <c:choose>
         <c:when test="${role['new']}">
             <c:set var="method" value="post"/>
@@ -32,12 +29,12 @@
     <form:form modelAttribute="role" method="${method}" action="${action}">
         <table class="horiz">
             <tr>
-                <td><form:label path="name">Name:</form:label></td>
+                <td><form:label path="name">Имя:</form:label></td>
                 <td><form:input path="name"/><form:errors path="name" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
-                <td><form:label path="description">Description:</form:label></td>
+                <td><form:label path="description">Описание:</form:label></td>
                 <td><form:input path="description"/><form:errors path="description" cssStyle="color:red;"
                                                                cssclass="error"/></td>
             </tr>
@@ -46,7 +43,7 @@
 
         <hr>
 
-        <input type="submit" value="Save"/>
+        <input type="submit" value="Сохранить"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form:form>
 

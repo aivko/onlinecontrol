@@ -36,13 +36,6 @@ public class StudentController {
         this.clazzService = clazzService;
     }
 
-//    @InitBinder
-//    public void initBinder(WebDataBinder binder) {
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-//        sdf.setLenient(true);
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-//    }
-
     @RequestMapping(value = "/students/find", method = RequestMethod.GET)
     public String initFindForm(Map<String, Object> model) {
         model.put("student", new Student());
@@ -108,6 +101,7 @@ public class StudentController {
     public String register(Model model) {
         Student student = new Student();
         model.addAttribute(student);
+        model.addAttribute("clazzes", clazzService.getAllClazzes());
         return "/students/createOrUpdateStudentForm";
     }
 
@@ -116,6 +110,7 @@ public class StudentController {
 
         if(result.hasErrors()){
             model.addAttribute(student);
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
             return "/students/createOrUpdateStudentForm";
         }
 
@@ -161,6 +156,8 @@ public class StudentController {
         }
 
         student.setStudentId(studentEdit.getStudentId());
+        student.setClazz(studentEdit.getClazz());
+        student.setUsers(studentEdit.getUsers());
         studentService.saveStudent(student);
         return "redirect:/students/";
     }

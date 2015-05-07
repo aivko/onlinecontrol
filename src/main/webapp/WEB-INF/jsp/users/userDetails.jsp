@@ -17,16 +17,8 @@
 
     <script>
         $(document).ready(function() {
-            var tableRoles = $('#roles').DataTable({
-                "scrollY":        "200px",
-                "scrollCollapse": true,
-                "paging":         false
-            } );
-            var tableStudents = $('#students').DataTable({
-                "scrollY":        "200px",
-                "scrollCollapse": true,
-                "paging":         false
-            } );
+            var tableStudents = $('#students').DataTable();
+            var tableRoles = $('#roles').DataTable();
         } );
     </script>
 

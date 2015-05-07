@@ -88,8 +88,7 @@
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToRole"/>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToStudent"/>
+                <bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>
             </set>
         </property>
     </bean>

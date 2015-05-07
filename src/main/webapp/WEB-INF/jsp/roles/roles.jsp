@@ -10,25 +10,36 @@
 
 <html lang="en">
 <head>
+
+    <spring:url value="/webjars/jquery/2.1.3/jquery.js" var="jQuery"/>
+    <script src="${jQuery}"></script>
+
+    <jsp:include page="../fragments/datatablesLib.jsp"/>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#roles').DataTable();
+        } );
+    </script>
+
 </head>
 <body>
 <div>
 
-    <h2>Roles Information</h2>
+    <h2>Список ролей</h2>
 
-    <table border="1">
+    <table id="roles" class="display compact" cellspacing="0" width="100%">
+        <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Имя</th>
+            <th>Описание</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="role" items="${roles}">
             <tr>
-                <td>
-                    <c:out value="${role.roleId}"/>
-                </td>
                 <td>
                     <c:out value="${role.name}"/>
                 </td>
@@ -36,17 +47,18 @@
                     <c:out value="${role.description}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/roles/${role.roleId}/edit" htmlEscape="true"/>' role="button">Edit</a></p>
+                    <a href='<spring:url value="/roles/${role.roleId}/edit" htmlEscape="true"/>' role="button">Редактировать роль</a></p>
                 </td>
                 <td>
                     <spring:url value="/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
-                        <p class="submit"><input type="submit" value="Delete"/></p>
+                        <p class="submit"><input type="submit" value="Удалить роль"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form:form>
                 </td>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 
 </div>

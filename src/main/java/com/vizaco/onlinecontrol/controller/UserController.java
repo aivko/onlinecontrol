@@ -142,6 +142,8 @@ public class UserController {
         }
 
         user.setUserId(userEdit.getUserId());
+        user.setRoles(userEdit.getRoles());
+        user.setStudents(userEdit.getStudents());
         userService.saveUser(user);
         return "redirect:/users/" + user.getUserId();
     }
@@ -179,7 +181,7 @@ public class UserController {
         return "redirect:/users/" + user.getUserId();
     }
 
-    @RequestMapping(value = "/users/{userId}/students/{studentId}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/{userId}/students/{studentId}/delete", method = RequestMethod.DELETE)
     public String deleteStudent(@PathVariable("userId") String userIdStr, @PathVariable("studentId") String studentIdStr) {
 
         User user = utils.getUser(userIdStr, userService);
@@ -211,7 +213,7 @@ public class UserController {
         return "redirect:/users/" + user.getUserId();
     }
 
-    @RequestMapping(value = "/users/{userId}/roles/{roleId}/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/{userId}/roles/{roleId}/delete", method = RequestMethod.DELETE)
     public String deleteRole(@PathVariable("userId") String userIdStr, @PathVariable("roleId") String roleIdStr) {
 
         User user = utils.getUser(userIdStr, userService);

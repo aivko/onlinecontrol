@@ -8,16 +8,16 @@
 <body>
 <div class="container">
 
-    <h2>Role Information</h2>
+    <h2>Информация о роли</h2>
 
     <table class="horiz">
         <tr>
-            <td>Name:</td>
+            <td>Имя:</td>
             <td><c:out value="${role.name}"/></td>
         </tr>
 
         <tr>
-            <td>Description:</td>
+            <td>Описание:</td>
             <td><c:out value="${role.description}"/></td>
         </tr>
 
