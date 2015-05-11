@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Simple business object representing a user.
@@ -21,8 +20,8 @@ public class User implements UserDetails{
     @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "login")
-    private String login;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
@@ -35,6 +34,9 @@ public class User implements UserDetails{
 
     @Column(name = "middle_name")
     private String middleName;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "user_id"),
@@ -49,12 +51,13 @@ public class User implements UserDetails{
     public User() {
     }
 
-    public User(String login, String password, String firstName, String lastName, String middleName, List<Student> students, List<Role> roles) {
-        this.login = login;
+    public User(String email, String password, String firstName, String lastName, String middleName, boolean enabled, List<Student> students, List<Role> roles) {
+        this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
+        this.enabled = enabled;
         this.students = students;
         this.roles = roles;
     }
@@ -62,7 +65,7 @@ public class User implements UserDetails{
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
-        sb.append("login='").append(login).append('\'');
+        sb.append("login='").append(email).append('\'');
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", middleName='").append(middleName).append('\'');
@@ -80,12 +83,12 @@ public class User implements UserDetails{
         this.userId = userId;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String login) {
+        this.email = login;
     }
     
     public void setPassword(String password) {
@@ -132,6 +135,10 @@ public class User implements UserDetails{
         this.roles = roles;
     }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public boolean isNew() {
         return (this.userId == null);
     }
@@ -144,14 +151,14 @@ public class User implements UserDetails{
         User user = (User) o;
 
         if (userId != null ? !userId.equals(user.userId) : user.userId != null) return false;
-        return !(login != null ? !login.equals(user.login) : user.login != null);
+        return !(email != null ? !email.equals(user.email) : user.email != null);
 
     }
 
     @Override
     public int hashCode() {
         int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
 
@@ -167,7 +174,7 @@ public class User implements UserDetails{
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override
@@ -187,7 +194,7 @@ public class User implements UserDetails{
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
     
 }

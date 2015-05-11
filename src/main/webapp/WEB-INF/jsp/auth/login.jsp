@@ -12,7 +12,7 @@
     <h2>Авторизация</h2>
 
     <div>
-        <label for="user" class="icon-user">Логин:</label>
+        <label for="user" class="icon-user">Email:</label>
         <input class="user" id="user" name="j_username"/>
     </div>
     <div>

@@ -3,7 +3,6 @@ package com.vizaco.onlinecontrol.validators;
 
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.UserService;
-import com.vizaco.onlinecontrol.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
@@ -29,17 +28,17 @@ public class UserValidator implements Validator {
 
         User user = (User) obj;
         
-            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "user.lastName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "user.lastName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "user.firstName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "middleName", "user.middleName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "user.login.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.required");
 
-        String login = user.getLogin();
-        if (StringUtils.hasText(login)){
-            User findUser = userService.findUserByLogin(login);
+        String email = user.getEmail();
+        if (StringUtils.hasText(email)){
+            User findUser = userService.findUserByEmail(email);
             if (findUser != null){
-                errors.rejectValue("login", "user.login.exist");
+                errors.rejectValue("email", "user.email.exist");
             }
         }
 
@@ -50,7 +49,7 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "user.lastName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "user.firstName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "middleName", "user.middleName.required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "user.login.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "user.email.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.required");
 
     }

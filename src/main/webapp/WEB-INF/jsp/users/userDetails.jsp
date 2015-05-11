@@ -30,8 +30,8 @@
 
     <table>
         <tr>
-            <td>Login:</td>
-            <td><c:out value="${user.login}"/></td>
+            <td>Email:</td>
+            <td><c:out value="${user.email}"/></td>
         </tr>
 
         <tr>

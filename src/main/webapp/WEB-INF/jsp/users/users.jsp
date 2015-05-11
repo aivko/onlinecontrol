@@ -30,7 +30,7 @@
     <table id="users" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>Login</th>
+            <th>Email</th>
             <th>Password</th>
             <th>Фамилия</th>
             <th>Имя</th>
@@ -46,7 +46,7 @@
         <c:forEach var="user" items="${users}">
             <tr>
                 <td>
-                    <c:out value="${user.login}"/>
+                    <c:out value="${user.email}"/>
                 </td>
                 <td>
                     <c:out value="${user.password}"/>

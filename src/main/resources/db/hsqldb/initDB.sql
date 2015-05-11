@@ -54,11 +54,12 @@ CREATE INDEX roles_name ON roles (name);
 
 CREATE TABLE users (
   user_id         BIGINT IDENTITY PRIMARY KEY,
-  login           VARCHAR(30),
+  email           VARCHAR(50),
   password        VARCHAR(100),
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
-  middle_name     VARCHAR(30)
+  middle_name     VARCHAR(30),
+  enabled         BOOLEAN
 );
 CREATE INDEX users_user_id ON users (user_id);
 

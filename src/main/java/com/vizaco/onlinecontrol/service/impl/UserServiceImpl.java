@@ -43,8 +43,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User findUserByLogin(String login) throws DataAccessException {
-        return userDao.findByLogin(login);
+    public User findUserByEmail(String email) throws DataAccessException {
+        return userDao.findByEmail(email);
     }
 
     @Override

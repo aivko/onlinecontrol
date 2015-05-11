@@ -11,7 +11,7 @@ public interface UserDao {
 
     List<User> findByLastName(String lastName) throws DataAccessException;
     
-    User findByLogin(String login) throws DataAccessException;
+    User findByEmail(String email) throws DataAccessException;
 
     User findById(Long id) throws DataAccessException;
     

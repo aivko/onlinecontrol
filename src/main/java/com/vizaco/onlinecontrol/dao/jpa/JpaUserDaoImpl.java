@@ -34,9 +34,9 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findByLogin(String login) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.login =:login");
-        query.setParameter("login", login);
+    public User findByEmail(String email) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.email =:email");
+        query.setParameter("email", email);
 
         List resultList = query.getResultList();
         if (resultList.isEmpty()) {

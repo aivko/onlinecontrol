@@ -31,8 +31,8 @@
     <form:form modelAttribute="user" method="${method}" action="${action}">
         <table class="horiz">
             <tr>
-                <td><form:label path="login">Login:</form:label></td>
-                <td><form:input path="login"/><form:errors path="login" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:label path="email">Email:</form:label></td>
+                <td><form:input path="email"/><form:errors path="email" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <tr>
