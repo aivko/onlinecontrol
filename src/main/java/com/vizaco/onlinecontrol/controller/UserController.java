@@ -84,8 +84,8 @@ public class UserController {
     @RequestMapping(value = "/users/new", method = RequestMethod.GET)
     public String createUser(Model model) {
         User attributeValue = new User();
-        attributeValue.setRoles(new ArrayList(roleService.getAllRoles()));
-        attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
+//        attributeValue.setRoles(new ArrayList(roleService.getAllRoles()));
+//        attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
         model.addAttribute("user", attributeValue);
         return "/users/createOrUpdateUserForm";
     }
@@ -142,6 +142,7 @@ public class UserController {
         }
 
         user.setUserId(userEdit.getUserId());
+        user.setPassword(userEdit.getPassword());
         user.setRoles(userEdit.getRoles());
         user.setStudents(userEdit.getStudents());
         userService.saveUser(user);

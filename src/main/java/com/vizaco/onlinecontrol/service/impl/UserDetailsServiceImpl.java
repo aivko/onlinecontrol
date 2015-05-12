@@ -35,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         User userByLogin = userService.findUserByEmail(email);
         if (userByLogin == null){
-            throw new UsernameNotFoundException("Login is not found in the database");
+            throw new UsernameNotFoundException("Email is not found in the database");
         }
         return userByLogin;
 

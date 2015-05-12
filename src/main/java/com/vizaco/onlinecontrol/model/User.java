@@ -26,6 +26,9 @@ public class User implements UserDetails{
     @Column(name = "password")
     private String password;
 
+    @Column(name = "password_confirm", insertable = false)
+    private String passwordConfirm;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -51,28 +54,16 @@ public class User implements UserDetails{
     public User() {
     }
 
-    public User(String email, String password, String firstName, String lastName, String middleName, boolean enabled, List<Student> students, List<Role> roles) {
+    public User(String email, String password, String firstName, String lastName, String middleName, boolean enabled, List<Student> students, List<Role> roles, String passwordConfirm) {
         this.email = email;
         this.password = password;
+        this.passwordConfirm = passwordConfirm;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.enabled = enabled;
         this.students = students;
         this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("login='").append(email).append('\'');
-        sb.append(", firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", middleName='").append(middleName).append('\'');
-        sb.append(", students=").append(students);
-        sb.append(", roles=").append(roles);
-        sb.append('}');
-        return sb.toString();
     }
 
     public Long getUserId() {
@@ -133,6 +124,14 @@ public class User implements UserDetails{
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
     public void setEnabled(boolean enabled) {

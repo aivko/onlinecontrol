@@ -19,7 +19,7 @@ public @interface WithMockUser {
 
     long id() default 1L;
 
-    String login() default "login";
+    String email() default "email";
 
     String password() default "password";
 
