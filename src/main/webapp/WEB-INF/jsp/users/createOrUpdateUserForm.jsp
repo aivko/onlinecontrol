@@ -59,8 +59,8 @@
                                                                          cssclass="error"/></td>
                     </tr>
                     <tr>
-                        <td><form:label path="passwordConfim">Повторите пароль:</form:label></td>
-                        <td><form:password path="passwordConfim"/><form:errors path="passwordConfim"
+                        <td><form:label path="passwordConfirm">Повторите пароль:</form:label></td>
+                        <td><form:password path="passwordConfirm"/><form:errors path="passwordConfirm"
                                                                                cssStyle="color:red;"
                                                                                cssclass="error"/></td>
                     </tr>

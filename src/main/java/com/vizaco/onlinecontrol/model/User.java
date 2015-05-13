@@ -26,7 +26,7 @@ public class User implements UserDetails{
     @Column(name = "password")
     private String password;
 
-    @Column(name = "password_confirm", insertable = false)
+    @Transient
     private String passwordConfirm;
 
     @Column(name = "first_name")

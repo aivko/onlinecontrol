@@ -38,6 +38,7 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "middleName", "user.middleName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "user.email.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "user.passwordConfirm.required");
 
         String email = user.getEmail();
         if (StringUtils.hasText(email)) {
@@ -55,6 +56,7 @@ public class UserValidator implements Validator {
         if ((user.getPassword()!=null && !user.getPassword().equals(user.getPasswordConfirm()))
                 || (user.getPasswordConfirm()!=null && !user.getPasswordConfirm().equals(user.getPassword()))){
             errors.rejectValue("passwordConfirm", "user.passwordConfirm.passwordDiff");
+            errors.rejectValue("password", "user.password.passwordDiff");
         }
 
     }

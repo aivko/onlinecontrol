@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +31,9 @@ public class UserController {
 
     @Autowired
     ConversionService conversionService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private Utils utils = new Utils();
 
@@ -98,6 +103,9 @@ public class UserController {
             return "/users/createOrUpdateUserForm";
         }
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setEnabled(true);
+
         userService.saveUser(user);
         return "redirect:/users/" + user.getUserId();
     }
@@ -141,7 +149,6 @@ public class UserController {
             return "/users/createOrUpdateUserForm";
         }
 
-        user.setUserId(userEdit.getUserId());
         user.setPassword(userEdit.getPassword());
         user.setRoles(userEdit.getRoles());
         user.setStudents(userEdit.getStudents());

@@ -34,7 +34,7 @@ public class JpaStudentDaoImpl implements StudentDao {
 
     @Override
     public Student findById(Long id) {
-        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join student.users WHERE student.studentId =:id");
+        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.users WHERE student.studentId =:id");
         query.setParameter("id", id);
 
         List resultList = query.getResultList();
