@@ -28,7 +28,7 @@
         <form-login login-page="/login" login-processing-url="/j_spring_security_check"
                     authentication-failure-url="/login?error" username-parameter="j_username" password-parameter="j_password"/>
         <logout logout-url="/logout" logout-success-url="/" delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
-        <remember-me data-source-ref="dataSource" token-validity-seconds="3600"/>
+        <remember-me key="onlinecontrol" data-source-ref="dataSource" token-validity-seconds="3600"/>
 
         <access-denied-handler error-page="/exception/403"/>
 
@@ -36,7 +36,7 @@
     </http>
 
     <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="userDetailsServiceImpl">
+        <authentication-provider user-service-ref="customUserDetailsServiceImpl">
             <password-encoder ref="passwordEncoder">
             </password-encoder>
         </authentication-provider>

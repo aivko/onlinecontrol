@@ -53,12 +53,20 @@ public class UserValidator implements Validator {
             errors.rejectValue("email", "user.email.matcher");
         }
 
-        if ((user.getPassword()!=null && !user.getPassword().equals(user.getPasswordConfirm()))
-                || (user.getPasswordConfirm()!=null && !user.getPasswordConfirm().equals(user.getPassword()))){
+        checkPassword(errors, user);
+
+    }
+
+    public void checkPassword(Errors errors, User user) {
+        if (checkPasswordEquals(user)) {
             errors.rejectValue("passwordConfirm", "user.passwordConfirm.passwordDiff");
             errors.rejectValue("password", "user.password.passwordDiff");
         }
+    }
 
+    public boolean checkPasswordEquals(User user) {
+        return (user.getPassword()!=null && !user.getPassword().equals(user.getPasswordConfirm()))
+                || (user.getPasswordConfirm()!=null && !user.getPasswordConfirm().equals(user.getPassword()));
     }
 
     public void validateEdit(User user, Errors errors) {

@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.security.ChangePassword;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,9 @@ public class UserController {
 
     @Autowired
     ConversionService conversionService;
+
+    @Autowired
+    ChangePassword changePassword;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -169,6 +174,7 @@ public class UserController {
     }
     //</editor-fold>
 
+
     @RequestMapping(value = "/users/{userId}/students/add", method = RequestMethod.GET)
     public String addStudent(@PathVariable("userId") String userIdStr, Model model) {
         User user = utils.getUser(userIdStr, userService);
@@ -231,6 +237,45 @@ public class UserController {
 
         userService.saveUser(user);
         return "redirect:/users/" + user.getUserId();
+    }
+
+    @RequestMapping(value="/users/{userId}/changePassword",method=RequestMethod.GET)
+    public ModelAndView showChangePasswordPage(@PathVariable("userId") String userIdStr) {
+        User user = utils.getUser(userIdStr, userService);
+
+        ModelAndView mav = new ModelAndView("auth/changePassword");
+
+        mav.addObject("user", user);
+
+        return mav;
+    }
+
+    @RequestMapping(value="/users/{userId}/changePassword",method=RequestMethod.POST)
+    public String submitChangePasswordPage(@PathVariable("userId") String userIdStr,
+                                           @RequestParam("passwordOld") String passwordOld,
+                                           @RequestParam("password") String password,
+                                           @RequestParam("passwordConfirm") String passwordConfirm) {
+
+        UserValidator userValidator = new UserValidator(userService);
+        User user = utils.getUser(userIdStr, userService);
+
+        user.setPasswordConfirm(passwordEncoder.encode(passwordOld));
+
+        if(userValidator.checkPasswordEquals(user)){
+            return "/auth/changePassword";
+        }
+
+        user.setPassword(password);
+        user.setPasswordConfirm(passwordConfirm);
+
+        userValidator.checkPasswordEquals(user);
+
+        if(userValidator.checkPasswordEquals(user)){
+            return "/auth/changePassword";
+        }
+
+        changePassword.changePassword(user.getUsername(), password);
+        return "redirect:/users/" + userIdStr + "/account";
     }
 
 }

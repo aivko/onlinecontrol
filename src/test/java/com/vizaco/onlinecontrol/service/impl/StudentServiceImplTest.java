@@ -1,26 +1,16 @@
 package com.vizaco.onlinecontrol.service.impl;
 
 import com.vizaco.onlinecontrol.dao.StudentDao;
-import com.vizaco.onlinecontrol.dao.jpa.JpaStudentDaoImpl;
 import com.vizaco.onlinecontrol.model.Student;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 /**

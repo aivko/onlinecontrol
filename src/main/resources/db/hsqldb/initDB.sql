@@ -55,7 +55,7 @@ CREATE INDEX roles_name ON roles (name);
 CREATE TABLE users (
   user_id         BIGINT IDENTITY PRIMARY KEY,
   email           VARCHAR(50),
-  password        VARCHAR(100),
+  password        VARCHAR(150),
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
