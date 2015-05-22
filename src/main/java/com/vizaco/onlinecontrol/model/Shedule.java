@@ -23,6 +23,10 @@ public class Shedule {
     @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
     private Date startDate;
 
+    @Column(name = "end_date")
+    @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
+    private Date endDate;
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="subject_id")
     private Subject subject;
@@ -38,8 +42,9 @@ public class Shedule {
     public Shedule() {
     }
 
-    public Shedule(Date startDate, Subject subject, Clazz clazz, Teacher teacher) {
+    public Shedule(Date startDate, Date endDate, Subject subject, Clazz clazz, Teacher teacher) {
         this.startDate = startDate;
+        this.endDate = endDate;
         this.subject = subject;
         this.clazz = clazz;
         this.teacher = teacher;
@@ -59,6 +64,14 @@ public class Shedule {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Subject getSubject() {

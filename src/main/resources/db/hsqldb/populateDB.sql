@@ -12,10 +12,10 @@ INSERT INTO teachers VALUES (1, 'Mariya', 'Kovalenko', 'Vasilyevna', 2);
 INSERT INTO teachers VALUES (2, 'Olga', 'Dub', 'Valentinovna', 2);
 INSERT INTO teachers VALUES (3, 'Pavel', 'Korotchenko', 'Denisovich', 1);
 
-INSERT INTO shedule VALUES (1, '2015-01-01 08:45:00', 1, 1, 1);
-INSERT INTO shedule VALUES (2, '2015-01-01 08:45:00', 1, 2, 2);
-INSERT INTO shedule VALUES (3, '2015-01-01 09:30:00', 2, 1, 3);
-INSERT INTO shedule VALUES (4, '2015-01-01 09:30:00', 3, 3, 1);
+INSERT INTO shedule VALUES (1, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 1, 1);
+INSERT INTO shedule VALUES (2, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 2, 2);
+INSERT INTO shedule VALUES (3, '2015-01-01 09:30:00', '2015-01-01 10:15:00', 2, 1, 3);
+INSERT INTO shedule VALUES (4, '2015-01-01 09:30:00', '2015-01-01 10:15:00', 3, 3, 1);
 
 INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');

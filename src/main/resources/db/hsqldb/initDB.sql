@@ -33,6 +33,7 @@ CREATE INDEX clazzes_name ON clazzes (name);
 CREATE TABLE shedule (
   shedule_id      BIGINT IDENTITY PRIMARY KEY,
   start_date      DATETIME,
+  end_date        DATETIME,
   subject_id      BIGINT NOT NULL,
   clazz_id        BIGINT NOT NULL,
   teacher_id      BIGINT NOT NULL

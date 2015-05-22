@@ -61,8 +61,8 @@
                     <tr>
                         <td><form:label path="passwordConfirm">Повторите пароль:</form:label></td>
                         <td><form:password path="passwordConfirm"/><form:errors path="passwordConfirm"
-                                                                               cssStyle="color:red;"
-                                                                               cssclass="error"/></td>
+                                                                                cssStyle="color:red;"
+                                                                                cssclass="error"/></td>
                     </tr>
                 </c:when>
             </c:choose>
@@ -72,26 +72,26 @@
         <hr>
 
         <%--<div id="users-contain" class="ui-widget">--%>
-        <%--<h1>Roles:</h1>--%>
-        <%--<table id="roles" class="ui-widget ui-widget-content">--%>
-        <%--<thead>--%>
-        <%--<tr class="ui-widget-header ">--%>
-        <%--<th>Name</th>--%>
-        <%--<th>Description</th>--%>
-        <%--</tr>--%>
-        <%--</thead>--%>
-        <%--<tbody>--%>
-        <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
-        <%--<tr>--%>
-        <%--<td>${user.roles[vs.index].name}</td>--%>
-        <%--<td>${user.roles[vs.index].description}</td>--%>
-        <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
-        <%--<form:hidden path="roles[${vs.index}].name"/>--%>
-        <%--<form:hidden path="roles[${vs.index}].description"/>--%>
-        <%--</tr>--%>
-        <%--</c:forEach>--%>
-        <%--</tbody>--%>
-        <%--</table>--%>
+            <%--<h1>Roles:</h1>--%>
+            <%--<table id="roles" class="ui-widget ui-widget-content">--%>
+                <%--<thead>--%>
+                <%--<tr class="ui-widget-header ">--%>
+                    <%--<th>Name</th>--%>
+                    <%--<th>Description</th>--%>
+                <%--</tr>--%>
+                <%--</thead>--%>
+                <%--<tbody>--%>
+                <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
+                    <%--<tr>--%>
+                        <%--<td>${user.roles[vs.index].name}</td>--%>
+                        <%--<td>${user.roles[vs.index].description}</td>--%>
+                        <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].name"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].description"/>--%>
+                    <%--</tr>--%>
+                <%--</c:forEach>--%>
+                <%--</tbody>--%>
+            <%--</table>--%>
         <%--</div>--%>
         <%--<button id="add-role">Add role</button>--%>
 
