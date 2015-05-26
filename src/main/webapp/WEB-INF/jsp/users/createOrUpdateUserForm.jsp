@@ -47,7 +47,7 @@
                     xhr.setRequestHeader(header, token);
                 },
                 success: function (data) {
-                    if(data!="true"){
+                    if(data.result == "true"){
                         $("#errorEmail").text("This email exist!!!");
                     }else{
                         $("#errorEmail").text("");
@@ -72,7 +72,7 @@
             <tr>
                 <td><form:label path="email">Email:</form:label></td>
                 <td><form:input path="email" id="email" onchange="existEmail()"/><form:errors path="email" cssStyle="color:red;" cssclass="error"/>
-                <div id="errorEmail"></div></td>
+                <span id="errorEmail"></span></td>
             </tr>
 
             <tr>

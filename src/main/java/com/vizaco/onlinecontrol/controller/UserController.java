@@ -286,14 +286,14 @@ public class UserController {
 
     @RequestMapping(value = "/users/checkEmail", method = RequestMethod.POST)
     @ResponseBody
-    public String submitChangePasswordPage(@RequestBody String json) throws IOException {
+    public String checkEmail(@RequestBody String json) throws IOException {
         JsonUtil jsonUtil = new JsonUtil();
         String email = jsonUtil.getJsonElement(json, "email");
         User userByEmail = userService.findUserByEmail(email);
         if (userByEmail == null) {
-            return "true";
+            return "{\"result\":\"false\"}";
         }
-        return "false";
+        return "{\"result\":\"true\"}";
     }
 
 }
