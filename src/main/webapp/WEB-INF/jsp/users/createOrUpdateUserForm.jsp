@@ -8,6 +8,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
+
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
+    <spring:url value="/users/checkEmail" htmlEscape="true" var="checkEmail"/>
     <c:choose>
         <c:when test="${user['new']}">
             <c:set var="method" value="post"/>
@@ -21,6 +27,39 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
+    <script type="text/javascript">
+        function existEmail() {
+
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
+
+            email = $("#email").val();
+
+            var json = {"email": email};
+            $.ajax({
+                url: "${checkEmail}",
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(json),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
+                success: function (data) {
+                    if(data!="true"){
+                        $("#errorEmail").text("This email exist!!!");
+                    }else{
+                        $("#errorEmail").text("");
+                    }
+                },
+                error: function (data, status, er) {
+                    alert("error: " + data + " status: " + status + " er:" + er);
+                }
+            });
+        }
+    </script>
+
 </head>
 <body>
 
@@ -32,7 +71,8 @@
         <table class="horiz">
             <tr>
                 <td><form:label path="email">Email:</form:label></td>
-                <td><form:input path="email"/><form:errors path="email" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:input path="email" id="email" onchange="existEmail()"/><form:errors path="email" cssStyle="color:red;" cssclass="error"/>
+                <div id="errorEmail"></div></td>
             </tr>
 
             <tr>

@@ -9,25 +9,29 @@
 
 <body>
 
-<form action="${action}" method="post">
+<form:form action="${action}" method="post" modelAttribute="changePassword">
 
     <div>
-        <label for="passwordOld">Старый пароль:</label>
-        <input id="passwordOld" name="passwordOld" size="20" maxlength="50" type="password" />
+        <form:label path="passwordOld">Старый пароль:</form:label>
+        <form:password path="passwordOld"/>
+        <form:errors path="passwordOld" cssStyle="color:red;" cssclass="error"/>
     </div>
     <div>
-        <label for="password">Новый пароль:</label>
-        <input id="password" name="password" size="20" maxlength="50" type="password" />
+        <form:label path="password">Новый пароль:</form:label>
+        <form:password path="password"/>
+        <form:errors path="password" cssStyle="color:red;" cssclass="error"/>
     </div>
     <div>
-        <label for="passwordConfirm">Повторите новый пароль:</label>
-        <input id="passwordConfirm" name="passwordConfirm" size="20" maxlength="50" type="password" />
+        <form:label path="passwordConfirm">Повторите новый пароль:</form:label>
+        <form:password path="passwordConfirm"/>
+        <form:errors path="passwordConfirm" cssStyle="color:red;" cssclass="error"/>
     </div>
 
     <input type="submit" name="submit" value="Сохранить"/>
 
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+
+</form:form>
 
 </body>
 </html>

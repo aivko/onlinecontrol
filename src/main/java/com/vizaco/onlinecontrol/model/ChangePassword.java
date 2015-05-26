@@ -1,4 +1,4 @@
-package com.vizaco.onlinecontrol.model.json;
+package com.vizaco.onlinecontrol.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -20,6 +20,9 @@ public class ChangePassword {
     private String password;
 
     private String passwordConfirm;
+
+    public ChangePassword() {
+    }
 
     public ChangePassword(String passwordOld, String password, String passwordConfirm) {
         this.passwordOld = passwordOld;

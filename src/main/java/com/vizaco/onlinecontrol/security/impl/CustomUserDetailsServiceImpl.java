@@ -1,10 +1,9 @@
 package com.vizaco.onlinecontrol.security.impl;
 
 import com.vizaco.onlinecontrol.model.User;
-import com.vizaco.onlinecontrol.security.ChangePassword;
+import com.vizaco.onlinecontrol.security.PasswordHandler;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Service
-public class CustomUserDetailsServiceImpl extends JdbcDaoSupport implements UserDetailsService, ChangePassword {
+public class CustomUserDetailsServiceImpl extends JdbcDaoSupport implements UserDetailsService, PasswordHandler {
 
     @Autowired
     private UserService userService;

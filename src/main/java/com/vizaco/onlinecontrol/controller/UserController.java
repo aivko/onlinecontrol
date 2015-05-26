@@ -3,22 +3,22 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
-import com.vizaco.onlinecontrol.security.ChangePassword;
+import com.vizaco.onlinecontrol.model.ChangePassword;
+import com.vizaco.onlinecontrol.security.PasswordHandler;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
+import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
 import com.vizaco.onlinecontrol.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.*;
 
 @Controller
@@ -35,7 +36,7 @@ public class UserController {
     ConversionService conversionService;
 
     @Autowired
-    ChangePassword changePassword;
+    PasswordHandler passwordHandler;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -51,7 +52,7 @@ public class UserController {
     @Autowired
     @Qualifier("userValidator")
     private Validator userValidator;
-    
+
     @Autowired
     public UserController(UserService userService, StudentService studentService, RoleService roleService) {
         this.userService = userService;
@@ -103,7 +104,7 @@ public class UserController {
     @RequestMapping(value = "/users/new", method = RequestMethod.POST)
     public String createUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             model.addAttribute("user", user);
             return "/users/createOrUpdateUserForm";
         }
@@ -149,7 +150,7 @@ public class UserController {
 
         new UserValidator(userService).validateEdit(user, result);
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             model.addAttribute("user", user);
             return "/users/createOrUpdateUserForm";
         }
@@ -239,43 +240,60 @@ public class UserController {
         return "redirect:/users/" + user.getUserId();
     }
 
-    @RequestMapping(value="/users/{userId}/changePassword",method=RequestMethod.GET)
+    @RequestMapping(value = "/users/{userId}/changePassword", method = RequestMethod.GET)
     public ModelAndView showChangePasswordPage(@PathVariable("userId") String userIdStr) {
         User user = utils.getUser(userIdStr, userService);
 
         ModelAndView mav = new ModelAndView("auth/changePassword");
 
         mav.addObject("user", user);
+        mav.addObject("changePassword", new ChangePassword());
 
         return mav;
     }
 
-    @RequestMapping(value="/users/{userId}/changePassword",method=RequestMethod.POST)
+    @RequestMapping(value = "/users/{userId}/changePassword", method = RequestMethod.POST)
     public String submitChangePasswordPage(@PathVariable("userId") String userIdStr,
-                                           @RequestParam("passwordOld") String passwordOld,
-                                           @RequestParam("password") String password,
-                                           @RequestParam("passwordConfirm") String passwordConfirm) {
+                                           @ModelAttribute("changePassword") ChangePassword changePassword,
+                                           BindingResult result, Model model) {
 
         UserValidator userValidator = new UserValidator(userService);
         User user = utils.getUser(userIdStr, userService);
 
-        user.setPasswordConfirm(passwordEncoder.encode(passwordOld));
+        //TODO: Study encoding
+//        if(!passwordEncoder.matches(user.getPassword(), passwordEncoder.encode(changePassword.getPasswordOld()))){
+//            result.rejectValue("passwordOld", "user.passwordOld.passwordDiff");
+//            model.addAttribute("user", user);
+//            return "/auth/changePassword";
+//        }
 
-        if(userValidator.checkPasswordEquals(user)){
+        ValidationUtils.rejectIfEmptyOrWhitespace(result, "password", "user.password.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(result, "passwordConfirm", "user.passwordConfirm.required");
+        if ((changePassword.getPassword() != null && !changePassword.getPassword().equals(changePassword.getPasswordConfirm())
+                || (changePassword.getPasswordConfirm() != null && !changePassword.getPasswordConfirm().equals(changePassword.getPassword())))) {
+            result.rejectValue("password", "user.password.passwordDiff");
+            result.rejectValue("passwordConfirm", "user.passwordConfirm.passwordDiff");
+        }
+
+        if (result.hasErrors()) {
+            model.addAttribute("user", user);
             return "/auth/changePassword";
         }
 
-        user.setPassword(password);
-        user.setPasswordConfirm(passwordConfirm);
-
-        userValidator.checkPasswordEquals(user);
-
-        if(userValidator.checkPasswordEquals(user)){
-            return "/auth/changePassword";
-        }
-
-        changePassword.changePassword(user.getUsername(), password);
+        passwordHandler.changePassword(user.getUsername(), changePassword.getPassword());
         return "redirect:/users/" + userIdStr + "/account";
+    }
+
+    @RequestMapping(value = "/users/checkEmail", method = RequestMethod.POST)
+    @ResponseBody
+    public String submitChangePasswordPage(@RequestBody String json) throws IOException {
+        JsonUtil jsonUtil = new JsonUtil();
+        String email = jsonUtil.getJsonElement(json, "email");
+        User userByEmail = userService.findUserByEmail(email);
+        if (userByEmail == null) {
+            return "true";
+        }
+        return "false";
     }
 
 }
