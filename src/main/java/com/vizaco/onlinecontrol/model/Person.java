@@ -29,20 +29,20 @@ public class Person extends BaseEntity {
 
     @NotEmpty
     @Column(name = "first_name")
-    private String firstName;
+    protected String firstName;
 
     @NotEmpty
     @Column(name = "last_name")
-    private String lastName;
+    protected String lastName;
 
     @NotEmpty
     @Column(name = "middle_name")
-    private String middleName;
+    protected String middleName;
 
     @NotNull
     @Column(name = "gender")
     @Enumerated(value = EnumType.STRING)
-    private Gender gender;
+    protected Gender gender;
 
     public String getFirstName() {
         return firstName;

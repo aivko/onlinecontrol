@@ -64,8 +64,24 @@ public class Student extends Person {
 
         Student student = (Student) o;
 
-        return (id != null ? !id.equals(student.id) : student.id != null);
+        if (id != null ? !id.equals(student.id) : student.id != null) return false;
+        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(student.lastName) : student.lastName != null) return false;
+        if (middleName != null ? !middleName.equals(student.middleName) : student.middleName != null) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(student.dateOfBirth) : student.dateOfBirth != null) return false;
+        return gender == student.gender;
 
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        return result;
     }
 
 }
