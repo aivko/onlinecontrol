@@ -66,7 +66,7 @@ public class StudentController {
         } else {
             // 1 owner found
             student = results.iterator().next();
-            return "redirect:/students/" + student.getStudentId();
+            return "redirect:/students/" + student.getId();
         }
     }
 
@@ -155,7 +155,7 @@ public class StudentController {
             return "/students/createOrUpdateStudentForm";
         }
 
-        student.setStudentId(studentEdit.getStudentId());
+        student.setId(studentEdit.getId());
         student.setClazz(studentEdit.getClazz());
         student.setUsers(studentEdit.getUsers());
         studentService.saveStudent(student);
@@ -168,7 +168,7 @@ public class StudentController {
     public ModelAndView deleteUser(@PathVariable("studentId") String studentIdStr) {
 
         Student student = utils.getStudent(studentIdStr, studentService);
-        studentService.deleteStudent(student.getStudentId());
+        studentService.deleteStudent(student.getId());
 
         return new ModelAndView("redirect:/students");
 

@@ -190,7 +190,9 @@ public class UserController {
         User user = utils.getUser(userIdStr, userService);
         Student student = utils.getStudent(studentIdStr, studentService);
         List<Student> students = user.getStudents();
-        students.add(student);
+        if (!students.contains(student)) {
+            students.add(student);
+        }
 
         userService.saveUser(user);
         return "redirect:/users/" + user.getId();
@@ -222,7 +224,9 @@ public class UserController {
         User user = utils.getUser(userIdStr, userService);
         Role role = utils.getRole(roleIdStr, roleService);
         List<Role> roles = user.getRoles();
-        roles.add(role);
+        if (!roles.contains(role)) {
+            roles.add(role);
+        }
 
         userService.saveUser(user);
         return "redirect:/users/" + user.getId();

@@ -113,7 +113,7 @@
                 <td>${student.clazz.name}</td>
 
                 <td>
-                    <spring:url value="/users/${user.id}/students/${student.studentId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/users/${user.id}/students/${student.id}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

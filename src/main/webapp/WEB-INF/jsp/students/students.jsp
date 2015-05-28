@@ -60,7 +60,7 @@
                     <c:out value="${student.clazz.name}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/students/${student.studentId}" htmlEscape="true"/>'>Детальное описание</a>
+                    <a href='<spring:url value="/students/${student.id}" htmlEscape="true"/>'>Детальное описание</a>
                 </td>
             </tr>
         </c:forEach>
