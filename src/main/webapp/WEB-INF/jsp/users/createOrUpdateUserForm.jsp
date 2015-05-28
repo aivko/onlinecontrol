@@ -21,7 +21,7 @@
         </c:when>
         <c:otherwise>
             <c:set var="method" value="put"/>
-            <spring:url value="/users/${user.userId}/edit" htmlEscape="true" var="action"/>
+            <spring:url value="/users/${user.id}/edit" htmlEscape="true" var="action"/>
         </c:otherwise>
     </c:choose>
 
@@ -89,6 +89,13 @@
                 <td><form:label path="middleName">Отчество:</form:label></td>
                 <td><form:input path="middleName"/><form:errors path="middleName" cssStyle="color:red;"
                                                                 cssclass="error"/></td>
+            </tr>
+
+            <tr>
+                <td><form:label path="gender">Пол:</form:label></td>
+                <td><form:radiobutton path="gender" value="MALE"/>Male
+                    <form:radiobutton path="gender" value="FEMALE"/>Female
+                    <form:errors path="gender" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
 
             <c:choose>

@@ -70,7 +70,7 @@
                 <td>${role.description}</td>
 
                 <td>
-                    <spring:url value="/users/${user.userId}/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/users/${user.id}/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -82,7 +82,7 @@
         </tbody>
 
     </table>
-    <a href='<spring:url value="/users/${user.userId}/roles/add" htmlEscape="true"/>' role="button">Добавить роль</a>
+    <a href='<spring:url value="/users/${user.id}/roles/add" htmlEscape="true"/>' role="button">Добавить роль</a>
 
     <hr/>
 
@@ -113,7 +113,7 @@
                 <td>${student.clazz.name}</td>
 
                 <td>
-                    <spring:url value="/users/${user.userId}/students/${student.studentId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/users/${user.id}/students/${student.studentId}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -126,7 +126,7 @@
 
     </table>
     <span>
-        <a href='<spring:url value="/users/${user.userId}/students/add" htmlEscape="true"/>' role="button">Добавить студента</a>
+        <a href='<spring:url value="/users/${user.id}/students/add" htmlEscape="true"/>' role="button">Добавить студента</a>
     </span>
 
 </div>

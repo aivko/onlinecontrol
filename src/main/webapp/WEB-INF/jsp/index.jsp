@@ -8,7 +8,7 @@
 <head>
     <title>Online control</title>
     <sec:authorize access="isAuthenticated()">
-        <sec:authentication property="principal.userId" var="userId"/>
+        <sec:authentication property="principal.id" var="userId"/>
         <sec:authentication property="principal.email" var="email"/>
     </sec:authorize>
 </head>

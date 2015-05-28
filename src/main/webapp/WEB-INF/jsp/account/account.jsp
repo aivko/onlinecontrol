@@ -32,7 +32,7 @@
         <p><a href='<spring:url value="/classes" htmlEscape="true"/>' role="button">Список классов</a></p>
     </sec:authorize>
     <hr/>
-    <p><a href='<spring:url value="/users/${user.userId}/changePassword" htmlEscape="true"/>'>Изменить пароль</a></p>
+    <p><a href='<spring:url value="/users/${user.id}/changePassword" htmlEscape="true"/>'>Изменить пароль</a></p>
 
 </div>
 

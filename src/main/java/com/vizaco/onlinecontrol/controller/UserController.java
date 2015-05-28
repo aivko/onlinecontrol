@@ -1,9 +1,9 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.vizaco.onlinecontrol.model.ChangePassword;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
-import com.vizaco.onlinecontrol.model.ChangePassword;
 import com.vizaco.onlinecontrol.security.PasswordHandler;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.StudentService;
@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -113,7 +113,7 @@ public class UserController {
         user.setEnabled(true);
 
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     //READ USER
@@ -159,7 +159,7 @@ public class UserController {
         user.setRoles(userEdit.getRoles());
         user.setStudents(userEdit.getStudents());
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     //DELETE USER
@@ -168,7 +168,7 @@ public class UserController {
     public ModelAndView deleteUser(@PathVariable("userId") String userIdStr) {
 
         User user = utils.getUser(userIdStr, userService);
-        userService.deleteUser(user.getUserId());
+        userService.deleteUser(user.getId());
 
         return new ModelAndView("redirect:/users");
 
@@ -193,7 +193,7 @@ public class UserController {
         students.add(student);
 
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     @RequestMapping(value = "/users/{userId}/students/{studentId}/delete", method = RequestMethod.DELETE)
@@ -205,7 +205,7 @@ public class UserController {
         students.remove(student);
 
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     @RequestMapping(value = "/users/{userId}/roles/add", method = RequestMethod.GET)
@@ -225,7 +225,7 @@ public class UserController {
         roles.add(role);
 
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     @RequestMapping(value = "/users/{userId}/roles/{roleId}/delete", method = RequestMethod.DELETE)
@@ -237,7 +237,7 @@ public class UserController {
         roles.remove(role);
 
         userService.saveUser(user);
-        return "redirect:/users/" + user.getUserId();
+        return "redirect:/users/" + user.getId();
     }
 
     @RequestMapping(value = "/users/{userId}/changePassword", method = RequestMethod.GET)
@@ -260,7 +260,7 @@ public class UserController {
         UserValidator userValidator = new UserValidator(userService);
         User user = utils.getUser(userIdStr, userService);
 
-        //TODO: Study encoding
+        //TODO: Study encoding(incorrect equals old password)
 //        if(!passwordEncoder.matches(user.getPassword(), passwordEncoder.encode(changePassword.getPasswordOld()))){
 //            result.rejectValue("passwordOld", "user.passwordOld.passwordDiff");
 //            model.addAttribute("user", user);

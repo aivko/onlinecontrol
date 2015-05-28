@@ -31,7 +31,6 @@
         <thead>
         <tr>
             <th>Email</th>
-            <th>Password</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
@@ -47,9 +46,6 @@
             <tr>
                 <td>
                     <c:out value="${user.email}"/>
-                </td>
-                <td>
-                    <c:out value="${user.password}"/>
                 </td>
                 <td>
                     <c:out value="${user.lastName}"/>
@@ -72,13 +68,13 @@
                     </c:forEach>
                 </td>
                 <td>
-                    <a href='<spring:url value="/users/${user.userId}/edit" htmlEscape="true"/>' role="button">Редактировать пользователя</a></p>
+                    <a href='<spring:url value="/users/${user.id}/edit" htmlEscape="true"/>' role="button">Редактировать пользователя</a></p>
                 </td>
                 <td>
-                    <a href='<spring:url value="/users/${user.userId}" htmlEscape="true"/>' role="button">Детальное описание</a></p>
+                    <a href='<spring:url value="/users/${user.id}" htmlEscape="true"/>' role="button">Детальное описание</a></p>
                 </td>
                 <td>
-                    <spring:url value="/users/${user.userId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/users/${user.id}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить пользователя"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

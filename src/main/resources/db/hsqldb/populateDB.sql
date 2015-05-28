@@ -21,11 +21,11 @@ INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');
 INSERT INTO roles VALUES (3, 'ROLE_MANAGER', 'Manager');
 
-INSERT INTO users VALUES (1, 'petr@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Petr', 'Petrov', 'Petrovich', TRUE);
-INSERT INTO users VALUES (2, 'ivan@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Ivan', 'Ivanov', 'Ivanovich', TRUE);
-INSERT INTO users VALUES (3, 'olga@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Olga', 'Ivanova', 'Ivanovna', TRUE);
-INSERT INTO users VALUES (4, 'igor@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Igor', 'Dub', 'Nikolaevich', TRUE);
-INSERT INTO users VALUES (5, 'alex@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', 'Alex', 'Dub', 'Nikolaevich', TRUE);
+INSERT INTO users VALUES (1, 'petr@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Petr', 'Petrov', 'Petrovich', 'MALE', TRUE);
+INSERT INTO users VALUES (2, 'ivan@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Ivan', 'Ivanov', 'Ivanovich', 'MALE', TRUE);
+INSERT INTO users VALUES (3, 'olga@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Olga', 'Ivanova', 'Ivanovna', 'FEMALE', TRUE);
+INSERT INTO users VALUES (4, 'igor@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Igor', 'Dub', 'Nikolaevich', 'MALE', TRUE);
+INSERT INTO users VALUES (5, 'alex@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', 'Alex', 'Dub', 'Nikolaevich', 'MALE', TRUE);
 
 INSERT INTO students VALUES (1, 'Vasiliy', 'Petrov', 'Petrovich', '2008-01-07', 'MALE', 1);
 INSERT INTO students VALUES (2, 'Tatyana', 'Petrova', 'Petrova', '2008-02-07', 'FEMALE', 2);

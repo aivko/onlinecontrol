@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Изменение пароля</title>
-    <spring:url value="/users/${user.userId}/changePassword" htmlEscape="true" var="action"/>
+    <spring:url value="/users/${user.id}/changePassword" htmlEscape="true" var="action"/>
 </head>
 
 <body>

@@ -54,15 +54,16 @@ CREATE TABLE roles (
 CREATE INDEX roles_name ON roles (name);
 
 CREATE TABLE users (
-  user_id         BIGINT IDENTITY PRIMARY KEY,
+  id              BIGINT IDENTITY PRIMARY KEY,
   email           VARCHAR(50),
   password        VARCHAR(150),
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
+  gender          VARCHAR(30) NOT NULL,
   enabled         BOOLEAN
 );
-CREATE INDEX users_user_id ON users (user_id);
+CREATE INDEX users_id ON users (id);
 
 CREATE TABLE students (
   student_id      BIGINT IDENTITY PRIMARY KEY,
@@ -81,7 +82,7 @@ CREATE TABLE teachers (
   first_name      VARCHAR(30),
   last_name       VARCHAR(30),
   middle_name     VARCHAR(30),
-  gender          INTEGER NOT NULL
+  gender          VARCHAR(30) NOT NULL
 );
 CREATE INDEX teachers_last_name ON teachers (last_name);
 
@@ -115,14 +116,14 @@ CREATE TABLE users_students (
   user_id         BIGINT NOT NULL,
   student_id      BIGINT NOT NULL
 );
-ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (user_id);
+ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (id);
 ALTER TABLE users_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (student_id);
 
 CREATE TABLE users_roles (
   user_id         BIGINT NOT NULL,
   role_id         BIGINT NOT NULL
 );
-ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_users FOREIGN KEY (user_id) REFERENCES users (user_id);
+ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_users FOREIGN KEY (user_id) REFERENCES users (id);
 ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_roles FOREIGN KEY (role_id) REFERENCES roles (role_id);
 
 CREATE TABLE teachers_clazzes (

@@ -50,7 +50,7 @@ public class JpaUserDaoImpl implements UserDao {
 
     @Override
     public User findById(Long id) {
-        Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join user.students WHERE user.userId =:id");
+        Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join user.students WHERE user.id =:id");
         query.setParameter("id", id);
 
         List resultList = query.getResultList();
@@ -75,7 +75,7 @@ public class JpaUserDaoImpl implements UserDao {
             return;
         }
 
-    	if (user.getUserId() == null) {
+    	if (user.getId() == null) {
     		this.em.persist(user);
     	}
     	else {

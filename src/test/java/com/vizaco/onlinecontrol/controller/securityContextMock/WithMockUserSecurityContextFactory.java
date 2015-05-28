@@ -27,8 +27,11 @@ public class WithMockUserSecurityContextFactory implements WithSecurityContextFa
             authorities.add(new Role(role, role));
         }
 
-        User principal = new User(customUser.email(), customUser.password(), null, null, null, true, null, authorities, null);
-        principal.setUserId(customUser.id());
+        User principal = new User();
+        principal.setEmail(customUser.email());
+        principal.setPassword(customUser.password());
+        principal.setRoles(authorities);
+        principal.setId(customUser.id());
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(principal, principal.getPassword(), principal.getAuthorities());
         SecurityContext context = SecurityContextHolder.createEmptyContext();
