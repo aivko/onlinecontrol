@@ -12,25 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "techers")
-public class Teacher {
-
-    @Id
-    @Column(name = "teacher_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long teacherId;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "middle_name")
-    private String middleName;
-
-    @Column(name = "gender")
-    @Enumerated(value = EnumType.STRING)
-    private Gender gender;
+public class Teacher extends Person{
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "teachers_subjects", joinColumns = @JoinColumn(name = "teacher_id"),
@@ -41,51 +23,6 @@ public class Teacher {
     @JoinTable(name = "teachers_clazzes", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "clazz_id"))
     private List<Clazz> clazzes;
-
-
-    public Teacher() {
-    }
-
-    public Teacher(String firstName, String lastName, String middleName, Gender gender, List<Subject> subjects, List<Clazz> clazzes) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.middleName = middleName;
-        this.gender = gender;
-        this.subjects = subjects;
-        this.clazzes = clazzes;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
 
     public List<Subject> getSubjects() {
         return subjects;
