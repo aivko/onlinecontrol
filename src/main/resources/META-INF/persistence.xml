@@ -3,6 +3,7 @@
 
     <persistence-unit name="jpa.unit">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>com.vizaco.onlinecontrol.model.Person</class>
         <class>com.vizaco.onlinecontrol.model.User</class>
         <class>com.vizaco.onlinecontrol.model.Student</class>
         <class>com.vizaco.onlinecontrol.model.Role</class>

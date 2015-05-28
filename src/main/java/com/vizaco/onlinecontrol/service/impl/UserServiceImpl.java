@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.service.impl;
 
 import com.vizaco.onlinecontrol.dao.UserDao;
+import com.vizaco.onlinecontrol.model.Person;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -44,6 +45,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public User findUserByEmail(String email) throws DataAccessException {
+        return userDao.findByEmail(email);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Person findPersonByEmail(String email) throws DataAccessException {
         return userDao.findByEmail(email);
     }
 

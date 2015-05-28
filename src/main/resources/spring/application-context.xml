@@ -89,14 +89,14 @@
         <property name="defaultLocale" value="ru"/>
     </bean>
 
-    <!-- Converters -->
-    <bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>
-            </set>
-        </property>
-    </bean>
+    <!--&lt;!&ndash; Converters &ndash;&gt;-->
+    <!--<bean id="conversionService"-->
+          <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--<property name="converters">-->
+            <!--<set>-->
+                <!--<bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>

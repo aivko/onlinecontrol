@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.service;
 
+import com.vizaco.onlinecontrol.model.Person;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
@@ -19,6 +20,8 @@ public interface UserService {
     Collection<User> findUserByLastName(String lastName) throws DataAccessException;
     
     User findUserByEmail(String email) throws DataAccessException;
+
+    Person findPersonByEmail(String email) throws DataAccessException;
 
     List<User> getAllUsers() throws DataAccessException;
 

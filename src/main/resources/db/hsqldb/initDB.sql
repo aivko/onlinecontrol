@@ -1,5 +1,5 @@
 DROP TABLE users_students IF EXISTS;
-DROP TABLE users_roles IF EXISTS;
+DROP TABLE persons_roles IF EXISTS;
 DROP TABLE teachers_subjects IF EXISTS;
 DROP TABLE teachers_clazzes IF EXISTS;
 
@@ -10,6 +10,7 @@ DROP TABLE shedule IF EXISTS;
 DROP TABLE subjects IF EXISTS;
 DROP TABLE roles IF EXISTS;
 DROP TABLE users IF EXISTS;
+DROP TABLE persons IF EXISTS;
 DROP TABLE teachers IF EXISTS;
 DROP TABLE schools IF EXISTS;
 DROP TABLE news IF EXISTS;
@@ -52,6 +53,18 @@ CREATE TABLE roles (
   description VARCHAR(30)
 );
 CREATE INDEX roles_name ON roles (name);
+
+CREATE TABLE persons (
+  id          BIGINT IDENTITY PRIMARY KEY,
+  email       VARCHAR(50),
+  password    VARCHAR(150),
+  first_name  VARCHAR(30),
+  last_name   VARCHAR(30),
+  middle_name VARCHAR(30),
+  gender      VARCHAR(30) NOT NULL,
+  enabled     BOOLEAN
+);
+CREATE INDEX persons_id ON persons (id);
 
 CREATE TABLE users (
   id          BIGINT IDENTITY PRIMARY KEY,
@@ -119,12 +132,12 @@ CREATE TABLE users_students (
 ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (id);
 ALTER TABLE users_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (id);
 
-CREATE TABLE users_roles (
-  user_id BIGINT NOT NULL,
+CREATE TABLE persons_roles (
+  persons_id BIGINT NOT NULL,
   role_id BIGINT NOT NULL
 );
-ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_users FOREIGN KEY (user_id) REFERENCES users (id);
-ALTER TABLE users_roles ADD CONSTRAINT fk_users_roles_roles FOREIGN KEY (role_id) REFERENCES roles (id);
+ALTER TABLE persons_roles ADD CONSTRAINT fk_persons_roles_users FOREIGN KEY (persons_id) REFERENCES users (id);
+ALTER TABLE persons_roles ADD CONSTRAINT fk_persons_roles_roles FOREIGN KEY (role_id) REFERENCES roles (id);
 
 CREATE TABLE teachers_clazzes (
   teacher_id BIGINT NOT NULL,

@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.UserDao;
+import com.vizaco.onlinecontrol.model.Person;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
@@ -45,6 +46,21 @@ public class JpaUserDaoImpl implements UserDao {
             return (User)resultList.get(0);
         }
         
+//        return (User) query.getSingleResult();
+    }
+
+    @Override
+    public Person findPersonByEmail(String email) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT person FROM Person as person WHERE person.email =:email");
+        query.setParameter("email", email);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Person)resultList.get(0);
+        }
+
 //        return (User) query.getSingleResult();
     }
 

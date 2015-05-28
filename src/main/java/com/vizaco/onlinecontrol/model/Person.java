@@ -17,15 +17,18 @@ package com.vizaco.onlinecontrol.model;
 
 import com.vizaco.onlinecontrol.enumeration.Gender;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.List;
 
 @MappedSuperclass
-public class Person extends BaseEntity {
+@Entity
+@Table(name = "persons")
+public class Person extends BaseEntity implements UserDetails {
 
     @NotEmpty
     @Column(name = "first_name")
@@ -39,10 +42,28 @@ public class Person extends BaseEntity {
     @Column(name = "middle_name")
     protected String middleName;
 
+    @Column(name = "email")
+    protected String email;
+
+    @Column(name = "password")
+    protected String password;
+
+    @Transient
+    protected String passwordConfirm;
+
+    @Column(name = "enabled")
+    protected boolean enabled;
+
     @NotNull
     @Column(name = "gender")
     @Enumerated(value = EnumType.STRING)
     protected Gender gender;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
+
 
     public String getFirstName() {
         return firstName;
@@ -74,6 +95,92 @@ public class Person extends BaseEntity {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String login) {
+        this.email = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
+        return !(email != null ? !email.equals(user.email) : user.email != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
     }
 
 }

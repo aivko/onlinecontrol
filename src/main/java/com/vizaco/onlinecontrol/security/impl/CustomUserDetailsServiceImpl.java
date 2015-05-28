@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.security.impl;
 
+import com.vizaco.onlinecontrol.model.Person;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.security.PasswordHandler;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -46,7 +47,7 @@ public class CustomUserDetailsServiceImpl extends JdbcDaoSupport implements User
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        User userByLogin = userService.findUserByEmail(email);
+        Person userByLogin = userService.findPersonByEmail(email);
         if (userByLogin == null){
             throw new UsernameNotFoundException("Email is not found in the database");
         }
@@ -56,7 +57,7 @@ public class CustomUserDetailsServiceImpl extends JdbcDaoSupport implements User
 
     /**
      * Temp for change password in DB by all users
-     * Exist if write init-method to bean
+     * Execute if write init-method to bean
      */
     @Override
     @Transactional
