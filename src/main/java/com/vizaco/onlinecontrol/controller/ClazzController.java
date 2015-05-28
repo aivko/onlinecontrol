@@ -101,7 +101,7 @@ public class ClazzController {
             return "/classes/createOrUpdateClassForm";
         }
 
-        clazz.setClazzId(clazzEdit.getClazzId());
+        clazz.setId(clazzEdit.getId());
         clazzService.saveClazz(clazz);
         return "redirect:/classes/";
     }
@@ -112,7 +112,7 @@ public class ClazzController {
     public ModelAndView deleteUser(@PathVariable("clazzId") String clazzIdStr) {
 
         Clazz clazz = utils.getClazz(clazzIdStr, clazzService);
-        clazzService.deleteClazz(clazz.getClazzId());
+        clazzService.deleteClazz(clazz.getId());
 
         return new ModelAndView("redirect:/classes");
 

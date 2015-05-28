@@ -68,7 +68,7 @@
                 <td>
                     <form:select path="clazz">
                         <form:option value="0" label="------Select a class------" />
-                        <form:options items="${clazzes}" itemValue="clazzId" itemLabel="name"/>
+                        <form:options items="${clazzes}" itemValue="id" itemLabel="name"/>
                     </form:select>
                     <form:errors path="clazz" cssStyle="color:red;" cssclass="error"/>
                 </td>

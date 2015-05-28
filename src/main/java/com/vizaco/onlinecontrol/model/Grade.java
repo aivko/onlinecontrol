@@ -11,12 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "grades")
-public class Grade {
-
-    @Id
-    @Column(name = "grade_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gradeId;
+public class Grade extends BaseEntity{
 
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
@@ -32,24 +27,6 @@ public class Grade {
 
     @Column(name = "mark")
     private Integer mark;
-
-    public Grade() {
-    }
-
-    public Grade(Date date, Subject subject, Student student, Integer mark) {
-        this.date = date;
-        this.subject = subject;
-        this.student = student;
-        this.mark = mark;
-    }
-
-    public Long getGradeId() {
-        return gradeId;
-    }
-
-    public void setGradeId(Long gradeId) {
-        this.gradeId = gradeId;
-    }
 
     public Date getDate() {
         return date;

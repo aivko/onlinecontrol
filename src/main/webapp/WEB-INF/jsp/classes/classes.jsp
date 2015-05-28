@@ -44,17 +44,17 @@
                     <c:out value="${clazz.name}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/classes/${clazz.clazzId}/edit" htmlEscape="true"/>' role="button">Редактировать класс</a></p>
+                    <a href='<spring:url value="/classes/${clazz.id}/edit" htmlEscape="true"/>' role="button">Редактировать класс</a></p>
                 </td>
                 <td>
-                    <spring:url value="/classes/${clazz.clazzId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/classes/${clazz.id}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить класс"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form:form>
                 </td>
                 <td>
-                    <a href='<spring:url value="/classes/${clazz.clazzId}" htmlEscape="true"/>'>Детальное описание</a>
+                    <a href='<spring:url value="/classes/${clazz.id}" htmlEscape="true"/>'>Детальное описание</a>
                 </td>
             </tr>
         </c:forEach>

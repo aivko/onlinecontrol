@@ -8,30 +8,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "subjects")
-public class Subject {
-
-    @Id
-    @Column(name = "subject_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long subjectId;
+public class Subject extends BaseEntity{
 
     @Column(name = "name")
     private String name;
-
-    public Subject() {
-    }
-
-    public Subject(String name) {
-        this.name = name;
-    }
-
-    public Long getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
-    }
 
     public String getName() {
         return name;

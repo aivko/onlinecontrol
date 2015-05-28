@@ -11,12 +11,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "clazzes")
-public class Clazz {
-
-    @Id
-    @Column(name = "clazz_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clazzId;
+public class Clazz extends BaseEntity{
 
     @NotEmpty
     @Column(name = "name")
@@ -31,24 +26,6 @@ public class Clazz {
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="school_id")
     private School school;
-
-    public Clazz() {
-    }
-
-    public Clazz(String name, Set<Student> students, Set<Shedule> shedule, School school) {
-        this.name = name;
-        this.students = students;
-        this.shedule = shedule;
-        this.school = school;
-    }
-
-    public Long getClazzId() {
-        return clazzId;
-    }
-
-    public void setClazzId(Long clazzId) {
-        this.clazzId = clazzId;
-    }
 
     public String getName() {
         return name;
@@ -80,10 +57,6 @@ public class Clazz {
 
     public void setShedule(Set<Shedule> shedule) {
         this.shedule = shedule;
-    }
-
-    public boolean isNew() {
-        return (this.clazzId == null);
     }
 
     @Override

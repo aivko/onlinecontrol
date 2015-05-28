@@ -11,12 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "news")
-public class News {
-
-    @Id
-    @Column(name = "news_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long newsId;
+public class News extends BaseEntity{
 
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -31,24 +26,6 @@ public class News {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="school_id")
     private School school;
-
-    public News() {
-    }
-
-    public News(Date date, String topic, String text, School school) {
-        this.date = date;
-        this.topic = topic;
-        this.text = text;
-        this.school = school;
-    }
-
-    public Long getNewsId() {
-        return newsId;
-    }
-
-    public void setNewsId(Long newsId) {
-        this.newsId = newsId;
-    }
 
     public Date getDate() {
         return date;

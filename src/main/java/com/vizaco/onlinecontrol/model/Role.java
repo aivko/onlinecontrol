@@ -13,12 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "roles")
-public class Role implements GrantedAuthority {
-
-    @Id
-    @Column(name = "role_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+public class Role extends BaseEntity implements GrantedAuthority {
 
     @NotEmpty
     @Column(name = "name")
@@ -27,22 +22,6 @@ public class Role implements GrantedAuthority {
     @NotEmpty
     @Column(name = "description")
     private String description;
-
-    public Role() {
-    }
-
-    public Role(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
 
     public String getName() {
         return name;
@@ -67,20 +46,16 @@ public class Role implements GrantedAuthority {
 
         Role role = (Role) o;
 
-        if (roleId != null ? !roleId.equals(role.roleId) : role.roleId != null) return false;
+        if (id != null ? !id.equals(role.id) : role.id != null) return false;
         return !(name != null ? !name.equals(role.name) : role.name != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = roleId != null ? roleId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
-    }
-
-    public boolean isNew() {
-        return (this.roleId == null);
     }
 
     @Override

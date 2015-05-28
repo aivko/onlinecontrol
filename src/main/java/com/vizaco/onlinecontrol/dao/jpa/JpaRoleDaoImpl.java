@@ -35,7 +35,7 @@ public class JpaRoleDaoImpl implements RoleDao {
 
     @Override
     public Role findById(Long id) {
-        Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.roleId =:id");
+        Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.id =:id");
         query.setParameter("id", id);
 
         List resultList = query.getResultList();
@@ -61,7 +61,7 @@ public class JpaRoleDaoImpl implements RoleDao {
             return;
         }
 
-    	if (role.getRoleId() == null) {
+    	if (role.getId() == null) {
     		this.em.persist(role);
     	}
     	else {

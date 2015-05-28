@@ -15,7 +15,7 @@
         </c:when>
         <c:otherwise>
             <c:set var="method" value="put"/>
-            <spring:url value="/classes/${clazz.clazzId}/edit" htmlEscape="true" var="action"/>
+            <spring:url value="/classes/${clazz.id}/edit" htmlEscape="true" var="action"/>
         </c:otherwise>
     </c:choose>
 

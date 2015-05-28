@@ -70,7 +70,7 @@
                 <td>${role.description}</td>
 
                 <td>
-                    <spring:url value="/users/${user.id}/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/users/${user.id}/roles/${role.id}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

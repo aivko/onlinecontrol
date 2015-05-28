@@ -12,12 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "shedule")
-public class Shedule {
-
-    @Id
-    @Column(name = "shedule_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sheduleId;
+public class Shedule extends BaseEntity{
 
     @Column(name = "start_date")
     @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
@@ -38,25 +33,6 @@ public class Shedule {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
-
-    public Shedule() {
-    }
-
-    public Shedule(Date startDate, Date endDate, Subject subject, Clazz clazz, Teacher teacher) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.subject = subject;
-        this.clazz = clazz;
-        this.teacher = teacher;
-    }
-
-    public Long getSheduleId() {
-        return sheduleId;
-    }
-
-    public void setSheduleId(Long sheduleId) {
-        this.sheduleId = sheduleId;
-    }
 
     public Date getStartDate() {
         return startDate;

@@ -9,12 +9,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "schools")
-public class School {
-
-    @Id
-    @Column(name = "school_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long schoolId;
+public class School extends BaseEntity{
 
     @Column(name = "name")
     private String name;
@@ -30,25 +25,6 @@ public class School {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
     private Set<News> news;
-
-    public School() {
-    }
-
-    public School(String name, String director, String description, Set<Clazz> clazzes, Set<News> news) {
-        this.name = name;
-        this.director = director;
-        this.description = description;
-        this.clazzes = clazzes;
-        this.news = news;
-    }
-
-    public Long getSchoolId() {
-        return schoolId;
-    }
-
-    public void setSchoolId(Long schoolId) {
-        this.schoolId = schoolId;
-    }
 
     public String getName() {
         return name;

@@ -34,7 +34,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
 
     @Override
     public Clazz findById(Long id) {
-        Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.clazzId =:id");
+        Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.id =:id");
         query.setParameter("id", id);
 
         List resultList = query.getResultList();
@@ -60,7 +60,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
             return;
         }
 
-    	if (clazz.getClazzId() == null) {
+    	if (clazz.getId() == null) {
     		this.em.persist(clazz);
     	}
     	else {

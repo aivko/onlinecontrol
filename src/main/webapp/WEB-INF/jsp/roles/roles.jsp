@@ -47,10 +47,10 @@
                     <c:out value="${role.description}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/roles/${role.roleId}/edit" htmlEscape="true"/>' role="button">Редактировать роль</a></p>
+                    <a href='<spring:url value="/roles/${role.id}/edit" htmlEscape="true"/>' role="button">Редактировать роль</a></p>
                 </td>
                 <td>
-                    <spring:url value="/roles/${role.roleId}/delete" htmlEscape="true" var="action"/>
+                    <spring:url value="/roles/${role.id}/delete" htmlEscape="true" var="action"/>
                     <form:form method="delete" action="${action}">
                         <p class="submit"><input type="submit" value="Удалить роль"/></p>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

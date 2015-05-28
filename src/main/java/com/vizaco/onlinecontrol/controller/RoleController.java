@@ -107,7 +107,7 @@ public class RoleController {
             return "/roles/createOrUpdateRoleForm";
         }
 
-        role.setRoleId(roleEdit.getRoleId());
+        role.setId(roleEdit.getId());
         roleService.saveRole(role);
         return "redirect:/roles/";
     }
@@ -118,7 +118,7 @@ public class RoleController {
     public ModelAndView deleteUser(@PathVariable("roleId") String roleIdStr) {
 
         Role role = utils.getRole(roleIdStr, roleService);
-        roleService.deleteRole(role.getRoleId());
+        roleService.deleteRole(role.getId());
 
         return new ModelAndView("redirect:/roles");
 

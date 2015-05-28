@@ -24,7 +24,11 @@ public class WithMockUserSecurityContextFactory implements WithSecurityContextFa
 
         List<Role> authorities = new ArrayList();
         for(String role : customUser.roles()) {
-            authorities.add(new Role(role, role));
+
+            Role roleNew = new Role();
+            roleNew.setName(role);
+            roleNew.setDescription(role);
+            authorities.add(roleNew);
         }
 
         User principal = new User();
