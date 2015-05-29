@@ -26,8 +26,6 @@ import java.util.Collection;
 import java.util.List;
 
 @MappedSuperclass
-@Entity
-@Table(name = "persons")
 public class Person extends BaseEntity implements UserDetails {
 
     @NotEmpty
@@ -42,9 +40,11 @@ public class Person extends BaseEntity implements UserDetails {
     @Column(name = "middle_name")
     protected String middleName;
 
+    @NotEmpty
     @Column(name = "email")
     protected String email;
 
+    @NotEmpty
     @Column(name = "password")
     protected String password;
 
@@ -62,7 +62,7 @@ public class Person extends BaseEntity implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    protected List<Role> roles;
 
 
     public String getFirstName() {

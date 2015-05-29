@@ -11,7 +11,7 @@ import java.util.Set;
  *
  */
 @Entity
-@Table(name = "techers")
+@Table(name = "teachers")
 public class Teacher extends Person{
 
     @ManyToMany(fetch = FetchType.EAGER)

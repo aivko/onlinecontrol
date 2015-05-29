@@ -8,9 +8,9 @@ INSERT INTO clazzes VALUES (2, '1-Б', 1);
 INSERT INTO clazzes VALUES (3, '2-А', 1);
 INSERT INTO clazzes VALUES (4, '2-Б', 1);
 
-INSERT INTO teachers VALUES (1, 'Mariya', 'Kovalenko', 'Vasilyevna', 2);
-INSERT INTO teachers VALUES (2, 'Olga', 'Dub', 'Valentinovna', 2);
-INSERT INTO teachers VALUES (3, 'Pavel', 'Korotchenko', 'Denisovich', 1);
+INSERT INTO teachers VALUES (1, 'petr1@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Mariya', 'Kovalenko', 'Vasilyevna', 'MALE', TRUE);
+INSERT INTO teachers VALUES (2, 'petr2@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Olga', 'Dub', 'Valentinovna', 'MALE', TRUE);
+INSERT INTO teachers VALUES (3, 'petr3@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Pavel', 'Korotchenko', 'Denisovich', 'MALE', TRUE);
 
 INSERT INTO shedule VALUES (1, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 1, 1);
 INSERT INTO shedule VALUES (2, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 2, 2);
@@ -27,16 +27,10 @@ INSERT INTO users VALUES (3, 'olga@gmail.com', '40bd001563085fc35165329ea1ff5c5e
 INSERT INTO users VALUES (4, 'igor@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Igor', 'Dub', 'Nikolaevich', 'MALE', TRUE);
 INSERT INTO users VALUES (5, 'alex@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', 'Alex', 'Dub', 'Nikolaevich', 'MALE', TRUE);
 
-INSERT INTO persons VALUES (1, 'petr@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Petr', 'Petrov', 'Petrovich', 'MALE', TRUE);
-INSERT INTO persons VALUES (2, 'ivan@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Ivan', 'Ivanov', 'Ivanovich', 'MALE', TRUE);
-INSERT INTO persons VALUES (3, 'olga@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Olga', 'Ivanova', 'Ivanovna', 'FEMALE', TRUE);
-INSERT INTO persons VALUES (4, 'igor@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Igor', 'Dub', 'Nikolaevich', 'MALE', TRUE);
-INSERT INTO persons VALUES (5, 'alex@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', 'Alex', 'Dub', 'Nikolaevich', 'MALE', TRUE);
-
-INSERT INTO students VALUES (1, 'Vasiliy', 'Petrov', 'Petrovich', '2008-01-07', 'MALE', 1);
-INSERT INTO students VALUES (2, 'Tatyana', 'Petrova', 'Petrova', '2008-02-07', 'FEMALE', 2);
-INSERT INTO students VALUES (3, 'Anna', 'Ivanova', 'Ivanovna', '2009-09-04', 'FEMALE', 3);
-INSERT INTO students VALUES (4, 'Nikolay', 'Ivanov', 'Ivanovich', '2009-07-16', 'MALE', 4);
+INSERT INTO students VALUES (1, 'petr4@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Vasiliy', 'Petrov', 'Petrovich', '2008-01-07', 'MALE', 1, TRUE);
+INSERT INTO students VALUES (2, 'petr5@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Tatyana', 'Petrova', 'Petrova', '2008-02-07', 'FEMALE', 2, TRUE);
+INSERT INTO students VALUES (3, 'petr6@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Anna', 'Ivanova', 'Ivanovna', '2009-09-04', 'FEMALE', 3, TRUE);
+INSERT INTO students VALUES (4, 'petr7@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', 'Nikolay', 'Ivanov', 'Ivanovich', '2009-07-16', 'MALE', 4, TRUE);
 
 INSERT INTO schools VALUES (1, 'School #5', 'Potapenko Potap Potapovich', 'super school');
 
@@ -62,6 +56,16 @@ INSERT INTO users_roles VALUES (4, 3);
 INSERT INTO users_roles VALUES (5, 2);
 INSERT INTO users_roles VALUES (5, 1);
 
+INSERT INTO students_roles VALUES (1, 1);
+INSERT INTO students_roles VALUES (1, 2);
+INSERT INTO students_roles VALUES (2, 1);
+INSERT INTO students_roles VALUES (3, 1);
+INSERT INTO students_roles VALUES (4, 3);
+
+INSERT INTO teachers_roles VALUES (1, 1);
+INSERT INTO teachers_roles VALUES (1, 2);
+INSERT INTO teachers_roles VALUES (2, 1);
+INSERT INTO teachers_roles VALUES (3, 1);
 
 INSERT INTO teachers_subjects VALUES (1, 1);
 INSERT INTO teachers_subjects VALUES (1, 2);

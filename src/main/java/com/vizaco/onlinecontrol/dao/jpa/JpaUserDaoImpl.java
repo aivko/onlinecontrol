@@ -36,7 +36,9 @@ public class JpaUserDaoImpl implements UserDao {
 
     @Override
     public User findByEmail(String email) throws DataAccessException {
+
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user left join fetch user.students WHERE user.email =:email");
+
         query.setParameter("email", email);
 
         List resultList = query.getResultList();
@@ -51,17 +53,35 @@ public class JpaUserDaoImpl implements UserDao {
 
     @Override
     public Person findPersonByEmail(String email) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT person FROM Person as person WHERE person.email =:email");
+
+        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student WHERE student.email =:email");
+
         query.setParameter("email", email);
 
         List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
+        if (!resultList.isEmpty()) {
             return (Person)resultList.get(0);
         }
 
-//        return (User) query.getSingleResult();
+        query = this.em.createQuery("SELECT DISTINCT user FROM User user WHERE user.email =:email");
+
+        query.setParameter("email", email);
+
+        resultList = query.getResultList();
+        if (!resultList.isEmpty()) {
+            return (Person)resultList.get(0);
+        }
+
+        query = this.em.createQuery("SELECT DISTINCT teacher FROM Teacher teacher WHERE teacher.email =:email");
+
+        query.setParameter("email", email);
+
+        resultList = query.getResultList();
+        if (!resultList.isEmpty()) {
+            return (Person)resultList.get(0);
+        }
+
+        return null;
     }
 
     @Override
