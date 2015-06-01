@@ -30,15 +30,6 @@ import java.util.List;
 @Controller
 public class ParentController {
 
-    @Autowired
-    ConversionService conversionService;
-
-    @Autowired
-    PasswordHandler passwordHandler;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     private Utils utils = new Utils();
 
     private final ParentService parentService;
@@ -48,19 +39,10 @@ public class ParentController {
     private final RoleService roleService;
 
     @Autowired
-    @Qualifier("userValidator")
-    private Validator userValidator;
-
-    @Autowired
     public ParentController(ParentService parentService, StudentService studentService, RoleService roleService) {
         this.parentService = parentService;
         this.studentService = studentService;
         this.roleService = roleService;
-    }
-
-    @InitBinder("user")
-    protected void initBinder(WebDataBinder binder) {
-        binder.setValidator(userValidator);
     }
 
     @RequestMapping(value = "/parents")
@@ -85,7 +67,7 @@ public class ParentController {
         return "/parents/createOrUpdateParentForm";
     }
 
-    @RequestMapping(value = "/users/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/parents/new", method = RequestMethod.POST)
     public String createParent(@ModelAttribute("parent") @Valid Parent parent, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
@@ -152,8 +134,7 @@ public class ParentController {
     }
     //</editor-fold>
 
-
-    @RequestMapping(value = "/parent/{parentId}/students/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/parents/{parentId}/students/add", method = RequestMethod.GET)
     public String addStudent(@PathVariable("parentId") String parentIdStr, Model model) {
         Parent parent = utils.getParent(parentIdStr, parentService);
         model.addAttribute("parent", parent);
@@ -175,7 +156,7 @@ public class ParentController {
         return "redirect:/users/" + parent.getId();
     }
 
-    @RequestMapping(value = "/parent/{parentId}/students/{studentId}/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/parents/{parentId}/students/{studentId}/delete", method = RequestMethod.DELETE)
     public String deleteStudent(@PathVariable("parentId") String parentIdStr, @PathVariable("studentId") String studentIdStr) {
 
         Parent parent = utils.getParent(parentIdStr, parentService);

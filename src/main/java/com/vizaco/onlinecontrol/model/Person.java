@@ -23,7 +23,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Embeddable
 @MappedSuperclass
 public abstract class Person extends BaseEntity {
 
@@ -48,6 +47,10 @@ public abstract class Person extends BaseEntity {
     @Column(name = "date_of_birth")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     protected Date dateOfBirth;
+
+    @OneToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    protected User user;
 
     public String getFirstName() {
         return firstName;
@@ -87,6 +90,14 @@ public abstract class Person extends BaseEntity {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

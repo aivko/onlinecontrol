@@ -1,16 +1,17 @@
-DROP TABLE users_students IF EXISTS;
 DROP TABLE users_roles IF EXISTS;
+DROP TABLE parents_students IF EXISTS;
 DROP TABLE teachers_subjects IF EXISTS;
 DROP TABLE teachers_clazzes IF EXISTS;
 
 DROP TABLE persistent_logins IF EXISTS;
+DROP TABLE users IF EXISTS;
+DROP TABLE parents IF EXISTS;
 DROP TABLE students IF EXISTS;
+DROP TABLE teachers IF EXISTS;
+DROP TABLE roles IF EXISTS;
 DROP TABLE clazzes IF EXISTS;
 DROP TABLE shedule IF EXISTS;
 DROP TABLE subjects IF EXISTS;
-DROP TABLE roles IF EXISTS;
-DROP TABLE users IF EXISTS;
-DROP TABLE teachers IF EXISTS;
 DROP TABLE schools IF EXISTS;
 DROP TABLE news IF EXISTS;
 DROP TABLE grades IF EXISTS;
@@ -57,13 +58,20 @@ CREATE TABLE users (
   id          BIGINT IDENTITY PRIMARY KEY,
   email       VARCHAR(50),
   password    VARCHAR(150),
-  first_name  VARCHAR(30),
-  last_name   VARCHAR(30),
-  middle_name VARCHAR(30),
-  gender      VARCHAR(30) NOT NULL,
   enabled     BOOLEAN
 );
 CREATE INDEX users_id ON users (id);
+
+CREATE TABLE parents (
+  id          BIGINT IDENTITY PRIMARY KEY,
+  first_name  VARCHAR(30),
+  last_name   VARCHAR(30),
+  middle_name VARCHAR(30),
+  date_of_birth DATE,
+  gender      VARCHAR(30) NOT NULL,
+  user_id      BIGINT
+);
+CREATE INDEX parents_id ON parents (id);
 
 CREATE TABLE students (
   id            BIGINT IDENTITY PRIMARY KEY,
@@ -72,7 +80,8 @@ CREATE TABLE students (
   middle_name   VARCHAR(30),
   date_of_birth DATE,
   gender        VARCHAR(30) NOT NULL,
-  clazz_id      BIGINT      NOT NULL
+  clazz_id      BIGINT      NOT NULL,
+  user_id      BIGINT
 );
 CREATE INDEX students_id ON students (id);
 ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (id);
@@ -82,9 +91,11 @@ CREATE TABLE teachers (
   first_name  VARCHAR(30),
   last_name   VARCHAR(30),
   middle_name VARCHAR(30),
-  gender      VARCHAR(30) NOT NULL
+  date_of_birth DATE,
+  gender      VARCHAR(30) NOT NULL,
+  user_id      BIGINT
 );
-CREATE INDEX teachers_last_name ON teachers (last_name);
+CREATE INDEX teachers_id ON teachers (id);
 
 CREATE TABLE schools (
   id          BIGINT IDENTITY PRIMARY KEY,
@@ -112,12 +123,12 @@ CREATE TABLE grades (
 );
 CREATE INDEX grades_student_id ON grades (student_id);
 
-CREATE TABLE users_students (
-  user_id    BIGINT NOT NULL,
+CREATE TABLE parents_students (
+  parent_id    BIGINT NOT NULL,
   student_id BIGINT NOT NULL
 );
-ALTER TABLE users_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (user_id) REFERENCES users (id);
-ALTER TABLE users_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (id);
+ALTER TABLE parents_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (parent_id) REFERENCES users (id);
+ALTER TABLE parents_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (id);
 
 CREATE TABLE users_roles (
   user_id BIGINT NOT NULL,

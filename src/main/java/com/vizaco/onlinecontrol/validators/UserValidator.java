@@ -37,6 +37,13 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "user.passwordConfirm.required");
 
+        validateEmail(errors, user);
+
+        checkPassword(errors, user);
+
+    }
+
+    private void validateEmail(Errors errors, User user) {
         String email = user.getEmail();
         if (StringUtils.hasText(email)) {
             User findUser = userService.findUserByEmail(email);
@@ -49,9 +56,6 @@ public class UserValidator implements Validator {
         if (!matcher.matches()){
             errors.rejectValue("email", "user.email.matcher");
         }
-
-        checkPassword(errors, user);
-
     }
 
     public void checkPassword(Errors errors, User user) {
@@ -69,6 +73,8 @@ public class UserValidator implements Validator {
     public void validateEdit(User user, Errors errors) {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "user.email.required");
+
+        validateEmail(errors, user);
 
     }
 

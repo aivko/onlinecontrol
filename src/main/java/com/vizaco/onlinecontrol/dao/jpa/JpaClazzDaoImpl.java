@@ -28,8 +28,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
     public List<Clazz> findByName(String name) {
         Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.name LIKE :name");
         query.setParameter("name", name + "%");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
     @Override
@@ -48,8 +47,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
     @Override
     public List<Clazz> getAllClazzes() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
 

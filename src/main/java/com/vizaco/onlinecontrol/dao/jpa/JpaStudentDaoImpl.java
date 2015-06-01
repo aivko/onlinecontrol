@@ -26,15 +26,14 @@ public class JpaStudentDaoImpl implements StudentDao {
     }
 
     public List<Student> findByLastName(String lastName) {
-        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.users WHERE student.lastName LIKE :lastName");
+        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents WHERE student.lastName LIKE :lastName");
         query.setParameter("lastName", lastName + "%");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
     @Override
     public Student findById(Long id) {
-        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.users WHERE student.id =:id");
+        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents WHERE student.id =:id");
         query.setParameter("id", id);
 
         List resultList = query.getResultList();
@@ -50,8 +49,7 @@ public class JpaStudentDaoImpl implements StudentDao {
     @Override
     public List<Student> getAllStudents() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
 

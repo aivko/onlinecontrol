@@ -16,7 +16,7 @@
 
     <script>
         $(document).ready(function() {
-            var table = $('#users').DataTable();
+            var table = $('#parents').DataTable();
         } );
     </script>
 
@@ -48,7 +48,7 @@
 
     <h2>Родители</h2>
 
-    <table id="users" class="display compact" cellspacing="0" width="100%">
+    <table id="parents" class="display compact" cellspacing="0" width="100%">
 
         <thead>
         <tr class="ui-widget-header ">
@@ -59,11 +59,11 @@
         </thead>
 
         <tbody>
-        <c:forEach items="${student.users}" var="user">
+        <c:forEach items="${student.parents}" var="parent">
             <tr>
-                <td>${user.lastName}</td>
-                <td>${user.firstName}</td>
-                <td>${user.middleName}</td>
+                <td>${parent.lastName}</td>
+                <td>${parent.firstName}</td>
+                <td>${parent.middleName}</td>
             </tr>
         </c:forEach>
         </tbody>

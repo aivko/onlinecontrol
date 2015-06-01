@@ -75,29 +75,6 @@
                 <span id="errorEmail"></span></td>
             </tr>
 
-            <tr>
-                <td><form:label path="lastName">Фамилия:</form:label></td>
-                <td><form:input path="lastName"/><form:errors path="lastName" cssStyle="color:red;"
-                                                              cssclass="error"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="firstName">Имя:</form:label></td>
-                <td><form:input path="firstName"/><form:errors path="firstName" cssStyle="color:red;"
-                                                               cssclass="error"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="middleName">Отчество:</form:label></td>
-                <td><form:input path="middleName"/><form:errors path="middleName" cssStyle="color:red;"
-                                                                cssclass="error"/></td>
-            </tr>
-
-            <tr>
-                <td><form:label path="gender">Пол:</form:label></td>
-                <td><form:radiobutton path="gender" value="MALE"/>Male
-                    <form:radiobutton path="gender" value="FEMALE"/>Female
-                    <form:errors path="gender" cssStyle="color:red;" cssclass="error"/></td>
-            </tr>
-
             <c:choose>
                 <c:when test="${user['new']}">
                     <tr>
@@ -171,7 +148,6 @@
         <%--</div>--%>
         <%--<button class="add-student">Add student</button>--%>
 
-        <hr>
         <br>
 
         <input type="submit" value="Сохранить"/>

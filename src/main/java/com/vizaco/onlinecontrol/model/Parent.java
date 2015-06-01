@@ -12,11 +12,11 @@ import java.util.List;
  *
  */
 @Entity
-@Table(name = "users")
+@Table(name = "parents")
 public class Parent extends Person {
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "user_id"),
+    @JoinTable(name = "parents_students", joinColumns = @JoinColumn(name = "parent_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
     private List<Student> students;
 

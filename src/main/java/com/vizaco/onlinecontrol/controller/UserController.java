@@ -2,7 +2,6 @@ package com.vizaco.onlinecontrol.controller;
 
 import com.vizaco.onlinecontrol.model.ChangePassword;
 import com.vizaco.onlinecontrol.model.Role;
-import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.security.PasswordHandler;
 import com.vizaco.onlinecontrol.service.RoleService;
@@ -25,7 +24,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -95,14 +93,12 @@ public class UserController {
     @RequestMapping(value = "/users/new", method = RequestMethod.GET)
     public String createUser(Model model) {
         User attributeValue = new User();
-//        attributeValue.setRoles(new ArrayList(roleService.getAllRoles()));
-//        attributeValue.setStudents(new ArrayList(studentService.getAllStudents()));
         model.addAttribute("user", attributeValue);
         return "/users/createOrUpdateUserForm";
     }
 
     @RequestMapping(value = "/users/new", method = RequestMethod.POST)
-    public String createUser(@ModelAttribute("user") @Valid @Validated User user, BindingResult result, Model model) {
+    public String createUser(@ModelAttribute("user") @Validated User user, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             model.addAttribute("user", user);
@@ -157,7 +153,6 @@ public class UserController {
 
         user.setPassword(userEdit.getPassword());
         user.setRoles(userEdit.getRoles());
-        user.setStudents(userEdit.getStudents());
         userService.saveUser(user);
         return "redirect:/users/" + user.getId();
     }
@@ -174,41 +169,6 @@ public class UserController {
 
     }
     //</editor-fold>
-
-
-    @RequestMapping(value = "/users/{userId}/students/add", method = RequestMethod.GET)
-    public String addStudent(@PathVariable("userId") String userIdStr, Model model) {
-        User user = utils.getUser(userIdStr, userService);
-        model.addAttribute("user", user);
-        model.addAttribute("students", studentService.getAllStudents());
-        return "/students/selectStudent";
-    }
-
-    @RequestMapping(value = "/users/{userId}/students/{studentId}/add", method = RequestMethod.POST)
-    public String addStudent(@PathVariable("userId") String userIdStr, @PathVariable("studentId") String studentIdStr) {
-
-        User user = utils.getUser(userIdStr, userService);
-        Student student = utils.getStudent(studentIdStr, studentService);
-        List<Student> students = user.getStudents();
-        if (!students.contains(student)) {
-            students.add(student);
-        }
-
-        userService.saveUser(user);
-        return "redirect:/users/" + user.getId();
-    }
-
-    @RequestMapping(value = "/users/{userId}/students/{studentId}/delete", method = RequestMethod.DELETE)
-    public String deleteStudent(@PathVariable("userId") String userIdStr, @PathVariable("studentId") String studentIdStr) {
-
-        User user = utils.getUser(userIdStr, userService);
-        Student student = utils.getStudent(studentIdStr, studentService);
-        List<Student> students = user.getStudents();
-        students.remove(student);
-
-        userService.saveUser(user);
-        return "redirect:/users/" + user.getId();
-    }
 
     @RequestMapping(value = "/users/{userId}/roles/add", method = RequestMethod.GET)
     public String addRole(@PathVariable("userId") String userIdStr, Model model) {

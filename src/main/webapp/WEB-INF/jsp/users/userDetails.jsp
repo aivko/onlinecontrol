@@ -34,21 +34,6 @@
             <td><c:out value="${user.email}"/></td>
         </tr>
 
-        <tr>
-            <td>Фамилия:</td>
-            <td><c:out value="${user.lastName}"/></td>
-        </tr>
-
-        <tr>
-            <td>Имя:</td>
-            <td><c:out value="${user.firstName}"/></td>
-        </tr>
-
-        <tr>
-            <td>Отчество:</td>
-            <td><c:out value="${user.middleName}"/></td>
-        </tr>
-
     </table>
 
     <h4>Роли</h4>
@@ -83,51 +68,6 @@
 
     </table>
     <a href='<spring:url value="/users/${user.id}/roles/add" htmlEscape="true"/>' role="button">Добавить роль</a>
-
-    <hr/>
-
-    <h4>Студенты</h4>
-
-    <table id="students" class="display compact cell-border" cellspacing="0" width="100%">
-
-        <thead>
-        <tr class="ui-widget-header ">
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Дата рождения</th>
-            <th>Пол</th>
-            <th>Класс</th>
-            <th>Удалить студента</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <c:forEach items="${user.students}" var="student">
-            <tr>
-                <td>${student.lastName}</td>
-                <td>${student.firstName}</td>
-                <td>${student.middleName}</td>
-                <td><fmt:formatDate pattern="dd.MM.yyyy" value="${student.dateOfBirth}"/></td>
-                <td>${student.gender}</td>
-                <td>${student.clazz.name}</td>
-
-                <td>
-                    <spring:url value="/users/${user.id}/students/${student.id}/delete" htmlEscape="true" var="action"/>
-                    <form:form method="delete" action="${action}">
-                        <p class="submit"><input type="submit" value="Удалить"/></p>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    </form:form>
-                </td>
-
-            </tr>
-        </c:forEach>
-        </tbody>
-
-    </table>
-    <span>
-        <a href='<spring:url value="/users/${user.id}/students/add" htmlEscape="true"/>' role="button">Добавить студента</a>
-    </span>
 
 </div>
 

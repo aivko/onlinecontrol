@@ -27,9 +27,6 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "enabled")
     private boolean enabled;
 
-    @Column(name = "person")
-    public Person person;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

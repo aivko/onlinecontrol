@@ -29,8 +29,7 @@ public class JpaRoleDaoImpl implements RoleDao {
     public List<Role> findByName(String name) {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.name LIKE :name");
         query.setParameter("name", name + "%");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
     @Override
@@ -49,8 +48,7 @@ public class JpaRoleDaoImpl implements RoleDao {
     @Override
     public List<Role> getAllRoles() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
 

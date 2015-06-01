@@ -12,8 +12,13 @@
     <h2>User account</h2>
 
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/users/new" htmlEscape="true"/>' role="button">Зарегистрировать пользователя</a></p>
+        <p><a href='<spring:url value="/users/new" htmlEscape="true"/>' role="button">Добавить пользователя</a></p>
         <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
+    </sec:authorize>
+    <hr/>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p><a href='<spring:url value="/parents/new" htmlEscape="true"/>' role="button">Добавить родителя</a></p>
+        <p><a href='<spring:url value="/parent" htmlEscape="true"/>' role="button">Список родителей</a></p>
     </sec:authorize>
     <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">

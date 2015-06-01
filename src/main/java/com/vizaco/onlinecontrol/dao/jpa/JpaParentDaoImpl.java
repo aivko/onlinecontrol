@@ -28,8 +28,7 @@ public class JpaParentDaoImpl implements ParentDao {
     public List<Parent> findByLastName(String lastName) {
         Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students WHERE parent.lastName LIKE :lastName");
         query.setParameter("lastName", lastName);
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
     @Override
@@ -48,8 +47,7 @@ public class JpaParentDaoImpl implements ParentDao {
     @Override
     public List<Parent> getAllParents() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent");
-        List resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 
     @Override
