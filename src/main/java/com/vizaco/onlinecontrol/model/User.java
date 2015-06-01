@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "users")
-public class User extends Person implements UserDetails{
+public class User extends BaseEntity implements UserDetails{
 
     @Column(name = "email")
     private String email;
@@ -27,10 +27,8 @@ public class User extends Person implements UserDetails{
     @Column(name = "enabled")
     private boolean enabled;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_students", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private List<Student> students;
+    @Column(name = "person")
+    public Person person;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
@@ -47,14 +45,6 @@ public class User extends Person implements UserDetails{
     
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
     public List<Role> getRoles() {

@@ -16,8 +16,6 @@ public interface UserService {
 
     User findUserById(Long id) throws DataAccessException;
 
-    Collection<User> findUserByLastName(String lastName) throws DataAccessException;
-    
     User findUserByEmail(String email) throws DataAccessException;
 
     List<User> getAllUsers() throws DataAccessException;

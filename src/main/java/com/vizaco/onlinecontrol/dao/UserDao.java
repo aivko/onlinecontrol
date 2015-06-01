@@ -9,8 +9,6 @@ import java.util.List;
 
 public interface UserDao {
 
-    List<User> findByLastName(String lastName) throws DataAccessException;
-    
     User findByEmail(String email) throws DataAccessException;
 
     User findById(Long id) throws DataAccessException;

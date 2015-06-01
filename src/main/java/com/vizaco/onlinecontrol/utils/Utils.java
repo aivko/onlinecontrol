@@ -1,14 +1,8 @@
 package com.vizaco.onlinecontrol.utils;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
-import com.vizaco.onlinecontrol.model.Clazz;
-import com.vizaco.onlinecontrol.model.Role;
-import com.vizaco.onlinecontrol.model.Student;
-import com.vizaco.onlinecontrol.model.User;
-import com.vizaco.onlinecontrol.service.ClazzService;
-import com.vizaco.onlinecontrol.service.RoleService;
-import com.vizaco.onlinecontrol.service.StudentService;
-import com.vizaco.onlinecontrol.service.UserService;
+import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.service.*;
 
 /**
  * Created by super on 2/20/15.
@@ -67,6 +61,24 @@ public class Utils {
             throw new CustomGenericException("404", "Page not found for the student with the ID " + studentId);
         }
         return student;
+    }
+
+    public Parent getParent(String parentIdStr, ParentService parentService) {
+
+        Long parentId;
+
+        try {
+            parentId = Long.valueOf(parentIdStr);
+        }catch (NumberFormatException ex){
+            throw new CustomGenericException("404", "Page not found for the parent with the ID " + parentIdStr);
+        }
+
+        Parent parent = parentService.findParentById(parentId);
+
+        if (parent == null){
+            throw new CustomGenericException("404", "Page not found for the parent with the ID " + parentId);
+        }
+        return parent;
     }
 
     public Clazz getClazz(String clazzIdStr, ClazzService clazzService) {
