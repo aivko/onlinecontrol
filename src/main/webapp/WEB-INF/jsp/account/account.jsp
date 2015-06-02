@@ -18,7 +18,7 @@
     <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p><a href='<spring:url value="/parents/new" htmlEscape="true"/>' role="button">Добавить родителя</a></p>
-        <p><a href='<spring:url value="/parent" htmlEscape="true"/>' role="button">Список родителей</a></p>
+        <p><a href='<spring:url value="/parents" htmlEscape="true"/>' role="button">Список родителей</a></p>
     </sec:authorize>
     <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">

@@ -28,11 +28,11 @@ public class Student extends Person {
     @JoinColumn(name = "clazz_id")
     private Clazz clazz;
 
-    public List<Parent> getUsers() {
+    public List<Parent> getParents() {
         return parents;
     }
 
-    public void setUsers(List<Parent> parents) {
+    public void setParents(List<Parent> parents) {
         this.parents = parents;
     }
 

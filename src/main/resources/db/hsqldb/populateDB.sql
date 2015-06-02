@@ -29,10 +29,10 @@ INSERT INTO users VALUES (5, 'alex1@gmail.com', 'ac1ab23d6288711be64a25bf13432ba
 INSERT INTO users VALUES (6, 'alex2@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
 INSERT INTO users VALUES (7, 'alex3@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
 INSERT INTO users VALUES (8, 'alex4@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
-INSERT INTO users VALUES (9, 'alex4@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
-INSERT INTO users VALUES (10, 'alex4@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
-INSERT INTO users VALUES (11, 'alex4@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
-INSERT INTO users VALUES (12, 'alex4@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
+INSERT INTO users VALUES (9, 'alex5@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
+INSERT INTO users VALUES (10, 'alex6@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
+INSERT INTO users VALUES (11, 'alex7@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
+INSERT INTO users VALUES (12, 'alex8@gmail.com', 'ac1ab23d6288711be64a25bf13432baf1e60b2bd', TRUE);
 
 INSERT INTO parents VALUES (1, 'Petr', 'Petrov', 'Petrovich', '2008-01-07', 'MALE', 4);
 INSERT INTO parents VALUES (2, 'Ivan', 'Ivanov', 'Ivanovich', '2008-01-07', 'MALE', 5);

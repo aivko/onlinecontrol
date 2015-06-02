@@ -46,7 +46,7 @@ public class JpaParentDaoImpl implements ParentDao {
 
     @Override
     public List<Parent> getAllParents() throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent");
+        Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students");
         return query.getResultList();
     }
 

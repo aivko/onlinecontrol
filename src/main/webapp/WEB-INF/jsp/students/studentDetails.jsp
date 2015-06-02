@@ -37,6 +37,10 @@
             <td><fmt:formatDate pattern="dd.MM.yyyy" value="${student.dateOfBirth}"/></td>
         </tr>
         <tr>
+            <th>Пользователь</th>
+            <td><c:out value="${student.user.email}"/></td>
+        </tr>
+        <tr>
             <th>Класс</th>
             <td><c:out value="${student.clazz.name}"/></td>
         </tr>

@@ -34,7 +34,10 @@
             <th>Отчество</th>
             <th>Дата рождения</th>
             <th>Пол</th>
+            <th>Пользователь</th>
+            <th>Родители</th>
             <th>Класс</th>
+            <th>Редактировать</th>
             <th>Детали</th>
         </tr>
         </thead>
@@ -57,7 +60,18 @@
                     <c:out value="${student.gender}"/>
                 </td>
                 <td>
+                    <c:out value="${student.user.email}"/>
+                </td>
+                <td>
+                    <c:forEach var="parent" items="${student.parents}">
+                        <c:out value="${parent.firstName} ${parent.middleName} ${parent.lastName}"/><br>
+                    </c:forEach>
+                </td>
+                <td>
                     <c:out value="${student.clazz.name}"/>
+                </td>
+                <td>
+                    <a href='<spring:url value="/students/${student.id}/edit" htmlEscape="true"/>' role="button">Редактировать студента</a></p>
                 </td>
                 <td>
                     <a href='<spring:url value="/students/${student.id}" htmlEscape="true"/>'>Детальное описание</a>

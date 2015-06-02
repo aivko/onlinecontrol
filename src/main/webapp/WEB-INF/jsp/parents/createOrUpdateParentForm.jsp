@@ -1,20 +1,22 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
+
     <c:choose>
-        <c:when test="${student['new']}">
+        <c:when test="${parent['new']}">
             <c:set var="method" value="post"/>
-            <spring:url value="/students/new" htmlEscape="true" var="action"/>
+            <spring:url value="/parents/new" htmlEscape="true" var="action"/>
         </c:when>
         <c:otherwise>
             <c:set var="method" value="put"/>
-            <spring:url value="/students/${student.id}/edit" htmlEscape="true" var="action"/>
+            <spring:url value="/parents/${parent.id}/edit" htmlEscape="true" var="action"/>
         </c:otherwise>
     </c:choose>
 
@@ -29,11 +31,11 @@
 </head>
 <body>
 
-<div class="demo">
+<div id="wrapper-login">
 
-    <h1>Студент</h1>
+    <h1>Родитель</h1>
 
-    <form:form modelAttribute="student" method="${method}" action="${action}">
+    <form:form modelAttribute="parent" method="${method}" action="${action}">
         <table class="horiz">
 
             <tr>
@@ -73,20 +75,65 @@
                     <form:errors path="user" cssStyle="color:red;" cssclass="error"/>
                 </td>
             </tr>
-            <tr>
-                <td><form:label path="clazz">Класс:</form:label></td>
-                <td>
-                    <form:select path="clazz">
-                        <form:option value="0" label="------Select a class------" />
-                        <form:options items="${clazzes}" itemValue="id" itemLabel="name"/>
-                    </form:select>
-                    <form:errors path="clazz" cssStyle="color:red;" cssclass="error"/>
-                </td>
-            </tr>
 
         </table>
 
         <hr>
+
+        <%--<div id="users-contain" class="ui-widget">--%>
+            <%--<h1>Roles:</h1>--%>
+            <%--<table id="roles" class="ui-widget ui-widget-content">--%>
+                <%--<thead>--%>
+                <%--<tr class="ui-widget-header ">--%>
+                    <%--<th>Name</th>--%>
+                    <%--<th>Description</th>--%>
+                <%--</tr>--%>
+                <%--</thead>--%>
+                <%--<tbody>--%>
+                <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
+                    <%--<tr>--%>
+                        <%--<td>${user.roles[vs.index].name}</td>--%>
+                        <%--<td>${user.roles[vs.index].description}</td>--%>
+                        <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].name"/>--%>
+                        <%--<form:hidden path="roles[${vs.index}].description"/>--%>
+                    <%--</tr>--%>
+                <%--</c:forEach>--%>
+                <%--</tbody>--%>
+            <%--</table>--%>
+        <%--</div>--%>
+        <%--<button id="add-role">Add role</button>--%>
+
+        <%--<hr>--%>
+
+        <%--<div id="users-contain" class="ui-widget">--%>
+        <%--<h1>Students:</h1>--%>
+        <%--<table id="students" class="ui-widget ui-widget-content">--%>
+        <%--<thead>--%>
+        <%--<tr class="ui-widget-header">--%>
+        <%--<th>Last name</th>--%>
+        <%--<th>First name</th>--%>
+        <%--<th>Middle name</th>--%>
+        <%--</tr>--%>
+        <%--</thead>--%>
+        <%--<tbody>--%>
+        <%--<c:forEach items="${user.students}" varStatus="vs">--%>
+        <%--<tr>--%>
+        <%--<td>${user.students[vs.index].lastName}</td>--%>
+        <%--<td>${user.students[vs.index].firstName}</td>--%>
+        <%--<td>${user.students[vs.index].middleName}</td>--%>
+        <%--<form:hidden path="students[${vs.index}].studentId"/>--%>
+        <%--<form:hidden path="students[${vs.index}].lastName"/>--%>
+        <%--<form:hidden path="students[${vs.index}].firstName"/>--%>
+        <%--<form:hidden path="students[${vs.index}].middleName"/>--%>
+        <%--</tr>--%>
+        <%--</c:forEach>--%>
+        <%--</tbody>--%>
+        <%--</table>--%>
+        <%--</div>--%>
+        <%--<button class="add-student">Add student</button>--%>
+
+        <br>
 
         <input type="submit" value="Сохранить"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

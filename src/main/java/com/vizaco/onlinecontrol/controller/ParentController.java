@@ -36,13 +36,13 @@ public class ParentController {
 
     private final StudentService studentService;
 
-    private final RoleService roleService;
+    private final UserService userService;
 
     @Autowired
-    public ParentController(ParentService parentService, StudentService studentService, RoleService roleService) {
+    public ParentController(ParentService parentService, StudentService studentService, UserService userService) {
         this.parentService = parentService;
         this.studentService = studentService;
-        this.roleService = roleService;
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/parents")
@@ -64,6 +64,7 @@ public class ParentController {
     public String createParent(Model model) {
         Parent attributeValue = new Parent();
         model.addAttribute("parent", attributeValue);
+        model.addAttribute("users", userService.getAllUsers());
         return "/parents/createOrUpdateParentForm";
     }
 
@@ -72,6 +73,7 @@ public class ParentController {
 
         if (result.hasErrors()) {
             model.addAttribute("parent", parent);
+            model.addAttribute("users", userService.getAllUsers());
             return "/parents/createOrUpdateParentForm";
         }
 
@@ -79,7 +81,7 @@ public class ParentController {
         return "redirect:/parents/" + parent.getId();
     }
 
-    //READ USER
+    //READ PARENT
 
     @RequestMapping(value = "/parents/{parentId}")
     public ModelAndView readUser(@PathVariable("parentId") String parentIdStr) {
@@ -93,7 +95,7 @@ public class ParentController {
         return mav;
     }
 
-    //UPDATE USER
+    //UPDATE PARENT
 
     @RequestMapping(value = "/parents/{parentId}/edit", method = RequestMethod.GET)
     public ModelAndView editParent(@PathVariable("parentId") String parentIdStr) {
@@ -102,6 +104,7 @@ public class ParentController {
         ModelAndView mav = new ModelAndView("/parents/createOrUpdateParentForm");
 
         mav.addObject("parent", parent);
+        mav.addObject("users", userService.getAllUsers());
 
         return mav;
     }
@@ -111,6 +114,7 @@ public class ParentController {
 
         if (result.hasErrors()) {
             model.addAttribute("parent", parent);
+            model.addAttribute("users", userService.getAllUsers());
             return "/parents/createOrUpdateParentForm";
         }
 
@@ -121,7 +125,7 @@ public class ParentController {
         return "redirect:/parents/" + parent.getId();
     }
 
-    //DELETE USER
+    //DELETE PARENT
 
     @RequestMapping(value = "/parents/{parentId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteParent(@PathVariable("parentId") String parentIdStr) {
@@ -153,7 +157,7 @@ public class ParentController {
         }
 
         parentService.saveParent(parent);
-        return "redirect:/users/" + parent.getId();
+        return "redirect:/parents/" + parent.getId();
     }
 
     @RequestMapping(value = "/parents/{parentId}/students/{studentId}/delete", method = RequestMethod.DELETE)
@@ -165,7 +169,7 @@ public class ParentController {
         students.remove(student);
 
         parentService.saveParent(parent);
-        return "redirect:/users/" + parent.getId();
+        return "redirect:/parents/" + parent.getId();
     }
 
 }

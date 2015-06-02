@@ -72,6 +72,7 @@ CREATE TABLE parents (
   user_id      BIGINT
 );
 CREATE INDEX parents_id ON parents (id);
+-- ALTER TABLE parents ADD CONSTRAINT fk_parents_users FOREIGN KEY (user_id) REFERENCES users (id);
 
 CREATE TABLE students (
   id            BIGINT IDENTITY PRIMARY KEY,
@@ -85,6 +86,7 @@ CREATE TABLE students (
 );
 CREATE INDEX students_id ON students (id);
 ALTER TABLE students ADD CONSTRAINT fk_students_clazzes FOREIGN KEY (clazz_id) REFERENCES clazzes (id);
+-- ALTER TABLE students ADD CONSTRAINT fk_students_users FOREIGN KEY (user_id) REFERENCES users (id);
 
 CREATE TABLE teachers (
   id          BIGINT IDENTITY PRIMARY KEY,
@@ -96,6 +98,7 @@ CREATE TABLE teachers (
   user_id      BIGINT
 );
 CREATE INDEX teachers_id ON teachers (id);
+-- ALTER TABLE teachers ADD CONSTRAINT fk_teachers_users FOREIGN KEY (user_id) REFERENCES users (id);
 
 CREATE TABLE schools (
   id          BIGINT IDENTITY PRIMARY KEY,
@@ -127,8 +130,8 @@ CREATE TABLE parents_students (
   parent_id    BIGINT NOT NULL,
   student_id BIGINT NOT NULL
 );
-ALTER TABLE parents_students ADD CONSTRAINT fk_users_students_users FOREIGN KEY (parent_id) REFERENCES users (id);
-ALTER TABLE parents_students ADD CONSTRAINT fk_users_students_students FOREIGN KEY (student_id) REFERENCES students (id);
+ALTER TABLE parents_students ADD CONSTRAINT fk_parents_students_students FOREIGN KEY (student_id) REFERENCES students (id);
+ALTER TABLE parents_students ADD CONSTRAINT fk_parents_students_parents FOREIGN KEY (parent_id) REFERENCES parents (id);
 
 CREATE TABLE users_roles (
   user_id BIGINT NOT NULL,

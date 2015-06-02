@@ -151,10 +151,9 @@ public class UserController {
             return "/users/createOrUpdateUserForm";
         }
 
-        user.setPassword(userEdit.getPassword());
-        user.setRoles(userEdit.getRoles());
-        userService.saveUser(user);
-        return "redirect:/users/" + user.getId();
+        userEdit.setEmail(user.getEmail());
+        userService.saveUser(userEdit);
+        return "redirect:/users/" + userEdit.getId();
     }
 
     //DELETE USER

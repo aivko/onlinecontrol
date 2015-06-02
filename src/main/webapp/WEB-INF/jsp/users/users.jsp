@@ -31,10 +31,6 @@
         <thead>
         <tr>
             <th>Email</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Студенты</th>
             <th>Роли</th>
             <th>Редактировать</th>
             <th>Детали</th>
@@ -47,21 +43,6 @@
                 <td>
                     <c:out value="${user.email}"/>
                 </td>
-                <td>
-                    <c:out value="${user.lastName}"/>
-                </td>
-                <td>
-                    <c:out value="${user.firstName}"/>
-                </td>
-                <td>
-                    <c:out value="${user.middleName}"/>
-                </td>
-                <td>
-                    <c:forEach var="student" items="${user.students}">
-                        <c:out value="${student.firstName} ${student.middleName} ${student.lastName}"/><br>
-                    </c:forEach>
-                </td>
-
                 <td>
                     <c:forEach var="role" items="${user.roles}">
                         <c:out value="${role.name}"/><br>

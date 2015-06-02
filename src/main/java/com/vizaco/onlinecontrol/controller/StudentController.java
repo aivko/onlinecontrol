@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.StudentService;
+import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -27,13 +28,15 @@ public class StudentController {
 
     private final StudentService studentService;
     private final ClazzService clazzService;
+    private final UserService userService;
 
     private Utils utils = new Utils();
 
     @Autowired
-    public StudentController(StudentService studentService, ClazzService clazzService) {
+    public StudentController(StudentService studentService, ClazzService clazzService, UserService userService) {
         this.studentService = studentService;
         this.clazzService = clazzService;
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/students/find", method = RequestMethod.GET)
@@ -101,6 +104,7 @@ public class StudentController {
     public String register(Model model) {
         Student student = new Student();
         model.addAttribute(student);
+        model.addAttribute("users", userService.getAllUsers());
         model.addAttribute("clazzes", clazzService.getAllClazzes());
         return "/students/createOrUpdateStudentForm";
     }
@@ -110,6 +114,7 @@ public class StudentController {
 
         if(result.hasErrors()){
             model.addAttribute(student);
+            model.addAttribute("users", userService.getAllUsers());
             model.addAttribute("clazzes", clazzService.getAllClazzes());
             return "/students/createOrUpdateStudentForm";
         }
@@ -141,6 +146,8 @@ public class StudentController {
         ModelAndView mav = new ModelAndView("/students/createOrUpdateStudentForm");
 
         mav.addObject("student", student);
+        mav.addObject("users", userService.getAllUsers());
+        mav.addObject("clazzes", clazzService.getAllClazzes());
 
         return mav;
     }
@@ -152,12 +159,14 @@ public class StudentController {
 
         if(result.hasErrors()){
             model.addAttribute("student", student);
+            model.addAttribute("users", userService.getAllUsers());
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
             return "/students/createOrUpdateStudentForm";
         }
 
         student.setId(studentEdit.getId());
         student.setClazz(studentEdit.getClazz());
-        student.setUsers(studentEdit.getUsers());
+        student.setParents(studentEdit.getParents());
         studentService.saveStudent(student);
         return "redirect:/students/";
     }

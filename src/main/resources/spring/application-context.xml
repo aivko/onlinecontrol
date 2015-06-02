@@ -95,6 +95,7 @@
         <property name="converters">
             <set>
                 <bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>
+                <bean class="com.vizaco.onlinecontrol.converters.StringToUser"/>
             </set>
         </property>
     </bean>
