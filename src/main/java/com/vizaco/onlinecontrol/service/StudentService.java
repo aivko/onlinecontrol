@@ -2,6 +2,7 @@ package com.vizaco.onlinecontrol.service;
 
 import com.vizaco.onlinecontrol.model.Student;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.access.prepost.PostFilter;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +18,7 @@ public interface StudentService {
 
     Collection<Student> findStudentByLastName(String lastName) throws DataAccessException;
 
+    @PostFilter("hasRole('ROLE_GOD')")
     List<Student> getAllStudents() throws DataAccessException;
 
     void saveStudent(Student student) throws DataAccessException;
