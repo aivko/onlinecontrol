@@ -5,8 +5,8 @@ INSERT INTO subjects VALUES (4, 'Literature');
 
 INSERT INTO clazzes VALUES (1, '1-А', 1);
 INSERT INTO clazzes VALUES (2, '1-Б', 1);
-INSERT INTO clazzes VALUES (3, '2-А', 1);
-INSERT INTO clazzes VALUES (4, '2-Б', 1);
+INSERT INTO clazzes VALUES (3, '2-В', 1);
+INSERT INTO clazzes VALUES (4, '2-Г', 1);
 
 INSERT INTO teachers VALUES (1, 'Mariya', 'Kovalenko', 'Vasilyevna', '2008-01-07', 'FEMALE', 1);
 INSERT INTO teachers VALUES (2, 'Olga', 'Dub', 'Valentinovna', '2008-01-07', 'FEMALE', 2);

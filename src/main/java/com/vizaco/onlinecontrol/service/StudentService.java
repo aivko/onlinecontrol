@@ -18,7 +18,7 @@ public interface StudentService {
 
     Collection<Student> findStudentByLastName(String lastName) throws DataAccessException;
 
-    @PostFilter("hasPermission(filterObject, authentication)")
+    @PostFilter("hasPermission(authentication, targetId, targetType, permission) or hasPermission(filterObject, 'admin')")
     List<Student> getAllStudents() throws DataAccessException;
 
     void saveStudent(Student student) throws DataAccessException;

@@ -69,29 +69,25 @@
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    <!-- Voters -->
-    <bean id="accessDecisionManager"
-          class="org.springframework.security.access.vote.AffirmativeBased">
-        <constructor-arg name="decisionVoters">
-            <list>
-                <bean class="org.springframework.security.access.vote.RoleVoter"/>
-            </list>
-        </constructor-arg>
-    </bean>
+    <!--&lt;!&ndash; Voters &ndash;&gt;-->
+    <!--<bean id="accessDecisionManager"-->
+          <!--class="org.springframework.security.access.vote.AffirmativeBased">-->
+        <!--<constructor-arg name="decisionVoters">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.security.access.vote.RoleVoter"/>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
 
     <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
-        <property name="permissionEvaluator">
-            <bean class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>"
-        </property>
+        <property name="permissionEvaluator" ref="customPermissionEvaluator"/>
     </bean>
+    <bean id="customPermissionEvaluator"  class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>
 
     <!-- SECURITY -->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <constructor-arg name="strength" value="11"/>
     </bean>
-    <!--<bean class="org.springframework.security.authentication.dao.ReflectionSaltSource" id="saltSource">-->
-        <!--<property name="userPropertyToUse" value="email"/>-->
-    <!--</bean>-->
 
     <!-- Validators -->
     <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
