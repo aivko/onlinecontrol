@@ -20,7 +20,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class ClazzController {
+public class ClazzController extends BaseController{
 
     private final ClazzService clazzService;
 

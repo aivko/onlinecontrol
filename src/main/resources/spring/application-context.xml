@@ -79,6 +79,12 @@
         </constructor-arg>
     </bean>
 
+    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <property name="permissionEvaluator">
+            <bean class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>"
+        </property>
+    </bean>
+
     <!-- SECURITY -->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <constructor-arg name="strength" value="11"/>

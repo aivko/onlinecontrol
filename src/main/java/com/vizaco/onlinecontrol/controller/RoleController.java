@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class RoleController {
+public class RoleController extends BaseController{
 
     private final RoleService roleService;
 

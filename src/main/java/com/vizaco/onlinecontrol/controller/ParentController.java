@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-public class ParentController {
+public class ParentController extends BaseController{
 
     private Utils utils = new Utils();
 

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class StudentController {
+public class StudentController extends BaseController{
 
     private final StudentService studentService;
     private final ClazzService clazzService;
