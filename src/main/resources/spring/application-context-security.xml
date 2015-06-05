@@ -7,12 +7,24 @@
                     http://www.springframework.org/schema/security
                     http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <global-method-security pre-post-annotations="enabled">
-        <expression-handler ref="expressionHandler"/>
+    <global-method-security pre-post-annotations="enabled" access-decision-manager-ref="accessDecisionManager">
+        <!--<expression-handler ref="expressionHandler"/>-->
 
-        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers())" access="ROLE_ADMIN"/>
-        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser())" access="ROLE_ADMIN"/>
-        <!--<protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.StudentService.getAllStudents())" access="ROLE_GOD"/>-->
+        <!--<protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers())" access="ROLE_ADMIN"/>-->
+        <!--<protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser())" access="ROLE_ADMIN"/>-->
+        <!--<protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.StudentService.getAllStudents())" access="ROLE_ADMIN"/>-->
+
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.findUserById(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers())" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.saveUser(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser(..))" access="ROLE_ADMIN"/>
+
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.StudentService..*(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.ClazzService..*(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.ParentService..*(..))" access="ROLE_USER"/>
+        <protect-pointcut expression="execution(* com.vizaco.onlinecontrol.service.RoleService..*(..))" access="ROLE_USER"/>
+
     </global-method-security>
 
     <http pattern="/resources/**" security="none" />

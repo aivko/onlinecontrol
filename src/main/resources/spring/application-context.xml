@@ -49,6 +49,7 @@
 
     <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
     <context:component-scan base-package="com.vizaco.onlinecontrol.security"/>
+    <context:component-scan base-package="com.vizaco.onlinecontrol.configuration"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource">
@@ -69,20 +70,20 @@
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
-    <!--&lt;!&ndash; Voters &ndash;&gt;-->
-    <!--<bean id="accessDecisionManager"-->
-          <!--class="org.springframework.security.access.vote.AffirmativeBased">-->
-        <!--<constructor-arg name="decisionVoters">-->
-            <!--<list>-->
-                <!--<bean class="org.springframework.security.access.vote.RoleVoter"/>-->
-            <!--</list>-->
-        <!--</constructor-arg>-->
-    <!--</bean>-->
-
-    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
-        <property name="permissionEvaluator" ref="customPermissionEvaluator"/>
+    <!-- Voters -->
+    <bean id="accessDecisionManager"
+          class="org.springframework.security.access.vote.AffirmativeBased">
+        <constructor-arg name="decisionVoters">
+            <list>
+                <bean class="org.springframework.security.access.vote.RoleVoter"/>
+            </list>
+        </constructor-arg>
     </bean>
-    <bean id="customPermissionEvaluator"  class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>
+
+    <!--<bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">-->
+        <!--<property name="permissionEvaluator" ref="customPermissionEvaluator"/>-->
+    <!--</bean>-->
+    <!--<bean id="customPermissionEvaluator"  class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>-->
 
     <!-- SECURITY -->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
