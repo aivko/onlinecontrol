@@ -15,7 +15,11 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.vizaco.onlinecontrol")
+@ComponentScan({"com.vizaco.onlinecontrol.configuration",
+        "com.vizaco.onlinecontrol.controller",
+        "com.vizaco.onlinecontrol.dao",
+        "com.vizaco.onlinecontrol.model",
+        "com.vizaco.onlinecontrol.service"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
