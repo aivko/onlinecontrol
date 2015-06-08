@@ -44,15 +44,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+
+        web.ignoring().antMatchers("/resources/**");
+
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/index").permitAll()
-                .antMatchers("/registration/facebook").permitAll()
-                .antMatchers("/registration/google").permitAll()
-                .antMatchers("/callback/google/registration").permitAll()
+                .antMatchers("/", "/index", "/registration/facebook", "/registration/google", "/callback/google/registration").permitAll()
                 .antMatchers("/registration").access("ROLE_ADMIN")
                 .antMatchers("/**").access("ROLE_USER")
                 .and()
