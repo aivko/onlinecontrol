@@ -4,7 +4,9 @@ import com.vizaco.onlinecontrol.security.impl.CustomUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -19,29 +21,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 
+import java.util.Arrays;
+
 /**
  * Created by super on 6/5/15.
  */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    UserDetailsService userDetailsService;
-
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
-    @Autowired
-    AuthenticationProvider authenticationProvider;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.authenticationProvider(authenticationProvider)
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder);
-    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {

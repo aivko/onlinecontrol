@@ -49,6 +49,8 @@ import java.util.Properties;
         "com.vizaco.onlinecontrol.controller",
         "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.model",
+        "com.vizaco.onlinecontrol.validators",
+        "com.vizaco.onlinecontrol.security",
         "com.vizaco.onlinecontrol.service"})
 @PropertySource("classpath:spring/data-access.properties")
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -69,10 +71,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        return new DaoAuthenticationProvider();
-    }
+//    @Bean
+//    public AuthenticationProvider authenticationProvider() {
+//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+//        daoAuthenticationProvider.setUserDetailsService(userDetailsService());
+//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+//        return daoAuthenticationProvider;
+//    }
 
     @Bean
     public DataSourceInitializer dataSourceInitializer(DataSource dataSource)

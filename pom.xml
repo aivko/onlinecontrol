@@ -158,11 +158,32 @@
 
 
         <!-- JETTY -->
+        <!--<dependency>-->
+            <!--<groupId>org.mortbay.jetty</groupId>-->
+            <!--<artifactId>jetty</artifactId>-->
+            <!--<version>7.0.0.pre5</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>jetty</artifactId>
-            <version>7.0.0.pre5</version>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.2.11.v20150529</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>9.2.11.v20150529</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.2.11.v20150529</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.2.11.v20150529</version>
+        </dependency>
+
 
 
         <!-- SERVLETS -->
@@ -355,34 +376,13 @@
         <plugins>
 
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.10</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.11.v20150529</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <stopKey>foo</stopKey>
-                    <stopPort>10200</stopPort>
+                    <!--<descriptor>src/main/java/com/vizaco/onlinecontrol/configuration/WebAppInitializer.java</descriptor>-->
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
-                            <daemon>true</daemon>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

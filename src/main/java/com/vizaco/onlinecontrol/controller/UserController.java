@@ -34,6 +34,7 @@ public class UserController extends BaseController{
     ConversionService conversionService;
 
     @Autowired
+    @Qualifier("customUserDetailsServiceImpl")
     PasswordHandler passwordHandler;
 
     @Autowired
