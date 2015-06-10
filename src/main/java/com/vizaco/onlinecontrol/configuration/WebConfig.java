@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
@@ -20,8 +22,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -44,7 +45,8 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
-@ComponentScan({"com.vizaco.onlinecontrol.aspects",
+@ComponentScan({
+//        "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.controller",
         "com.vizaco.onlinecontrol.dao",
@@ -56,10 +58,16 @@ import java.util.Properties;
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
+    Environment environment;
+
+    @Autowired
     private ClazzService clazzService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MethodSecurityMetadataSourceAdvisor sourceAdvisor;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -71,43 +79,42 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public AuthenticationProvider authenticationProvider() {
-//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-//        daoAuthenticationProvider.setUserDetailsService(userDetailsService());
-//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-//        return daoAuthenticationProvider;
-//    }
+    @Bean
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
+        dataSource.setUrl(environment.getProperty("jdbc.url"));
+        dataSource.setUsername(environment.getProperty("jdbc.username"));
+        dataSource.setPassword(environment.getProperty("jdbc.password"));
+        return dataSource;
+    }
 
     @Bean
-    public DataSourceInitializer dataSourceInitializer(DataSource dataSource)
-    {
-        ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-        resourceDatabasePopulator.addScript(new ClassPathResource("classpath:db/hsqldb/initDB.sql"));
-        resourceDatabasePopulator.addScript(new ClassPathResource("classpath:db/hsqldb/populateDB.sql"));
-
+    public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
         DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
         dataSourceInitializer.setDataSource(dataSource);
-        dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+
+        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+        databasePopulator.addScript(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation")));
+        databasePopulator.addScript(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation")));
+        dataSourceInitializer.setDatabasePopulator(databasePopulator);
         return dataSourceInitializer;
     }
 
-    @Bean
-    public DataSource hsqlDataSource()
-    {
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("org.hsqldb.jdbc.JDBCDataSource");
-        basicDataSource.setUsername("sa");
-        basicDataSource.setPassword("");
-        basicDataSource.setUrl("jdbc:hsqldb:mem:onlinecontrol");
-        return basicDataSource;
-    }
+//    @Bean
+//    public DataSource dataSource() {
+//        return new EmbeddedDatabaseBuilder()
+//                .setType(EmbeddedDatabaseType.HSQL)
+//                .addScript(environment.getProperty("jdbc.initLocation"))
+//                .addScript(environment.getProperty("jdbc.dataLocation"))
+//                .build();
+//    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(hsqlDataSource());
-        em.setPackagesToScan(new String[] { "org.baeldung.persistence.model" });
+        em.setDataSource(dataSource());
+        em.setPackagesToScan(new String[]{"com.vizaco.onlinecontrol.model"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -121,7 +128,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
 
@@ -129,7 +136,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
