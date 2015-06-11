@@ -5,6 +5,7 @@ import com.vizaco.onlinecontrol.converters.StringToUser;
 import com.vizaco.onlinecontrol.security.impl.CustomUserDetailsServiceImpl;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.UserService;
+import org.datanucleus.api.jpa.PersistenceProviderImpl;
 import org.datanucleus.store.rdbms.datasource.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -18,9 +19,12 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.orm.jpa.JpaDialect;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -46,7 +50,7 @@ import java.util.Properties;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @ComponentScan({
-//        "com.vizaco.onlinecontrol.aspects",
+        "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.controller",
         "com.vizaco.onlinecontrol.dao",
@@ -101,23 +105,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return dataSourceInitializer;
     }
 
-//    @Bean
-//    public DataSource dataSource() {
-//        return new EmbeddedDatabaseBuilder()
-//                .setType(EmbeddedDatabaseType.HSQL)
-//                .addScript(environment.getProperty("jdbc.initLocation"))
-//                .addScript(environment.getProperty("jdbc.dataLocation"))
-//                .build();
-//    }
-
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[]{"com.vizaco.onlinecontrol.model"});
 
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setDatabase(Database.HSQL);
+        vendorAdapter.setShowSql(true);
+
         em.setJpaVendorAdapter(vendorAdapter);
+
+//        em.setJpaDialect(new HibernateJpaDialect());
+//        em.setPersistenceProvider(new PersistenceProviderImpl());
 
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
@@ -128,9 +129,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+    @Autowired
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(emf);
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        transactionManager.setDataSource(dataSource());
 
         return transactionManager;
     }
@@ -142,7 +145,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/pages/");
+        registry.addResourceHandler("/WEB-INF/jsp/**").addResourceLocations("/jsp/");
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
@@ -165,7 +168,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/pages/");
+        resolver.setPrefix("/WEB-INF/jsp/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);
 

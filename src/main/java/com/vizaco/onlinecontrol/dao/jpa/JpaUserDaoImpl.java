@@ -1,16 +1,13 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.UserDao;
-import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.Collection;
 import java.util.List;
 
 @Repository

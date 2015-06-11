@@ -55,9 +55,9 @@ public class GlobalSecurityConfig extends GlobalMethodSecurityConfiguration {
         return map;
     }
 
-    @Override
-    protected MethodSecurityMetadataSource customMethodSecurityMetadataSource() {
-        return new MapBasedMethodSecurityMetadataSource(protectPointcutMap());
-    }
+//    @Override
+//    protected MethodSecurityMetadataSource customMethodSecurityMetadataSource() {
+//        return new MapBasedMethodSecurityMetadataSource(protectPointcutMap());
+//    }
 
 }
