@@ -122,7 +122,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
     }
 
     @Bean
-    @Autowired
     public PlatformTransactionManager txManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
