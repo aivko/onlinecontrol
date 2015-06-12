@@ -5,26 +5,21 @@ import com.vizaco.onlinecontrol.converters.StringToUser;
 import com.vizaco.onlinecontrol.security.impl.CustomUserDetailsServiceImpl;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.UserService;
-import org.datanucleus.api.jpa.PersistenceProviderImpl;
-import org.datanucleus.store.rdbms.datasource.dbcp.BasicDataSource;
+import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.orm.jpa.JpaDialect;
 import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
-import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,6 +27,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -59,7 +55,7 @@ import java.util.Properties;
         "com.vizaco.onlinecontrol.security",
         "com.vizaco.onlinecontrol.service"})
 @PropertySource("classpath:spring/data-access.properties")
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig extends WebMvcConfigurerAdapter implements TransactionManagementConfigurer {
 
     @Autowired
     Environment environment;
@@ -85,18 +81,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
+        JDBCDataSource dataSource = new JDBCDataSource();
+//        dataSource.setClassDriver(environment.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getProperty("jdbc.url"));
-        dataSource.setUsername(environment.getProperty("jdbc.username"));
+        dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
         return dataSource;
     }
 
     @Bean
-    public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
+    public DataSourceInitializer dataSourceInitializer() {
         DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-        dataSourceInitializer.setDataSource(dataSource);
+        dataSourceInitializer.setDataSource(dataSource());
 
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.addScript(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation")));
@@ -117,9 +113,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         em.setJpaVendorAdapter(vendorAdapter);
 
-//        em.setJpaDialect(new HibernateJpaDialect());
-//        em.setPersistenceProvider(new PersistenceProviderImpl());
-
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
 
@@ -130,12 +123,16 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     @Autowired
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    public PlatformTransactionManager txManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
-        transactionManager.setDataSource(dataSource());
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 
         return transactionManager;
+    }
+
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return txManager();
     }
 
     @Bean

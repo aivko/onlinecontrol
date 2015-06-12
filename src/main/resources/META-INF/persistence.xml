@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
-    <persistence-unit name="jpa.unit">
+    <!--<persistence-unit name="jpa.unit">-->
+    <persistence-unit name="default">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>com.vizaco.onlinecontrol.model.BaseEntity</class>
         <class>com.vizaco.onlinecontrol.model.User</class>
+        <class>com.vizaco.onlinecontrol.model.Person</class>
         <class>com.vizaco.onlinecontrol.model.Parent</class>
         <class>com.vizaco.onlinecontrol.model.Student</class>
         <class>com.vizaco.onlinecontrol.model.Teacher</class>

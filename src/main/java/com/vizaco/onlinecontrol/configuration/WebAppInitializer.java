@@ -6,6 +6,8 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 /**
  * Created by super on 6/5/15.
@@ -41,4 +43,5 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
         return new Filter[] {characterEncodingFilter, hiddenHttpMethodFilter};
     }
+
 }

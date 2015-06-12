@@ -1,116 +1,116 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/jdbc
-       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:p="http://www.springframework.org/schema/p"-->
+       <!--xmlns:jdbc="http://www.springframework.org/schema/jdbc"-->
+       <!--xmlns:tx="http://www.springframework.org/schema/tx"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+       <!--http://www.springframework.org/schema/tx-->
+       <!--http://www.springframework.org/schema/tx/spring-tx.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context.xsd-->
+       <!--http://www.springframework.org/schema/jdbc-->
+       <!--http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">-->
 
-    <context:component-scan
-            base-package="com.vizaco.onlinecontrol.service"/>
+    <!--<context:component-scan-->
+            <!--base-package="com.vizaco.onlinecontrol.service"/>-->
 
-    <!-- enables scanning for @Transactional annotations -->
-    <tx:annotation-driven/>
+    <!--&lt;!&ndash; enables scanning for @Transactional annotations &ndash;&gt;-->
+    <!--<tx:annotation-driven/>-->
 
-    <!-- ========================= DATASOURCE DEFINITION ========================= -->
+    <!--&lt;!&ndash; ========================= DATASOURCE DEFINITION ========================= &ndash;&gt;-->
 
-    <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
-    <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
-    <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
+    <!--&lt;!&ndash; Configurer that replaces ${...} placeholders with values from a properties file &ndash;&gt;-->
+    <!--&lt;!&ndash; (in this case, JDBC-related settings for the dataSource definition below) &ndash;&gt;-->
+    <!--<context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>-->
 
-    <!-- Database initializer. If any of the script fails, the initialization stops. -->
-    <!-- As an alternative, for embedded databases see <jdbc:embedded-database/>. -->
-    <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="${jdbc.initLocation}"/>
-        <jdbc:script location="${jdbc.dataLocation}"/>
-    </jdbc:initialize-database>
+    <!--&lt;!&ndash; Database initializer. If any of the script fails, the initialization stops. &ndash;&gt;-->
+    <!--&lt;!&ndash; As an alternative, for embedded databases see <jdbc:embedded-database/>. &ndash;&gt;-->
+    <!--<jdbc:initialize-database data-source="dataSource">-->
+        <!--<jdbc:script location="${jdbc.initLocation}"/>-->
+        <!--<jdbc:script location="${jdbc.dataLocation}"/>-->
+    <!--</jdbc:initialize-database>-->
 
-    <!-- DataSource configuration for the Jetty jdbc connection -->
-    <bean id="dataSource" class="org.hsqldb.jdbc.JDBCDataSource">
-        <property name="url">
-            <value>${jdbc.url}</value>
-        </property>
-        <property name="user">
-            <value>${jdbc.username}</value>
-        </property>
-        <property name="password">
-            <value>${jdbc.password}</value>
-        </property>
-    </bean>
-
-
-    <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.security"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.configuration"/>
-
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:dataSource-ref="dataSource">
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-                  p:database="${jpa.database}" p:showSql="${jpa.showSql}"/>
-            <!-- the 'database' parameter refers to the database dialect being used.
-                By default, Hibernate will use a 'HSQL' dialect because 'jpa.database' has been set to 'HSQL'
-                inside file spring/data-access.properties
-
-             -->
-        </property>
-    </bean>
-
-    <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-          p:entityManagerFactory-ref="entityManagerFactory"/>
-
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-
-    <!-- Voters -->
-    <bean id="accessDecisionManager"
-          class="org.springframework.security.access.vote.AffirmativeBased">
-        <constructor-arg name="decisionVoters">
-            <list>
-                <bean class="org.springframework.security.access.vote.RoleVoter"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <!--<bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">-->
-        <!--<property name="permissionEvaluator" ref="customPermissionEvaluator"/>-->
+    <!--&lt;!&ndash; DataSource configuration for the Jetty jdbc connection &ndash;&gt;-->
+    <!--<bean id="dataSource" class="org.hsqldb.jdbc.JDBCDataSource">-->
+        <!--<property name="url">-->
+            <!--<value>${jdbc.url}</value>-->
+        <!--</property>-->
+        <!--<property name="user">-->
+            <!--<value>${jdbc.username}</value>-->
+        <!--</property>-->
+        <!--<property name="password">-->
+            <!--<value>${jdbc.password}</value>-->
+        <!--</property>-->
     <!--</bean>-->
-    <!--<bean id="customPermissionEvaluator"  class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>-->
 
-    <!-- SECURITY -->
-    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-        <constructor-arg name="strength" value="11"/>
-    </bean>
 
-    <!-- Validators -->
-    <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.security"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.configuration"/>-->
 
-    <!-- Messages -->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="classpath:messages"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-    </bean>
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-        <property name="defaultLocale" value="ru"/>
-    </bean>
+    <!--<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"-->
+          <!--p:dataSource-ref="dataSource">-->
+        <!--<property name="jpaVendorAdapter">-->
+            <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"-->
+                  <!--p:database="${jpa.database}" p:showSql="${jpa.showSql}"/>-->
+            <!--&lt;!&ndash; the 'database' parameter refers to the database dialect being used.-->
+                <!--By default, Hibernate will use a 'HSQL' dialect because 'jpa.database' has been set to 'HSQL'-->
+                <!--inside file spring/data-access.properties-->
 
-    <!-- Converters -->
-    <bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToUser"/>
-            </set>
-        </property>
-    </bean>
+             <!--&ndash;&gt;-->
+        <!--</property>-->
+    <!--</bean>-->
 
-</beans>
+    <!--&lt;!&ndash; Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) &ndash;&gt;-->
+    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"-->
+          <!--p:entityManagerFactory-ref="entityManagerFactory"/>-->
+
+    <!--<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>-->
+
+    <!--&lt;!&ndash; Voters &ndash;&gt;-->
+    <!--<bean id="accessDecisionManager"-->
+          <!--class="org.springframework.security.access.vote.AffirmativeBased">-->
+        <!--<constructor-arg name="decisionVoters">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.security.access.vote.RoleVoter"/>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;<bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="permissionEvaluator" ref="customPermissionEvaluator"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="customPermissionEvaluator"  class="com.vizaco.onlinecontrol.security.impl.CustomPermissionEvaluator"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash; SECURITY &ndash;&gt;-->
+    <!--<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
+        <!--<constructor-arg name="strength" value="11"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; Validators &ndash;&gt;-->
+    <!--<bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>-->
+
+    <!--&lt;!&ndash; Messages &ndash;&gt;-->
+    <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
+        <!--<property name="basename" value="classpath:messages"/>-->
+        <!--<property name="defaultEncoding" value="UTF-8"/>-->
+    <!--</bean>-->
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">-->
+        <!--<property name="defaultLocale" value="ru"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; Converters &ndash;&gt;-->
+    <!--<bean id="conversionService"-->
+          <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--<property name="converters">-->
+            <!--<set>-->
+                <!--<bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>-->
+                <!--<bean class="com.vizaco.onlinecontrol.converters.StringToUser"/>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+<!--</beans>-->

@@ -318,7 +318,7 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
 
         <!-- HIBERNATE -->
@@ -394,6 +394,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>1.9.8</version>
         </dependency>
 
     </dependencies>
