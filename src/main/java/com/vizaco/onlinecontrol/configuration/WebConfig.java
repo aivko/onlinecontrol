@@ -43,18 +43,19 @@ import java.util.Properties;
  * Created by super on 6/5/15.
  */
 @Configuration
-@EnableWebMvc
-@EnableAspectJAutoProxy
-@EnableTransactionManagement
-@ComponentScan({
+@ComponentScan(basePackages = {
         "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.controller",
+        "com.vizaco.onlinecontrol.converters",
         "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
         "com.vizaco.onlinecontrol.security",
         "com.vizaco.onlinecontrol.service"})
+@EnableWebMvc
+@EnableAspectJAutoProxy
+@EnableTransactionManagement
 @PropertySource("classpath:spring/data-access.properties")
 public class WebConfig extends WebMvcConfigurerAdapter implements TransactionManagementConfigurer {
 
