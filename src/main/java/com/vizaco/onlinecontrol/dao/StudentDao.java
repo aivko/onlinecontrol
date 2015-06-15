@@ -1,10 +1,8 @@
 package com.vizaco.onlinecontrol.dao;
 
-import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import org.springframework.dao.DataAccessException;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface StudentDao {

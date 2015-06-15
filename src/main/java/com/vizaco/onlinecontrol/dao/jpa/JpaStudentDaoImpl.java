@@ -1,7 +1,6 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.StudentDao;
-import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.Collection;
 import java.util.List;
 
 @Repository
@@ -25,6 +23,7 @@ public class JpaStudentDaoImpl implements StudentDao {
         this.em = em;
     }
 
+    @Override
     public List<Student> findByLastName(String lastName) {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents WHERE student.lastName LIKE :lastName");
         query.setParameter("lastName", lastName + "%");

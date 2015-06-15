@@ -15,6 +15,7 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
+import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -94,10 +95,11 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
         DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
         dataSourceInitializer.setDataSource(dataSource());
 
-        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.addScript(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation")));
-        databasePopulator.addScript(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation")));
-        dataSourceInitializer.setDatabasePopulator(databasePopulator);
+        CompositeDatabasePopulator compositeDatabasePopulator = new CompositeDatabasePopulator();
+
+        compositeDatabasePopulator.addPopulators(new ResourceDatabasePopulator(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation"))));
+        compositeDatabasePopulator.addPopulators(new ResourceDatabasePopulator(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"))));
+        dataSourceInitializer.setDatabasePopulator(compositeDatabasePopulator);
         return dataSourceInitializer;
     }
 
