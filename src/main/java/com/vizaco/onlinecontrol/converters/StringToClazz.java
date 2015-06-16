@@ -6,6 +6,7 @@ import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Service;
 
 /**
  * Converter for Student control.
@@ -15,14 +16,11 @@ import org.springframework.core.convert.converter.Converter;
  * @author Oleksandr Zamkovyi
  * @since ???
  */
+@Service
 public class StringToClazz implements Converter<String, Clazz> {
 
-    private ClazzService clazzService;
-
     @Autowired
-    public StringToClazz(ClazzService clazzService) {
-        this.clazzService = clazzService;
-    }
+    private ClazzService clazzService;
 
     @Override
     public Clazz convert(String clazzId) {

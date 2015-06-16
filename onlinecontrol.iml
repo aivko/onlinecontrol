@@ -30,10 +30,6 @@
           <file>file://$MODULE_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/GlobalSecurityConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebSecurityConfig.java</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/aop-config.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/application-context-security.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/application-context.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/mvc-core-config.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -96,12 +92,12 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security.oauth:spring-security-oauth2:2.0.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:3.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:3.2.5.RELEASE" level="project" />
@@ -111,6 +107,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-test:4.0.0.M1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:4.1.6.RELEASE" level="project" />

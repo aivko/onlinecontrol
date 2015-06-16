@@ -7,6 +7,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -79,7 +80,8 @@ public class Logging {
 
     private String getLogMessage(JoinPoint joinPoint, String start) {
         StringBuffer logMessage = new StringBuffer(start);
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication == null ? "anonymous":authentication.getPrincipal();
         logMessage.append("#auth ").append(principal).append(" # ");
         logMessage.append(joinPoint.getTarget().getClass().getName());
         logMessage.append(".");

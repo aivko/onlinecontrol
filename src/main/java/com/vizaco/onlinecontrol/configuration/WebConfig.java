@@ -5,7 +5,11 @@ import com.vizaco.onlinecontrol.converters.StringToUser;
 import com.vizaco.onlinecontrol.security.impl.CustomUserDetailsServiceImpl;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.UserService;
+import com.vizaco.onlinecontrol.service.impl.ClazzServiceImpl;
+import com.vizaco.onlinecontrol.service.impl.UserServiceImpl;
+import org.hibernate.service.spi.InjectService;
 import org.hsqldb.jdbc.JDBCDataSource;
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
@@ -45,46 +49,58 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = {
         "com.vizaco.onlinecontrol.aspects",
+        "com.vizaco.onlinecontrol.service",
         "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.controller",
         "com.vizaco.onlinecontrol.converters",
         "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
-        "com.vizaco.onlinecontrol.security",
-        "com.vizaco.onlinecontrol.service"})
+        "com.vizaco.onlinecontrol.security"})
 @EnableWebMvc
-@EnableAspectJAutoProxy
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 @PropertySource("classpath:spring/data-access.properties")
 public class WebConfig extends WebMvcConfigurerAdapter implements TransactionManagementConfigurer {
 
     @Autowired
     Environment environment;
 
-    @Autowired
-    private ClazzService clazzService;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private MethodSecurityMetadataSourceAdvisor sourceAdvisor;
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsServiceImpl();
-    }
+//    @Autowired
+//    ClazzService clazzService;
+//
+//    @Autowired
+//    UserService userService;
+//
+//    @Autowired
+//    StringToClazz stringToClazz;
+//
+//    @Autowired
+//    StringToUser stringToUser;
+//
+//
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        return new CustomUserDetailsServiceImpl();
+//    }
+//    @Bean
+//    public UserService userService() {
+//        return new UserServiceImpl();
+//    }
+//
+//    @Bean
+//    public ClazzService clazzService() {
+//        return new ClazzServiceImpl();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(11);
     }
 
     @Bean
     public DataSource dataSource() {
         JDBCDataSource dataSource = new JDBCDataSource();
-//        dataSource.setClassDriver(environment.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
@@ -132,14 +148,14 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
         return transactionManager;
     }
 
-    @Override
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return txManager();
-    }
-
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return txManager();
     }
 
     @Override
@@ -178,8 +194,8 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToClazz(clazzService));
-        registry.addConverter(new StringToUser(userService));
+        registry.addConverter(new StringToClazz());
+        registry.addConverter(new StringToUser());
     }
 
     @Bean(name = "messageSource")

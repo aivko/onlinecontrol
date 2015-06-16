@@ -34,12 +34,12 @@
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:9.3.0.M2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security.oauth:spring-security-oauth2:2.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.5.RELEASE" />
@@ -49,6 +49,7 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-test:4.0.0.M1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.6.RELEASE" />

@@ -5,6 +5,7 @@ import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Service;
 
 /**
  * Converter for Student control.
@@ -14,6 +15,7 @@ import org.springframework.core.convert.converter.Converter;
  * @author Oleksandr Zamkovyi
  * @since ???
  */
+@Service
 public class StringToRole implements Converter<String, Role> {
 
     private RoleService roleService;

@@ -6,6 +6,7 @@ import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Service;
 
 /**
  * Converter for Student control.
@@ -15,14 +16,11 @@ import org.springframework.core.convert.converter.Converter;
  * @author Oleksandr Zamkovyi
  * @since ???
  */
+@Service
 public class StringToUser implements Converter<String, User> {
 
-    private UserService userService;
-
     @Autowired
-    public StringToUser(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @Override
     public User convert(String userId) {
