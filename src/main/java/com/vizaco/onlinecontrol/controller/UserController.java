@@ -43,22 +43,15 @@ public class UserController extends BaseController{
 
     private Utils utils = new Utils();
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
-    private final StudentService studentService;
-
-    private final RoleService roleService;
+    @Autowired
+    private RoleService roleService;
 
     @Autowired
     @Qualifier("userValidator")
     private Validator userValidator;
-
-    @Autowired
-    public UserController(UserService userService, StudentService studentService, RoleService roleService) {
-        this.userService = userService;
-        this.studentService = studentService;
-        this.roleService = roleService;
-    }
 
     @InitBinder("user")
     protected void initBinder(WebDataBinder binder) {

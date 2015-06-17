@@ -50,12 +50,12 @@ import java.util.Properties;
 @ComponentScan(basePackages = {
         "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.service",
-        "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.controller",
-        "com.vizaco.onlinecontrol.converters",
         "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
+        "com.vizaco.onlinecontrol.converters",
+        "com.vizaco.onlinecontrol.configuration",
         "com.vizaco.onlinecontrol.security"})
 @EnableWebMvc
 @EnableTransactionManagement
@@ -72,11 +72,11 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
 //    @Autowired
 //    UserService userService;
 //
-//    @Autowired
-//    StringToClazz stringToClazz;
-//
-//    @Autowired
-//    StringToUser stringToUser;
+    @Autowired
+    private StringToClazz stringToClazz;
+
+    @Autowired
+    private StringToUser stringToUser;
 //
 //
 //    @Bean
@@ -91,6 +91,16 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
 //    @Bean
 //    public ClazzService clazzService() {
 //        return new ClazzServiceImpl();
+//    }
+//
+//    @Bean
+//    public StringToClazz stringToClazz() {
+//        return new StringToClazz();
+//    }
+//
+//    @Bean
+//    public StringToUser stringToUser() {
+//        return new StringToUser();
 //    }
 
     @Bean
@@ -194,8 +204,8 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToClazz());
-        registry.addConverter(new StringToUser());
+        registry.addConverter(stringToClazz);
+        registry.addConverter(stringToUser);
     }
 
     @Bean(name = "messageSource")
