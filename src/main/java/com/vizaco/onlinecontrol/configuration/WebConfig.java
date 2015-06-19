@@ -2,14 +2,7 @@ package com.vizaco.onlinecontrol.configuration;
 
 import com.vizaco.onlinecontrol.converters.StringToClazz;
 import com.vizaco.onlinecontrol.converters.StringToUser;
-import com.vizaco.onlinecontrol.security.impl.CustomUserDetailsServiceImpl;
-import com.vizaco.onlinecontrol.service.ClazzService;
-import com.vizaco.onlinecontrol.service.UserService;
-import com.vizaco.onlinecontrol.service.impl.ClazzServiceImpl;
-import com.vizaco.onlinecontrol.service.impl.UserServiceImpl;
-import org.hibernate.service.spi.InjectService;
 import org.hsqldb.jdbc.JDBCDataSource;
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
@@ -26,19 +19,15 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Locale;
 import java.util.Properties;
@@ -61,38 +50,17 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
 @PropertySource("classpath:spring/data-access.properties")
-public class WebConfig extends WebMvcConfigurerAdapter implements TransactionManagementConfigurer {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
     Environment environment;
 
-//    @Autowired
-//    ClazzService clazzService;
-//
-//    @Autowired
-//    UserService userService;
-//
     @Autowired
     private StringToClazz stringToClazz;
 
     @Autowired
     private StringToUser stringToUser;
-//
-//
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        return new CustomUserDetailsServiceImpl();
-//    }
-//    @Bean
-//    public UserService userService() {
-//        return new UserServiceImpl();
-//    }
-//
-//    @Bean
-//    public ClazzService clazzService() {
-//        return new ClazzServiceImpl();
-//    }
-//
+
 //    @Bean
 //    public StringToClazz stringToClazz() {
 //        return new StringToClazz();
@@ -151,7 +119,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
     }
 
     @Bean
-    public PlatformTransactionManager txManager() {
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 
@@ -161,11 +129,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements TransactionMan
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
-    }
-
-    @Override
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return txManager();
     }
 
     @Override

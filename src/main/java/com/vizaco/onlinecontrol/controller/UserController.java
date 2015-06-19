@@ -31,9 +31,9 @@ import java.util.List;
 @Controller
 public class UserController extends BaseController{
 
-    @Autowired
-    ConversionService conversionService;
-
+//    @Autowired
+//    ConversionService conversionService;
+//
     @Autowired
     @Qualifier("customUserDetailsServiceImpl")
     PasswordHandler passwordHandler;
