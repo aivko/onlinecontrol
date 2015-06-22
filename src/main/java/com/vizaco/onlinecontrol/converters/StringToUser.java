@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
  * @author Oleksandr Zamkovyi
  * @since ???
  */
-@Service
 public class StringToUser implements Converter<String, User> {
 
     @Autowired

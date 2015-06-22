@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.converters.StringToClazz;
 import com.vizaco.onlinecontrol.converters.StringToUser;
 import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -55,21 +56,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Autowired
     Environment environment;
 
-    @Autowired
-    private StringToClazz stringToClazz;
-
-    @Autowired
-    private StringToUser stringToUser;
-
-//    @Bean
-//    public StringToClazz stringToClazz() {
-//        return new StringToClazz();
-//    }
+//    @Autowired
+//    private StringToClazz stringToClazz;
 //
-//    @Bean
-//    public StringToUser stringToUser() {
-//        return new StringToUser();
-//    }
+//    @Autowired
+//    private StringToUser stringToUser;
+
+    @Bean
+    public StringToClazz stringToClazz() {
+        return new StringToClazz();
+    }
+
+    @Bean
+    public StringToUser stringToUser() {
+        return new StringToUser();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -167,8 +168,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(stringToClazz);
-        registry.addConverter(stringToUser);
+        registry.addConverter(stringToClazz());
+        registry.addConverter(stringToUser());
     }
 
     @Bean(name = "messageSource")
