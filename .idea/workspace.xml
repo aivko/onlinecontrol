@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToClazz.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToClazz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebSecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/onlinecontrol.iml" afterPath="$PROJECT_DIR$/onlinecontrol.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -110,45 +105,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
+      <file leaf-file-name="StringToClazz.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToClazz.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5612431">
-              <caret line="220" column="13" selection-start-line="220" selection-start-column="13" selection-end-line="220" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/User.java">
+      <file leaf-file-name="StringToUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToUser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringToRole.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
               <folding>
-                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#733#734#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChangePassword.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/ChangePassword.java">
+      <file leaf-file-name="StringToStudent.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3469163">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
-                <element signature="e#875#876#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#637#638#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PasswordEncoder.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE-sources.jar!/org/springframework/security/crypto/password/PasswordEncoder.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <caret line="236" column="35" selection-start-line="236" selection-start-column="35" selection-end-line="236" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -229,13 +238,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfigResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfigFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebAppInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToClazz.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java" />
       </list>
     </option>
   </component>
@@ -1671,13 +1680,7 @@
       <workItem from="1434108183674" duration="28814000" />
       <workItem from="1434435071000" duration="7405000" />
       <workItem from="1434443323073" duration="98000000" />
-      <workItem from="1434970625652" duration="27453000" />
-    </task>
-    <task id="LOCAL-00006" summary="Added exception handler">
-      <created>1424359800557</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1424359800557</updated>
+      <workItem from="1434970625652" duration="28178000" />
     </task>
     <task id="LOCAL-00007" summary="Added exception handler">
       <created>1424359902676</created>
@@ -1967,11 +1970,17 @@
       <option name="project" value="LOCAL" />
       <updated>1434985617092</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="java config">
+      <created>1435059394969</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1435059394969</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1137683000" />
+    <option name="totallyTimeSpent" value="1138408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1998,7 +2007,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38609627" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38609627" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21925133" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2366,38 +2375,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.0.M2/jetty-server-9.3.0.M2-sources.jar!/org/eclipse/jetty/server/HttpChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.0.M2/jetty-server-9.3.0.M2-sources.jar!/org/eclipse/jetty/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="499" column="31" selection-start-line="499" selection-start-column="31" selection-end-line="499" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.0.M2/jetty-server-9.3.0.M2-sources.jar!/org/eclipse/jetty/server/handler/HandlerWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.0.M2/jetty-server-9.3.0.M2-sources.jar!/org/eclipse/jetty/server/handler/HandlerCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.3.0.M2/jetty-server-9.3.0.M2-sources.jar!/org/eclipse/jetty/server/handler/ContextHandlerCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2469,7 +2446,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
-            <element signature="e#3199#3200#0" expanded="true" />
+            <element signature="e#3199#3200#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2487,7 +2464,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
           <folding>
-            <element signature="e#6423#6424#0" expanded="true" />
+            <element signature="e#6423#6424#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2513,7 +2490,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="301" column="0" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
           <folding>
-            <element signature="e#9131#9132#0" expanded="true" />
+            <element signature="e#9131#9132#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2523,9 +2500,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="false" />
+            <element signature="e#806#807#0" expanded="false" />
+            <element signature="e#981#982#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2559,7 +2536,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2607,7 +2584,7 @@
         <state vertical-scroll-proportion="0.33272395">
           <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
           <folding>
-            <element signature="e#16250#16251#0" expanded="true" />
+            <element signature="e#16250#16251#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2625,7 +2602,7 @@
         <state vertical-scroll-proportion="0.33272395">
           <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
           <folding>
-            <element signature="e#15317#15318#0" expanded="true" />
+            <element signature="e#15317#15318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2635,8 +2612,8 @@
         <state vertical-scroll-proportion="0.33272395">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
-            <element signature="e#1570#1571#0" expanded="true" />
-            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="false" />
+            <element signature="e#1603#1604#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2646,8 +2623,8 @@
         <state vertical-scroll-proportion="0.33272395">
           <caret line="1936" column="0" selection-start-line="1936" selection-start-column="0" selection-end-line="1936" selection-end-column="0" />
           <folding>
-            <element signature="e#61887#61888#0" expanded="true" />
-            <element signature="e#61930#61931#0" expanded="true" />
+            <element signature="e#61887#61888#0" expanded="false" />
+            <element signature="e#61930#61931#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2665,8 +2642,8 @@
         <state vertical-scroll-proportion="0.13711151">
           <caret line="44" column="51" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
           <folding>
-            <element signature="e#3143#3144#0" expanded="true" />
-            <element signature="e#3175#3176#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="false" />
+            <element signature="e#3175#3176#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2777,14 +2754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE-sources.jar!/org/springframework/security/crypto/password/PasswordEncoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2815,9 +2784,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5612431">
-          <caret line="220" column="13" selection-start-line="220" selection-start-column="13" selection-end-line="220" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="236" column="35" selection-start-line="236" selection-start-column="35" selection-end-line="236" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToClazz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/converters/StringToStudent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3469163">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
