@@ -42,22 +42,29 @@ public class GlobalSecurityConfig extends GlobalMethodSecurityConfiguration {
         Map<String, List<ConfigAttribute>> map = new HashMap<>();
 
         // all the necessary rules go here
-//        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.findUserById(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.saveUser(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser(..))", SecurityConfig.createList("ROLE_ADMIN"));
-//
-//        map.put("execution(* com.vizaco.onlinecontrol.service.StudentService..*(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.ClazzService..*(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.ParentService..*(..))", SecurityConfig.createList("ROLE_USER"));
-//        map.put("execution(* com.vizaco.onlinecontrol.service.RoleService..*(..))", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.findUserById())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.getAllUsers())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.saveUser())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.UserService.deleteUser())", SecurityConfig.createList("ROLE_ADMIN"));
+
+        map.put("execution(* com.vizaco.onlinecontrol.service.StudentService..*())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.ClazzService..*())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.ParentService..*())", SecurityConfig.createList("ROLE_USER"));
+        map.put("execution(* com.vizaco.onlinecontrol.service.RoleService..*())", SecurityConfig.createList("ROLE_USER"));
 
         return map;
     }
 
-//    @Override
-//    protected MethodSecurityMetadataSource customMethodSecurityMetadataSource() {
-//        return new MapBasedMethodSecurityMetadataSource(protectPointcutMap());
-//    }
+    @Override
+    protected MethodSecurityMetadataSource customMethodSecurityMetadataSource() {
+        return new MapBasedMethodSecurityMetadataSource();
+    }
+
+    @Bean
+    public ProtectPointcutPostProcessor pointcutProcessor() {
+        ProtectPointcutPostProcessor pointcutProcessor = new ProtectPointcutPostProcessor((MapBasedMethodSecurityMetadataSource) mappedMethodSecurityMetadataSource());
+        pointcutProcessor.setPointcutMap(protectPointcutMap());
+        return pointcutProcessor;
+    }
 
 }
