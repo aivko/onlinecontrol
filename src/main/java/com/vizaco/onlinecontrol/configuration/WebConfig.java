@@ -2,12 +2,18 @@ package com.vizaco.onlinecontrol.configuration;
 
 import com.vizaco.onlinecontrol.converters.StringToClazz;
 import com.vizaco.onlinecontrol.converters.StringToUser;
+import com.vizaco.onlinecontrol.model.Clazz;
+import com.vizaco.onlinecontrol.model.User;
 import org.hsqldb.jdbc.JDBCDataSource;
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
+import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -30,8 +36,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
-import java.util.Locale;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * Created by super on 6/5/15.
@@ -56,19 +61,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Autowired
     Environment environment;
 
-//    @Autowired
-//    private StringToClazz stringToClazz;
-//
-//    @Autowired
-//    private StringToUser stringToUser;
-
     @Bean
-    public StringToClazz stringToClazz() {
+    public Converter<String, Clazz> stringToClazz() {
         return new StringToClazz();
     }
 
     @Bean
-    public StringToUser stringToUser() {
+    public Converter<String, User> stringToUser() {
         return new StringToUser();
     }
 
@@ -168,8 +167,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(stringToClazz());
-        registry.addConverter(stringToUser());
+        registry.addConverter(String.class, Clazz.class, stringToClazz());
+        registry.addConverter(String.class, User.class, stringToUser());
     }
 
     @Bean(name = "messageSource")

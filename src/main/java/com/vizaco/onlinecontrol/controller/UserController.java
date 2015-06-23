@@ -218,12 +218,11 @@ public class UserController extends BaseController{
         UserValidator userValidator = new UserValidator(userService);
         User user = utils.getUser(userIdStr, userService);
 
-        //TODO: Study encoding(incorrect equals old password)
-//        if(!passwordEncoder.matches(user.getPassword(), passwordEncoder.encode(changePassword.getPasswordOld()))){
-//            result.rejectValue("passwordOld", "user.passwordOld.passwordDiff");
-//            model.addAttribute("user", user);
-//            return "/auth/changePassword";
-//        }
+        if(!passwordEncoder.matches(changePassword.getPasswordOld(), user.getPassword())){
+            result.rejectValue("passwordOld", "user.passwordOld.passwordDiff");
+            model.addAttribute("user", user);
+            return "/auth/changePassword";
+        }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(result, "password", "user.password.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(result, "passwordConfirm", "user.passwordConfirm.required");

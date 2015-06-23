@@ -11,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+
+import javax.sql.DataSource;
 
 /**
  * Created by super on 6/5/15.
@@ -24,6 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+    @Autowired
+    DataSource dataSource;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -40,6 +46,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+
         http.authorizeRequests()
                 .antMatchers("/", "/index", "/login", "/registration/facebook", "/registration/google", "/callback/google/registration").permitAll()
                 .antMatchers("/registration").access("hasRole('ROLE_ADMIN')")
@@ -55,16 +64,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutUrl("/logout")
                 .logoutSuccessUrl("/")
-                .deleteCookies("JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE")
+                .deleteCookies("JSESSIONID", "SPRING_SECURITY_REMEMBER_ME_COOKIE")
                 .and()
                 .rememberMe().key("onlinecontrol")
-                .tokenRepository(new JdbcTokenRepositoryImpl())
+                .tokenRepository(tokenRepository)
                 .tokenValiditySeconds(3600)
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(new AccessDeniedHandlerImpl())
                 .accessDeniedPage("/exception/403")
                 .and()
-                .csrf();
+                .csrf().csrfTokenRepository(new HttpSessionCsrfTokenRepository());
     }
 }
