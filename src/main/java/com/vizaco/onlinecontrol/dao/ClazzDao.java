@@ -10,7 +10,7 @@ public interface ClazzDao {
 
     Clazz findById(Long id) throws DataAccessException;
 
-    List<Clazz> findByName(String name) throws DataAccessException;
+    List<Clazz> findByName(String number, String letter) throws DataAccessException;
 
     List<Clazz> getAllClazzes() throws DataAccessException;
 

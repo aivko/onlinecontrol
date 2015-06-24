@@ -41,7 +41,7 @@
         <c:forEach var="clazz" items="${clazzes}">
             <tr>
                 <td>
-                    <c:out value="${clazz.name}"/>
+                    <c:out value="${clazz}"/>
                 </td>
                 <td>
                     <a href='<spring:url value="/classes/${clazz.id}/edit" htmlEscape="true"/>' role="button">Редактировать класс</a></p>

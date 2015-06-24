@@ -29,8 +29,10 @@
     <form:form modelAttribute="clazz" method="${method}" action="${action}">
         <table class="horiz">
             <tr>
-                <td><form:label path="name">Name:</form:label></td>
-                <td><form:input path="name"/><form:errors path="name" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:label path="number">Number:</form:label></td>
+                <td><form:input path="number"/><form:errors path="number" cssStyle="color:red;" cssclass="error"/></td>
+                <td><form:label path="letter">Letter:</form:label></td>
+                <td><form:input path="letter"/><form:errors path="letter" cssStyle="color:red;" cssclass="error"/></td>
             </tr>
         </table>
 

@@ -14,8 +14,12 @@ import java.util.Set;
 public class Clazz extends BaseEntity{
 
     @NotEmpty
-    @Column(name = "name")
-    private String name;
+    @Column(name = "number")
+    private String number;
+
+    @NotEmpty
+    @Column(name = "letter")
+    private String letter;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Student> students;
@@ -27,12 +31,20 @@ public class Clazz extends BaseEntity{
     @JoinColumn(name="school_id")
     private School school;
 
-    public String getName() {
-        return name;
+    public String getNumber() {
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public void setLetter(String letter) {
+        this.letter = letter;
     }
 
     public Set<Student> getStudents() {
@@ -61,9 +73,8 @@ public class Clazz extends BaseEntity{
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Clazz{");
-        sb.append("name='").append(name).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("");
+        sb.append(number).append(" - ").append(letter);
         return sb.toString();
     }
 }

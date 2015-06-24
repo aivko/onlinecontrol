@@ -39,8 +39,8 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<Clazz> findClazzByName(String name) throws DataAccessException {
-        return clazzDao.findByName(name);
+    public Collection<Clazz> findClazzByName(String number, String letter) throws DataAccessException {
+        return clazzDao.findByName(number, letter);
     }
 
     @Override

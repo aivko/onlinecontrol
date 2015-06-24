@@ -27,7 +27,7 @@
     <table class="horiz">
         <tr>
             <td>Имя:</td>
-            <td><c:out value="${clazz.name}"/></td>
+            <td><c:out value="${clazz}"/></td>
         </tr>
         <tr>
             <td>Школа:</td>

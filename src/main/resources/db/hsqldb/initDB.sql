@@ -26,10 +26,11 @@ CREATE TABLE persistent_logins (
 
 CREATE TABLE clazzes (
   id        BIGINT IDENTITY PRIMARY KEY,
-  name      VARCHAR(80),
+  number      VARCHAR(80),
+  letter      VARCHAR(80),
   school_id BIGINT
 );
-CREATE INDEX clazzes_name ON clazzes (name);
+CREATE INDEX clazzes_id ON clazzes (id);
 
 CREATE TABLE shedule (
   id         BIGINT IDENTITY PRIMARY KEY,

@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <th>Класс</th>
-            <td><c:out value="${student.clazz.name}"/></td>
+            <td><c:out value="${student.clazz}"/></td>
         </tr>
         <tr>
             <th>Пол</th>
