@@ -13,6 +13,7 @@ DROP TABLE clazzes IF EXISTS;
 DROP TABLE shedule IF EXISTS;
 DROP TABLE subjects IF EXISTS;
 DROP TABLE schools IF EXISTS;
+DROP TABLE timetable IF EXISTS;
 DROP TABLE news IF EXISTS;
 DROP TABLE grades IF EXISTS;
 
@@ -32,10 +33,17 @@ CREATE TABLE clazzes (
 );
 CREATE INDEX clazzes_id ON clazzes (id);
 
+CREATE TABLE timetable (
+  id         BIGINT IDENTITY PRIMARY KEY,
+  start_time TIME,
+  end_time TIME
+);
+CREATE INDEX timetable_id ON timetable (id);
+
 CREATE TABLE shedule (
   id         BIGINT IDENTITY PRIMARY KEY,
-  start_date DATETIME,
-  end_date   DATETIME,
+  date DATETIME,
+  timetable_id BIGINT NOT NULL,
   subject_id BIGINT NOT NULL,
   clazz_id   BIGINT NOT NULL,
   teacher_id BIGINT NOT NULL

@@ -13,9 +13,6 @@ import java.util.Date;
 @Table(name = "timetable")
 public class TimeTable extends BaseEntity{
 
-    @Column(name = "number_lesson")
-    private byte numberLesson;
-
     @Column(name = "start_time")
     @DateTimeFormat(pattern = "HH:mm")
     private Date startTime;
@@ -23,14 +20,6 @@ public class TimeTable extends BaseEntity{
     @Column(name = "end_time")
     @DateTimeFormat(pattern = "HH:mm")
     private Date endTime;
-
-    public byte getNumberLesson() {
-        return numberLesson;
-    }
-
-    public void setNumberLesson(byte numberLesson) {
-        this.numberLesson = numberLesson;
-    }
 
     public Date getStartTime() {
         return startTime;
@@ -46,5 +35,12 @@ public class TimeTable extends BaseEntity{
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("");
+        sb.append(startTime).append("-").append(endTime);
+        return sb.toString();
     }
 }

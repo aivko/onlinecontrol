@@ -14,13 +14,13 @@ import java.util.Set;
 @Table(name = "shedule")
 public class Shedule extends BaseEntity{
 
-    @Column(name = "start_date")
-    @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
-    private Date startDate;
+    @Column(name = "date")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private Date date;
 
-    @Column(name = "end_date")
-    @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
-    private Date endDate;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="timetable_id")
+    private TimeTable timeTable;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="subject_id")
@@ -34,20 +34,20 @@ public class Shedule extends BaseEntity{
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public TimeTable getTimeTable() {
+        return timeTable;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setTimeTable(TimeTable timeTable) {
+        this.timeTable = timeTable;
     }
 
     public Subject getSubject() {
