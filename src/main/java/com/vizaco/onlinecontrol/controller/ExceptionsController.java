@@ -33,7 +33,7 @@ public class ExceptionsController {
         } else {
             errorMsg = "Page not access!";
         }
-        throw new CustomGenericException("403", errorMsg);
+        return handleCustomGenericException(new CustomGenericException("403", errorMsg));
 
     }
 
