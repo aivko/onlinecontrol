@@ -1,3 +1,8 @@
+INSERT INTO timetable VALUES (1, '08:45:00', '09:30:00');
+INSERT INTO timetable VALUES (2, '09:40:00', '10:25:00');
+INSERT INTO timetable VALUES (3, '10:35:00', '11:15:00');
+INSERT INTO timetable VALUES (4, '11:25:00', '12:10:00');
+
 INSERT INTO subjects VALUES (1, 'History');
 INSERT INTO subjects VALUES (2, 'Mathematics');
 INSERT INTO subjects VALUES (3, 'English');
@@ -12,10 +17,10 @@ INSERT INTO teachers VALUES (1, 'Mariya', 'Kovalenko', 'Vasilyevna', '2008-01-07
 INSERT INTO teachers VALUES (2, 'Olga', 'Dub', 'Valentinovna', '2008-01-07', 'FEMALE', 2);
 INSERT INTO teachers VALUES (3, 'Pavel', 'Korotchenko', 'Denisovich', '2008-01-07', 'MALE', 3);
 
-INSERT INTO shedule VALUES (1, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 1, 1);
-INSERT INTO shedule VALUES (2, '2015-01-01 08:45:00', '2015-01-01 09:30:00', 1, 2, 2);
-INSERT INTO shedule VALUES (3, '2015-01-01 09:30:00', '2015-01-01 10:15:00', 2, 1, 3);
-INSERT INTO shedule VALUES (4, '2015-01-01 09:30:00', '2015-01-01 10:15:00', 3, 3, 1);
+INSERT INTO shedule VALUES (1, '2008-09-01', 1, 1, 1, 1);
+INSERT INTO shedule VALUES (2, '2008-09-01', 2, 1, 2, 2);
+INSERT INTO shedule VALUES (3, '2008-09-01', 3, 2, 1, 3);
+INSERT INTO shedule VALUES (4, '2008-09-01', 4, 3, 3, 1);
 
 INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');

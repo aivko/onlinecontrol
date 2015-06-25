@@ -42,7 +42,7 @@ CREATE INDEX timetable_id ON timetable (id);
 
 CREATE TABLE shedule (
   id         BIGINT IDENTITY PRIMARY KEY,
-  date DATETIME,
+  date DATE,
   timetable_id BIGINT NOT NULL,
   subject_id BIGINT NOT NULL,
   clazz_id   BIGINT NOT NULL,

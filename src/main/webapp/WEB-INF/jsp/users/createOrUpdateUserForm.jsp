@@ -48,7 +48,7 @@
                 },
                 success: function (data) {
                     if(data.result == "true"){
-                        $("#errorEmail").text("This email exist!!!");
+                        $("#errorEmail").text("Этот адресс существует, выберите другой.");
                     }else{
                         $("#errorEmail").text("");
                     }

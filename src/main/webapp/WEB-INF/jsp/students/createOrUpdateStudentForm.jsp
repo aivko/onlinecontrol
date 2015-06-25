@@ -67,8 +67,12 @@
                 <td><form:label path="user">Пользователь:</form:label></td>
                 <td>
                     <form:select path="user">
-                        <form:option value="0" label="------Select a user------" />
-                        <form:options items="${users}" itemValue="id" itemLabel="email"/>
+                        <form:option value="0" label="------Select a user------"/>
+                        <c:forEach var="varuser" items="${users}">
+                            <form:option value="${varuser.id}"><c:out value="${varuser.email}"/></form:option>
+                        </c:forEach>
+
+                        <%--<form:options items="${users}" itemValue="id" itemLabel="email"/>--%>
                     </form:select>
                     <form:errors path="user" cssStyle="color:red;" cssclass="error"/>
                 </td>
@@ -77,8 +81,12 @@
                 <td><form:label path="clazz">Класс:</form:label></td>
                 <td>
                     <form:select path="clazz">
-                        <form:option value="0" label="------Select a class------" />
-                        <form:options items="${clazzes}" itemValue="id" itemLabel="letter"/>
+                        <form:option value="0" label="------Select a class------"/>
+                        <c:forEach var="varclazz" items="${clazzes}">
+                            <form:option value="${varclazz.id}"><c:out value="${varclazz.number} - ${varclazz.letter}"/></form:option>
+                        </c:forEach>
+
+                        <%--<form:options items="${clazzes}" itemValue="id" itemLabel="letter"/>--%>
                     </form:select>
                     <form:errors path="clazz" cssStyle="color:red;" cssclass="error"/>
                 </td>
