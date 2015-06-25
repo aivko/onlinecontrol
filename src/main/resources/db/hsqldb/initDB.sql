@@ -1,3 +1,4 @@
+DROP TABLE days_of_the_week IF EXISTS;
 DROP TABLE users_roles IF EXISTS;
 DROP TABLE parents_students IF EXISTS;
 DROP TABLE teachers_subjects IF EXISTS;
@@ -13,10 +14,15 @@ DROP TABLE clazzes IF EXISTS;
 DROP TABLE shedule IF EXISTS;
 DROP TABLE subjects IF EXISTS;
 DROP TABLE schools IF EXISTS;
-DROP TABLE timetable IF EXISTS;
+DROP TABLE periods IF EXISTS;
 DROP TABLE news IF EXISTS;
 DROP TABLE grades IF EXISTS;
 
+
+CREATE TABLE days_of_the_week (
+  id        BIGINT IDENTITY PRIMARY KEY,
+  name      VARCHAR(20) NOT NULL
+);
 
 CREATE TABLE persistent_logins (
   username  VARCHAR(64) NOT NULL,
@@ -33,17 +39,17 @@ CREATE TABLE clazzes (
 );
 CREATE INDEX clazzes_id ON clazzes (id);
 
-CREATE TABLE timetable (
+CREATE TABLE periods (
   id         BIGINT IDENTITY PRIMARY KEY,
   start_time TIME,
   end_time TIME
 );
-CREATE INDEX timetable_id ON timetable (id);
+CREATE INDEX period_id ON periods (id);
 
 CREATE TABLE shedule (
   id         BIGINT IDENTITY PRIMARY KEY,
   date DATE,
-  timetable_id BIGINT NOT NULL,
+  period_id BIGINT NOT NULL,
   subject_id BIGINT NOT NULL,
   clazz_id   BIGINT NOT NULL,
   teacher_id BIGINT NOT NULL

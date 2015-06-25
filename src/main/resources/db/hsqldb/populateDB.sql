@@ -1,12 +1,20 @@
-INSERT INTO timetable VALUES (1, '08:45:00', '09:30:00');
-INSERT INTO timetable VALUES (2, '09:40:00', '10:25:00');
-INSERT INTO timetable VALUES (3, '10:35:00', '11:15:00');
-INSERT INTO timetable VALUES (4, '11:25:00', '12:10:00');
+INSERT INTO periods VALUES (1, '08:45:00', '09:30:00');
+INSERT INTO periods VALUES (2, '09:40:00', '10:25:00');
+INSERT INTO periods VALUES (3, '10:35:00', '11:15:00');
+INSERT INTO periods VALUES (4, '11:25:00', '12:10:00');
 
 INSERT INTO subjects VALUES (1, 'History');
 INSERT INTO subjects VALUES (2, 'Mathematics');
 INSERT INTO subjects VALUES (3, 'English');
 INSERT INTO subjects VALUES (4, 'Literature');
+
+INSERT INTO days_of_the_week VALUES (1, 'Понедельник');
+INSERT INTO days_of_the_week VALUES (2, 'Вторник');
+INSERT INTO days_of_the_week VALUES (3, 'Среда');
+INSERT INTO days_of_the_week VALUES (4, 'Четверг');
+INSERT INTO days_of_the_week VALUES (5, 'Пятница');
+INSERT INTO days_of_the_week VALUES (6, 'Суббота');
+INSERT INTO days_of_the_week VALUES (7, 'Воскресенье');
 
 INSERT INTO clazzes VALUES (1, '1', 'А', 1);
 INSERT INTO clazzes VALUES (2, '1', 'Б', 1);

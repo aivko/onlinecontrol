@@ -4,7 +4,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 /**
  *  Simple business object representing a shedule.
@@ -19,8 +18,8 @@ public class Shedule extends BaseEntity{
     private Date date;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="timetable_id")
-    private TimeTable timeTable;
+    @JoinColumn(name="period_id")
+    private Period period;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="subject_id")
@@ -42,12 +41,12 @@ public class Shedule extends BaseEntity{
         this.date = date;
     }
 
-    public TimeTable getTimeTable() {
-        return timeTable;
+    public Period getPeriod() {
+        return period;
     }
 
-    public void setTimeTable(TimeTable timeTable) {
-        this.timeTable = timeTable;
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
     public Subject getSubject() {
