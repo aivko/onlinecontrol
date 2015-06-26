@@ -22,7 +22,13 @@ public class SheduleServiceImpl implements SheduleService {
     @Override
     @Transactional(readOnly = true)
     public Shedule findSheduleById(Long id) throws DataAccessException {
-        return sheduleDao.findById(id);
+        return sheduleDao.findSheduleById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public DayOfTheWeek findDayOfTheWeekById(Long id) throws DataAccessException {
+        return sheduleDao.findDayOfTheWeekById(id);
     }
 
     @Override
@@ -33,14 +39,32 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
+    public Period findPeriodById(Long id) throws DataAccessException {
+        return sheduleDao.findPeriodById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Period> getAllPeriods() throws DataAccessException {
         return sheduleDao.getAllPeriods();
     }
 
     @Override
     @Transactional(readOnly = true)
+    public Subject findSubjectById(Long id) throws DataAccessException {
+        return sheduleDao.findSubjectById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Subject> getAllSubjects() throws DataAccessException {
         return sheduleDao.getAllSubjects();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Teacher findTeacherById(Long id) throws DataAccessException {
+        return sheduleDao.findTeacherById(id);
     }
 
     @Override

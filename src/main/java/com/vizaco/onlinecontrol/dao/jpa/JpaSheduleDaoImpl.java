@@ -18,7 +18,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     private EntityManager em;
 
     @Override
-    public Shedule findById(Long id) {
+    public Shedule findSheduleById(Long id) {
         Query query = this.em.createQuery("SELECT DISTINCT shedule FROM Shedule shedule WHERE shedule.id =:id");
         query.setParameter("id", id);
 
@@ -31,9 +31,36 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
+    public DayOfTheWeek findDayOfTheWeekById(Long id) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT DayOfTheWeek FROM DayOfTheWeek DayOfTheWeek WHERE DayOfTheWeek.id =:id");
+        query.setParameter("id", id);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (DayOfTheWeek)resultList.get(0);
+        }
+    }
+
+    @Override
     public List<DayOfTheWeek> getAllDaysOfTheWeek() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT dayOfTheWeek FROM DayOfTheWeek dayOfTheWeek");
         return query.getResultList();
+    }
+
+    @Override
+    public Period findPeriodById(Long id) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Period FROM Period Period WHERE Period.id =:id");
+        query.setParameter("id", id);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Period)resultList.get(0);
+        }
+
     }
 
     @Override
@@ -43,9 +70,37 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
+    public Subject findSubjectById(Long id) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Subject FROM Subject Subject WHERE Subject.id =:id");
+        query.setParameter("id", id);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Subject)resultList.get(0);
+        }
+
+    }
+
+    @Override
     public List<Subject> getAllSubjects() throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT subject FROM Subject subject");
         return query.getResultList();
+    }
+
+    @Override
+    public Teacher findTeacherById(Long id) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Teacher FROM Teacher Teacher WHERE Teacher.id =:id");
+        query.setParameter("id", id);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Teacher)resultList.get(0);
+        }
+
     }
 
     @Override
