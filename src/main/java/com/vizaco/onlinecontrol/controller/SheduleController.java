@@ -120,6 +120,13 @@ public class SheduleController extends BaseController{
             return "/shedules/createOrUpdateSheduleForm";
         }
 
+//        TreeMap<GregorianCalendar, DayOfTheWeek> calendarDayOfTheWeekMap = new TreeMap<>();
+//
+//        while (startDate.compareTo(endDate) < 0){
+//            calendarDayOfTheWeekMap.put(startDate, startDate.get(Calendar.DAY_OF_WEEK));
+//            startDate.add(Calendar.DAY_OF_MONTH, 1);
+//        }
+
         String currentNumber;
 
         DayOfTheWeek currentDay;

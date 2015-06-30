@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +19,9 @@ import java.util.Date;
 @Entity
 @Table(name = "periods")
 public class Period extends BaseEntity{
+
+    @Transient
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
 
     @Column(name = "start_time")
     @DateTimeFormat(pattern = "HH:mm")
@@ -47,13 +51,11 @@ public class Period extends BaseEntity{
     public String toString() {
         final StringBuilder sb = new StringBuilder("");
         if (startTime != null){
-            String[] split = startTime.toString().split(":");
-            sb.append(split[0]).append(":").append(split[1]);
+            sb.append(simpleDateFormat.format(startTime));
         }
         sb.append(" - ");
         if (endTime != null){
-            String[] split = endTime.toString().split(":");
-            sb.append(split[0]).append(":").append(split[1]);
+            sb.append(simpleDateFormat.format(endTime));
         }
         return sb.toString();
     }

@@ -13,4 +13,9 @@ public enum Gender {
     Gender(String mf) {
         this.mf = mf;
     }
+
+    @Override
+    public String toString() {
+        return mf;
+    }
 }
