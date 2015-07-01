@@ -47,6 +47,7 @@ import java.util.*;
         "com.vizaco.onlinecontrol.service",
         "com.vizaco.onlinecontrol.controller",
         "com.vizaco.onlinecontrol.dao",
+        "com.vizaco.onlinecontrol.utils",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
         "com.vizaco.onlinecontrol.converters",
@@ -181,9 +182,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
+    public Locale locale() {
+        return new Locale("ru", "Ru");
+    }
+
+    @Bean
     public CookieLocaleResolver localeResolver() {
         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-        localeResolver.setDefaultLocale(new Locale("ru"));
+        localeResolver.setDefaultLocale(locale());
         return localeResolver;
     }
 

@@ -3,15 +3,16 @@ package com.vizaco.onlinecontrol.dao;
 import com.vizaco.onlinecontrol.model.*;
 import org.springframework.dao.DataAccessException;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 public interface SheduleDao {
 
     Shedule findSheduleById(Long id) throws DataAccessException;
 
-    DayOfTheWeek findDayOfTheWeekById(Long id) throws DataAccessException;
-
-    List<DayOfTheWeek> getAllDaysOfTheWeek() throws DataAccessException;
+//    DayOfWeek findDayOfWeekById(Long id) throws DataAccessException;
+//
+//    List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException;
 
     Period findPeriodById(Long id) throws DataAccessException;
 

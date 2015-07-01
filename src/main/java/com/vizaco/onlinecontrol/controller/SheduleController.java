@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import com.vizaco.onlinecontrol.service.UserService;
+import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
 import jdk.nashorn.internal.parser.DateParser;
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -35,9 +37,13 @@ public class SheduleController extends BaseController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private DateUtils dateUtils;
+
     JsonUtil jsonUtil = new JsonUtil();
 
     private Utils utils = new Utils();
+
 
     //<editor-fold desc="CRUD SHEDULE">
     //CREATE SHEDULE
@@ -48,7 +54,7 @@ public class SheduleController extends BaseController{
         model.addAttribute("clazzes", clazzService.getAllClazzes());
         model.addAttribute("periods", sheduleService.getAllPeriods());
         model.addAttribute("subjects", sheduleService.getAllSubjects());
-        model.addAttribute("daysOfTheWeek", sheduleService.getAllDaysOfTheWeek());
+        model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
         model.addAttribute("teachers", sheduleService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
@@ -118,18 +124,24 @@ public class SheduleController extends BaseController{
 
         if (startDate == null || endDate == null || clazz == null){
             return "/shedules/createOrUpdateSheduleForm";
+        } else if (startDate.compareTo(endDate) > 0){
+            return "/shedules/createOrUpdateSheduleForm";
         }
 
-//        TreeMap<GregorianCalendar, DayOfTheWeek> calendarDayOfTheWeekMap = new TreeMap<>();
-//
-//        while (startDate.compareTo(endDate) < 0){
-//            calendarDayOfTheWeekMap.put(startDate, startDate.get(Calendar.DAY_OF_WEEK));
-//            startDate.add(Calendar.DAY_OF_MONTH, 1);
-//        }
+        TreeMap<GregorianCalendar, DayOfWeek> calendarDayOfTheWeekMap = new TreeMap<>();
+
+        while (startDate.compareTo(endDate) < 0){
+
+            GregorianCalendar currentDate = new GregorianCalendar();
+            currentDate.setTime(startDate.getTime());
+
+            calendarDayOfTheWeekMap.put(currentDate, DayOfWeek.of(dateUtils.getNumberDayOfWeek(startDate)));
+            startDate.add(Calendar.DAY_OF_MONTH, 1);
+        }
 
         String currentNumber;
 
-        DayOfTheWeek currentDay;
+        DayOfWeek currentDay;
         Period currentPeriod;
         Subject currentSubject;
         Teacher currentTeacher;
@@ -141,7 +153,7 @@ public class SheduleController extends BaseController{
 
             currentNumber = dayKey.substring(12);
 
-            currentDay = sheduleService.findDayOfTheWeekById(Long.parseLong(dayValue));
+            currentDay = DayOfWeek.of(Integer.parseInt(dayValue));
 
             String periodValue = periods.get("period" + currentNumber);
             currentPeriod = sheduleService.findPeriodById(Long.parseLong(periodValue));
@@ -156,6 +168,7 @@ public class SheduleController extends BaseController{
 
         return "redirect:/shedules/";
     }
+
 
     //READ CLASS
 

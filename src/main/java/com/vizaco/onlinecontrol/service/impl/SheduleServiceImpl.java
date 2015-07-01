@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.DayOfWeek;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,17 +26,17 @@ public class SheduleServiceImpl implements SheduleService {
         return sheduleDao.findSheduleById(id);
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public DayOfTheWeek findDayOfTheWeekById(Long id) throws DataAccessException {
-        return sheduleDao.findDayOfTheWeekById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<DayOfTheWeek> getAllDaysOfTheWeek() throws DataAccessException {
-        return sheduleDao.getAllDaysOfTheWeek();
-    }
+//    @Override
+//    @Transactional(readOnly = true)
+//    public DayOfWeek findDayOfWeekById(Long id) throws DataAccessException {
+//        return sheduleDao.findDayOfWeekById(id);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException {
+//        return sheduleDao.getAllDaysOfWeek();
+//    }
 
     @Override
     @Transactional(readOnly = true)

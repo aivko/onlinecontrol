@@ -1,4 +1,3 @@
-DROP TABLE days_of_the_week IF EXISTS;
 DROP TABLE users_roles IF EXISTS;
 DROP TABLE parents_students IF EXISTS;
 DROP TABLE teachers_subjects IF EXISTS;
@@ -18,11 +17,6 @@ DROP TABLE periods IF EXISTS;
 DROP TABLE news IF EXISTS;
 DROP TABLE grades IF EXISTS;
 
-
-CREATE TABLE days_of_the_week (
-  id        BIGINT IDENTITY PRIMARY KEY,
-  name      VARCHAR(20) NOT NULL
-);
 
 CREATE TABLE persistent_logins (
   username  VARCHAR(64) NOT NULL,

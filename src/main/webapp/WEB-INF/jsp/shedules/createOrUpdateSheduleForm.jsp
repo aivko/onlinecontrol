@@ -65,8 +65,8 @@
                 table.row.add([
                     "<select name = " + "dayOfTheWeek" + counter + ">" +
                     "<option value = '0'>" + "-------День недели------" + "</option>" +
-                    <c:forEach var="vardayOfTheWeek" items="${daysOfTheWeek}">
-                    "<option value = '${vardayOfTheWeek.id}'>" + '${vardayOfTheWeek.name}' + "</option>" +
+                    <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
+                    "<option value = '${vardayOfWeek.key}'>" + '${vardayOfWeek.value}' + "</option>" +
                     </c:forEach>
                     "</select>",
                     "<select name = " + "period" + counter + ">" +
@@ -173,8 +173,8 @@
                 <td>
                     <select name="dayOfTheWeek1">
                         <option value="0"><c:out value="-------День недели------"/></option>
-                        <c:forEach var="vardayOfTheWeek" items="${daysOfTheWeek}">
-                            <option value="${vardayOfTheWeek.id}"><c:out value="${vardayOfTheWeek.name}"/></option>
+                        <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
+                            <option value="${vardayOfWeek.key}"><c:out value="${vardayOfWeek.value}"/></option>
                         </c:forEach>
                     </select>
                 </td>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.time.DayOfWeek;
 import java.util.List;
 
 @Repository
@@ -30,24 +31,24 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         }
     }
 
-    @Override
-    public DayOfTheWeek findDayOfTheWeekById(Long id) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT DayOfTheWeek FROM DayOfTheWeek DayOfTheWeek WHERE DayOfTheWeek.id =:id");
-        query.setParameter("id", id);
-
-        List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
-            return (DayOfTheWeek)resultList.get(0);
-        }
-    }
-
-    @Override
-    public List<DayOfTheWeek> getAllDaysOfTheWeek() throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT dayOfTheWeek FROM DayOfTheWeek dayOfTheWeek");
-        return query.getResultList();
-    }
+//    @Override
+//    public DayOfWeek findDayOfWeekById(Long id) throws DataAccessException {
+//        Query query = this.em.createQuery("SELECT DISTINCT DayOfWeek FROM DayOfWeek DayOfWeek WHERE DayOfWeek.id =:id");
+//        query.setParameter("id", id);
+//
+//        List resultList = query.getResultList();
+//        if (resultList.isEmpty()) {
+//            return null; // handle no-results case
+//        } else {
+//            return (DayOfWeek)resultList.get(0);
+//        }
+//    }
+//
+//    @Override
+//    public List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException {
+//        Query query = this.em.createQuery("SELECT DISTINCT dayOfWeek FROM DayOfWeek dayOfWeek");
+//        return query.getResultList();
+//    }
 
     @Override
     public Period findPeriodById(Long id) throws DataAccessException {
