@@ -30,70 +30,15 @@
 
     <script>
 
-        $(document).ready(function () {
+        function onAddRow(index) {
+            var selectorTable = "#shedule" + index + " > tbody";
+            $(selectorTable).append("<tr><td> cell </td></tr>");
 
-            var table = $('#shedule').DataTable({
-                "paging":   false,
-                "info":     false
-            });
-            var counter = 2;
+        };
 
-//            $('#submit').click(function () {
-//                var data = table.$('input, select').serialize();
-//                alert(
-//                        "The following data would have been submitted to the server: \n\n" +
-//                        data.substr(0, 120) + '...'
-//                );
-//                return false;
-//            });
-
-            $('#shedule tbody').on('click', 'tr', function () {
-                if ($(this).hasClass('selected')) {
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            });
-
-            $('#deleteRow').click(function () {
-                table.row('.selected').remove().draw(false);
-            });
-
-            $('#addRow').on('click', function () {
-                table.row.add([
-                    "<select name = " + "dayOfTheWeek" + counter + ">" +
-                    "<option value = '0'>" + "-------День недели------" + "</option>" +
-                    <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
-                    "<option value = '${vardayOfWeek.key}'>" + '${vardayOfWeek.value}' + "</option>" +
-                    </c:forEach>
-                    "</select>",
-                    "<select name = " + "period" + counter + ">" +
-                    "<option value = '0'>" + "-------Время урока------" + "</option>" +
-                    <c:forEach var="varperiod" items="${periods}">
-                    "<option value = '${varperiod.id}'>" + '${varperiod}' + "</option>" +
-                    </c:forEach>
-                    "</select>",
-                    "<select name = " + "subject" + counter + ">" +
-                    "<option value = '0'>" + "-------Предмет------" + "</option>" +
-                    <c:forEach var="varsubject" items="${subjects}">
-                    "<option value = '${varsubject.id}'>" + '${varsubject.name}' + "</option>" +
-                    </c:forEach>
-                    "</select>",
-                    "<select name = " + "teacher" + counter + ">" +
-                    "<option value = '0'>" + "-------Преподаватель------" + "</option>" +
-                    <c:forEach var="varteacher" items="${teachers}">
-                    "<option value='${varteacher.id}'>" + '${varteacher.lastName} ${varteacher.firstName} ${varteacher.middleName}' + "</option>" +
-                    </c:forEach>
-                    "</select>"
-                ]).
-                        draw();
-
-                counter++;
-            });
-
-        });
+        function onDeleteRow(index) {
+            alert(f);
+        };
 
         function onSubmit(f) {
             //TODO: correct data
@@ -154,58 +99,74 @@
         <br>
 
         <div>
-            <a id="addRow" href='#'>Добавить строку</a>
-            <a id="deleteRow" href='#'> / Удалить строку</a>
+            <a id="addWeek" href='#'>Добавить неделю</a>
+            <a id="deleteWeek" href='#'> / Удалить неделю</a>
         </div>
 
-        <table id="shedule" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>День недели</th>
-                <th>Время урока</th>
-                <th>Предмет</th>
-                <th>Преподаватель</th>
-            </tr>
-            </thead>
+        <div class="week">
 
-            <tbody>
-            <tr id="row">
-                <td>
-                    <select name="dayOfTheWeek1">
-                        <option value="0"><c:out value="-------День недели------"/></option>
-                        <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
-                            <option value="${vardayOfWeek.key}"><c:out value="${vardayOfWeek.value}"/></option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <select name="period1">
-                        <option value="0"><c:out value="-------Время урока------"/></option>
-                        <c:forEach var="varperiod" items="${periods}">
-                            <option value="${varperiod.id}"><c:out value="${varperiod}"/></option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <select name="subject1">
-                        <option value="0"><c:out value="-------Предмет------"/></option>
-                        <c:forEach var="varsubject" items="${subjects}">
-                            <option value="${varsubject.id}"><c:out value="${varsubject.name}"/></option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <select name="teacher1">
-                        <option value="0"><c:out value="-------Преподаватель------"/></option>
-                        <c:forEach var="varteacher" items="${teachers}">
-                            <option value="${varteacher.id}"><c:out
-                                    value="${varteacher.lastName} ${varteacher.firstName} ${varteacher.middleName}"/></option>
-                        </c:forEach>
-                    </select>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <div>
+                <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
+                    <div style="border: solid;width: 30%">
+
+                        <div>
+                            <label style="font-weight: bold">${vardayOfWeek.value}</label>
+                            <input type="text" name="dayOfTheWeek1" value="${vardayOfWeek.key}" hidden>
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <a id="addRow" href='#' onclick="onAddRow('_1_' + ${vardayOfWeek.key})">Добавить</a>
+                            <a id="deleteRow" href='#' onclick="onDeleteRow('_1_' + ${vardayOfWeek.key})"> / Удалить</a>
+                        </div>
+                        <table id="shedule_1_${vardayOfWeek.key}" class="display" cellspacing="0" border="1" width="30%">
+                            <thead>
+                            <tr>
+                                <th>Время урока</th>
+                                <th>Предмет</th>
+                                <th>Преподаватель</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr id="row">
+                                <td>
+                                    <select name="period1">
+                                        <option value="0"><c:out value="-------Время урока------"/></option>
+                                        <c:forEach var="varperiod" items="${periods}">
+                                            <option value="${varperiod.id}"><c:out value="${varperiod}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="subject1">
+                                        <option value="0"><c:out value="-------Предмет------"/></option>
+                                        <c:forEach var="varsubject" items="${subjects}">
+                                            <option value="${varsubject.id}"><c:out
+                                                    value="${varsubject.name}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="teacher1">
+                                        <option value="0"><c:out value="-------Преподаватель------"/></option>
+                                        <c:forEach var="varteacher" items="${teachers}">
+                                            <option value="${varteacher.id}"><c:out
+                                                    value="${varteacher.lastName} ${varteacher.firstName} ${varteacher.middleName}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                </c:forEach>
+
+            </div>
+
+        </div>
 
         <br>
 

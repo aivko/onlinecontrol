@@ -22,7 +22,14 @@ public class DateUtils {
     public Map<Integer, String> getAllDaysOfTheWeek() {
         Map<Integer, String> daysOfWeek = new HashMap<>();
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
-            daysOfWeek.put(dayOfWeek.getValue(), dayOfWeek.getDisplayName(TextStyle.FULL_STANDALONE, locale));
+
+            String displayName = dayOfWeek.getDisplayName(TextStyle.FULL_STANDALONE, locale);
+            if (displayName != null){
+                StringBuilder stringBuilderText = new StringBuilder(displayName);
+                stringBuilderText.setCharAt(0, Character.toUpperCase(stringBuilderText.charAt(0)));
+                displayName = stringBuilderText.toString();
+            }
+            daysOfWeek.put(dayOfWeek.getValue(), displayName);
         }
         return daysOfWeek;
     }
