@@ -190,7 +190,6 @@
         ;
 
         function onSubmit(f) {
-            alert(f);
             //TODO: correct data
             f.submit();
         }
