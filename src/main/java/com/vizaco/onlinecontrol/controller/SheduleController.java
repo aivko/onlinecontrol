@@ -76,8 +76,6 @@ public class SheduleController extends BaseController{
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
-
-
         for (String param : params){
 
             if (param.startsWith("dayOfTheWeek")){
