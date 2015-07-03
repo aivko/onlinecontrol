@@ -7,22 +7,16 @@ import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
-import jdk.nashorn.internal.parser.DateParser;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller
@@ -82,22 +76,29 @@ public class SheduleController extends BaseController{
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
+
+
         for (String param : params){
 
             if (param.startsWith("dayOfTheWeek")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 daysOfTheWeek.put(keyValue[0], keyValue[1]);
             }else if(param.startsWith("period")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 periods.put(keyValue[0], keyValue[1]);
             } else if(param.startsWith("subject")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 subjects.put(keyValue[0], keyValue[1]);
             }else if(param.startsWith("teacher")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 teachers.put(keyValue[0], keyValue[1]);
             }else if(param.startsWith("startDate")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 startDate = new GregorianCalendar();
                 try {
                     startDate.setTime(formatter.parse(keyValue[1]));
@@ -106,6 +107,7 @@ public class SheduleController extends BaseController{
                 }
             }else if(param.startsWith("endDate")){
                 String[] keyValue = param.split("=");
+                if (emptyValue(keyValue[1])) continue;
                 endDate = new GregorianCalendar();
                 try {
                     endDate.setTime(formatter.parse(keyValue[1]));
@@ -114,9 +116,7 @@ public class SheduleController extends BaseController{
                 }
             }else if(param.startsWith("classSelect")){
                 String[] keyValue = param.split("=");
-                if (keyValue[1] == null || keyValue[1] == "0"){
-                    break;
-                }
+                if (emptyValue(keyValue[1])) continue;
                 clazz = clazzService.findClazzById(Long.parseLong(keyValue[1]));
             }
 
@@ -167,6 +167,11 @@ public class SheduleController extends BaseController{
         }
 
         return "redirect:/shedules/";
+    }
+
+    private boolean emptyValue(String value) {
+        if (value == "0" || value == null) return true;
+        return false;
     }
 
 

@@ -1,90 +1,48 @@
 $(function() {
-    var dialog, form,
+    var tabTitle = $( "#tab_title" ),
+        tabContent = $( "#tab_content" ),
+        tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
+        tabCounter = 2;
 
-    // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-        emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-        name = $( "#name" ),
-        email = $( "#email" ),
-        password = $( "#password" ),
-        allFields = $( [] ).add( name ).add( email ).add( password ),
-        tips = $( ".validateTips" );
+    var tabs = $( "#tabs" ).tabs();
 
-    function updateTips( t ) {
-        tips
-            .text( t )
-            .addClass( "ui-state-highlight" );
-        setTimeout(function() {
-            tips.removeClass( "ui-state-highlight", 1500 );
-        }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-        if ( o.val().length > max || o.val().length < min ) {
-            o.addClass( "ui-state-error" );
-            updateTips( "Length of " + n + " must be between " +
-            min + " and " + max + "." );
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function checkRegexp( o, regexp, n ) {
-        if ( !( regexp.test( o.val() ) ) ) {
-            o.addClass( "ui-state-error" );
-            updateTips( n );
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function addUser() {
-        var valid = true;
-        allFields.removeClass( "ui-state-error" );
-
-        valid = valid && checkLength( name, "username", 3, 16 );
-        valid = valid && checkLength( email, "email", 6, 80 );
-        valid = valid && checkLength( password, "password", 5, 16 );
-
-        valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-        valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-        valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
-
-        if ( valid ) {
-            $( "#users tbody" ).append( "<tr>" +
-            "<td>" + name.val() + "</td>" +
-            "<td>" + email.val() + "</td>" +
-            "<td>" + password.val() + "</td>" +
-            "</tr>" );
-            dialog.dialog( "close" );
-        }
-        return valid;
-    }
-
-    dialog = $( "#dialog-form" ).dialog({
-        autoOpen: false,
-        height: 300,
-        width: 350,
-        modal: true,
-        buttons: {
-            "Create an account": addUser,
-            Cancel: function() {
-                dialog.dialog( "close" );
-            }
-        },
-        close: function() {
-            form[ 0 ].reset();
-            allFields.removeClass( "ui-state-error" );
-        }
-    });
-
-    form = dialog.find( "form" ).on( "submit", function( event ) {
+    // addTab form: calls addTab function on submit and closes the dialog
+    var form = dialog.find( "form" ).submit(function( event ) {
+        addTab();
+        dialog.dialog( "close" );
         event.preventDefault();
-        addUser();
     });
 
-    $( "#create-user" ).button().on( "click", function() {
-        dialog.dialog( "open" );
+    // actual addTab function: adds new tab using the input from the form above
+    function addTab() {
+        var label = tabTitle.val() || "Tab " + tabCounter,
+            id = "tabs-" + tabCounter,
+            li = $( tabTemplate.replace( /#\{href\}/g, "#" + id ).replace( /#\{label\}/g, label ) ),
+            tabContentHtml = tabContent.val() || "Tab " + tabCounter + " content.";
+
+        tabs.find( ".ui-tabs-nav" ).append( li );
+        tabs.append( "<div id='" + id + "'><p>" + tabContentHtml + "</p></div>" );
+        tabs.tabs( "refresh" );
+        tabCounter++;
+    }
+
+    // addTab
+    $("#addWeek").click(function() {
+            addTab();
+        });
+
+    // close icon: removing the tab on click
+    tabs.delegate( "span.ui-icon-close", "click", function() {
+        var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+        $( "#" + panelId ).remove();
+        tabs.tabs( "refresh" );
+    });
+
+    tabs.bind( "keyup", function( event ) {
+        if ( event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE ) {
+            var panelId = tabs.find( ".ui-tabs-active" ).remove().attr( "aria-controls" );
+            $( "#" + panelId ).remove();
+            tabs.tabs( "refresh" );
+        }
     });
 });
