@@ -13,19 +13,8 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao;
-
-    public UserServiceImpl() {
-    }
-
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    public UserDao getUserDao() {
-        return userDao;
-    }
+    private UserDao userDao;
 
     @Override
     @Transactional(readOnly = true)

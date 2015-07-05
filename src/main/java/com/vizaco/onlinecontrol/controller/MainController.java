@@ -1,17 +1,25 @@
 package com.vizaco.onlinecontrol.controller;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
+import com.vizaco.onlinecontrol.service.NewsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 
 @Controller
 public class MainController extends BaseController{
 
+    @Autowired
+    private NewsService newsService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String start() {
+    public String start(Model model) {
+        model.addAttribute("news", newsService.getSomeNews(3));
         return "index";
     }
 

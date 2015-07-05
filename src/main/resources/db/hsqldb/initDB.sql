@@ -111,18 +111,17 @@ CREATE INDEX teachers_id ON teachers (id);
 
 CREATE TABLE schools (
   id          BIGINT IDENTITY PRIMARY KEY,
-  name        VARCHAR(30),
-  director    VARCHAR(30),
-  description VARCHAR(30)
+  name        VARCHAR(100),
+  director    VARCHAR(100),
+  description VARCHAR(500)
 );
 CREATE INDEX schools_name ON schools (name);
 
 CREATE TABLE news (
   id        BIGINT IDENTITY PRIMARY KEY,
   date      DATE,
-  topic     VARCHAR(30),
-  text      VARCHAR(30),
-  school_id BIGINT NOT NULL
+  topic     VARCHAR(100),
+  text      VARCHAR(1000)
 );
 CREATE INDEX news_topic ON news (topic);
 

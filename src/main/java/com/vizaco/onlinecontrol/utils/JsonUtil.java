@@ -2,11 +2,13 @@ package com.vizaco.onlinecontrol.utils;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class JsonUtil {
 
     public String getJsonElement(String tokenRequest, String key) throws IOException {

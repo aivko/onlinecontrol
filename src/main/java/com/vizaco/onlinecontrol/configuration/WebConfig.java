@@ -16,6 +16,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
@@ -93,8 +94,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         CompositeDatabasePopulator compositeDatabasePopulator = new CompositeDatabasePopulator();
 
-        compositeDatabasePopulator.addPopulators(new ResourceDatabasePopulator(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation"))));
-        compositeDatabasePopulator.addPopulators(new ResourceDatabasePopulator(new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"))));
+        Resource resourceInit = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.initLocation"));
+        ResourceDatabasePopulator resourceDatabasePopulatorInit = new ResourceDatabasePopulator(false, false, "utf8", resourceInit);
+        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorInit);
+
+        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
+        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
+        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
+
         dataSourceInitializer.setDatabasePopulator(compositeDatabasePopulator);
         return dataSourceInitializer;
     }
@@ -172,8 +179,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addConverter(String.class, User.class, stringToUser());
     }
 
-    @Bean(name = "messageSource")
-    public MessageSource configureMessageSource() {
+    @Bean
+    public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:messages");
         messageSource.setCacheSeconds(5);

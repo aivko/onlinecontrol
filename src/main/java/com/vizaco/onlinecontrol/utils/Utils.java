@@ -3,13 +3,29 @@ package com.vizaco.onlinecontrol.utils;
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by super on 2/20/15.
  */
+@Service
 public class Utils {
 
-    public User getUser(String userIdStr, UserService userService) {
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private ParentService parentService;
+    @Autowired
+    private ClazzService clazzService;
+    @Autowired
+    private NewsService newsService;
+
+    public User getUser(String userIdStr) {
 
         Long userId;
 
@@ -27,7 +43,7 @@ public class Utils {
         return user;
     }
 
-    public Role getRole(String roleIdStr, RoleService roleService) {
+    public Role getRole(String roleIdStr) {
 
         Long roleId;
 
@@ -45,7 +61,7 @@ public class Utils {
         return role;
     }
 
-    public Student getStudent(String studentIdStr, StudentService studentService) {
+    public Student getStudent(String studentIdStr) {
 
         Long studentId;
 
@@ -63,7 +79,7 @@ public class Utils {
         return student;
     }
 
-    public Parent getParent(String parentIdStr, ParentService parentService) {
+    public Parent getParent(String parentIdStr) {
 
         Long parentId;
 
@@ -81,7 +97,7 @@ public class Utils {
         return parent;
     }
 
-    public Clazz getClazz(String clazzIdStr, ClazzService clazzService) {
+    public Clazz getClazz(String clazzIdStr) {
 
         Long clazzId;
 
@@ -94,9 +110,27 @@ public class Utils {
         Clazz clazz = clazzService.findClazzById(clazzId);
 
         if (clazz == null){
-            throw new CustomGenericException("404", "Page not found for the student with the ID " + clazzId);
+            throw new CustomGenericException("404", "Page not found for the class with the ID " + clazzId);
         }
         return clazz;
+    }
+
+    public News getNews(String newsIdStr) {
+
+        Long newsId;
+
+        try {
+            newsId = Long.valueOf(newsIdStr);
+        }catch (NumberFormatException ex){
+            throw new CustomGenericException("404", "Page not found for the news with the ID " + newsIdStr);
+        }
+
+        News news = newsService.findNewsById(newsId);
+
+        if (news == null){
+            throw new CustomGenericException("404", "Page not found for the news with the ID " + newsId);
+        }
+        return news;
     }
 
 }

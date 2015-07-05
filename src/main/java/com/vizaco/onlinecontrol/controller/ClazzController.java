@@ -24,7 +24,8 @@ public class ClazzController extends BaseController{
 
     private final ClazzService clazzService;
 
-    private Utils utils = new Utils();
+    @Autowired
+    private Utils utils;
 
     @Autowired
     public ClazzController(ClazzService clazzService) {
@@ -69,7 +70,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}")
     public ModelAndView initAccountForm(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr, clazzService);
+        Clazz clazz = utils.getClazz(clazzIdStr);
 
         ModelAndView mav = new ModelAndView("/classes/classDetails");
 
@@ -83,7 +84,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr, clazzService);
+        Clazz clazz = utils.getClazz(clazzIdStr);
         ModelAndView mav = new ModelAndView("/classes/createOrUpdateClassForm");
 
         mav.addObject("clazz", clazz);
@@ -94,7 +95,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("clazzId") String clazzIdStr, @ModelAttribute("clazz") @Valid Clazz clazz, BindingResult result, Model model) {
 
-        Clazz clazzEdit = utils.getClazz(clazzIdStr, clazzService);
+        Clazz clazzEdit = utils.getClazz(clazzIdStr);
 
         if(result.hasErrors()){
             model.addAttribute("clazz", clazz);
@@ -111,7 +112,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr, clazzService);
+        Clazz clazz = utils.getClazz(clazzIdStr);
         clazzService.deleteClazz(clazz.getId());
 
         return new ModelAndView("redirect:/classes");

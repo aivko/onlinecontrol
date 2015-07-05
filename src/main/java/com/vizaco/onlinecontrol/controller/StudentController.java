@@ -30,7 +30,8 @@ public class StudentController extends BaseController{
     private final ClazzService clazzService;
     private final UserService userService;
 
-    private Utils utils = new Utils();
+    @Autowired
+    private Utils utils;
 
     @Autowired
     public StudentController(StudentService studentService, ClazzService clazzService, UserService userService) {
@@ -128,7 +129,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentsId}")
     public ModelAndView initAccountForm(@PathVariable("studentsId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr, studentService);
+        Student student = utils.getStudent(studentIdStr);
 
         ModelAndView mav = new ModelAndView("/students/studentDetails");
 
@@ -142,7 +143,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("studentId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr, studentService);
+        Student student = utils.getStudent(studentIdStr);
         ModelAndView mav = new ModelAndView("/students/createOrUpdateStudentForm");
 
         mav.addObject("student", student);
@@ -155,7 +156,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("studentId") String studentIdStr, @ModelAttribute("student") @Valid Student student, BindingResult result, Model model) {
 
-        Student studentEdit = utils.getStudent(studentIdStr, studentService);
+        Student studentEdit = utils.getStudent(studentIdStr);
 
         if(result.hasErrors()){
             model.addAttribute("student", student);
@@ -176,7 +177,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("studentId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr, studentService);
+        Student student = utils.getStudent(studentIdStr);
         studentService.deleteStudent(student.getId());
 
         return new ModelAndView("redirect:/students");
