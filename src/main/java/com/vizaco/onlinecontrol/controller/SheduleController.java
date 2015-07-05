@@ -34,9 +34,10 @@ public class SheduleController extends BaseController{
     @Autowired
     private DateUtils dateUtils;
 
-    JsonUtil jsonUtil = new JsonUtil();
-
-    private Utils utils = new Utils();
+    @Autowired
+    private JsonUtil jsonUtil;
+    @Autowired
+    private Utils utils;
 
 
     //<editor-fold desc="CRUD SHEDULE">

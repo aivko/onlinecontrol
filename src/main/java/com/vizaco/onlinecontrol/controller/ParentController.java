@@ -30,7 +30,8 @@ import java.util.List;
 @Controller
 public class ParentController extends BaseController{
 
-    private Utils utils = new Utils();
+    @Autowired
+    private Utils utils;
 
     private final ParentService parentService;
 
@@ -86,7 +87,7 @@ public class ParentController extends BaseController{
     @RequestMapping(value = "/parents/{parentId}")
     public ModelAndView readUser(@PathVariable("parentId") String parentIdStr) {
 
-        Parent parent = utils.getParent(parentIdStr, parentService);
+        Parent parent = utils.getParent(parentIdStr);
 
         ModelAndView mav = new ModelAndView("/parents/parentDetails");
 
@@ -100,7 +101,7 @@ public class ParentController extends BaseController{
     @RequestMapping(value = "/parents/{parentId}/edit", method = RequestMethod.GET)
     public ModelAndView editParent(@PathVariable("parentId") String parentIdStr) {
 
-        Parent parent = utils.getParent(parentIdStr, parentService);
+        Parent parent = utils.getParent(parentIdStr);
         ModelAndView mav = new ModelAndView("/parents/createOrUpdateParentForm");
 
         mav.addObject("parent", parent);
@@ -118,7 +119,7 @@ public class ParentController extends BaseController{
             return "/parents/createOrUpdateParentForm";
         }
 
-        Parent parentEdit = utils.getParent(parentIdStr, parentService);
+        Parent parentEdit = utils.getParent(parentIdStr);
 
         parent.setStudents(parentEdit.getStudents());
         parentService.saveParent(parent);
@@ -130,7 +131,7 @@ public class ParentController extends BaseController{
     @RequestMapping(value = "/parents/{parentId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteParent(@PathVariable("parentId") String parentIdStr) {
 
-        Parent parent = utils.getParent(parentIdStr, parentService);
+        Parent parent = utils.getParent(parentIdStr);
         parentService.deleteParent(parent.getId());
 
         return new ModelAndView("redirect:/parents");
@@ -140,7 +141,7 @@ public class ParentController extends BaseController{
 
     @RequestMapping(value = "/parents/{parentId}/students/add", method = RequestMethod.GET)
     public String addStudent(@PathVariable("parentId") String parentIdStr, Model model) {
-        Parent parent = utils.getParent(parentIdStr, parentService);
+        Parent parent = utils.getParent(parentIdStr);
         model.addAttribute("parent", parent);
         model.addAttribute("students", studentService.getAllStudents());
         return "/students/selectStudent";
@@ -149,8 +150,8 @@ public class ParentController extends BaseController{
     @RequestMapping(value = "/parents/{parentId}/students/{studentId}/add", method = RequestMethod.POST)
     public String addStudent(@PathVariable("parentId") String parentIdStr, @PathVariable("studentId") String studentIdStr) {
 
-        Parent parent = utils.getParent(parentIdStr, parentService);
-        Student student = utils.getStudent(studentIdStr, studentService);
+        Parent parent = utils.getParent(parentIdStr);
+        Student student = utils.getStudent(studentIdStr);
         List<Student> students = parent.getStudents();
         if (!students.contains(student)) {
             students.add(student);
@@ -163,8 +164,8 @@ public class ParentController extends BaseController{
     @RequestMapping(value = "/parents/{parentId}/students/{studentId}/delete", method = RequestMethod.DELETE)
     public String deleteStudent(@PathVariable("parentId") String parentIdStr, @PathVariable("studentId") String studentIdStr) {
 
-        Parent parent = utils.getParent(parentIdStr, parentService);
-        Student student = utils.getStudent(studentIdStr, studentService);
+        Parent parent = utils.getParent(parentIdStr);
+        Student student = utils.getStudent(studentIdStr);
         List<Student> students = parent.getStudents();
         students.remove(student);
 

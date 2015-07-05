@@ -38,6 +38,11 @@
     </sec:authorize>
     <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <p><a href='<spring:url value="/news/new" htmlEscape="true"/>' role="button">Добавить новость</a></p>
+        <p><a href='<spring:url value="/news" htmlEscape="true"/>' role="button">Список новостей</a></p>
+    </sec:authorize>
+    <hr/>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button">Ввести расписание</a></p>
     </sec:authorize>
     <hr/>

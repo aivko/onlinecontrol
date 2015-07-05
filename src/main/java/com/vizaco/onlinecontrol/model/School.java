@@ -23,9 +23,6 @@ public class School extends BaseEntity{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
     private Set<Clazz> clazzes;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
-    private Set<News> news;
-
     public String getName() {
         return name;
     }
@@ -58,11 +55,4 @@ public class School extends BaseEntity{
         this.clazzes = clazzes;
     }
 
-    public Set<News> getNews() {
-        return news;
-    }
-
-    public void setNews(Set<News> news) {
-        this.news = news;
-    }
 }

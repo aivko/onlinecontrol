@@ -1,8 +1,10 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -13,19 +15,18 @@ import java.util.Date;
 @Table(name = "news")
 public class News extends BaseEntity{
 
+    @NotNull
     @Column(name = "date")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
+    @NotEmpty
     @Column(name = "topic")
     private String topic;
 
+    @NotEmpty
     @Column(name = "text")
     private String text;
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="school_id")
-    private School school;
 
     public Date getDate() {
         return date;
@@ -51,11 +52,4 @@ public class News extends BaseEntity{
         this.text = text;
     }
 
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School school) {
-        this.school = school;
-    }
 }
