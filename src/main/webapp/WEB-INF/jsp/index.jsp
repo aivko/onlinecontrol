@@ -39,13 +39,13 @@
                     </ul>
                     <div class="auth-button cols col-2">
                         <sec:authorize access="isAuthenticated()">
-                            <a href='<spring:url value="/users/${userId}/account" htmlEscape="true"/>' role="button">Account</a>
+                            <a href='<spring:url value="/users/${userId}/account" htmlEscape="true"/>' role="button" class="account-name">Account</a>
                         </sec:authorize>
                         <sec:authorize access="!isAuthenticated()">
                             <a href='<spring:url value="/login" htmlEscape="true"/>' role="button" class="button">Войти</a>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <p>Ваш логин: ${email}</p>
+                            <p class="login-name">Ваш логин: ${email}</p>
 
                             <%--<p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>--%>
                             <c:url var="logoutUrl" value="/logout"/>

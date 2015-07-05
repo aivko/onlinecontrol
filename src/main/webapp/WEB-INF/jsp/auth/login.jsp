@@ -20,14 +20,10 @@
         <input type="password" class="password" id="password" name="j_password"/>
     </div>
     <div>
-        <label for="remember"><input type="checkbox" id="remember" name="_spring_security_remember_me"/><span
-                class="remember"/> Запомнить
-            меня</label>
-
+        <label for="remember"><input type="checkbox" id="remember" name="_spring_security_remember_me"/>
+            <span class="remember"/> Запомнить меня</label>
     </div>
-
     <input type="submit" name="submit" value="Войти"/>
-
     <div class="extra">
         <a href="#" class="forgetPassword">Забыл пароль</a>
     </div>
