@@ -53,6 +53,26 @@ body{
     display: inline-block;
     margin-top: 32px;
 }
+.buttonLogout {
+    border: 2px solid #383838;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #131418;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+.account-name {
+    text-decoration: none!important;
+    color: #4F62AE;
+}
+.account-name:hover {
+   color: #fff;
+}
+.login-name {
+    text-decoration: underline;
+    color: #fff;
+    margin: 5px 0;
+}
 .header-button .button:hover {
     background-color: #383838;
     border: 3px solid #cccccc;
