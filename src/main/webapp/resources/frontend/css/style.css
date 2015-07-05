@@ -30,7 +30,9 @@
 .col-10 { width: 83.333333%;}
 .col-11 { width: 91.666667%;}
 .col-12 { width: 100%;}
-
+html {
+    height: 100%;
+}
 body{
     font: 11px/1.3 Arial, sans-serif;
     background-color: #f4f4f4;
@@ -102,6 +104,13 @@ body{
     text-align: right;
 }
 /*Main - content*/
+.main-content {
+    min-height: 100%;
+}
+.wrapper {
+    overflow:auto;
+    padding-bottom: 54px;
+}
 .article {
     margin-bottom: 44px;
     text-align: center;
@@ -144,13 +153,17 @@ body{
     line-height: 1.7;
 }
 /* Main footer*/
+.footer-index {
+    position: relative;
+    margin-top: -54px; /* negative value of footer height */
+    height: 54px;
+    clear:both;
+}
 .footer-mainPage {
     color: #383838;
     text-align: center;
     background-color: #131418;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
+
 
