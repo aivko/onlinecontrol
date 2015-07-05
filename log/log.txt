@@ -14960,3 +14960,349 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 2015-07-05 16:11:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/]; client=[127.0.0.1]; method=[GET]; servlet=[dispatcher]; session=[sgmwuk91yk7vwmasb7n21lyu]; user=[petr@gmail.com]; time=[107ms]; status=[OK]
 2015-07-05 16:11:24 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
 2015-07-05 16:11:24 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/'; against '/resources/**'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 1 of 13 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 2 of 13 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2015-07-05 16:18:55 DEBUG HttpSessionSecurityContextRepository:136 - No HttpSession currently exists
+2015-07-05 16:18:55 DEBUG HttpSessionSecurityContextRepository:90 - No SecurityContext was available from the HttpSession: null. A new one will be created.
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 3 of 13 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+2015-07-05 16:18:55 DEBUG HstsHeaderWriter:129 - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@523b476c
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 4 of 13 in additional filter chain; firing Filter: 'CsrfFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 5 of 13 in additional filter chain; firing Filter: 'LogoutFilter'
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:127 - Request 'GET /' doesn't match 'POST /logout
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 6 of 13 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:127 - Request 'GET /' doesn't match 'POST /j_spring_security_check
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 7 of 13 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 8 of 13 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 9 of 13 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 10 of 13 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2015-07-05 16:18:55 DEBUG AnonymousAuthenticationFilter:102 - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@9055c2bc: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 11 of 13 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2015-07-05 16:18:55 DEBUG SessionManagementFilter:92 - Requested session ID 1ez8gdnxv77x31w0dwdk1lw6ji is invalid.
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 12 of 13 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:337 - / at position 13 of 13 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/'; against '/'
+2015-07-05 16:18:55 DEBUG FilterSecurityInterceptor:194 - Secure object: FilterInvocation: URL: /; Attributes: [permitAll]
+2015-07-05 16:18:55 DEBUG FilterSecurityInterceptor:310 - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@9055c2bc: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS
+2015-07-05 16:18:55 DEBUG AffirmativeBased:65 - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@a35237, returned: 1
+2015-07-05 16:18:55 DEBUG FilterSecurityInterceptor:215 - Authorization successful
+2015-07-05 16:18:55 DEBUG FilterSecurityInterceptor:227 - RunAsManager did not change Authentication object
+2015-07-05 16:18:55 DEBUG FilterChainProxy:323 - / reached end of additional filter chain; proceeding with original chain
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1048 - Bound request context to thread: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@31212e68]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:55 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /
+2015-07-05 16:18:55 DEBUG RequestMappingHandlerMapping:332 - Found 1 matching mapping(s) for [/] : [{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}]
+2015-07-05 16:18:55 DEBUG RequestMappingHandlerMapping:299 - Returning handler method [public java.lang.String com.vizaco.onlinecontrol.controller.MainController.start()]
+2015-07-05 16:18:55 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'mainController'
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/] is: -1
+2015-07-05 16:18:55 DEBUG ServletInvocableHandlerMethod:135 - Invoking [MainController.start] method with arguments []
+2015-07-05 16:18:55 INFO  Logging:23 - Before execution: #auth anonymousUser # com.vizaco.onlinecontrol.controller.MainController.start()
+2015-07-05 16:18:55 INFO  Logging:28 - After execution: #auth anonymousUser # com.vizaco.onlinecontrol.controller.MainController.start()
+2015-07-05 16:18:55 DEBUG ServletInvocableHandlerMethod:139 - Method [start] returned [index]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler@29d7ca56] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.method.annotation.ModelMethodProcessor@23bdff26] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ViewMethodReturnValueHandler@4063bab1] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor@2f036f91] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.HttpHeadersReturnValueHandler@29f293a6] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.CallableMethodReturnValueHandler@15de23c0] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.DeferredResultMethodReturnValueHandler@280ced7e] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.AsyncTaskMethodReturnValueHandler@6c1c688] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ListenableFutureReturnValueHandler@419df9b8] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.method.annotation.ModelAttributeMethodProcessor@49608285] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor@4d6c27be] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ViewNameMethodReturnValueHandler@1564231f] supports [class java.lang.String]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1241 - Rendering view [org.springframework.web.servlet.view.JstlView: name 'index'; URL [/WEB-INF/jsp/index.jsp]] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:55 DEBUG JstlView:297 - Rendering view with name 'index' with model {} and static attributes {}
+2015-07-05 16:18:55 DEBUG JstlView:166 - Forwarding to resource [/WEB-INF/jsp/index.jsp] in InternalResourceView 'index'
+2015-07-05 16:18:55 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:18:55 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:18:55 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:18:55 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:18:55 DEBUG HttpSessionSecurityContextRepository:300 - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@31212e68]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:18:55 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[57ms]; status=[OK]
+2015-07-05 16:18:55 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[57ms]; status=[OK]
+2015-07-05 16:18:55 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
+2015-07-05 16:18:55 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/logo.jpg'; against '/resources/**'
+2015-07-05 16:18:55 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/reset.css'; against '/resources/**'
+2015-07-05 16:18:55 DEBUG FilterChainProxy:180 - /resources/frontend/image/logo.jpg has an empty filter list
+2015-07-05 16:18:55 DEBUG FilterChainProxy:180 - /resources/frontend/css/reset.css has an empty filter list
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@1431757970 org.eclipse.jetty.server.Request@5556e492]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@292817097 org.eclipse.jetty.server.Request@117408c9]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/logo.jpg]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/reset.css]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:55 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/reset.css
+2015-07-05 16:18:55 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/reset.css]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:55 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/reset.css]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:55 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/reset.css] are [/resources/**]
+2015-07-05 16:18:55 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/reset.css] are {}
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/reset.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/reset.css] is: -1
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/reset.css
+2015-07-05 16:18:56 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/reset.css"
+2015-07-05 16:18:56 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:18:55 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/logo.jpg
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/logo.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/logo.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/logo.jpg] are [/resources/**]
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/logo.jpg] are {}
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/logo.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/logo.jpg] is: -1
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/logo.jpg
+2015-07-05 16:18:56 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/logo.jpg"
+2015-07-05 16:18:56 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:18:56 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/style.css'; against '/resources/**'
+2015-07-05 16:18:56 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-05 16:18:56 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-05 16:18:56 DEBUG FilterChainProxy:180 - /resources/frontend/css/style.css has an empty filter list
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@292817097 org.eclipse.jetty.server.Request@117408c9]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[45ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[45ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@1431757970 org.eclipse.jetty.server.Request@5556e492]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[57ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[57ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/news.jpg'; against '/resources/**'
+2015-07-05 16:18:56 DEBUG FilterChainProxy:180 - /resources/frontend/image/news.jpg has an empty filter list
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/news.jpg)@1431757970 org.eclipse.jetty.server.Request@5556e492]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/news.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/news.jpg
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/news.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/news.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/news.jpg] are [/resources/**]
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/news.jpg] are {}
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/news.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/news.jpg] is: -1
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/news.jpg
+2015-07-05 16:18:56 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/news.jpg"
+2015-07-05 16:18:56 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:18:56 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/news.jpg]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/news.jpg]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@445546553 org.eclipse.jetty.server.Request@1a8e8039]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/style.css]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/style.css
+2015-07-05 16:18:56 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/style.css]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/style.css]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/style.css] are [/resources/**]
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/style.css] are {}
+2015-07-05 16:18:56 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/style.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/style.css] is: -1
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/style.css
+2015-07-05 16:18:56 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/style.css"
+2015-07-05 16:18:56 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/news.jpg)@1431757970 org.eclipse.jetty.server.Request@5556e492]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/news.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[35ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/news.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[35ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/style.css]
+2015-07-05 16:18:56 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/style.css]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:18:56 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@445546553 org.eclipse.jetty.server.Request@1a8e8039]
+2015-07-05 16:18:56 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[129ms]; status=[OK]
+2015-07-05 16:18:56 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[9hhy8o0a63xf180fu1vkp5bvr]; user=[null]; time=[129ms]; status=[OK]
+2015-07-05 16:22:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/'; against '/resources/**'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 1 of 13 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 2 of 13 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2015-07-05 16:22:59 DEBUG HttpSessionSecurityContextRepository:136 - No HttpSession currently exists
+2015-07-05 16:22:59 DEBUG HttpSessionSecurityContextRepository:90 - No SecurityContext was available from the HttpSession: null. A new one will be created.
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 3 of 13 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+2015-07-05 16:22:59 DEBUG HstsHeaderWriter:129 - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@523b476c
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 4 of 13 in additional filter chain; firing Filter: 'CsrfFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 5 of 13 in additional filter chain; firing Filter: 'LogoutFilter'
+2015-07-05 16:22:59 DEBUG AntPathRequestMatcher:127 - Request 'GET /' doesn't match 'POST /logout
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 6 of 13 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2015-07-05 16:22:59 DEBUG AntPathRequestMatcher:127 - Request 'GET /' doesn't match 'POST /j_spring_security_check
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 7 of 13 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 8 of 13 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 9 of 13 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 10 of 13 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2015-07-05 16:22:59 DEBUG AnonymousAuthenticationFilter:102 - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@9055c2bc: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 11 of 13 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 12 of 13 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2015-07-05 16:22:59 DEBUG FilterChainProxy:337 - / at position 13 of 13 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2015-07-05 16:22:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/'; against '/'
+2015-07-05 16:22:59 DEBUG FilterSecurityInterceptor:194 - Secure object: FilterInvocation: URL: /; Attributes: [permitAll]
+2015-07-05 16:22:59 DEBUG FilterSecurityInterceptor:310 - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@9055c2bc: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS
+2015-07-05 16:22:59 DEBUG AffirmativeBased:65 - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@a35237, returned: 1
+2015-07-05 16:22:59 DEBUG FilterSecurityInterceptor:215 - Authorization successful
+2015-07-05 16:22:59 DEBUG FilterSecurityInterceptor:227 - RunAsManager did not change Authentication object
+2015-07-05 16:22:59 DEBUG FilterChainProxy:323 - / reached end of additional filter chain; proceeding with original chain
+2015-07-05 16:22:59 DEBUG DispatcherServlet:1048 - Bound request context to thread: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@515d64c]
+2015-07-05 16:22:59 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/]
+2015-07-05 16:22:59 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:22:59 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /
+2015-07-05 16:22:59 DEBUG RequestMappingHandlerMapping:332 - Found 1 matching mapping(s) for [/] : [{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}]
+2015-07-05 16:22:59 DEBUG RequestMappingHandlerMapping:299 - Returning handler method [public java.lang.String com.vizaco.onlinecontrol.controller.MainController.start()]
+2015-07-05 16:22:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'mainController'
+2015-07-05 16:22:59 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:22:59 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/] is: -1
+2015-07-05 16:22:59 DEBUG ServletInvocableHandlerMethod:135 - Invoking [MainController.start] method with arguments []
+2015-07-05 16:22:59 INFO  Logging:23 - Before execution: #auth anonymousUser # com.vizaco.onlinecontrol.controller.MainController.start()
+2015-07-05 16:22:59 INFO  Logging:28 - After execution: #auth anonymousUser # com.vizaco.onlinecontrol.controller.MainController.start()
+2015-07-05 16:22:59 DEBUG ServletInvocableHandlerMethod:139 - Method [start] returned [index]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler@29d7ca56] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.method.annotation.ModelMethodProcessor@23bdff26] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ViewMethodReturnValueHandler@4063bab1] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor@2f036f91] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.HttpHeadersReturnValueHandler@29f293a6] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.CallableMethodReturnValueHandler@15de23c0] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.DeferredResultMethodReturnValueHandler@280ced7e] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.AsyncTaskMethodReturnValueHandler@6c1c688] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ListenableFutureReturnValueHandler@419df9b8] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.method.annotation.ModelAttributeMethodProcessor@49608285] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor@4d6c27be] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ViewNameMethodReturnValueHandler@1564231f] supports [class java.lang.String]
+2015-07-05 16:22:59 DEBUG DispatcherServlet:1241 - Rendering view [org.springframework.web.servlet.view.JstlView: name 'index'; URL [/WEB-INF/jsp/index.jsp]] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:22:59 DEBUG JstlView:297 - Rendering view with name 'index' with model {} and static attributes {}
+2015-07-05 16:22:59 DEBUG JstlView:166 - Forwarding to resource [/WEB-INF/jsp/index.jsp] in InternalResourceView 'index'
+2015-07-05 16:22:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:22:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:22:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:22:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-05 16:22:59 DEBUG HttpSessionSecurityContextRepository:300 - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+2015-07-05 16:22:59 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@515d64c]
+2015-07-05 16:22:59 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:22:59 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[71ms]; status=[OK]
+2015-07-05 16:22:59 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[71ms]; status=[OK]
+2015-07-05 16:22:59 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
+2015-07-05 16:22:59 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-05 16:23:00 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/reset.css'; against '/resources/**'
+2015-07-05 16:23:00 DEBUG FilterChainProxy:180 - /resources/frontend/css/reset.css has an empty filter list
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@1638666199 org.eclipse.jetty.server.Request@61ac0fd7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/reset.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/reset.css
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/reset.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/reset.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/reset.css] are [/resources/**]
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/reset.css] are {}
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/reset.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/reset.css] is: -1
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/reset.css
+2015-07-05 16:23:00 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/reset.css"
+2015-07-05 16:23:00 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:23:00 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@1638666199 org.eclipse.jetty.server.Request@61ac0fd7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[22ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[22ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/logo.jpg'; against '/resources/**'
+2015-07-05 16:23:00 DEBUG FilterChainProxy:180 - /resources/frontend/image/logo.jpg has an empty filter list
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@333259058 org.eclipse.jetty.server.Request@13dd2132]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/logo.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/logo.jpg
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/logo.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/logo.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/logo.jpg] are [/resources/**]
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/logo.jpg] are {}
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/logo.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/logo.jpg] is: -1
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/logo.jpg
+2015-07-05 16:23:00 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/logo.jpg"
+2015-07-05 16:23:00 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:23:00 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/style.css'; against '/resources/**'
+2015-07-05 16:23:00 DEBUG FilterChainProxy:180 - /resources/frontend/css/style.css has an empty filter list
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@1438094662 org.eclipse.jetty.server.Request@55b79546]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/style.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/style.css
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/style.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-05 16:23:00 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/style.css]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/style.css] are [/resources/**]
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/style.css] are {}
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/style.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/style.css] is: -1
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/style.css
+2015-07-05 16:23:00 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/style.css"
+2015-07-05 16:23:00 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@333259058 org.eclipse.jetty.server.Request@13dd2132]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:23:00 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/style.css]
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[25ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/style.css]
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[25ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@1438094662 org.eclipse.jetty.server.Request@55b79546]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[46ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[46ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/news.jpg'; against '/resources/**'
+2015-07-05 16:23:00 DEBUG FilterChainProxy:180 - /resources/frontend/image/news.jpg has an empty filter list
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/news.jpg)@333259058 org.eclipse.jetty.server.Request@13dd2132]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/news.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@19c6db0f] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/news.jpg
+2015-07-05 16:23:00 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/news.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@2fdf5597] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/news.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@5966e3f4] in DispatcherServlet with name 'dispatcher'
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/news.jpg] are [/resources/**]
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/news.jpg] are {}
+2015-07-05 16:23:00 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/news.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@46f970b6]]] and 1 interceptor
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@5db831c0]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@10e2aff7]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/news.jpg] is: -1
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/news.jpg
+2015-07-05 16:23:00 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/news.jpg"
+2015-07-05 16:23:00 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-05 16:23:00 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/news.jpg]
+2015-07-05 16:23:00 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/news.jpg]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-05 16:23:00 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/news.jpg)@333259058 org.eclipse.jetty.server.Request@13dd2132]
+2015-07-05 16:23:00 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/news.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[38ms]; status=[OK]
+2015-07-05 16:23:00 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/news.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[vm42i5abe4ii6siphf32564v]; user=[null]; time=[38ms]; status=[OK]
