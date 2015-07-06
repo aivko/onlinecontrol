@@ -2,7 +2,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -34,7 +33,7 @@
             background-color: #cd0a0a;
         }
 
-        #addRow, #deleteRow, #addDay {
+        #addRow, #deleteRow, #addWeek {
             text-decoration: underline;
             color: blue;
             cursor: default
@@ -43,34 +42,49 @@
 
     <script>
 
-        var lastDay = 1;
         var lastRow = 1;
+        var lastWeek = 1;
 
         $(document).ready(function () {
-            addNewDay();
+            addNewWeek();
         });
 
-        function onAddDay() {
+        function onAddWeek() {
 
-            $('#days').append(
+            if (lastWeek == null || lastWeek == undefined) {
+                return;
+            }
+
+            $('#weeks').append(
                     "<br>" +
-                    "<div style='border:solid;width:32%'>" +
+                    "<div style='border:solid;width:42%' class=week_" + lastWeek + ">" +
 
-                    "<div style='text-align:center'>" +
-                    "<input type='text' id=datePattern_" + lastDay + " name=dayOfTheWeek_" + lastDay + " readonly='true'>" +
+                    "<div style='font-weight:bold; text-align:center'>Неделя № " + lastWeek + "</div>" +
+
+                    "<div>" +
+                    <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
+
+                    "<div>" +
+
+                    "<hr>" +
+
+                    "<div>" +
+                    "<div style='font-weight:bold; text-align:center'>${vardayOfWeek.value}</div>" +
+                    "<input type='text' name=dayOfTheWeek_" + lastWeek + "_${vardayOfWeek.key} value='${vardayOfWeek.key}' hidden>" +
                     "</div>" +
 
                     "<br>" +
 
                     "<div>" +
-                    "<span id='addRow' onclick=onAddRow('_" + lastDay + "')>Добавить</span>" +
-                    "<span id='deleteRow' onclick=onDeleteRow('_" + lastDay + "')> / Удалить</span>" +
+                    "<span id='addRow' onclick=onAddRow('_" + lastWeek + "_${vardayOfWeek.key}')>Добавить</span>" +
+                    "<span id='deleteRow' onclick=onDeleteRow('_" + lastWeek + "_${vardayOfWeek.key}')> / Удалить</span>" +
                     "</div>" +
 
-                    "<table id=shedule_" + lastDay + " class='display' cellspacing='0' border='1' width='35%'>" +
+                    "<table id=shedule_" + lastWeek + "_${vardayOfWeek.key} class='display' cellspacing='0' border='1' width='43%'>" +
                     "<thead>" +
                     "<tr>" +
                     "<th>Ch</th>" +
+                    "<th>Дата</th>" +
                     "<th>Время урока</th>" +
                     "<th>Предмет</th>" +
                     "<th>Преподаватель</th>" +
@@ -80,9 +94,13 @@
                     "</tbody>" +
                     "</table>" +
 
+                    "</div>" +
+                    "<br>" +
+                    </c:forEach>
+
                     "</div>");
 
-            lastDay++;
+            lastWeek++;
 
         }
         ;
@@ -101,6 +119,10 @@
 
                     "<td>" +
                     "<input type='checkbox' onclick='onSelectRow(this)'>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<input type='text' id=datePattern" + varIndex + " name=datePattern" + varIndex + "/>" +
                     "</td>" +
 
                     "<td>" +
@@ -164,16 +186,11 @@
         }
         ;
 
-        function addNewDay() {
-            onAddDay();
-
-            //Add event
-            var selector = '#datePattern_' + (lastDay - 1);
-            $(selector).datepicker({
-                dateFormat: 'dd.mm.yy'
-            });
-
-            onAddRow('_' + (lastDay - 1));
+        function addNewWeek() {
+            onAddWeek();
+            <c:forEach var="vardayOfWeek" items="${daysOfWeek}">
+            onAddRow('_' + (lastWeek - 1) + '_${vardayOfWeek.key}')
+            </c:forEach>
         }
         ;
 
@@ -184,9 +201,6 @@
         ;
 
         $(function () {
-            $('#datePattern_1').datepicker({
-                dateFormat: 'dd.mm.yy'
-            });
             $("#startDate").datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
@@ -194,7 +208,6 @@
                 numberOfMonths: 3,
                 onClose: function (selectedDate) {
                     $("#endDate").datepicker("option", "minDate", selectedDate);
-                    $('[id ^= "datePattern"]').datepicker("option", "minDate", selectedDate);
                 }
             });
             $("#endDate").datepicker({
@@ -204,11 +217,12 @@
                 numberOfMonths: 3,
                 onClose: function (selectedDate) {
                     $("#startDate").datepicker("option", "maxDate", selectedDate);
-                    $('[id ^= "datePattern"]').datepicker("option", "maxDate", selectedDate);
                 }
             });
+            $('[id ^= "datePattern"]').datepicker({
+                dateFormat: 'dd.mm.yy',
+            });
         });
-
     </script>
 
 </head>
@@ -242,10 +256,10 @@
         <br>
 
         <div>
-            <span id="addDay" onclick="addNewDay()">Добавить день</span>
+            <span id="addWeek" onclick="addNewWeek()">Добавить неделю</span>
         </div>
 
-        <div id="days">
+        <div id="weeks">
 
         </div>
 
