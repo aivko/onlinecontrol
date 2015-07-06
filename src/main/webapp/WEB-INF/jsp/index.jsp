@@ -24,48 +24,48 @@
 
 </head>
 <body>
-    <header class="index-header">
-        <div class="container">
-            <div class="header-line clearfix row">
-                <div class="cols col-2">
-                    <img src="resources/frontend/image/logo.jpg" alt="logo" class="image" />
-                </div>
-                <div class="header-button row">
-                    <ul class="header-list cols col-8">
-                        <li class="header-item">
-                            <a href="#">О нас</a>
-                        </li>
-                        <li class="header-item">
-                            <a href="#">Информация для родителей</a>
-                        </li>
-                        <li class="header-item">
-                            <a href="#">Технические характеристики</a>
-                        </li>
-                    </ul>
-                    <div class="auth-button cols col-2">
-                        <sec:authorize access="isAuthenticated()">
-                            <a href='<spring:url value="/users/${userId}/account" htmlEscape="true"/>' role="button" class="account-name">Account</a>
-                        </sec:authorize>
-                        <sec:authorize access="!isAuthenticated()">
-                            <a href='<spring:url value="/login" htmlEscape="true"/>' role="button" class="button">Войти</a>
-                        </sec:authorize>
-                        <sec:authorize access="isAuthenticated()">
-                            <p class="login-name">Ваш логин: ${email}</p>
-
-                            <%--<p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>--%>
-                            <c:url var="logoutUrl" value="/logout"/>
-                            <form class="logout" action="${logoutUrl}" method="post">
-                                <input class="buttonLogout" type="submit" value="Выход" />
-                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                            </form>
-                        </sec:authorize>
-                    </div>
-                </div>
-           </div>
-        </div>
-    </header>
     <div class="main-content clearfix">
         <div class="wrapper">
+            <header class="index-header">
+                <div class="container">
+                    <div class="header-line clearfix row">
+                        <div class="cols col-2">
+                            <img src="resources/frontend/image/logo.jpg" alt="logo" class="image" />
+                        </div>
+                        <div class="header-button row">
+                            <ul class="header-list cols col-8">
+                                <li class="header-item">
+                                    <a href="#">О нас</a>
+                                </li>
+                                <li class="header-item">
+                                    <a href="#">Информация для родителей</a>
+                                </li>
+                                <li class="header-item">
+                                    <a href="#">Технические характеристики</a>
+                                </li>
+                            </ul>
+                            <div class="auth-button cols col-2">
+                                <sec:authorize access="isAuthenticated()">
+                                    <a href='<spring:url value="/users/${userId}/account" htmlEscape="true"/>' role="button" class="account-name">Account</a>
+                                </sec:authorize>
+                                <sec:authorize access="!isAuthenticated()">
+                                    <a href='<spring:url value="/login" htmlEscape="true"/>' role="button" class="button">Войти</a>
+                                </sec:authorize>
+                                <sec:authorize access="isAuthenticated()">
+                                    <p class="login-name">Ваш логин: ${email}</p>
+
+                                    <%--<p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>--%>
+                                    <c:url var="logoutUrl" value="/logout"/>
+                                    <form class="logout" action="${logoutUrl}" method="post">
+                                        <input class="buttonLogout" type="submit" value="Выход" />
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                    </form>
+                                </sec:authorize>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
             <div class="row clearfix">
                 <div class="article article-first cols col-12">
                     <a href="#" class="link"><img src="resources/frontend/image/news.jpg" alt="news" class="img"></a>
