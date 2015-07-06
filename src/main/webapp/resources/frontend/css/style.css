@@ -165,5 +165,48 @@ body{
     background-color: #131418;
     padding: 20px 0;
 }
-
-
+/*Login--page*/
+.form-login {
+    background-color: #383838;
+    display: block;
+    width: 340px;
+    margin: 20px auto;
+    height: 440px;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 20px;
+}
+.autor-login {
+    padding: 20px;
+    font-size: 24px;
+}
+.data-author {
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+.data-user {
+    display: block;
+    text-align: left;
+    font-size: 16px;
+}
+.data-info {
+    display: block;
+    text-align: left;
+    background-color: #383838;
+    border: 2px solid #5B4949;
+    border-radius: 3px;
+    padding: 7px 10px;
+    color: #5B4949;
+    width: 250px;
+}
+.submit-button {
+    background-color: #f4f4f4;
+    width: 160px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+.submit-button:hover {
+    background-color: #53760D;
+}
