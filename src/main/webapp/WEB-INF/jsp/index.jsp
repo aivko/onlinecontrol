@@ -67,7 +67,7 @@
                 </div>
             </header>
             <div class="row clearfix">
-                <div class="article article-first cols col-12">
+                <div class="article cols col-12">
                     <a href="#" class="link"><img src="resources/frontend/image/news.jpg" alt="news" class="img"></a>
                     <div class="article-part">
                         <div class="date">

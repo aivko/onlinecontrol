@@ -41,6 +41,7 @@ body{
 }
 .index-header {
     background-color: #131418;
+    margin-bottom: 40px;
 }
 .header-line {
     width: 90%;
@@ -115,9 +116,6 @@ body{
     margin-bottom: 44px;
     text-align: center;
 }
-.article-first {
-    margin-top: 44px;
-}
 .article .link {
     display: inline-block;
     vertical-align: middle;
@@ -167,7 +165,7 @@ body{
 }
 /*Login--page*/
 .form-login {
-    background-color: #383838;
+    background-color: #6d6d6d;
     display: block;
     width: 340px;
     margin: 20px auto;
@@ -178,7 +176,7 @@ body{
 }
 .autor-login {
     padding: 20px;
-    font-size: 24px;
+    font-size: 36px;
 }
 .data-author {
     padding: 0 40px;
@@ -192,11 +190,11 @@ body{
 .data-info {
     display: block;
     text-align: left;
-    background-color: #383838;
-    border: 2px solid #5B4949;
+    background-color: #565656;
+    border: 2px solid #a5a5a5;
     border-radius: 3px;
     padding: 7px 10px;
-    color: #5B4949;
+    color: #9c9c9c;
     width: 250px;
 }
 .submit-button {
