@@ -4,15 +4,16 @@ import com.vizaco.onlinecontrol.model.*;
 import org.springframework.dao.DataAccessException;
 
 import java.time.DayOfWeek;
+import java.util.Date;
 import java.util.List;
 
 public interface SheduleDao {
 
     Shedule findSheduleById(Long id) throws DataAccessException;
 
-//    DayOfWeek findDayOfWeekById(Long id) throws DataAccessException;
-//
-//    List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException;
+    List<Shedule> getAllShedule() throws DataAccessException;
+
+    List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException;
 
     Period findPeriodById(Long id) throws DataAccessException;
 
@@ -25,5 +26,7 @@ public interface SheduleDao {
     Teacher findTeacherById(Long id) throws DataAccessException;
 
     List<Teacher> getAllTeachers() throws DataAccessException;
+
+    void saveShedule(Shedule shedule) throws DataAccessException;
 
 }

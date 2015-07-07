@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,17 +27,17 @@ public class SheduleServiceImpl implements SheduleService {
         return sheduleDao.findSheduleById(id);
     }
 
-//    @Override
-//    @Transactional(readOnly = true)
-//    public DayOfWeek findDayOfWeekById(Long id) throws DataAccessException {
-//        return sheduleDao.findDayOfWeekById(id);
-//    }
-//
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException {
-//        return sheduleDao.getAllDaysOfWeek();
-//    }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Shedule> getAllShedule() throws DataAccessException {
+        return sheduleDao.getAllShedule();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException {
+        return sheduleDao.getSheduleBeetwenIntervalAndClass(start, end, clazz);
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -72,6 +73,12 @@ public class SheduleServiceImpl implements SheduleService {
     @Transactional(readOnly = true)
     public List<Teacher> getAllTeachers() throws DataAccessException {
         return sheduleDao.getAllTeachers();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public void saveShedule(Shedule shedule) throws DataAccessException {
+        sheduleDao.saveShedule(shedule);
     }
 
 }

@@ -71,18 +71,14 @@ public class User extends BaseEntity implements UserDetails{
 
         User user = (User) o;
 
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
         return !(email != null ? !email.equals(user.email) : user.email != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        return result;
+        return email != null ? email.hashCode() : 0;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

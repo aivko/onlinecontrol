@@ -39,6 +39,17 @@ public class SheduleController extends BaseController {
     @Autowired
     private Utils utils;
 
+    @RequestMapping(value = "/shedules")
+    public ModelAndView shedules() {
+
+        ModelAndView mav = new ModelAndView("shedules/shedules");
+
+        List<Shedule> shedules = sheduleService.getAllShedule();
+
+        mav.addObject("shedules", shedules);
+
+        return mav;
+    }
 
     //<editor-fold desc="CRUD SHEDULE">
     //CREATE SHEDULE
@@ -65,10 +76,12 @@ public class SheduleController extends BaseController {
 
         String[] params = json.split("&");
 
-        TreeMap<Calendar, String> daysOfTheWeek = new TreeMap<>();
-        TreeMap<String, String> periods = new TreeMap<>();
-        TreeMap<String, String> subjects = new TreeMap<>();
-        TreeMap<String, String> teachers = new TreeMap<>();
+        TreeSet<Integer> numberOfWeek = new TreeSet<>();
+
+        TreeMap<String, DayOfWeek> daysOfTheWeek = new TreeMap<>();
+        TreeMap<String, Period> periods = new TreeMap<>();
+        TreeMap<String, Subject> subjects = new TreeMap<>();
+        TreeMap<String, Teacher> teachers = new TreeMap<>();
 
         GregorianCalendar startDate = null;
         GregorianCalendar endDate = null;
@@ -77,33 +90,49 @@ public class SheduleController extends BaseController {
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
+        Integer currentWeek;
+        DayOfWeek currentDay;
+        Period currentPeriod;
+        Subject currentSubject;
+        Teacher currentTeacher;
+
         for (String param : params) {
 
             if (param.startsWith("dayOfTheWeek")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
-                Calendar datePattern = new GregorianCalendar();
-                try {
-                    datePattern.setTime(formatter.parse(keyValue[1]));
-                } catch (ParseException e) {
-                    break;
+                if (emptyValue(keyValue, 1) || (currentDay = DayOfWeek.of(Integer.parseInt(keyValue[1]))) == null){
+                    continue;
                 }
-                daysOfTheWeek.put(datePattern, keyValue[0]);
+                daysOfTheWeek.put(keyValue[0], currentDay);
+            } else if (param.startsWith("week_")) {
+                String[] keyValue = param.split("=");
+                if (emptyValue(keyValue, 1) || ((currentWeek = Integer.parseInt(keyValue[1]))== null)) {
+                    continue;
+                }
+                numberOfWeek.add(currentWeek);
             } else if (param.startsWith("period")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
-                periods.put(keyValue[0], keyValue[1]);
+                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Long.parseLong(keyValue[1]))) == null){
+                    continue;
+                }
+                periods.put(keyValue[0], currentPeriod);
             } else if (param.startsWith("subject")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
-                subjects.put(keyValue[0], keyValue[1]);
+                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Long.parseLong(keyValue[1]))) == null){
+                    continue;
+                }
+                subjects.put(keyValue[0], currentSubject);
             } else if (param.startsWith("teacher")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
-                teachers.put(keyValue[0], keyValue[1]);
+                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Long.parseLong(keyValue[1]))) == null){
+                    continue;
+                }
+                teachers.put(keyValue[0], currentTeacher);
             } else if (param.startsWith("startDate")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
+                if (emptyValue(keyValue, 1)) {
+                    continue;
+                }
                 startDate = new GregorianCalendar();
                 try {
                     startDate.setTime(formatter.parse(keyValue[1]));
@@ -112,7 +141,9 @@ public class SheduleController extends BaseController {
                 }
             } else if (param.startsWith("endDate")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
+                if (emptyValue(keyValue, 1)) {
+                    continue;
+                }
                 endDate = new GregorianCalendar();
                 try {
                     endDate.setTime(formatter.parse(keyValue[1]));
@@ -121,61 +152,92 @@ public class SheduleController extends BaseController {
                 }
             } else if (param.startsWith("classSelect")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1)) continue;
+                if (emptyValue(keyValue, 1)) {
+                    continue;
+                }
                 clazz = clazzService.findClazzById(Long.parseLong(keyValue[1]));
             }
 
         }
 
-        if (startDate == null || endDate == null || clazz == null) {
+        if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
             return "/shedules/createOrUpdateSheduleForm";
         } else if (startDate.compareTo(endDate) > 0) {
             return "/shedules/createOrUpdateSheduleForm";
         }
 
-        TreeMap<Calendar, DayOfWeek> calendarDayOfTheWeekMap = new TreeMap<>();
+        TreeSet<Shedule> shedules = new TreeSet<>();
+
+        Iterator<Integer> iteratorWeek = numberOfWeek.iterator();
+        Integer numberWeek = iteratorWeek.next();
 
         while (startDate.compareTo(endDate) < 0) {
 
             Calendar currentDate = new GregorianCalendar();
             currentDate.setTime(startDate.getTime());
 
-            calendarDayOfTheWeekMap.put(currentDate, DayOfWeek.of(dateUtils.getNumberDayOfWeek(startDate)));
+            Integer numberDay = dateUtils.getNumberDayOfWeek(startDate);
+
+            for (Map.Entry<String, Subject> keyValue : subjects.entrySet()) {
+
+                String subjectKey = keyValue.getKey();
+                Subject subjectValue = keyValue.getValue();
+
+                if (!subjectKey.startsWith("subject_" + numberWeek + "_" + numberDay)) {
+                    continue;
+                }
+
+                String[] splitSubject = subjectKey.split("_");
+
+                if (emptyValue(splitSubject, 3)) {
+                    continue;
+                }
+
+                //Find period
+                if (!periods.containsKey("period_" + numberWeek + "_" + numberDay + "_" + splitSubject[3])) {
+                    continue;
+                }
+                Period periodValue = periods.get("period_" + numberWeek + "_" + numberDay + "_" + splitSubject[3]);
+
+                //Find teacher
+                if (!teachers.containsKey("teacher_" + numberWeek + "_" + numberDay + "_" + splitSubject[3])) {
+                    continue;
+                }
+                Teacher teacherValue = teachers.get("teacher_" + numberWeek + "_" + numberDay + "_" + splitSubject[3]);
+
+                Shedule currentShedule = new Shedule();
+                currentShedule.setDate(startDate.getTime());
+                currentShedule.setClazz(clazz);
+                currentShedule.setPeriod(periodValue);
+                currentShedule.setSubject(subjectValue);
+                currentShedule.setTeacher(teacherValue);
+
+                shedules.add(currentShedule);
+
+            }
+
             startDate.add(Calendar.DAY_OF_MONTH, 1);
-        }
 
-        String currentNumber;
-
-        DayOfWeek currentDay;
-        Period currentPeriod;
-        Subject currentSubject;
-        Teacher currentTeacher;
-
-        for (Map.Entry<Calendar, DayOfWeek> keyValue : calendarDayOfTheWeekMap.entrySet()) {
-
-
+            if (dateUtils.getNumberDayOfWeek(startDate) == 1) {
+                if (!iteratorWeek.hasNext()) {
+                    iteratorWeek = numberOfWeek.iterator();
+                }
+                numberWeek = iteratorWeek.next();
+            }
 
         }
 
-//        for (Map.Entry<Calendar, String> day : daysOfTheWeek.entrySet()) {
-//
-//            Calendar dayKey = day.getKey();
-//            String dayValue = day.getValue();
-//
-//            currentNumber = dayValue.substring(13);
-//
-//            currentDay = DayOfWeek.of(Integer.parseInt(dayValue));
-//
-//            String periodValue = periods.get("period" + currentNumber);
-//            currentPeriod = sheduleService.findPeriodById(Long.parseLong(periodValue));
-//
-//            String subjectValue = subjects.get("subject" + currentNumber);
-//            currentSubject = sheduleService.findSubjectById(Long.parseLong(subjectValue));
-//
-//            String teacherValue = teachers.get("teacher" + currentNumber);
-//            currentTeacher = sheduleService.findTeacherById(Long.parseLong(teacherValue));
-//
-//        }
+        List<Shedule> shedulesInDB = sheduleService.getSheduleBeetwenIntervalAndClass(startDate.getTime(), endDate.getTime(), clazz);
+
+        for (Shedule shedule : shedules) {
+
+            if (shedulesInDB.contains(shedule)){
+                shedule.setId(shedulesInDB.get(shedulesInDB.indexOf(shedule)).getId());
+            }
+
+            sheduleService.saveShedule(shedule);
+
+        }
 
         return "redirect:/shedules/";
     }

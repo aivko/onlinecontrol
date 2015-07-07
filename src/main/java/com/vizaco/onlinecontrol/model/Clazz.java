@@ -72,6 +72,27 @@ public class Clazz extends BaseEntity{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Clazz clazz = (Clazz) o;
+
+        if (number != null ? !number.equals(clazz.number) : clazz.number != null) return false;
+        if (letter != null ? !letter.equals(clazz.letter) : clazz.letter != null) return false;
+        return !(school != null ? !school.equals(clazz.school) : clazz.school != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = number != null ? number.hashCode() : 0;
+        result = 31 * result + (letter != null ? letter.hashCode() : 0);
+        result = 31 * result + (school != null ? school.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("");
         sb.append(number).append(" - ").append(letter);
