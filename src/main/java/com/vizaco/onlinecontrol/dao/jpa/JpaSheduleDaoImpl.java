@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.time.DayOfWeek;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -31,24 +32,20 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         }
     }
 
-//    @Override
-//    public DayOfWeek findDayOfWeekById(Long id) throws DataAccessException {
-//        Query query = this.em.createQuery("SELECT DISTINCT DayOfWeek FROM DayOfWeek DayOfWeek WHERE DayOfWeek.id =:id");
-//        query.setParameter("id", id);
-//
-//        List resultList = query.getResultList();
-//        if (resultList.isEmpty()) {
-//            return null; // handle no-results case
-//        } else {
-//            return (DayOfWeek)resultList.get(0);
-//        }
-//    }
-//
-//    @Override
-//    public List<DayOfWeek> getAllDaysOfWeek() throws DataAccessException {
-//        Query query = this.em.createQuery("SELECT DISTINCT dayOfWeek FROM DayOfWeek dayOfWeek");
-//        return query.getResultList();
-//    }
+    @Override
+    public List<Shedule> getAllShedule() throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule WHERE Shedule.clazz =:clazz AND Shedule.date between :startDate and :endDate");
+        query.setParameter("clazz", clazz);
+        query.setParameter("startDate", start);
+        query.setParameter("endDate", end);
+        return query.getResultList();
+    }
 
     @Override
     public Period findPeriodById(Long id) throws DataAccessException {
@@ -109,5 +106,22 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         Query query = this.em.createQuery("SELECT DISTINCT teacher FROM Teacher teacher");
         return query.getResultList();
     }
+
+    @Override
+    public void saveShedule(Shedule shedule) {
+
+        if (shedule == null){
+            return;
+        }
+
+        if (shedule.getId() == null) {
+            this.em.persist(shedule);
+        }
+        else {
+            this.em.merge(shedule);
+        }
+
+    }
+
 
 }
