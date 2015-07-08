@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,22 +15,27 @@ import java.util.Date;
 @Table(name = "shedule")
 public class Shedule extends BaseEntity implements Comparable<Shedule>{
 
+    @NotNull
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
+    @NotNull
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="period_id")
     private Period period;
 
+    @NotNull
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="subject_id")
     private Subject subject;
 
+    @NotNull
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="clazz_id")
     private Clazz clazz;
 
+    @NotNull
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="teacher_id")
     private Teacher teacher;

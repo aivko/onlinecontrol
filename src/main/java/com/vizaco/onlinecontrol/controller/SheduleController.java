@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -53,11 +54,8 @@ public class SheduleController extends BaseController {
         return mav;
     }
 
-    //<editor-fold desc="CRUD SHEDULE">
-    //CREATE SHEDULE
-
-    @RequestMapping(value = "/shedules/new", method = RequestMethod.GET)
-    public String register(Model model) {
+    @RequestMapping(value = "/shedules/newTemplate", method = RequestMethod.GET)
+    public String registerTemplate(Model model) {
 
         model.addAttribute("clazzes", clazzService.getAllClazzes());
         model.addAttribute("periods", sheduleService.getAllPeriods());
@@ -66,14 +64,14 @@ public class SheduleController extends BaseController {
         model.addAttribute("teachers", sheduleService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
-        return "/shedules/createOrUpdateSheduleForm";
+        return "/shedules/fillSheduleInTheTemplate";
     }
 
-    @RequestMapping(value = "/shedules/new", method = RequestMethod.POST)
-    public String save(@RequestBody String json) {
+    @RequestMapping(value = "/shedules/newTemplate", method = RequestMethod.POST)
+    public String registerTemplate(@RequestBody String json) {
 
         if (json == null) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/fillSheduleInTheTemplate";
         }
 
         String[] params = json.split("&");
@@ -163,9 +161,9 @@ public class SheduleController extends BaseController {
         }
 
         if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/fillSheduleInTheTemplate";
         } else if (startDate.compareTo(endDate) > 0) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/fillSheduleInTheTemplate";
         }
 
         TreeSet<Shedule> shedules = new TreeSet<>();
@@ -176,7 +174,7 @@ public class SheduleController extends BaseController {
         Calendar startDateTemp = Calendar.getInstance();
         startDateTemp.setTime(startDate.getTime());
 
-        while (startDateTemp.compareTo(endDate) < 0) {
+        while (startDateTemp.compareTo(endDate) <= 0) {
 
             Calendar currentDate = new GregorianCalendar();
             currentDate.setTime(startDateTemp.getTime());
@@ -256,6 +254,37 @@ public class SheduleController extends BaseController {
         return false;
     }
 
+    //<editor-fold desc="CRUD SHEDULE">
+    //CREATE SHEDULE
+
+    @RequestMapping(value = "/shedules/new", method = RequestMethod.GET)
+    public String register(Model model) {
+
+        model.addAttribute("clazzes", clazzService.getAllClazzes());
+        model.addAttribute("periods", sheduleService.getAllPeriods());
+        model.addAttribute("subjects", sheduleService.getAllSubjects());
+        model.addAttribute("teachers", sheduleService.getAllTeachers());
+        model.addAttribute("shedule", new Shedule());
+
+        return "/shedules/createOrUpdateSheduleForm";
+    }
+
+    @RequestMapping(value = "/shedules/new", method = RequestMethod.POST)
+    public String save(@ModelAttribute("shedule") @Valid Shedule shedule, BindingResult result, Model model) {
+
+        if(result.hasErrors()){
+            model.addAttribute(shedule);
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
+            model.addAttribute("periods", sheduleService.getAllPeriods());
+            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            return "/shedules/createOrUpdateSheduleForm";
+        }
+
+        sheduleService.saveShedule(shedule);
+
+        return "redirect:/shedules/";
+    }
 
     //READ CLASS
 
