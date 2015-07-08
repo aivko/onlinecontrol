@@ -44,7 +44,9 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
 
-        List<Shedule> shedules = sheduleService.getAllShedule();
+//        List<Shedule> shedules = sheduleService.getAllShedule();
+
+        TreeSet<Shedule> shedules = new TreeSet<>(sheduleService.getAllShedule());
 
         mav.addObject("shedules", shedules);
 
@@ -171,12 +173,15 @@ public class SheduleController extends BaseController {
         Iterator<Integer> iteratorWeek = numberOfWeek.iterator();
         Integer numberWeek = iteratorWeek.next();
 
-        while (startDate.compareTo(endDate) < 0) {
+        Calendar startDateTemp = Calendar.getInstance();
+        startDateTemp.setTime(startDate.getTime());
+
+        while (startDateTemp.compareTo(endDate) < 0) {
 
             Calendar currentDate = new GregorianCalendar();
-            currentDate.setTime(startDate.getTime());
+            currentDate.setTime(startDateTemp.getTime());
 
-            Integer numberDay = dateUtils.getNumberDayOfWeek(startDate);
+            Integer numberDay = dateUtils.getNumberDayOfWeek(startDateTemp);
 
             for (Map.Entry<String, Subject> keyValue : subjects.entrySet()) {
 
@@ -206,7 +211,7 @@ public class SheduleController extends BaseController {
                 Teacher teacherValue = teachers.get("teacher_" + numberWeek + "_" + numberDay + "_" + splitSubject[3]);
 
                 Shedule currentShedule = new Shedule();
-                currentShedule.setDate(startDate.getTime());
+                currentShedule.setDate(startDateTemp.getTime());
                 currentShedule.setClazz(clazz);
                 currentShedule.setPeriod(periodValue);
                 currentShedule.setSubject(subjectValue);
@@ -216,9 +221,9 @@ public class SheduleController extends BaseController {
 
             }
 
-            startDate.add(Calendar.DAY_OF_MONTH, 1);
+            startDateTemp.add(Calendar.DAY_OF_MONTH, 1);
 
-            if (dateUtils.getNumberDayOfWeek(startDate) == 1) {
+            if (dateUtils.getNumberDayOfWeek(startDateTemp) == 1) {
                 if (!iteratorWeek.hasNext()) {
                     iteratorWeek = numberOfWeek.iterator();
                 }
@@ -231,8 +236,10 @@ public class SheduleController extends BaseController {
 
         for (Shedule shedule : shedules) {
 
-            if (shedulesInDB.contains(shedule)){
-                shedule.setId(shedulesInDB.get(shedulesInDB.indexOf(shedule)).getId());
+            for (Shedule sheduleDB : shedulesInDB) {
+                if (sheduleDB.getDate().getTime() == shedule.getDate().getTime() & sheduleDB.getPeriod().equals(shedule.getPeriod())){
+                    shedule.setId(sheduleDB.getId());
+                }
             }
 
             sheduleService.saveShedule(shedule);

@@ -42,7 +42,7 @@ CREATE INDEX period_id ON periods (id);
 
 CREATE TABLE shedule (
   id         BIGINT IDENTITY PRIMARY KEY,
-  date DATE,
+  date DATE not NULL,
   period_id BIGINT NOT NULL,
   subject_id BIGINT NOT NULL,
   clazz_id   BIGINT NOT NULL,

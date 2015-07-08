@@ -76,7 +76,7 @@ public class SheduleServiceImpl implements SheduleService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void saveShedule(Shedule shedule) throws DataAccessException {
         sheduleDao.saveShedule(shedule);
     }
