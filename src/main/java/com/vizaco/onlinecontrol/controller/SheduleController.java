@@ -3,11 +3,16 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
+import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -31,6 +38,9 @@ public class SheduleController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private StudentService studentService;
 
     @Autowired
     private DateUtils dateUtils;
@@ -53,6 +63,37 @@ public class SheduleController extends BaseController {
 
         return mav;
     }
+
+    @RequestMapping(value = "/shedules/viewShedule", method = RequestMethod.GET)
+    public ModelAndView viewShedule() {
+
+        ModelAndView mav = new ModelAndView("/shedules/viewShedule");
+        return mav;
+
+    }
+
+    @RequestMapping(value = "/shedules/generateReport")
+    @ResponseBody
+    public String generateHtmlReport(@RequestBody String json){
+
+        Resource resource = new DefaultResourceLoader().getResource("reports/hello.xml");
+
+        try {
+            InputStream inputStream = resource.getInputStream();
+            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap(), new JREmptyDataSource());
+
+            JasperExportManager.exportReportToHtmlFile(jasperPrint, "/home/super/IdeaProjects/onlinecontrol/src/main/resources/reports/hello_report.html");
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "{\"result\":\"true\"}";
+
+    }//generatePdfReport
 
     @RequestMapping(value = "/shedules/newTemplate", method = RequestMethod.GET)
     public String registerTemplate(Model model) {

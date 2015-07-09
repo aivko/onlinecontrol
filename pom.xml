@@ -92,6 +92,13 @@
             <version>1.9.13</version>
         </dependency>
 
+        <!-- Jasper reports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.1.0</version>
+        </dependency>
+
         <!-- Http client -->
         <dependency>
             <groupId>commons-httpclient</groupId>
