@@ -8,11 +8,8 @@ import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -50,12 +46,12 @@ public class SheduleController extends BaseController {
     @Autowired
     private Utils utils;
 
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
-
-//        List<Shedule> shedules = sheduleService.getAllShedule();
 
         TreeSet<Shedule> shedules = new TreeSet<>(sheduleService.getAllShedule());
 
@@ -64,38 +60,51 @@ public class SheduleController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "/shedules/viewShedule", method = RequestMethod.GET)
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
     public ModelAndView viewShedule() {
 
-        ModelAndView mav = new ModelAndView("/shedules/viewShedule");
+        ModelAndView mav = new ModelAndView("shedules/studentShedule");
         return mav;
 
     }
 
-    @RequestMapping(value = "/shedules/generateReport")
+    @RequestMapping(value = "/shedules/studentsReport")
     @ResponseBody
-    public String generateHtmlReport(@RequestBody String json){
+    public String generateStudentReport(@RequestBody String json) {
 
-        Resource resource = new DefaultResourceLoader().getResource("reports/hello.xml");
-
+        Map<String, Object> mapFromJsonElement;
         try {
-            InputStream inputStream = resource.getInputStream();
-            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
-
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, new HashMap(), new JREmptyDataSource());
-
-            JasperExportManager.exportReportToHtmlFile(jasperPrint, "/home/super/IdeaProjects/onlinecontrol/src/main/resources/reports/hello_report.html");
-        } catch (JRException e) {
-            e.printStackTrace();
+            mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
         } catch (IOException e) {
-            e.printStackTrace();
+            return "{\"result\":\"false\"}";
         }
 
-        return "{\"result\":\"true\"}";
+        Date startDate;
+        Date endDate;
+        try {
+            startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
+            endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
+        } catch (ParseException e) {
+            return "{\"result\":\"false\"}";
+        }
 
-    }//generatePdfReport
+        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
 
-    @RequestMapping(value = "/shedules/newTemplate", method = RequestMethod.GET)
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setDateFormat(formatter);
+        mapper.getJsonFactory();
+        String response;
+        try {
+            response = mapper.writeValueAsString(sheduleList);
+        } catch (IOException e) {
+            return "{\"result\":\"false\"}";
+        }
+
+        return "{\"result\":\"true\", \"shedules\":" + response + "}";
+
+    }//generateReport
+
+    @RequestMapping(value = "/shedules/constructor", method = RequestMethod.GET)
     public String registerTemplate(Model model) {
 
         model.addAttribute("clazzes", clazzService.getAllClazzes());
@@ -105,14 +114,14 @@ public class SheduleController extends BaseController {
         model.addAttribute("teachers", sheduleService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
-        return "/shedules/fillSheduleInTheTemplate";
+        return "/shedules/sheduleConstructor";
     }
 
-    @RequestMapping(value = "/shedules/newTemplate", method = RequestMethod.POST)
+    @RequestMapping(value = "/shedules/constructor", method = RequestMethod.POST)
     public String registerTemplate(@RequestBody String json) {
 
         if (json == null) {
-            return "/shedules/fillSheduleInTheTemplate";
+            return "/shedules/sheduleConstructor";
         }
 
         String[] params = json.split("&");
@@ -128,8 +137,6 @@ public class SheduleController extends BaseController {
         GregorianCalendar endDate = null;
 
         Clazz clazz = null;
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
         Integer currentWeek;
         DayOfWeek currentDay;
@@ -202,9 +209,9 @@ public class SheduleController extends BaseController {
         }
 
         if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
-            return "/shedules/fillSheduleInTheTemplate";
+            return "/shedules/sheduleConstructor";
         } else if (startDate.compareTo(endDate) > 0) {
-            return "/shedules/fillSheduleInTheTemplate";
+            return "/shedules/sheduleConstructor";
         }
 
         TreeSet<Shedule> shedules = new TreeSet<>();

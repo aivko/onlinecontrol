@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -21,9 +22,11 @@ public class Clazz extends BaseEntity{
     @Column(name = "letter")
     private String letter;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Student> students;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Shedule> shedule;
 

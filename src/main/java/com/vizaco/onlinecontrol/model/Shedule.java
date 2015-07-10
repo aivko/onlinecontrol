@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -40,6 +42,9 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
+    @Column(name = "job")
+    private String job;
+
     public Date getDate() {
         return date;
     }
@@ -78,6 +83,14 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 
     @Override

@@ -25,9 +25,9 @@
         </c:otherwise>
     </c:choose>
 
-    <jsp:include page="../fragments/jQueryLib.jsp"/>
+    <jsp:include page="../jsp/fragments/jQueryLib.jsp"/>
 
-    <jsp:include page="../fragments/datatablesLib.jsp"/>
+    <jsp:include page="../jsp/fragments/datatablesLib.jsp"/>
 
     <style>
         table tbody tr.selected {

@@ -48,6 +48,14 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
+    public List<Shedule> getSheduleBeetwenInterval(Date start, Date end) throws DataAccessException {
+        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule WHERE Shedule.date between :startDate and :endDate");
+        query.setParameter("startDate", start);
+        query.setParameter("endDate", end);
+        return query.getResultList();
+    }
+
+    @Override
     public Period findPeriodById(Long id) throws DataAccessException {
         Query query = this.em.createQuery("SELECT DISTINCT Period FROM Period Period WHERE Period.id =:id");
         query.setParameter("id", id);

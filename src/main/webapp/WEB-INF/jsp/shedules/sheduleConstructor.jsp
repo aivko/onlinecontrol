@@ -13,16 +13,8 @@
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
-    <c:choose>
-        <c:when test="${shedule['new']}">
-            <c:set var="method" value="post"/>
-            <spring:url value="/shedules/newTemplate" htmlEscape="true" var="action"/>
-        </c:when>
-        <c:otherwise>
-            <c:set var="method" value="put"/>
-            <spring:url value="/shedules/${shedule.id}/edit" htmlEscape="true" var="action"/>
-        </c:otherwise>
-    </c:choose>
+    <c:set var="method" value="post"/>
+    <spring:url value="/shedules/constructor" htmlEscape="true" var="action"/>
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 

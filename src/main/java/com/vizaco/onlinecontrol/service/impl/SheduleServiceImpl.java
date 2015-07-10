@@ -41,6 +41,12 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Shedule> getSheduleBeetwenInterval(Date start, Date end) throws DataAccessException {
+        return sheduleDao.getSheduleBeetwenInterval(start, end);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Period findPeriodById(Long id) throws DataAccessException {
         return sheduleDao.findPeriodById(id);
     }

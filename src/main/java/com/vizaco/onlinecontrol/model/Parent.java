@@ -1,10 +1,8 @@
 package com.vizaco.onlinecontrol.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -15,6 +13,7 @@ import java.util.List;
 @Table(name = "parents")
 public class Parent extends Person {
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "parents_students", joinColumns = @JoinColumn(name = "parent_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
