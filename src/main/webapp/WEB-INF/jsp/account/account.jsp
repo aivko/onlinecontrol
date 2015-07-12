@@ -43,7 +43,9 @@
     </sec:authorize>
     <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button">Ввести расписание</a></p>
+        <p><a href='<spring:url value="/shedules/constructor" htmlEscape="true"/>' role="button">Ввести расписание по шаблону</a></p>
+        <p><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button">Ввести событие</a></p>
+        <p><a href='<spring:url value="/shedules/studentShedule" htmlEscape="true"/>' role="button">Посмотреть расписание</a></p>
     </sec:authorize>
     <hr/>
     <sec:authorize access="hasRole('ROLE_USER')">

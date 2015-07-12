@@ -1,9 +1,7 @@
 package com.vizaco.onlinecontrol.configuration;
 
-import com.vizaco.onlinecontrol.converters.StringToClazz;
-import com.vizaco.onlinecontrol.converters.StringToUser;
-import com.vizaco.onlinecontrol.model.Clazz;
-import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.converters.*;
+import com.vizaco.onlinecontrol.model.*;
 import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +69,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public Converter<String, User> stringToUser() {
         return new StringToUser();
+    }
+
+    @Bean
+    public Converter<String, Period> stringToPeriod() {
+        return new StringToPeriod();
+    }
+
+    @Bean
+    public Converter<String, Subject> stringToSubject() {
+        return new StringToSubject();
+    }
+
+    @Bean
+    public Converter<String, Teacher> stringToTeacher() {
+        return new StringToTeacher();
     }
 
     @Bean
@@ -177,6 +190,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(String.class, Clazz.class, stringToClazz());
         registry.addConverter(String.class, User.class, stringToUser());
+        registry.addConverter(String.class, Period.class, stringToPeriod());
+        registry.addConverter(String.class, Subject.class, stringToSubject());
+        registry.addConverter(String.class, Teacher.class, stringToTeacher());
     }
 
     @Bean

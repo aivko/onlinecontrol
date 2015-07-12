@@ -3,10 +3,12 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
+import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -32,6 +36,9 @@ public class SheduleController extends BaseController {
     private UserService userService;
 
     @Autowired
+    private StudentService studentService;
+
+    @Autowired
     private DateUtils dateUtils;
 
     @Autowired
@@ -39,23 +46,66 @@ public class SheduleController extends BaseController {
     @Autowired
     private Utils utils;
 
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
 
-        List<Shedule> shedules = sheduleService.getAllShedule();
+        TreeSet<Shedule> shedules = new TreeSet<>(sheduleService.getAllShedule());
 
         mav.addObject("shedules", shedules);
 
         return mav;
     }
 
-    //<editor-fold desc="CRUD SHEDULE">
-    //CREATE SHEDULE
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
+    public ModelAndView viewShedule() {
 
-    @RequestMapping(value = "/shedules/new", method = RequestMethod.GET)
-    public String register(Model model) {
+        ModelAndView mav = new ModelAndView("shedules/studentShedule");
+        return mav;
+
+    }
+
+    @RequestMapping(value = "/shedules/studentsReport")
+    @ResponseBody
+    public String generateStudentReport(@RequestBody String json) {
+
+        Map<String, Object> mapFromJsonElement;
+        try {
+            mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
+        } catch (IOException e) {
+            return "{\"result\":\"false\"}";
+        }
+
+        Date startDate;
+        Date endDate;
+        try {
+            startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
+            endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
+        } catch (ParseException e) {
+            return "{\"result\":\"false\"}";
+        }
+
+        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setDateFormat(formatter);
+        mapper.getJsonFactory();
+        String response;
+        try {
+            response = mapper.writeValueAsString(sheduleList);
+        } catch (IOException e) {
+            return "{\"result\":\"false\"}";
+        }
+
+        return "{\"result\":\"true\", \"shedules\":" + response + "}";
+
+    }//generateReport
+
+    @RequestMapping(value = "/shedules/constructor", method = RequestMethod.GET)
+    public String registerTemplate(Model model) {
 
         model.addAttribute("clazzes", clazzService.getAllClazzes());
         model.addAttribute("periods", sheduleService.getAllPeriods());
@@ -64,14 +114,14 @@ public class SheduleController extends BaseController {
         model.addAttribute("teachers", sheduleService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
-        return "/shedules/createOrUpdateSheduleForm";
+        return "/shedules/sheduleConstructor";
     }
 
-    @RequestMapping(value = "/shedules/new", method = RequestMethod.POST)
-    public String save(@RequestBody String json) {
+    @RequestMapping(value = "/shedules/constructor", method = RequestMethod.POST)
+    public String registerTemplate(@RequestBody String json) {
 
         if (json == null) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/sheduleConstructor";
         }
 
         String[] params = json.split("&");
@@ -87,8 +137,6 @@ public class SheduleController extends BaseController {
         GregorianCalendar endDate = null;
 
         Clazz clazz = null;
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
         Integer currentWeek;
         DayOfWeek currentDay;
@@ -161,9 +209,9 @@ public class SheduleController extends BaseController {
         }
 
         if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/sheduleConstructor";
         } else if (startDate.compareTo(endDate) > 0) {
-            return "/shedules/createOrUpdateSheduleForm";
+            return "/shedules/sheduleConstructor";
         }
 
         TreeSet<Shedule> shedules = new TreeSet<>();
@@ -171,12 +219,15 @@ public class SheduleController extends BaseController {
         Iterator<Integer> iteratorWeek = numberOfWeek.iterator();
         Integer numberWeek = iteratorWeek.next();
 
-        while (startDate.compareTo(endDate) < 0) {
+        Calendar startDateTemp = Calendar.getInstance();
+        startDateTemp.setTime(startDate.getTime());
+
+        while (startDateTemp.compareTo(endDate) <= 0) {
 
             Calendar currentDate = new GregorianCalendar();
-            currentDate.setTime(startDate.getTime());
+            currentDate.setTime(startDateTemp.getTime());
 
-            Integer numberDay = dateUtils.getNumberDayOfWeek(startDate);
+            Integer numberDay = dateUtils.getNumberDayOfWeek(startDateTemp);
 
             for (Map.Entry<String, Subject> keyValue : subjects.entrySet()) {
 
@@ -206,7 +257,7 @@ public class SheduleController extends BaseController {
                 Teacher teacherValue = teachers.get("teacher_" + numberWeek + "_" + numberDay + "_" + splitSubject[3]);
 
                 Shedule currentShedule = new Shedule();
-                currentShedule.setDate(startDate.getTime());
+                currentShedule.setDate(startDateTemp.getTime());
                 currentShedule.setClazz(clazz);
                 currentShedule.setPeriod(periodValue);
                 currentShedule.setSubject(subjectValue);
@@ -216,9 +267,9 @@ public class SheduleController extends BaseController {
 
             }
 
-            startDate.add(Calendar.DAY_OF_MONTH, 1);
+            startDateTemp.add(Calendar.DAY_OF_MONTH, 1);
 
-            if (dateUtils.getNumberDayOfWeek(startDate) == 1) {
+            if (dateUtils.getNumberDayOfWeek(startDateTemp) == 1) {
                 if (!iteratorWeek.hasNext()) {
                     iteratorWeek = numberOfWeek.iterator();
                 }
@@ -231,8 +282,10 @@ public class SheduleController extends BaseController {
 
         for (Shedule shedule : shedules) {
 
-            if (shedulesInDB.contains(shedule)){
-                shedule.setId(shedulesInDB.get(shedulesInDB.indexOf(shedule)).getId());
+            for (Shedule sheduleDB : shedulesInDB) {
+                if (sheduleDB.getDate().getTime() == shedule.getDate().getTime() & sheduleDB.getPeriod().equals(shedule.getPeriod())){
+                    shedule.setId(sheduleDB.getId());
+                }
             }
 
             sheduleService.saveShedule(shedule);
@@ -249,6 +302,37 @@ public class SheduleController extends BaseController {
         return false;
     }
 
+    //<editor-fold desc="CRUD SHEDULE">
+    //CREATE SHEDULE
+
+    @RequestMapping(value = "/shedules/new", method = RequestMethod.GET)
+    public String register(Model model) {
+
+        model.addAttribute("clazzes", clazzService.getAllClazzes());
+        model.addAttribute("periods", sheduleService.getAllPeriods());
+        model.addAttribute("subjects", sheduleService.getAllSubjects());
+        model.addAttribute("teachers", sheduleService.getAllTeachers());
+        model.addAttribute("shedule", new Shedule());
+
+        return "/shedules/createOrUpdateSheduleForm";
+    }
+
+    @RequestMapping(value = "/shedules/new", method = RequestMethod.POST)
+    public String save(@ModelAttribute("shedule") @Valid Shedule shedule, BindingResult result, Model model) {
+
+        if(result.hasErrors()){
+            model.addAttribute(shedule);
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
+            model.addAttribute("periods", sheduleService.getAllPeriods());
+            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            return "/shedules/createOrUpdateSheduleForm";
+        }
+
+        sheduleService.saveShedule(shedule);
+
+        return "redirect:/shedules/";
+    }
 
     //READ CLASS
 

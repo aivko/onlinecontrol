@@ -1,5 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -20,6 +22,7 @@ public class School extends BaseEntity{
     @Column(name = "description")
     private String description;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.LAZY)
     private Set<Clazz> clazzes;
 

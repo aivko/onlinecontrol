@@ -15,6 +15,8 @@ public interface SheduleDao {
 
     List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException;
 
+    List<Shedule> getSheduleBeetwenInterval(Date start, Date end) throws DataAccessException;
+
     Period findPeriodById(Long id) throws DataAccessException;
 
     List<Period> getAllPeriods() throws DataAccessException;

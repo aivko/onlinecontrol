@@ -34,7 +34,7 @@ public class DateUtils {
         return daysOfWeek;
     }
 
-    public int getNumberDayOfWeek(GregorianCalendar startDate) {
+    public int getNumberDayOfWeek(Calendar startDate) {
         int dayOfWeek = startDate.get(Calendar.DAY_OF_WEEK) - 1;
         if (dayOfWeek == 0){
             dayOfWeek = 7;
