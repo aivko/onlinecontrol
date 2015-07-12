@@ -4,52 +4,84 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-
+    <title>User account</title>
+    <spring:url value="/resources/frontend/css/reset.css" var="ResetCss"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="${ResetCss}" rel="stylesheet"/>
+    <spring:url value="/resources/frontend/css/style.css" var="MainCss"/>
+    <link href="${MainCss}" rel="stylesheet"/>
 </head>
 <body>
-<div>
+<div class="userAccount-wrapper clearfix">
 
-    <h2>User account</h2>
+    <!-- <h2>User account</h2>  !!!я думаю можно убрать, если зах. оставить я дооформлю!!!!-->
 
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/users/new" htmlEscape="true"/>' role="button">Добавить пользователя</a></p>
-        <p><a href='<spring:url value="/users" htmlEscape="true"/>' role="button">Список пользователей</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/users/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить пользователя</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/users" htmlEscape="true"/>' role="button" class="userAccount-link">Список пользователей</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/parents/new" htmlEscape="true"/>' role="button">Добавить родителя</a></p>
-        <p><a href='<spring:url value="/parents" htmlEscape="true"/>' role="button">Список родителей</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/parents/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить родителя</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/parents" htmlEscape="true"/>' role="button" class="userAccount-link">Список родителей</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/roles/new" htmlEscape="true"/>' role="button">Добавить роль</a></p>
-        <p><a href='<spring:url value="/roles" htmlEscape="true"/>' role="button">Список ролей</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/roles/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить роль</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/roles" htmlEscape="true"/>' role="button" class="userAccount-link">Список ролей</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
-    <p><a href='<spring:url value="/students/find" htmlEscape="true"/>'>Найти студента</a></p>
+    <div class="userAccount-block">
+        <div class="userAccount-blockSize"><a href='<spring:url value="/students/find" htmlEscape="true"/>' class="userAccount-link">Найти студента</a></div>
+    </div>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/students/new" htmlEscape="true"/>' role="button">Добавить студента</a></p>
-        <p><a href='<spring:url value="/students" htmlEscape="true"/>' role="button">Список студентов</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/students/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить студента</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/students" htmlEscape="true"/>' role="button" class="userAccount-link">Список студентов</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/classes/new" htmlEscape="true"/>' role="button">Добавить класс</a></p>
-        <p><a href='<spring:url value="/classes" htmlEscape="true"/>' role="button">Список классов</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/classes/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить класс</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/classes" htmlEscape="true"/>' role="button" class="userAccount-link">Список классов</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/news/new" htmlEscape="true"/>' role="button">Добавить новость</a></p>
-        <p><a href='<spring:url value="/news" htmlEscape="true"/>' role="button">Список новостей</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/news/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить новость</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/news" htmlEscape="true"/>' role="button" class="userAccount-link">Список новостей</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <p><a href='<spring:url value="/shedules/constructor" htmlEscape="true"/>' role="button">Ввести расписание по шаблону</a></p>
-        <p><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button">Ввести событие</a></p>
-        <p><a href='<spring:url value="/shedules/studentShedule" htmlEscape="true"/>' role="button">Посмотреть расписание</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/constructor" htmlEscape="true"/>' role="button" class="userAccount-link">Ввести расписание по шаблону</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button" class="userAccount-link">Ввести событие</a></div>
+        </div>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentShedule" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть расписание</a></div>
+        </div>
     </sec:authorize>
-    <hr/>
     <sec:authorize access="hasRole('ROLE_USER')">
-        <p><a href='<spring:url value="/users/${user.id}/changePassword" htmlEscape="true"/>'>Изменить пароль</a></p>
+        <div class="userAccount-block">
+            <div class="userAccount-blockSize"><a href='<spring:url value="/users/${user.id}/changePassword" htmlEscape="true"/>' class="userAccount-link">Изменить пароль</a></div>
+        </div>
     </sec:authorize>
 
 

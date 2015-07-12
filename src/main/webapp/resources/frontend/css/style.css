@@ -208,3 +208,37 @@ body{
 .submit-button:hover {
     background-color: #53760D;
 }
+/*Account - page*/
+.userAccount-wrapper {
+    background-color: #131418;
+}
+.userAccount-block {
+    width: 20%;
+    float: left;
+    height: 200px;
+
+}
+.userAccount-block .userAccount-blockSize {
+    background-color: #A5A5A5;
+    width: 80%;
+    height: 80%;
+    margin: 20px auto;
+}
+.userAccount-block .userAccount-blockSize:hover {
+    width: 83%;
+    height: 83%;
+    background-color: #F4F4F4;
+}
+.userAccount-block .userAccount-link {
+    color: #000;
+    font-size: 16px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 50px 0;
+}
+.userAccount-link:hover {
+    font-size: 18px;
+    font-weight: bold;
+}
+

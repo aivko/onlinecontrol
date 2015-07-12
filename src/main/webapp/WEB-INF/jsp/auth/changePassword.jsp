@@ -17,9 +17,7 @@
             <header class="index-header">
                 <div class="container">
                     <div class="header-line clearfix row">
-                        <div class="cols col-2">
-                            <img src="resources/frontend/image/logo.jpg" alt="logo" class="image" />
-                        </div>
+                        <img src="resources/frontend/image/logo.jpg" alt="logo" class="image" />
                     </div>
                 </div>
             </header>
