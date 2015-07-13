@@ -52,8 +52,8 @@ CREATE INDEX clazzes_id ON clazzes (id);
 
 CREATE TABLE periods (
   id         BIGINT IDENTITY PRIMARY KEY,
-  start_time TIME,
-  end_time   TIME
+  start_time TIMESTAMP NOT NULL,
+  end_time   TIMESTAMP NOT NULL
 );
 CREATE INDEX period_id ON periods (id);
 

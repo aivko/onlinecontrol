@@ -84,7 +84,7 @@ public class SheduleController extends BaseController {
         String badResponse = "{\"result\":\"false\"}";
 
         ObjectMapper mapper = new ObjectMapper();
-        mapper.setDateFormat(formatter);
+//        mapper.setDateFormat(formatter);
         mapper.setLocale(locale);
 
         Map<String, Object> mapFromJsonElement;
@@ -113,40 +113,6 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-
-//        String result2 = "";
-//        JsonFactory f = new JsonFactory();
-//        try {
-//            JsonParser jp = f.createParser(result2);
-//            User user = new User();
-//
-//            jp.nextToken(); // will return JsonToken.START_OBJECT (verify?)
-//            while (jp.nextToken() != JsonToken.END_OBJECT) {
-//                String fieldname = jp.getCurrentName();
-//                jp.nextToken(); // move to value, or START_OBJECT/START_ARRAY
-//                if ("name".equals(fieldname)) { // contains an object
-//                    while (jp.nextToken() != JsonToken.END_OBJECT) {
-//                        String namefield = jp.getCurrentName();
-//                        jp.nextToken(); // move to value
-//                        if ("first".equals(namefield)) {
-//                        } else if ("last".equals(namefield)) {
-//                        } else {
-//                            throw new IllegalStateException("Unrecognized field '" + fieldname + "'!");
-//                        }
-//                    }
-//                } else if ("gender".equals(fieldname)) {
-//                } else if ("verified".equals(fieldname)) {
-//                } else if ("userImage".equals(fieldname)) {
-//                } else {
-//                    throw new IllegalStateException("Unrecognized field '" + fieldname + "'!");
-//                }
-//            }
-//
-//            jp.close(); // ensure resources get cleaned up timely and properly
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
         return jsonResponse;
 
     }//generateReport

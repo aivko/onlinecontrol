@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
 
     @NotNull
     @Column(name = "date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
