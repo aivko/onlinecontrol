@@ -149,6 +149,7 @@ body{
     font-size: 12px;
     text-align: justify;
     line-height: 1.7;
+    overflow: auto;
 }
 /* Main footer*/
 .footer-index {
@@ -209,9 +210,6 @@ body{
     background-color: #53760D;
 }
 /*Account - page*/
-.userAccount-wrapper {
-    background-color: #131418;
-}
 .userAccount-block {
     width: 20%;
     float: left;
