@@ -75,7 +75,7 @@
                                     "<td>" + data.shedules[key].subject.name + "</td>" +
                                     "<td>" + data.shedules[key].clazz.number + " - " + data.shedules[key].clazz.letter + "</td>" +
                                     "<td>" + data.shedules[key].teacher.lastName + " " + data.shedules[key].teacher.firstName + " " + data.shedules[key].teacher.middleName + "</td>" +
-                                    "<td>" + data.shedules[key].job + "</td>" +
+                                    "<td>" + (data.shedules[key].job == null ? "" : data.shedules[key].job) + "</td>" +
                                     "</tr>"
                         };
 

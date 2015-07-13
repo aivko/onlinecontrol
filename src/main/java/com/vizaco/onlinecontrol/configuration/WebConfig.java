@@ -3,14 +3,10 @@ package com.vizaco.onlinecontrol.configuration;
 import com.vizaco.onlinecontrol.converters.*;
 import com.vizaco.onlinecontrol.model.*;
 import org.hsqldb.jdbc.JDBCDataSource;
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
-import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -19,6 +15,8 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -36,7 +34,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
-import java.util.*;
+import java.nio.charset.Charset;
+import java.util.List;
+import java.util.Locale;
+import java.util.Properties;
 
 /**
  * Created by super on 6/5/15.
@@ -200,6 +201,16 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.extendMessageConverters(converters);
+        converters.stream().filter(converter -> converter instanceof StringHttpMessageConverter).forEach(converter -> {
+            int index = converters.indexOf(converter);
+            StringHttpMessageConverter newConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+            converters.set(index, newConverter);
+        });
     }
 
     @Bean
