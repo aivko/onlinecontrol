@@ -18,6 +18,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -171,6 +172,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .ignoreAcceptHeader(true)
                 .mediaType("html", MediaType.TEXT_HTML)
                 .mediaType("json", MediaType.APPLICATION_JSON)
+//                .defaultContentType(MediaType.APPLICATION_JSON);
                 .defaultContentType(MediaType.TEXT_HTML);
     }
 
@@ -193,6 +195,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addConverter(String.class, Period.class, stringToPeriod());
         registry.addConverter(String.class, Subject.class, stringToSubject());
         registry.addConverter(String.class, Teacher.class, stringToTeacher());
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
     }
 
     @Bean

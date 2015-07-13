@@ -67,6 +67,7 @@
 
                     if (data.result == "true") {
                         var text = "";
+                        $('#studentsResult > tbody').text(text); //delete old data
                         for (var key in data.shedules) {
                             text = text + "<tr>" +
                                     "<td>" + data.shedules[key].date + "</td>" +
@@ -78,11 +79,11 @@
                                     "</tr>"
                         };
 
-                        $("#studentsResult > tbody").append(text);
+                        $('#studentsResult > tbody').append(text);
 
                     }
                     else {
-                        $("#result").text("");
+                        $('#studentsResult > tbody').text("");
                     }
                     ;
                 },

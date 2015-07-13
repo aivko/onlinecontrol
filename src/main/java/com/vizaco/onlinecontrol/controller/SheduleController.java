@@ -1,5 +1,9 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.sym.Name;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.ClazzService;
@@ -17,11 +21,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
+import java.util.zip.GZIPOutputStream;
 
 @Controller
 public class SheduleController extends BaseController {
@@ -43,8 +51,6 @@ public class SheduleController extends BaseController {
 
     @Autowired
     private JsonUtil jsonUtil;
-    @Autowired
-    private Utils utils;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
@@ -68,38 +74,80 @@ public class SheduleController extends BaseController {
 
     }
 
-    @RequestMapping(value = "/shedules/studentsReport")
+    @RequestMapping(value = "/shedules/studentsReport", method = RequestMethod.POST, headers = "content-type=application/json")
     @ResponseBody
-    public String generateStudentReport(@RequestBody String json) {
+    public String generateStudentReport(Locale locale, @RequestBody String json) {
+
+        Date startDate;
+        Date endDate;
+
+        String badResponse = "{\"result\":\"false\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setDateFormat(formatter);
+        mapper.setLocale(locale);
 
         Map<String, Object> mapFromJsonElement;
         try {
             mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
         } catch (IOException e) {
-            return "{\"result\":\"false\"}";
+            return badResponse;
         }
 
-        Date startDate;
-        Date endDate;
         try {
             startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
             endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
         } catch (ParseException e) {
-            return "{\"result\":\"false\"}";
+            return badResponse;
         }
 
         List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setDateFormat(formatter);
-        String response;
+        String jsonResponse;
+        Map<String, Object> resultData = new HashMap<String, Object>();
         try {
-            response = mapper.writeValueAsString(sheduleList);
+            resultData.put("result", "true");
+            resultData.put("shedules", sheduleList);
+            jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
-            return "{\"result\":\"false\"}";
+            return badResponse;
         }
 
-        return "{\"result\":\"true\", \"shedules\":" + response + "}";
+
+//        String result2 = "";
+//        JsonFactory f = new JsonFactory();
+//        try {
+//            JsonParser jp = f.createParser(result2);
+//            User user = new User();
+//
+//            jp.nextToken(); // will return JsonToken.START_OBJECT (verify?)
+//            while (jp.nextToken() != JsonToken.END_OBJECT) {
+//                String fieldname = jp.getCurrentName();
+//                jp.nextToken(); // move to value, or START_OBJECT/START_ARRAY
+//                if ("name".equals(fieldname)) { // contains an object
+//                    while (jp.nextToken() != JsonToken.END_OBJECT) {
+//                        String namefield = jp.getCurrentName();
+//                        jp.nextToken(); // move to value
+//                        if ("first".equals(namefield)) {
+//                        } else if ("last".equals(namefield)) {
+//                        } else {
+//                            throw new IllegalStateException("Unrecognized field '" + fieldname + "'!");
+//                        }
+//                    }
+//                } else if ("gender".equals(fieldname)) {
+//                } else if ("verified".equals(fieldname)) {
+//                } else if ("userImage".equals(fieldname)) {
+//                } else {
+//                    throw new IllegalStateException("Unrecognized field '" + fieldname + "'!");
+//                }
+//            }
+//
+//            jp.close(); // ensure resources get cleaned up timely and properly
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+        return jsonResponse;
 
     }//generateReport
 
@@ -147,31 +195,31 @@ public class SheduleController extends BaseController {
 
             if (param.startsWith("dayOfTheWeek")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentDay = DayOfWeek.of(Integer.parseInt(keyValue[1]))) == null){
+                if (emptyValue(keyValue, 1) || (currentDay = DayOfWeek.of(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 daysOfTheWeek.put(keyValue[0], currentDay);
             } else if (param.startsWith("week_")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || ((currentWeek = Integer.parseInt(keyValue[1]))== null)) {
+                if (emptyValue(keyValue, 1) || ((currentWeek = Integer.parseInt(keyValue[1])) == null)) {
                     continue;
                 }
                 numberOfWeek.add(currentWeek);
             } else if (param.startsWith("period")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Long.parseLong(keyValue[1]))) == null){
+                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Long.parseLong(keyValue[1]))) == null) {
                     continue;
                 }
                 periods.put(keyValue[0], currentPeriod);
             } else if (param.startsWith("subject")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Long.parseLong(keyValue[1]))) == null){
+                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Long.parseLong(keyValue[1]))) == null) {
                     continue;
                 }
                 subjects.put(keyValue[0], currentSubject);
             } else if (param.startsWith("teacher")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Long.parseLong(keyValue[1]))) == null){
+                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Long.parseLong(keyValue[1]))) == null) {
                     continue;
                 }
                 teachers.put(keyValue[0], currentTeacher);
@@ -282,7 +330,7 @@ public class SheduleController extends BaseController {
         for (Shedule shedule : shedules) {
 
             for (Shedule sheduleDB : shedulesInDB) {
-                if (sheduleDB.getDate().getTime() == shedule.getDate().getTime() & sheduleDB.getPeriod().equals(shedule.getPeriod())){
+                if (sheduleDB.getDate().getTime() == shedule.getDate().getTime() & sheduleDB.getPeriod().equals(shedule.getPeriod())) {
                     shedule.setId(sheduleDB.getId());
                 }
             }
@@ -319,7 +367,7 @@ public class SheduleController extends BaseController {
     @RequestMapping(value = "/shedules/new", method = RequestMethod.POST)
     public String save(@ModelAttribute("shedule") @Valid Shedule shedule, BindingResult result, Model model) {
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             model.addAttribute(shedule);
             model.addAttribute("clazzes", clazzService.getAllClazzes());
             model.addAttribute("periods", sheduleService.getAllPeriods());

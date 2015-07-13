@@ -55,8 +55,8 @@
     <!--&lt;!&ndash;</bean>&ndash;&gt;-->
     <!--&lt;!&ndash;&lt;!&ndash;<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"/>&ndash;&gt;&ndash;&gt;-->
     <!--&lt;!&ndash;<bean id="jsonConverter"&ndash;&gt;-->
-          <!--&lt;!&ndash;class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="supportedMediaTypes" value="application/json"/>&ndash;&gt;-->
+          <!--&lt;!&ndash;class="org.springframework.http.converter.JsonViewResolver.MappingJackson2HttpMessageConverter">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="supportedMediaTypes" value="application/JsonViewResolver"/>&ndash;&gt;-->
     <!--&lt;!&ndash;</bean>&ndash;&gt;-->
 
 <!--</beans>-->

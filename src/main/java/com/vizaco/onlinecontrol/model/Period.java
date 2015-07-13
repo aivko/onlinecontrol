@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -20,10 +21,12 @@ public class Period extends BaseEntity implements Comparable<Period>{
     @Transient
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     @Column(name = "start_time")
     @DateTimeFormat(pattern = "HH:mm")
     private Time startTime;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     @Column(name = "end_time")
     @DateTimeFormat(pattern = "HH:mm")
     private Time endTime;
