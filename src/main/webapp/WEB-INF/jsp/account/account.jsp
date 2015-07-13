@@ -1,10 +1,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <title>User account</title>
+
     <spring:url value="/resources/frontend/css/reset.css" var="ResetCss"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="${ResetCss}" rel="stylesheet"/>
@@ -39,7 +42,7 @@
                             <a href='<spring:url value="/login" htmlEscape="true"/>' role="button" class="button">Войти</a>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <p class="login-name">Ваш логин: ${email}</p>
+                            <p class="login-name">Ваш логин: ${user.email}</p>
 
                             <%--<p><a href='<spring:url value="/logout" htmlEscape="true"/>' role="button">Выйти</a></p>--%>
                             <spring:url var="logoutUrl" value="/logout"/>
@@ -53,7 +56,6 @@
             </div>
         </div>
     </header>
-    <!-- <h2>User account</h2>  !!!я думаю можно убрать, если зах. оставить я дооформлю!!!!-->
 
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <div class="userAccount-block">

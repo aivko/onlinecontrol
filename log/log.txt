@@ -13251,3 +13251,614 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 2015-07-13 21:17:50 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[40ms]; status=[OK]
 2015-07-13 21:17:50 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
 2015-07-13 21:17:50 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/resources/**'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 1 of 13 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 2 of 13 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2015-07-13 21:26:22 DEBUG HttpSessionSecurityContextRepository:167 - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@6afbb5db: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 3 of 13 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+2015-07-13 21:26:22 DEBUG HstsHeaderWriter:129 - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@50cc8ceb
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 4 of 13 in additional filter chain; firing Filter: 'CsrfFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 5 of 13 in additional filter chain; firing Filter: 'LogoutFilter'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /logout
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 6 of 13 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /j_spring_security_check
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 7 of 13 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 8 of 13 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 9 of 13 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2015-07-13 21:26:22 DEBUG RememberMeAuthenticationFilter:142 - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 10 of 13 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2015-07-13 21:26:22 DEBUG AnonymousAuthenticationFilter:107 - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 11 of 13 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 12 of 13 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2015-07-13 21:26:22 DEBUG FilterChainProxy:337 - /users/1/account at position 13 of 13 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/index'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/login'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/facebook'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/google'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/callback/google/registration'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration'
+2015-07-13 21:26:22 DEBUG AntPathRequestMatcher:136 - Request '/users/1/account' matched by universal pattern '/**'
+2015-07-13 21:26:22 DEBUG FilterSecurityInterceptor:194 - Secure object: FilterInvocation: URL: /users/1/account; Attributes: [hasRole('ROLE_USER')]
+2015-07-13 21:26:22 DEBUG FilterSecurityInterceptor:310 - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin
+2015-07-13 21:26:22 DEBUG AffirmativeBased:65 - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@74de5190, returned: 1
+2015-07-13 21:26:22 DEBUG FilterSecurityInterceptor:215 - Authorization successful
+2015-07-13 21:26:22 DEBUG FilterSecurityInterceptor:227 - RunAsManager did not change Authentication object
+2015-07-13 21:26:22 DEBUG FilterChainProxy:323 - /users/1/account reached end of additional filter chain; proceeding with original chain
+2015-07-13 21:26:22 DEBUG DispatcherServlet:1048 - Bound request context to thread: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@26c178e2]
+2015-07-13 21:26:22 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/users/1/account]
+2015-07-13 21:26:22 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:22 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /users/1/account
+2015-07-13 21:26:22 DEBUG RequestMappingHandlerMapping:332 - Found 1 matching mapping(s) for [/users/1/account] : [{[/users/{userId}/account],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}]
+2015-07-13 21:26:22 DEBUG RequestMappingHandlerMapping:299 - Returning handler method [public org.springframework.web.servlet.ModelAndView com.vizaco.onlinecontrol.controller.UserController.initAccountForm(java.lang.String)]
+2015-07-13 21:26:22 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'userController'
+2015-07-13 21:26:22 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:26:22 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@516621b6]
+2015-07-13 21:26:22 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/users/1/account] is: -1
+2015-07-13 21:26:22 DEBUG ServletInvocableHandlerMethod:135 - Invoking [UserController.initAccountForm] method with arguments [1]
+2015-07-13 21:26:22 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:26:22 INFO  Logging:63 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:367 - Creating new transaction with name [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:371 - Opened new EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@55e0172d] for JPA transaction
+2015-07-13 21:26:22 DEBUG DataSourceUtils:153 - Setting JDBC Connection [org.hsqldb.jdbc.JDBCConnection@5e781e99] read-only
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:403 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@6ae4d906]
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.jdbc.datasource.ConnectionHolder@474fbad0] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] to thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@1243846b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] to thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:272 - Initializing transaction synchronization
+2015-07-13 21:26:22 DEBUG TransactionInterceptor:490 - Getting transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:26:22 INFO  Logging:33 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:26:22 INFO  Logging:43 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1243846b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@1243846b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG SQL:109 - select distinct user0_.id as id1_14_, user0_.email as email2_14_, user0_.enabled as enabled3_14_, user0_.password as password4_14_ from users user0_ where user0_.id=?
+2015-07-13 21:26:22 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([id1_14_] : [BIGINT]) - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([email2_14_] : [VARCHAR]) - [petr@gmail.com]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([enabled3_14_] : [BOOLEAN]) - [true]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([password4_14_] : [VARCHAR]) - [$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.]
+2015-07-13 21:26:22 TRACE CollectionType:783 - Created collection wrapper: [com.vizaco.onlinecontrol.model.User.roles#1]
+2015-07-13 21:26:22 DEBUG SQL:109 - select roles0_.user_id as user_id1_14_0_, roles0_.role_id as role_id2_15_0_, role1_.id as id1_6_1_, role1_.description as descript2_6_1_, role1_.name as name3_6_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2015-07-13 21:26:22 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [User]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_USER]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [2]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [Admin]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_ADMIN]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:26:22 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [2]
+2015-07-13 21:26:22 INFO  Logging:48 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:26:22 INFO  Logging:38 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:26:22 DEBUG TransactionInterceptor:519 - Completing transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:926 - Triggering beforeCommit synchronization
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:939 - Triggering beforeCompletion synchronization
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:755 - Initiating transaction commit
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:512 - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@55e0172d]
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:952 - Triggering afterCommit synchronization
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:968 - Triggering afterCompletion synchronization
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:331 - Clearing transaction synchronization
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@1243846b] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] from thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.jdbc.datasource.ConnectionHolder@474fbad0] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] from thread [qtp999544948-30]
+2015-07-13 21:26:22 DEBUG DataSourceUtils:222 - Resetting read-only flag of JDBC Connection [org.hsqldb.jdbc.JDBCConnection@5e781e99]
+2015-07-13 21:26:22 DEBUG JpaTransactionManager:600 - Closing JPA EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@55e0172d] after transaction
+2015-07-13 21:26:22 DEBUG EntityManagerFactoryUtils:432 - Closing JPA EntityManager
+2015-07-13 21:26:22 INFO  Logging:68 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:26:22 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:26:22 DEBUG ServletInvocableHandlerMethod:139 - Method [initAccountForm] returned [ModelAndView: reference to view with name 'account/account'; model is {user=com.vizaco.onlinecontrol.model.User@6e46fd64}]
+2015-07-13 21:26:22 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler@189b0f93] supports [class org.springframework.web.servlet.ModelAndView]
+2015-07-13 21:26:22 DEBUG InvocableHandlerMethod:135 - Invoking [UserController.initBinder] method with arguments [org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@52b84b51]
+2015-07-13 21:26:22 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@52b84b51)
+2015-07-13 21:26:22 INFO  Logging:73 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:26:22 INFO  Logging:78 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:26:22 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@52b84b51)
+2015-07-13 21:26:22 DEBUG InvocableHandlerMethod:139 - Method [initBinder] returned [null]
+2015-07-13 21:26:22 DEBUG DispatcherServlet:1241 - Rendering view [org.springframework.web.servlet.view.JstlView: name 'account/account'; URL [/WEB-INF/jsp/account/account.jsp]] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:22 DEBUG JstlView:297 - Rendering view with name 'account/account' with model {user=com.vizaco.onlinecontrol.model.User@6e46fd64, org.springframework.validation.BindingResult.user=org.springframework.validation.BeanPropertyBindingResult: 0 errors} and static attributes {}
+2015-07-13 21:26:22 DEBUG JstlView:432 - Added model object 'userId' of type [java.lang.String] to request in view with name 'account/account'
+2015-07-13 21:26:22 DEBUG JstlView:432 - Added model object 'user' of type [com.vizaco.onlinecontrol.model.User] to request in view with name 'account/account'
+2015-07-13 21:26:22 DEBUG JstlView:432 - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'account/account'
+2015-07-13 21:26:22 DEBUG JstlView:166 - Forwarding to resource [/WEB-INF/jsp/account/account.jsp] in InternalResourceView 'account/account'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@26c178e2]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[1917ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[1917ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
+2015-07-13 21:26:24 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-13 21:26:24 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/style.css'; against '/resources/**'
+2015-07-13 21:26:24 DEBUG FilterChainProxy:180 - /resources/frontend/css/style.css has an empty filter list
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:26:24 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/reset.css'; against '/resources/**'
+2015-07-13 21:26:24 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/style.css]
+2015-07-13 21:26:24 DEBUG FilterChainProxy:180 - /resources/frontend/css/reset.css has an empty filter list
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/style.css
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/reset.css]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/reset.css
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/style.css]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/style.css]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/style.css] are [/resources/**]
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/style.css] are {}
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/style.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/reset.css]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/reset.css]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/style.css] is: -1
+2015-07-13 21:26:24 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/logo.jpg'; against '/resources/**'
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/reset.css] are [/resources/**]
+2015-07-13 21:26:24 DEBUG FilterChainProxy:180 - /resources/frontend/image/logo.jpg has an empty filter list
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/style.css
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/reset.css] are {}
+2015-07-13 21:26:24 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/style.css"
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/reset.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:26:24 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/logo.jpg]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/reset.css] is: -1
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/reset.css
+2015-07-13 21:26:24 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/reset.css"
+2015-07-13 21:26:24 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/logo.jpg
+2015-07-13 21:26:24 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:26:24 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:26:24 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/logo.jpg] are [/resources/**]
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/logo.jpg] are {}
+2015-07-13 21:26:24 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/logo.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/logo.jpg] is: -1
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/logo.jpg
+2015-07-13 21:26:24 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/logo.jpg"
+2015-07-13 21:26:24 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:26:24 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:26:24 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:26:24 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[116ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[109ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[116ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[109ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:26:24 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:26:24 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[123ms]; status=[OK]
+2015-07-13 21:26:24 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[123ms]; status=[OK]
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/resources/**'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 1 of 13 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 2 of 13 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2015-07-13 21:27:59 DEBUG HttpSessionSecurityContextRepository:167 - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@6afbb5db: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 3 of 13 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+2015-07-13 21:27:59 DEBUG HstsHeaderWriter:129 - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@50cc8ceb
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 4 of 13 in additional filter chain; firing Filter: 'CsrfFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 5 of 13 in additional filter chain; firing Filter: 'LogoutFilter'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /logout
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 6 of 13 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /j_spring_security_check
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 7 of 13 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 8 of 13 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 9 of 13 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2015-07-13 21:27:59 DEBUG RememberMeAuthenticationFilter:142 - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 10 of 13 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2015-07-13 21:27:59 DEBUG AnonymousAuthenticationFilter:107 - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 11 of 13 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 12 of 13 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2015-07-13 21:27:59 DEBUG FilterChainProxy:337 - /users/1/account at position 13 of 13 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/index'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/login'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/facebook'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/google'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/callback/google/registration'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration'
+2015-07-13 21:27:59 DEBUG AntPathRequestMatcher:136 - Request '/users/1/account' matched by universal pattern '/**'
+2015-07-13 21:27:59 DEBUG FilterSecurityInterceptor:194 - Secure object: FilterInvocation: URL: /users/1/account; Attributes: [hasRole('ROLE_USER')]
+2015-07-13 21:27:59 DEBUG FilterSecurityInterceptor:310 - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin
+2015-07-13 21:27:59 DEBUG AffirmativeBased:65 - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@74de5190, returned: 1
+2015-07-13 21:27:59 DEBUG FilterSecurityInterceptor:215 - Authorization successful
+2015-07-13 21:27:59 DEBUG FilterSecurityInterceptor:227 - RunAsManager did not change Authentication object
+2015-07-13 21:27:59 DEBUG FilterChainProxy:323 - /users/1/account reached end of additional filter chain; proceeding with original chain
+2015-07-13 21:27:59 DEBUG DispatcherServlet:1048 - Bound request context to thread: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@277a95f2]
+2015-07-13 21:27:59 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/users/1/account]
+2015-07-13 21:27:59 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:27:59 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /users/1/account
+2015-07-13 21:27:59 DEBUG RequestMappingHandlerMapping:332 - Found 1 matching mapping(s) for [/users/1/account] : [{[/users/{userId}/account],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}]
+2015-07-13 21:27:59 DEBUG RequestMappingHandlerMapping:299 - Returning handler method [public org.springframework.web.servlet.ModelAndView com.vizaco.onlinecontrol.controller.UserController.initAccountForm(java.lang.String)]
+2015-07-13 21:27:59 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'userController'
+2015-07-13 21:27:59 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:27:59 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@516621b6]
+2015-07-13 21:27:59 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/users/1/account] is: -1
+2015-07-13 21:27:59 DEBUG ServletInvocableHandlerMethod:135 - Invoking [UserController.initAccountForm] method with arguments [1]
+2015-07-13 21:27:59 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:27:59 INFO  Logging:63 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:367 - Creating new transaction with name [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:371 - Opened new EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@473b2aa0] for JPA transaction
+2015-07-13 21:27:59 DEBUG DataSourceUtils:153 - Setting JDBC Connection [org.hsqldb.jdbc.JDBCConnection@4de5be91] read-only
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:403 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5a14ca74]
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.jdbc.datasource.ConnectionHolder@29b201c1] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] to thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@37c2507d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] to thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:272 - Initializing transaction synchronization
+2015-07-13 21:27:59 DEBUG TransactionInterceptor:490 - Getting transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:27:59 INFO  Logging:33 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:27:59 INFO  Logging:43 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@37c2507d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@37c2507d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG SQL:109 - select distinct user0_.id as id1_14_, user0_.email as email2_14_, user0_.enabled as enabled3_14_, user0_.password as password4_14_ from users user0_ where user0_.id=?
+2015-07-13 21:27:59 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([id1_14_] : [BIGINT]) - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([email2_14_] : [VARCHAR]) - [petr@gmail.com]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([enabled3_14_] : [BOOLEAN]) - [true]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([password4_14_] : [VARCHAR]) - [$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.]
+2015-07-13 21:27:59 TRACE CollectionType:783 - Created collection wrapper: [com.vizaco.onlinecontrol.model.User.roles#1]
+2015-07-13 21:27:59 DEBUG SQL:109 - select roles0_.user_id as user_id1_14_0_, roles0_.role_id as role_id2_15_0_, role1_.id as id1_6_1_, role1_.description as descript2_6_1_, role1_.name as name3_6_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2015-07-13 21:27:59 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [User]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_USER]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [2]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [Admin]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_ADMIN]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:27:59 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [2]
+2015-07-13 21:27:59 INFO  Logging:48 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:27:59 INFO  Logging:38 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:27:59 DEBUG TransactionInterceptor:519 - Completing transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:926 - Triggering beforeCommit synchronization
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:939 - Triggering beforeCompletion synchronization
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:755 - Initiating transaction commit
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:512 - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@473b2aa0]
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:952 - Triggering afterCommit synchronization
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:968 - Triggering afterCompletion synchronization
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:331 - Clearing transaction synchronization
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@37c2507d] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] from thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.jdbc.datasource.ConnectionHolder@29b201c1] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] from thread [qtp999544948-30]
+2015-07-13 21:27:59 DEBUG DataSourceUtils:222 - Resetting read-only flag of JDBC Connection [org.hsqldb.jdbc.JDBCConnection@4de5be91]
+2015-07-13 21:27:59 DEBUG JpaTransactionManager:600 - Closing JPA EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@473b2aa0] after transaction
+2015-07-13 21:27:59 DEBUG EntityManagerFactoryUtils:432 - Closing JPA EntityManager
+2015-07-13 21:27:59 INFO  Logging:68 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:28:11 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:28:11 DEBUG ServletInvocableHandlerMethod:139 - Method [initAccountForm] returned [ModelAndView: reference to view with name 'account/account'; model is {user=com.vizaco.onlinecontrol.model.User@6e46fd64}]
+2015-07-13 21:28:11 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler@189b0f93] supports [class org.springframework.web.servlet.ModelAndView]
+2015-07-13 21:28:11 DEBUG InvocableHandlerMethod:135 - Invoking [UserController.initBinder] method with arguments [org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@21c56fab]
+2015-07-13 21:28:11 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@21c56fab)
+2015-07-13 21:28:11 INFO  Logging:73 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:28:11 INFO  Logging:78 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:28:11 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@21c56fab)
+2015-07-13 21:28:11 DEBUG InvocableHandlerMethod:139 - Method [initBinder] returned [null]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1241 - Rendering view [org.springframework.web.servlet.view.JstlView: name 'account/account'; URL [/WEB-INF/jsp/account/account.jsp]] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG JstlView:297 - Rendering view with name 'account/account' with model {user=com.vizaco.onlinecontrol.model.User@6e46fd64, org.springframework.validation.BindingResult.user=org.springframework.validation.BeanPropertyBindingResult: 0 errors} and static attributes {}
+2015-07-13 21:28:11 DEBUG JstlView:432 - Added model object 'userId' of type [java.lang.String] to request in view with name 'account/account'
+2015-07-13 21:28:11 DEBUG JstlView:432 - Added model object 'user' of type [com.vizaco.onlinecontrol.model.User] to request in view with name 'account/account'
+2015-07-13 21:28:11 DEBUG JstlView:432 - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'account/account'
+2015-07-13 21:28:11 DEBUG JstlView:166 - Forwarding to resource [/WEB-INF/jsp/account/account.jsp] in InternalResourceView 'account/account'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@277a95f2]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[12760ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[12760ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
+2015-07-13 21:28:11 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-13 21:28:11 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/reset.css'; against '/resources/**'
+2015-07-13 21:28:11 DEBUG FilterChainProxy:180 - /resources/frontend/css/reset.css has an empty filter list
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:28:11 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/style.css'; against '/resources/**'
+2015-07-13 21:28:11 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/reset.css]
+2015-07-13 21:28:11 DEBUG FilterChainProxy:180 - /resources/frontend/css/style.css has an empty filter list
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/reset.css
+2015-07-13 21:28:11 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/style.css]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/style.css
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/reset.css]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/style.css]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/reset.css]
+2015-07-13 21:28:11 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/style.css]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/reset.css] are [/resources/**]
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/style.css] are [/resources/**]
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/reset.css] are {}
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/style.css] are {}
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/reset.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/style.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/reset.css] is: -1
+2015-07-13 21:28:11 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/style.css] is: -1
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/reset.css
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/style.css
+2015-07-13 21:28:11 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/reset.css"
+2015-07-13 21:28:11 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/style.css"
+2015-07-13 21:28:11 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:28:11 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:28:11 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:28:11 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:28:11 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[15ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[16ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[15ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[16ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/logo.jpg'; against '/resources/**'
+2015-07-13 21:28:11 DEBUG FilterChainProxy:180 - /resources/frontend/image/logo.jpg has an empty filter list
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/logo.jpg]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/logo.jpg
+2015-07-13 21:28:11 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/logo.jpg] are [/resources/**]
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/logo.jpg] are {}
+2015-07-13 21:28:11 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/logo.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/logo.jpg] is: -1
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/logo.jpg
+2015-07-13 21:28:11 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/logo.jpg"
+2015-07-13 21:28:11 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:28:11 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:28:11 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:28:11 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:28:11 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[19ms]; status=[OK]
+2015-07-13 21:28:11 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[19ms]; status=[OK]
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/resources/**'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 1 of 13 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 2 of 13 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2015-07-13 21:28:57 DEBUG HttpSessionSecurityContextRepository:167 - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@6afbb5db: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 3 of 13 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+2015-07-13 21:28:57 DEBUG HstsHeaderWriter:129 - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@50cc8ceb
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 4 of 13 in additional filter chain; firing Filter: 'CsrfFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 5 of 13 in additional filter chain; firing Filter: 'LogoutFilter'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /logout
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 6 of 13 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:127 - Request 'GET /users/1/account' doesn't match 'POST /j_spring_security_check
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 7 of 13 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 8 of 13 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 9 of 13 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2015-07-13 21:28:57 DEBUG RememberMeAuthenticationFilter:142 - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 10 of 13 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2015-07-13 21:28:57 DEBUG AnonymousAuthenticationFilter:107 - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 11 of 13 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 12 of 13 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2015-07-13 21:28:57 DEBUG FilterChainProxy:337 - /users/1/account at position 13 of 13 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/index'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/login'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/facebook'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration/google'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/callback/google/registration'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/users/1/account'; against '/registration'
+2015-07-13 21:28:57 DEBUG AntPathRequestMatcher:136 - Request '/users/1/account' matched by universal pattern '/**'
+2015-07-13 21:28:57 DEBUG FilterSecurityInterceptor:194 - Secure object: FilterInvocation: URL: /users/1/account; Attributes: [hasRole('ROLE_USER')]
+2015-07-13 21:28:57 DEBUG FilterSecurityInterceptor:310 - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@6afbb5db: Principal: com.vizaco.onlinecontrol.model.User@6e46fd64; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffc7f0c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: r4rsxj8yyyv0353o7q24k5up; Granted Authorities: User, Admin
+2015-07-13 21:28:57 DEBUG AffirmativeBased:65 - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@74de5190, returned: 1
+2015-07-13 21:28:57 DEBUG FilterSecurityInterceptor:215 - Authorization successful
+2015-07-13 21:28:57 DEBUG FilterSecurityInterceptor:227 - RunAsManager did not change Authentication object
+2015-07-13 21:28:57 DEBUG FilterChainProxy:323 - /users/1/account reached end of additional filter chain; proceeding with original chain
+2015-07-13 21:28:57 DEBUG DispatcherServlet:1048 - Bound request context to thread: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@365ee527]
+2015-07-13 21:28:57 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/users/1/account]
+2015-07-13 21:28:57 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:28:57 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /users/1/account
+2015-07-13 21:28:57 DEBUG RequestMappingHandlerMapping:332 - Found 1 matching mapping(s) for [/users/1/account] : [{[/users/{userId}/account],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}]
+2015-07-13 21:28:57 DEBUG RequestMappingHandlerMapping:299 - Returning handler method [public org.springframework.web.servlet.ModelAndView com.vizaco.onlinecontrol.controller.UserController.initAccountForm(java.lang.String)]
+2015-07-13 21:28:57 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'userController'
+2015-07-13 21:28:57 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:28:57 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter@516621b6]
+2015-07-13 21:28:57 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/users/1/account] is: -1
+2015-07-13 21:28:57 DEBUG ServletInvocableHandlerMethod:135 - Invoking [UserController.initAccountForm] method with arguments [1]
+2015-07-13 21:28:57 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:28:57 INFO  Logging:63 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:367 - Creating new transaction with name [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:371 - Opened new EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@64e6ee1f] for JPA transaction
+2015-07-13 21:28:57 DEBUG DataSourceUtils:153 - Setting JDBC Connection [org.hsqldb.jdbc.JDBCConnection@25d05879] read-only
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:403 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@1a6be6be]
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.jdbc.datasource.ConnectionHolder@3aab6cda] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] to thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:193 - Bound value [org.springframework.orm.jpa.EntityManagerHolder@69eeeb86] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] to thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:272 - Initializing transaction synchronization
+2015-07-13 21:28:57 DEBUG TransactionInterceptor:490 - Getting transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:28:57 INFO  Logging:33 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:28:57 INFO  Logging:43 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@69eeeb86] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:140 - Retrieved value [org.springframework.orm.jpa.EntityManagerHolder@69eeeb86] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] bound to thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG SQL:109 - select distinct user0_.id as id1_14_, user0_.email as email2_14_, user0_.enabled as enabled3_14_, user0_.password as password4_14_ from users user0_ where user0_.id=?
+2015-07-13 21:28:57 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([id1_14_] : [BIGINT]) - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([email2_14_] : [VARCHAR]) - [petr@gmail.com]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([enabled3_14_] : [BOOLEAN]) - [true]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([password4_14_] : [VARCHAR]) - [$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.]
+2015-07-13 21:28:57 TRACE CollectionType:783 - Created collection wrapper: [com.vizaco.onlinecontrol.model.User.roles#1]
+2015-07-13 21:28:57 DEBUG SQL:109 - select roles0_.user_id as user_id1_14_0_, roles0_.role_id as role_id2_15_0_, role1_.id as id1_6_1_, role1_.description as descript2_6_1_, role1_.name as name3_6_1_ from users_roles roles0_ inner join roles role1_ on roles0_.role_id=role1_.id where roles0_.user_id=?
+2015-07-13 21:28:57 TRACE BasicBinder:81 - binding parameter [1] as [BIGINT] - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [User]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_USER]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([id1_6_1_] : [BIGINT]) - [2]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([descript2_6_1_] : [VARCHAR]) - [Admin]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([name3_6_1_] : [VARCHAR]) - [ROLE_ADMIN]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([user_id1_14_0_] : [BIGINT]) - [1]
+2015-07-13 21:28:57 TRACE BasicExtractor:78 - extracted value ([role_id2_15_0_] : [BIGINT]) - [2]
+2015-07-13 21:28:57 INFO  Logging:48 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.dao.jpa.JpaUserDaoImpl.findById(1)
+2015-07-13 21:28:57 INFO  Logging:38 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById(1)
+2015-07-13 21:28:57 DEBUG TransactionInterceptor:519 - Completing transaction for [com.vizaco.onlinecontrol.service.impl.UserServiceImpl.findUserById]
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:926 - Triggering beforeCommit synchronization
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:939 - Triggering beforeCompletion synchronization
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:755 - Initiating transaction commit
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:512 - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@64e6ee1f]
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:952 - Triggering afterCommit synchronization
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:968 - Triggering afterCompletion synchronization
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:331 - Clearing transaction synchronization
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.orm.jpa.EntityManagerHolder@69eeeb86] for key [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@2dfa17b7] from thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG TransactionSynchronizationManager:243 - Removed value [org.springframework.jdbc.datasource.ConnectionHolder@3aab6cda] for key [org.hsqldb.jdbc.JDBCDataSource@cd4e580] from thread [qtp999544948-26]
+2015-07-13 21:28:57 DEBUG DataSourceUtils:222 - Resetting read-only flag of JDBC Connection [org.hsqldb.jdbc.JDBCConnection@25d05879]
+2015-07-13 21:28:57 DEBUG JpaTransactionManager:600 - Closing JPA EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@64e6ee1f] after transaction
+2015-07-13 21:28:57 DEBUG EntityManagerFactoryUtils:432 - Closing JPA EntityManager
+2015-07-13 21:28:57 INFO  Logging:68 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.utils.Utils.getUser(1)
+2015-07-13 21:29:07 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initAccountForm(1)
+2015-07-13 21:29:07 DEBUG ServletInvocableHandlerMethod:139 - Method [initAccountForm] returned [ModelAndView: reference to view with name 'account/account'; model is {user=com.vizaco.onlinecontrol.model.User@6e46fd64}]
+2015-07-13 21:29:07 DEBUG HandlerMethodReturnValueHandlerComposite:80 - Testing if return value handler [org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler@189b0f93] supports [class org.springframework.web.servlet.ModelAndView]
+2015-07-13 21:29:07 DEBUG InvocableHandlerMethod:135 - Invoking [UserController.initBinder] method with arguments [org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@71279908]
+2015-07-13 21:29:07 INFO  Logging:23 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@71279908)
+2015-07-13 21:29:07 INFO  Logging:73 - Before execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:29:07 INFO  Logging:78 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.validators.UserValidator.supports(class com.vizaco.onlinecontrol.model.User)
+2015-07-13 21:29:07 INFO  Logging:28 - After execution: #auth com.vizaco.onlinecontrol.model.User@6e46fd64 # com.vizaco.onlinecontrol.controller.UserController.initBinder(org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder@71279908)
+2015-07-13 21:29:07 DEBUG InvocableHandlerMethod:139 - Method [initBinder] returned [null]
+2015-07-13 21:29:07 DEBUG DispatcherServlet:1241 - Rendering view [org.springframework.web.servlet.view.JstlView: name 'account/account'; URL [/WEB-INF/jsp/account/account.jsp]] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:07 DEBUG JstlView:297 - Rendering view with name 'account/account' with model {user=com.vizaco.onlinecontrol.model.User@6e46fd64, org.springframework.validation.BindingResult.user=org.springframework.validation.BeanPropertyBindingResult: 0 errors} and static attributes {}
+2015-07-13 21:29:07 DEBUG JstlView:432 - Added model object 'userId' of type [java.lang.String] to request in view with name 'account/account'
+2015-07-13 21:29:07 DEBUG JstlView:432 - Added model object 'user' of type [com.vizaco.onlinecontrol.model.User] to request in view with name 'account/account'
+2015-07-13 21:29:07 DEBUG JstlView:432 - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'account/account'
+2015-07-13 21:29:07 DEBUG JstlView:166 - Forwarding to resource [/WEB-INF/jsp/account/account.jsp] in InternalResourceView 'account/account'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DefaultListableBeanFactory:248 - Returning cached instance of singleton bean 'webSecurityExpressionHandler'
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$Servlet3SaveToSessionRequestWrapper@365ee527]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[10744ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/users/1/account]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[petr@gmail.com]; time=[10744ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG ExceptionTranslationFilter:115 - Chain processed normally
+2015-07-13 21:29:08 DEBUG SecurityContextPersistenceFilter:97 - SecurityContextHolder now cleared, as request processing completed
+2015-07-13 21:29:08 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/reset.css'; against '/resources/**'
+2015-07-13 21:29:08 DEBUG FilterChainProxy:180 - /resources/frontend/css/reset.css has an empty filter list
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/reset.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/reset.css
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/reset.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/css/style.css'; against '/resources/**'
+2015-07-13 21:29:08 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/reset.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/reset.css] are [/resources/**]
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/reset.css] are {}
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/reset.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/reset.css] is: -1
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/reset.css
+2015-07-13 21:29:08 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/reset.css"
+2015-07-13 21:29:08 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:29:08 DEBUG FilterChainProxy:180 - /resources/frontend/css/style.css has an empty filter list
+2015-07-13 21:29:08 DEBUG AntPathRequestMatcher:145 - Checking match of request : '/resources/frontend/image/logo.jpg'; against '/resources/**'
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:29:08 DEBUG FilterChainProxy:180 - /resources/frontend/image/logo.jpg has an empty filter list
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1048 - Bound request context to thread: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/image/logo.jpg]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/image/logo.jpg
+2015-07-13 21:29:08 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/reset.css]
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/image/logo.jpg]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/image/logo.jpg] are [/resources/**]
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/image/logo.jpg] are {}
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/image/logo.jpg] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/image/logo.jpg] is: -1
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/image/logo.jpg
+2015-07-13 21:29:08 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/image/logo.jpg"
+2015-07-13 21:29:08 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:29:08 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'image/jpeg' for ServletContext resource [/resources/frontend/image/logo.jpg]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:861 - DispatcherServlet with name 'dispatcher' processing GET request for [/onlinecontrol/resources/frontend/css/style.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/reset.css)@2020857115 org.eclipse.jetty.server.Request@7873d51b]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[18ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/reset.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[18ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ad9185] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:294 - Looking up handler method for path /resources/frontend/css/style.css
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/image/logo.jpg)@860308136 org.eclipse.jetty.server.Request@334742a8]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[14ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/image/logo.jpg]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[14ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG RequestMappingHandlerMapping:302 - Did not find handler method for [/resources/frontend/css/style.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping@1e3f8565] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG BeanNameUrlHandlerMapping:126 - No handler mapping found for [/resources/frontend/css/style.css]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1117 - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@4925984f] in DispatcherServlet with name 'dispatcher'
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:168 - Matching patterns for request [/resources/frontend/css/style.css] are [/resources/**]
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:193 - URI Template variables for request [/resources/frontend/css/style.css] are {}
+2015-07-13 21:29:08 DEBUG SimpleUrlHandlerMapping:123 - Mapping [/resources/frontend/css/style.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@34f9275f]]] and 1 interceptor
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1157 - Testing handler adapter [org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter@44a3f4d]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:947 - Last-Modified value for [/onlinecontrol/resources/frontend/css/style.css] is: -1
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:326 - Applying "invalid path" checks to path: frontend/css/style.css
+2015-07-13 21:29:08 DEBUG PathResourceResolver:44 - Resolving resource: requestPath="frontend/css/style.css"
+2015-07-13 21:29:08 DEBUG PathResourceResolver:92 - Checking location: ServletContext resource [/resources/]
+2015-07-13 21:29:08 DEBUG PathResourceResolver:97 - Found match: ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:220 - Determined media type 'text/css' for ServletContext resource [/resources/frontend/css/style.css]
+2015-07-13 21:29:08 DEBUG ResourceHttpRequestHandler:231 - Resource not modified - returning 304
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1034 - Null ModelAndView returned to DispatcherServlet with name 'dispatcher': assuming HandlerAdapter completed request handling
+2015-07-13 21:29:08 DEBUG DispatcherServlet:1058 - Cleared thread-bound request context: FirewalledRequest[ (GET //localhost:10201/onlinecontrol/resources/frontend/css/style.css)@76980124 org.eclipse.jetty.server.Request@4969f9c]
+2015-07-13 21:29:08 DEBUG DispatcherServlet:996 - Successfully completed request
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in WebApplicationContext for namespace 'dispatcher-servlet': ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[37ms]; status=[OK]
+2015-07-13 21:29:08 DEBUG AnnotationConfigWebApplicationContext:329 - Publishing event in Root WebApplicationContext: ServletRequestHandledEvent: url=[/onlinecontrol/resources/frontend/css/style.css]; client=[0:0:0:0:0:0:0:1]; method=[GET]; servlet=[dispatcher]; session=[3amuipmrm1n41w3yj9o0pl2ye]; user=[null]; time=[37ms]; status=[OK]
