@@ -1,9 +1,9 @@
 package com.vizaco.onlinecontrol.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -18,11 +18,18 @@ public class Grade extends BaseEntity{
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
-    @OneToOne(fetch=FetchType.LAZY)
+    @NotNull
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="period_id")
+    private Period period;
+
+    @NotNull
+    @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="subject_id")
     private Subject subject;
 
-    @OneToOne(fetch=FetchType.LAZY)
+    @NotNull
+    @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="student_id")
     private Student student;
 
@@ -35,6 +42,14 @@ public class Grade extends BaseEntity{
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
     public Subject getSubject() {

@@ -17,7 +17,7 @@
             <header class="index-header">
                 <div class="container">
                     <div class="header-line clearfix row">
-                        <img src="resources/frontend/image/logo.jpg" alt="logo" class="image" />
+                        <img src="<spring:url value="/resources/frontend/image/logo.jpg"/>" alt="logo" class="image" />
                     </div>
                 </div>
             </header>

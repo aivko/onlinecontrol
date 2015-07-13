@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
@@ -8,7 +9,6 @@ import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -92,7 +92,6 @@ public class SheduleController extends BaseController {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setDateFormat(formatter);
-        mapper.getJsonFactory();
         String response;
         try {
             response = mapper.writeValueAsString(sheduleList);
