@@ -16,6 +16,8 @@
 
     <spring:url value="/shedules/studentShedule" htmlEscape="true" var="studentShedule"/>
 
+    <spring:url value="/shedules/" var="varShedule"/>
+
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
     <script type="text/javascript">
@@ -97,14 +99,14 @@
                                 for (var keyShedule in data[keyClazz][keyDate]) {
 
                                     var currentShedule = data[keyClazz][keyDate][keyShedule];
-                                    <%--"<spring:url value='/shedules/" + currentShedule.id +"'/>";--%>
-                                    var refJob = "<a href='/shedules/'" + currentShedule.id + ">"  +currentShedule.job + "</a>";
+
+                                    var editJob = "<a href='/onlinecontrol/shedules/" + currentShedule.id + "'>"  + (currentShedule.job == null ? "<--ввести задание-->" : currentShedule.job) + "</a>";
 
                                     text = text +
                                             "<tr>" +
                                             "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
                                             "<td>" + currentShedule.subject.name + "</td>" +
-                                            "<td>" + (currentShedule.job == null ? refJob : currentShedule.job) + "</td>" +
+                                            "<td>" + editJob + "</td>" +
                                             "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
                                             "</tr>"
 
