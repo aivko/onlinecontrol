@@ -152,6 +152,10 @@
                 return;
             }
 
+            if (!confirm("Будут удалены выделенные строки. Хотите продолжить?")) {
+                return;
+            }
+
             var table = $("#shedule" + index);
 
             if ((table.find("tr").length - table.find("tr.selected").length) > 1) {
@@ -182,8 +186,49 @@
         }
         ;
 
+        function validStartDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var startDate = $("#startDate").val();
+            if(!dateReg.test(startDate)){
+                $("#errorStartDate").text("Введите дату начала в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorStartDate").text("");
+            return true;
+        };
+
+        function validEndDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var endDate = $("#endDate").val();
+            if(!dateReg.test(endDate)){
+                $("#errorEndDate").text("Введите дату окончания в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorEndDate").text("");
+            return true;
+        };
+
+        function validClazz() {
+            var clazz = $("#clazz").val();
+            if(clazz == "0" || clazz == undefined || clazz == null){
+                $("#errorClazz").text("Укажите класс");
+                return false;
+            }
+            $("#errorClazz").text("");
+            return true;
+        }
+        ;
+
         function onSubmit(f) {
-            //TODO: correct data
+            if (!confirm("Будет заполнено расписание по заданному шаблону. Хотите продолжить?")) {
+                return false;
+            }
+            var valid = true;
+            valid = valid && validStartDate();
+            valid = valid && validEndDate();
+            valid = valid && validClazz();
+
+            if (!valid) return false;
             f.submit();
         }
         ;
@@ -223,25 +268,28 @@
 
     <h1>Расписание</h1>
 
-    <form:form method="${method}" action="${action}" enctype='application/json' onsubmit="onSubmit(this)">
+    <form:form method="${method}" action="${action}" enctype='application/json' onsubmit="return onSubmit(this)">
 
         <div>
             <label for="startDate">Дата начала</label>
-            <input type="text" id="startDate" name="startDate"/>
+            <input type="text" id="startDate" name="startDate" onchange="validStartDate()"/>
             <label for="endDate">Дата окончания</label>
-            <input type="text" id="endDate" name="endDate"/>
+            <input type="text" id="endDate" name="endDate" onchange="validEndDate()"/>
+            <div style="color:red;" id="errorStartDate"></div>
+            <div style="color:red;" id="errorEndDate"></div>
         </div>
 
         <br>
 
         <div>
             <label>Класс</label>
-            <select name="classSelect">
+            <select id="clazz" name="classSelect" onchange="validClazz()">
                 <option value="0"><c:out value="------Select a class------"/></option>
                 <c:forEach var="varclazz" items="${clazzes}">
                     <option value="${varclazz.id}"><c:out value="${varclazz.number} - ${varclazz.letter}"/></option>
                 </c:forEach>
             </select>
+            <span style="color:red;" id="errorClazz"></span>
         </div>
 
         <br>

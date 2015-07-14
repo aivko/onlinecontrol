@@ -56,7 +56,7 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
 
-        TreeSet<Shedule> shedules = new TreeSet<>(sheduleService.getAllShedule());
+        List<Shedule> shedules = sheduleService.getAllShedule();
 
         mav.addObject("shedules", shedules);
 
@@ -71,7 +71,7 @@ public class SheduleController extends BaseController {
 
     }
 
-    @RequestMapping(value = "/shedules/studentsReport", method = RequestMethod.POST, headers = "content-type=application/json")
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.POST, headers = "content-type=application/json")
     @ResponseBody
     public String generateStudentReport(Locale locale, @RequestBody String json) {
 
@@ -102,10 +102,37 @@ public class SheduleController extends BaseController {
         List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
 
         String jsonResponse;
-        Map<String, Object> resultData = new HashMap<String, Object>();
+        Map<String, Object> resultData = new TreeMap<>();
         try {
             resultData.put("result", "true");
-            resultData.put("shedules", sheduleList);
+            for (Shedule sheduleItem : sheduleList) {
+
+                String keyClazz = sheduleItem.getClazz().toString();
+
+                TreeMap<String, Object> dateShedule = null;
+
+                if (resultData.containsKey(keyClazz)) {
+                    dateShedule = (TreeMap) resultData.get(keyClazz);
+                    if (dateShedule == null) dateShedule = new TreeMap<>();
+                }else {
+                    dateShedule = new TreeMap<>();
+                }
+
+                String keyDate = formatter.format(sheduleItem.getDate());
+
+                TreeSet<Shedule> setShedule = null;
+                if (dateShedule.containsKey(keyDate)) {
+                    setShedule = (TreeSet) dateShedule.get(keyDate);
+                    if (setShedule == null) setShedule = new TreeSet<>();
+                }else {
+                    setShedule = new TreeSet<>();
+                }
+                setShedule.add(sheduleItem);
+                dateShedule.put(keyDate, setShedule);
+
+                resultData.put(keyClazz, dateShedule);
+            };
+
             jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
             return badResponse;
@@ -129,9 +156,15 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/constructor", method = RequestMethod.POST)
-    public String registerTemplate(@RequestBody String json) {
+    public String registerTemplate(Locale locale, @RequestBody String json, Model model) {
 
         if (json == null) {
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
+            model.addAttribute("periods", sheduleService.getAllPeriods());
+            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
+            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         }
 
@@ -144,8 +177,8 @@ public class SheduleController extends BaseController {
         TreeMap<String, Subject> subjects = new TreeMap<>();
         TreeMap<String, Teacher> teachers = new TreeMap<>();
 
-        GregorianCalendar startDate = null;
-        GregorianCalendar endDate = null;
+        Calendar startDate = null;
+        Calendar endDate = null;
 
         Clazz clazz = null;
 
@@ -192,7 +225,7 @@ public class SheduleController extends BaseController {
                 if (emptyValue(keyValue, 1)) {
                     continue;
                 }
-                startDate = new GregorianCalendar();
+                startDate = Calendar.getInstance(timeZone, locale);
                 try {
                     startDate.setTime(formatter.parse(keyValue[1]));
                 } catch (ParseException e) {
@@ -203,7 +236,7 @@ public class SheduleController extends BaseController {
                 if (emptyValue(keyValue, 1)) {
                     continue;
                 }
-                endDate = new GregorianCalendar();
+                endDate = Calendar.getInstance(timeZone, locale);
                 try {
                     endDate.setTime(formatter.parse(keyValue[1]));
                 } catch (ParseException e) {
@@ -220,8 +253,20 @@ public class SheduleController extends BaseController {
         }
 
         if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
+            model.addAttribute("periods", sheduleService.getAllPeriods());
+            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
+            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         } else if (startDate.compareTo(endDate) > 0) {
+            model.addAttribute("clazzes", clazzService.getAllClazzes());
+            model.addAttribute("periods", sheduleService.getAllPeriods());
+            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
+            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         }
 
@@ -230,12 +275,12 @@ public class SheduleController extends BaseController {
         Iterator<Integer> iteratorWeek = numberOfWeek.iterator();
         Integer numberWeek = iteratorWeek.next();
 
-        Calendar startDateTemp = Calendar.getInstance();
+        Calendar startDateTemp = Calendar.getInstance(timeZone, locale);
         startDateTemp.setTime(startDate.getTime());
 
         while (startDateTemp.compareTo(endDate) <= 0) {
 
-            Calendar currentDate = new GregorianCalendar();
+            Calendar currentDate = Calendar.getInstance(timeZone, locale);
             currentDate.setTime(startDateTemp.getTime());
 
             Integer numberDay = dateUtils.getNumberDayOfWeek(startDateTemp);

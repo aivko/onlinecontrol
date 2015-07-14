@@ -17,11 +17,21 @@ INSERT INTO teachers VALUES (1, 'Mariya', 'Kovalenko', 'Vasilyevna', '2008-01-07
 INSERT INTO teachers VALUES (2, 'Olga', 'Dub', 'Valentinovna', '2008-01-07', 'FEMALE', 2);
 INSERT INTO teachers VALUES (3, 'Pavel', 'Korotchenko', 'Denisovich', '2008-01-07', 'MALE', 3);
 
-INSERT INTO shedule VALUES (1, '2015-07-06', 1, 1, 1, 1, NULL);
-INSERT INTO shedule VALUES (2, '2015-07-07', 2, 1, 2, 2, NULL);
-INSERT INTO shedule VALUES (3, '2015-07-08', 3, 2, 1, 3, NULL);
-INSERT INTO shedule VALUES (4, '2015-07-09', 4, 3, 3, 1, 'Написать реферат');
-INSERT INTO shedule VALUES (5, '2015-07-10', 4, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (7, '2015-07-10', 4, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (8, '2015-07-01', 4, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (10, '2015-07-13', 1, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (9, '2015-07-01', 2, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (13, '2015-07-21', 4, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (11, '2015-07-13', 2, 3, 3, 1, NULL);
+INSERT INTO shedule VALUES (12, '2015-07-21', 1, 3, 3, 1, 'Упражнение №21');
+INSERT INTO shedule VALUES (14, '2015-07-01', 1, 3, 1, 1, 'Упражнение №23');
+INSERT INTO shedule VALUES (15, '2015-07-01', 1, 3, 2, 1, 'Упражнение №22');
+INSERT INTO shedule VALUES (4, '2015-07-07', 2, 1, 2, 2, NULL);
+INSERT INTO shedule VALUES (1, '2015-07-06', 1, 1, 1, 1, 'Упражнение №10');
+INSERT INTO shedule VALUES (2, '2015-07-06', 2, 2, 1, 2, 'Упражнение №11');
+INSERT INTO shedule VALUES (3, '2015-07-06', 3, 3, 1, 3, NULL);
+INSERT INTO shedule VALUES (5, '2015-07-08', 3, 2, 1, 3, NULL);
+INSERT INTO shedule VALUES (6, '2015-07-09', 4, 3, 3, 1, 'Написать реферат');
 
 INSERT INTO roles VALUES (1, 'ROLE_USER', 'User');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN', 'Admin');

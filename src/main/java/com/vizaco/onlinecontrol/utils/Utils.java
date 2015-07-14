@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**

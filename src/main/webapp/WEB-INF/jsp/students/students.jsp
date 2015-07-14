@@ -71,7 +71,7 @@
                     <c:out value="${student.clazz}"/>
                 </td>
                 <td>
-                    <a href='<spring:url value="/students/${student.id}/edit" htmlEscape="true"/>' role="button">Редактировать студента</a></p>
+                    <a href='<spring:url value="/students/${student.id}/edit" htmlEscape="true"/>' role="button">Редактировать студента</a>
                 </td>
                 <td>
                     <a href='<spring:url value="/students/${student.id}" htmlEscape="true"/>'>Детальное описание</a>

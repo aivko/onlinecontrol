@@ -4,6 +4,7 @@ import com.vizaco.onlinecontrol.converters.*;
 import com.vizaco.onlinecontrol.model.*;
 import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -35,16 +36,13 @@ import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
 import java.nio.charset.Charset;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Created by super on 6/5/15.
  */
 @Configuration
-@ComponentScan(basePackages = {
+@ComponentScan({
         "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.service",
         "com.vizaco.onlinecontrol.controller",
