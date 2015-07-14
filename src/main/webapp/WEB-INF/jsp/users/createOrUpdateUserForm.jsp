@@ -7,12 +7,15 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title></title>
-
+    <title>Добавление пользователя</title>
     <meta name="_csrf" content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="${_csrf.headerName}"/>
-
+    <spring:url value="/resources/frontend/css/reset.css" var="ResetCss"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="${ResetCss}" rel="stylesheet"/>
+    <spring:url value="/resources/frontend/css/style.css" var="MainCss"/>
+    <link href="${MainCss}" rel="stylesheet"/>
     <spring:url value="/users/checkEmail" htmlEscape="true" var="checkEmail"/>
     <c:choose>
         <c:when test="${user['new']}">
@@ -62,99 +65,100 @@
 
 </head>
 <body>
+    <div class="main-content clearfix">
+        <div class="wrapper">
+            <header class="index-header">
+                <div class="container">
+                    <div class="header-line clearfix row">
+                        <img src="<spring:url value="/resources/frontend/image/logo.jpg"/>" alt="logo" class="image" />
+                    </div>
+                </div>
+            </header>
+        <div id="wrapper-login">
+            <form:form modelAttribute="user" method="${method}" action="${action}" class="form-login">
+                <h2 class="autor-login">Пользователь</h2>
+                <div class="horiz">
+                    <div class="data-author">
+                        <form:label path="email" class="data-user">Email:</form:label>
+                        <form:input path="email" id="email" onchange="existEmail()" class="data-info"/>
+                        <form:errors path="email" cssStyle="color:red;" cssclass="error"/>
+                        <span id="errorEmail"></span>
+                    </div>
+                    <c:choose>
+                        <c:when test="${user['new']}">
+                            <div class="data-author">
+                                <form:label path="password" class="data-user">Пароль:</form:label>
+                                <form:password path="password" class="data-info"/>
+                                <form:errors path="password" cssStyle="color:red;" cssclass="error"/>
+                            </div>
+                            <div class="data-author">
+                                <form:label path="passwordConfirm" class="data-user">Повторите пароль:</form:label>
+                                <form:password path="passwordConfirm" class="data-info"/>
+                                <form:errors path="passwordConfirm" cssStyle="color:red;" cssclass="error"/>
+                            </div>
+                        </c:when>
+                    </c:choose>
+                </div>
+                <%--<div id="users-contain" class="ui-widget">--%>
+                    <%--<h1>Roles:</h1>--%>
+                    <%--<table id="roles" class="ui-widget ui-widget-content">--%>
+                        <%--<thead>--%>
+                        <%--<tr class="ui-widget-header ">--%>
+                            <%--<th>Name</th>--%>
+                            <%--<th>Description</th>--%>
+                        <%--</tr>--%>
+                        <%--</thead>--%>
+                        <%--<tbody>--%>
+                        <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
+                            <%--<tr>--%>
+                                <%--<td>${user.roles[vs.index].name}</td>--%>
+                                <%--<td>${user.roles[vs.index].description}</td>--%>
+                                <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
+                                <%--<form:hidden path="roles[${vs.index}].name"/>--%>
+                                <%--<form:hidden path="roles[${vs.index}].description"/>--%>
+                            <%--</tr>--%>
+                        <%--</c:forEach>--%>
+                        <%--</tbody>--%>
+                    <%--</table>--%>
+                <%--</div>--%>
+                <%--<button id="add-role">Add role</button>--%>
 
-<div id="wrapper-login">
+                <%--<hr>--%>
 
-    <h1>Пользователь</h1>
-
-    <form:form modelAttribute="user" method="${method}" action="${action}">
-        <table class="horiz">
-            <tr>
-                <td><form:label path="email">Email:</form:label></td>
-                <td><form:input path="email" id="email" onchange="existEmail()"/><form:errors path="email" cssStyle="color:red;" cssclass="error"/>
-                <span id="errorEmail"></span></td>
-            </tr>
-
-            <c:choose>
-                <c:when test="${user['new']}">
-                    <tr>
-                        <td><form:label path="password">Пароль:</form:label></td>
-                        <td><form:password path="password"/><form:errors path="password" cssStyle="color:red;"
-                                                                         cssclass="error"/></td>
-                    </tr>
-                    <tr>
-                        <td><form:label path="passwordConfirm">Повторите пароль:</form:label></td>
-                        <td><form:password path="passwordConfirm"/><form:errors path="passwordConfirm"
-                                                                                cssStyle="color:red;"
-                                                                                cssclass="error"/></td>
-                    </tr>
-                </c:when>
-            </c:choose>
-
-        </table>
-
-        <hr>
-
-        <%--<div id="users-contain" class="ui-widget">--%>
-            <%--<h1>Roles:</h1>--%>
-            <%--<table id="roles" class="ui-widget ui-widget-content">--%>
+                <%--<div id="users-contain" class="ui-widget">--%>
+                <%--<h1>Students:</h1>--%>
+                <%--<table id="students" class="ui-widget ui-widget-content">--%>
                 <%--<thead>--%>
-                <%--<tr class="ui-widget-header ">--%>
-                    <%--<th>Name</th>--%>
-                    <%--<th>Description</th>--%>
+                <%--<tr class="ui-widget-header">--%>
+                <%--<th>Last name</th>--%>
+                <%--<th>First name</th>--%>
+                <%--<th>Middle name</th>--%>
                 <%--</tr>--%>
                 <%--</thead>--%>
                 <%--<tbody>--%>
-                <%--<c:forEach items="${user.roles}" varStatus="vs">--%>
-                    <%--<tr>--%>
-                        <%--<td>${user.roles[vs.index].name}</td>--%>
-                        <%--<td>${user.roles[vs.index].description}</td>--%>
-                        <%--<form:hidden path="roles[${vs.index}].roleId"/>--%>
-                        <%--<form:hidden path="roles[${vs.index}].name"/>--%>
-                        <%--<form:hidden path="roles[${vs.index}].description"/>--%>
-                    <%--</tr>--%>
+                <%--<c:forEach items="${user.students}" varStatus="vs">--%>
+                <%--<tr>--%>
+                <%--<td>${user.students[vs.index].lastName}</td>--%>
+                <%--<td>${user.students[vs.index].firstName}</td>--%>
+                <%--<td>${user.students[vs.index].middleName}</td>--%>
+                <%--<form:hidden path="students[${vs.index}].studentId"/>--%>
+                <%--<form:hidden path="students[${vs.index}].lastName"/>--%>
+                <%--<form:hidden path="students[${vs.index}].firstName"/>--%>
+                <%--<form:hidden path="students[${vs.index}].middleName"/>--%>
+                <%--</tr>--%>
                 <%--</c:forEach>--%>
                 <%--</tbody>--%>
-            <%--</table>--%>
-        <%--</div>--%>
-        <%--<button id="add-role">Add role</button>--%>
-
-        <%--<hr>--%>
-
-        <%--<div id="users-contain" class="ui-widget">--%>
-        <%--<h1>Students:</h1>--%>
-        <%--<table id="students" class="ui-widget ui-widget-content">--%>
-        <%--<thead>--%>
-        <%--<tr class="ui-widget-header">--%>
-        <%--<th>Last name</th>--%>
-        <%--<th>First name</th>--%>
-        <%--<th>Middle name</th>--%>
-        <%--</tr>--%>
-        <%--</thead>--%>
-        <%--<tbody>--%>
-        <%--<c:forEach items="${user.students}" varStatus="vs">--%>
-        <%--<tr>--%>
-        <%--<td>${user.students[vs.index].lastName}</td>--%>
-        <%--<td>${user.students[vs.index].firstName}</td>--%>
-        <%--<td>${user.students[vs.index].middleName}</td>--%>
-        <%--<form:hidden path="students[${vs.index}].studentId"/>--%>
-        <%--<form:hidden path="students[${vs.index}].lastName"/>--%>
-        <%--<form:hidden path="students[${vs.index}].firstName"/>--%>
-        <%--<form:hidden path="students[${vs.index}].middleName"/>--%>
-        <%--</tr>--%>
-        <%--</c:forEach>--%>
-        <%--</tbody>--%>
-        <%--</table>--%>
-        <%--</div>--%>
-        <%--<button class="add-student">Add student</button>--%>
-
-        <br>
-
-        <input type="submit" value="Сохранить"/>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form:form>
-
-</div>
-
+                <%--</table>--%>
+                <%--</div>--%>
+                <%--<button class="add-student">Add student</button>--%>
+                <input class="submit-button" type="submit" value="Сохранить"/>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form:form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-index clearfix">
+        <p class="footer-mainPage">work project &copy; 2015</p>
+    </div>
 </body>
 </html>

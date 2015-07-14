@@ -69,6 +69,7 @@ body{
 .account-name {
     text-decoration: none!important;
     color: #4F62AE;
+    font-size: 14px;
 }
 .account-name:hover {
    color: #fff;
