@@ -89,8 +89,8 @@ public class Period extends BaseEntity implements Comparable<Period>{
         if (period == null) return 1;
 
         if (startTime != null) {
-            result = startTime.compareTo(period.startTime);
-        }else{
+            result = this.startTime.compareTo(period.startTime);
+        }else if(period.startTime != null){
             result = period.startTime.compareTo(startTime);
         }
 
@@ -98,7 +98,7 @@ public class Period extends BaseEntity implements Comparable<Period>{
 
         if (endTime != null) {
             result = endTime.compareTo(period.endTime);
-        }else{
+        }else if(period.endTime != null){
             result = period.endTime.compareTo(endTime);
         }
 

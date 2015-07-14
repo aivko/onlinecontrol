@@ -41,16 +41,13 @@ public class SheduleController extends BaseController {
     private ClazzService clazzService;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private StudentService studentService;
-
-    @Autowired
     private DateUtils dateUtils;
 
     @Autowired
     private JsonUtil jsonUtil;
+
+    @Autowired
+    private TimeZone timeZone;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
@@ -84,7 +81,8 @@ public class SheduleController extends BaseController {
         String badResponse = "{\"result\":\"false\"}";
 
         ObjectMapper mapper = new ObjectMapper();
-//        mapper.setDateFormat(formatter);
+        mapper.setTimeZone(timeZone);
+        mapper.setDateFormat(formatter);
         mapper.setLocale(locale);
 
         Map<String, Object> mapFromJsonElement;

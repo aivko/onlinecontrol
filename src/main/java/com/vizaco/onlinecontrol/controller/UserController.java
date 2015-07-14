@@ -241,14 +241,21 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "/users/checkEmail", method = RequestMethod.POST)
     @ResponseBody
-    public String checkEmail(@RequestBody String json) throws IOException {
+    public String checkEmail(@RequestBody String json) {
         JsonUtil jsonUtil = new JsonUtil();
-        String email = jsonUtil.getJsonElement(json, "email");
+        String badResponse = "{\"result\":\"false\"}";
+        String okResponse = "{\"result\":\"true\"}";
+        String email = null;
+        try {
+            email = jsonUtil.getJsonElement(json, "email");
+        } catch (IOException e) {
+            return badResponse;
+        }
         User userByEmail = userService.findUserByEmail(email);
         if (userByEmail == null) {
-            return "{\"result\":\"false\"}";
+            return badResponse;
         }
-        return "{\"result\":\"true\"}";
+        return okResponse;
     }
 
 }

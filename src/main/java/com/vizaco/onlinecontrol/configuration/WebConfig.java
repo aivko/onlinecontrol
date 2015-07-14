@@ -38,6 +38,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  * Created by super on 6/5/15.
@@ -224,7 +225,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public Locale locale() {
-        return new Locale("ru", "Ru");
+        return new Locale("uk", "Ua");
+    }
+
+    @Bean
+    public TimeZone timeZone() {
+        return TimeZone.getTimeZone("Europe/Kiev");
     }
 
     @Bean
