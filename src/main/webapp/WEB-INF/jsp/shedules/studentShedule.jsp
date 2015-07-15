@@ -106,7 +106,7 @@
                                             "<tr>" +
                                             "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
                                             "<td>" + currentShedule.subject.name + "</td>" +
-                                            "<td>" + editJob + "</td>" +
+                                            "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + "</td>" +
                                             "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
                                             "</tr>"
 
