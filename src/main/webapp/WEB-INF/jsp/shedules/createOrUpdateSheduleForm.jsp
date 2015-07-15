@@ -98,6 +98,11 @@
                     <form:errors path="teacher" cssStyle="color:red;" cssclass="error"/>
                 </td>
             </tr>
+            <tr>
+                <td><form:label path="job">Домашнее задание:</form:label></td>
+                <td><form:input path="job" id="job"/><form:errors path="job" cssStyle="color:red;"
+                                                                    cssclass="error"/></td>
+            </tr>
 
         </table>
 

@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.controller;
 
 import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.sym.Name;
@@ -21,10 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -64,7 +62,7 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
-    public ModelAndView viewShedule() {
+    public ModelAndView studentShedule() {
 
         ModelAndView mav = new ModelAndView("shedules/studentShedule");
         return mav;
@@ -73,7 +71,7 @@ public class SheduleController extends BaseController {
 
     @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.POST, headers = "content-type=application/json")
     @ResponseBody
-    public String generateStudentReport(Locale locale, @RequestBody String json) {
+    public String generateStudentShedule(Locale locale, @RequestBody String json) {
 
         Date startDate;
         Date endDate;
@@ -120,7 +118,7 @@ public class SheduleController extends BaseController {
 
                 String keyDate = formatter.format(sheduleItem.getDate());
 
-                TreeSet<Shedule> setShedule = null;
+                TreeSet<Shedule> setShedule;
                 if (dateShedule.containsKey(keyDate)) {
                     setShedule = (TreeSet) dateShedule.get(keyDate);
                     if (setShedule == null) setShedule = new TreeSet<>();
@@ -133,6 +131,58 @@ public class SheduleController extends BaseController {
                 resultData.put(keyClazz, dateShedule);
             };
 
+            jsonResponse = mapper.writeValueAsString(resultData);
+        } catch (IOException e) {
+            return badResponse;
+        }
+
+        return jsonResponse;
+
+    }//generateReport
+
+    @RequestMapping(value = "/shedules/studentJournal", method = RequestMethod.GET)
+    public ModelAndView studentJournal() {
+
+        ModelAndView mav = new ModelAndView("shedules/studentJournal");
+        return mav;
+
+    }
+
+    @RequestMapping(value = "/shedules/studentJournal", method = RequestMethod.POST, headers = "content-type=application/json")
+    @ResponseBody
+    public String generateStudentJournal(Locale locale, @RequestBody String json) {
+
+        Date startDate;
+        Date endDate;
+
+        String badResponse = "{\"result\":\"false\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setTimeZone(timeZone);
+        mapper.setDateFormat(formatter);
+        mapper.setLocale(locale);
+
+        Map<String, Object> mapFromJsonElement;
+        try {
+            mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
+        } catch (IOException e) {
+            return badResponse;
+        }
+
+        try {
+            startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
+            endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
+        } catch (ParseException e) {
+            return badResponse;
+        }
+
+        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
+
+        String jsonResponse;
+        Map<String, Object> resultData = new TreeMap<>();
+        try {
+            resultData.put("result", "true");
+            resultData.put("shedules", sheduleList);
             jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
             return badResponse;
@@ -393,7 +443,7 @@ public class SheduleController extends BaseController {
     //READ CLASS
 
     @RequestMapping(value = "/shedules/{sheduleId}")
-    public ModelAndView read() {
+    public ModelAndView read(@PathVariable("sheduleId") String sheduleIdStr) {
 
         ModelAndView mav = new ModelAndView("/shedules/sheduleDetails");
 
