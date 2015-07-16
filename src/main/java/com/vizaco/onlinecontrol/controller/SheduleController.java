@@ -176,7 +176,9 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
+        List<Shedule> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
+
+//        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();

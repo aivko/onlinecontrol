@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.*;
+import java.beans.Expression;
 import java.time.DayOfWeek;
 import java.util.Date;
 import java.util.List;
@@ -53,6 +55,20 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         query.setParameter("startDate", start);
         query.setParameter("endDate", end);
         return query.getResultList();
+    }
+
+    @Override
+    public List getSheduleByCriteria(Date start, Date end) throws DataAccessException {
+        CriteriaBuilder criteriaBuilder = this.em.getCriteriaBuilder();
+        CriteriaQuery criteriaQuery = criteriaBuilder.createQuery();
+        Root<Shedule> sheduleRoot = criteriaQuery.from(Shedule.class);
+        Root<Student> studentRoot = criteriaQuery.from(Student.class);
+        criteriaQuery.multiselect(sheduleRoot, studentRoot);
+        criteriaQuery.where(criteriaBuilder.between(sheduleRoot.get("date"), start, end),
+                criteriaBuilder.equal(sheduleRoot.get("clazz"), studentRoot.get("clazz")));
+        Query query = em.createQuery(criteriaQuery);
+        List<Object[]> resultList = query.getResultList();
+        return resultList;
     }
 
     @Override

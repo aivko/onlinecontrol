@@ -145,10 +145,9 @@ CREATE INDEX news_topic ON news (topic);
 
 CREATE TABLE grades (
   id         BIGINT IDENTITY PRIMARY KEY,
-  date       DATE,
-  period_id  BIGINT NOT NULL,
-  subject_id BIGINT NOT NULL,
+  shedule_id BIGINT NOT NULL,
   student_id BIGINT NOT NULL,
+  task VARCHAR(100),
   mark       INTEGER
 );
 CREATE INDEX grades_student_id ON grades (student_id);

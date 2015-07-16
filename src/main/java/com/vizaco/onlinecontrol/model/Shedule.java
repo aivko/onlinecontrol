@@ -1,11 +1,16 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
+import com.fasterxml.jackson.databind.ser.impl.AttributePropertyWriter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *  Simple business object representing a shedule.
@@ -43,6 +48,10 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
 
     @Column(name = "job")
     private String job;
+
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shedule", fetch = FetchType.EAGER)
+    private Set<Grade> grades;
 
     public Date getDate() {
         return date;
@@ -82,6 +91,14 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
     }
 
     public String getJob() {
