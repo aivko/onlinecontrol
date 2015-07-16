@@ -47,6 +47,12 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
+    public List getSheduleByCriteria(Date start, Date end) throws DataAccessException {
+        return sheduleDao.getSheduleByCriteria(start, end);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Period findPeriodById(Long id) throws DataAccessException {
         return sheduleDao.findPeriodById(id);
     }
