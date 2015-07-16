@@ -77,7 +77,7 @@
 
                             text = text +
                                     "<div>" + keyClazz
-                                    "</div>";
+                            "</div>";
 
                             for (var keyDate in data[keyClazz]) {
 
@@ -92,6 +92,7 @@
                                         "<th>Период</th>" +
                                         "<th>Предмет</th>" +
                                         "<th>Задание</th>" +
+                                        "<th>Оценка</th>" +
                                         "<th>Преподаватель</th>" +
                                         "</tr>" +
                                         "</thead>" +
@@ -100,15 +101,24 @@
 
                                     var currentShedule = data[keyClazz][keyDate][keyShedule];
 
-                                    var editJob = "<a href='/onlinecontrol/shedules/" + currentShedule.id + "'>"  + (currentShedule.job == null ? "<--ввести задание-->" : currentShedule.job) + "</a>";
-
                                     text = text +
                                             "<tr>" +
                                             "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
                                             "<td>" + currentShedule.subject.name + "</td>" +
                                             "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + "</td>" +
+                                            "<td>";
+                                    var countMark = currentShedule.grades.length;
+                                    for (var keyGrade in currentShedule.grades) {
+                                        text = text +
+                                                (currentShedule.grades[keyGrade].task == null ? "" : (currentShedule.grades[keyGrade].task + " - ")) +
+                                                (currentShedule.grades[keyGrade].mark == null ? "" : ("Оценка - " + currentShedule.grades[keyGrade].mark)) +
+                                                (countMark == 0 ? "" : "<br/>");
+                                        countMark--;
+                                    }
+                                    text = text +
+                                            "</td>" +
                                             "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
-                                            "</tr>"
+                                            "</tr>";
 
                                 }
 

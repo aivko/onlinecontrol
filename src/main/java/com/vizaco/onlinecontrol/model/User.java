@@ -23,6 +23,7 @@ public class User extends BaseEntity implements UserDetails{
     @Column(name = "password")
     private String password;
 
+    @JsonIgnore
     @Transient
     private String passwordConfirm;
 
