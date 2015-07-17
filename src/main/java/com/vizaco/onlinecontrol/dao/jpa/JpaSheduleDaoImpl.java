@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.dao.jpa;
 import com.vizaco.onlinecontrol.dao.ClazzDao;
 import com.vizaco.onlinecontrol.dao.SheduleDao;
 import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.representation.JournalView;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
@@ -59,15 +60,35 @@ public class JpaSheduleDaoImpl implements SheduleDao {
 
     @Override
     public List getSheduleByCriteria(Date start, Date end) throws DataAccessException {
+
+        //Similarly:
+        //  SELECT DISTINCT
+        //      Shedule, Clazz.students, Grade
+        //      FROM Shedule Shedule
+        //          INNER JOIN shedule.clazz clazz
+        //          LEFT JOIN shedule.grades grade
+        //  WHERE shedule.date BETWEEN :startDate and :endDate
         CriteriaBuilder criteriaBuilder = this.em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = criteriaBuilder.createQuery();
         Root<Shedule> sheduleRoot = criteriaQuery.from(Shedule.class);
-        Root<Student> studentRoot = criteriaQuery.from(Student.class);
-        criteriaQuery.multiselect(sheduleRoot, studentRoot);
-        criteriaQuery.where(criteriaBuilder.between(sheduleRoot.get("date"), start, end),
-                criteriaBuilder.equal(sheduleRoot.get("clazz"), studentRoot.get("clazz")));
+        Join grade = sheduleRoot.join("grades", JoinType.LEFT);
+        Join clazz = sheduleRoot.join("clazz", JoinType.INNER);
+        Join student = clazz.join("students", JoinType.INNER);
+        criteriaQuery.select(criteriaBuilder.construct(JournalView.class,
+                sheduleRoot.get("date"),
+                sheduleRoot.get("period"),
+                sheduleRoot.get("subject"),
+                sheduleRoot.get("clazz"),
+                sheduleRoot.get("teacher"),
+                sheduleRoot.get("job"),
+                student,
+                grade.get("task"),
+                grade.get("mark")));
+//        criteriaQuery.distinct(true).multiselect(sheduleRoot, student, grade);
+        criteriaQuery.where(criteriaBuilder.between(sheduleRoot.get("date"), start, end));
         Query query = em.createQuery(criteriaQuery);
-        List<Object[]> resultList = query.getResultList();
+        List<JournalView> resultList = query.getResultList();
+
         return resultList;
     }
 
