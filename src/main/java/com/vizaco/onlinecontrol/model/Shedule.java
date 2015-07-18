@@ -49,7 +49,7 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
     @Column(name = "job")
     private String job;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shedule", fetch = FetchType.EAGER)
     private Set<Grade> grades;
 
@@ -93,20 +93,20 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
         this.teacher = teacher;
     }
 
-    public Set<Grade> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(Set<Grade> grades) {
-        this.grades = grades;
-    }
-
     public String getJob() {
         return job;
     }
 
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
     }
 
     @Override

@@ -110,6 +110,7 @@
                                     var countMark = currentShedule.grades.length;
                                     for (var keyGrade in currentShedule.grades) {
                                         text = text +
+                                                (currentShedule.grades[keyGrade].student == null ? "" : (currentShedule.grades[keyGrade].student.lastName + currentShedule.grades[keyGrade].student.firstName + " : ")) +
                                                 (currentShedule.grades[keyGrade].task == null ? "" : (currentShedule.grades[keyGrade].task + " - ")) +
                                                 (currentShedule.grades[keyGrade].mark == null ? "" : ("Оценка - " + currentShedule.grades[keyGrade].mark)) +
                                                 (countMark == 0 ? "" : "<br/>");
