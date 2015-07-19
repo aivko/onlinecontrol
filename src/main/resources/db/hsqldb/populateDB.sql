@@ -74,8 +74,8 @@ INSERT INTO grades VALUES (2, 1, 2, 'Домашнее задание1', NULL);
 INSERT INTO grades VALUES (4, 1, 2, 'Домашнее задание2', 10);
 INSERT INTO grades VALUES (5, 2, 2, 'Домашнее задание3', 10);
 INSERT INTO grades VALUES (6, 2, 2, NULL, 10);
-INSERT INTO grades VALUES (7, 2, 1, 'Домашнее задание5', 10);
-INSERT INTO grades VALUES (3, 3, 2, 'Уборка в классе', 7);
+INSERT INTO grades VALUES (7, 3, 1, 'Домашнее задание5', 10);
+INSERT INTO grades VALUES (3, 2, 2, 'Уборка в классе', 7);
 
 INSERT INTO parents_students VALUES (1, 1);
 INSERT INTO parents_students VALUES (1, 2);

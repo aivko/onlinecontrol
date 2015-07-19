@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.sym.Name;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import com.vizaco.onlinecontrol.service.StudentService;
@@ -97,39 +98,44 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
+        List<JournalView> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();
         try {
             resultData.put("result", "true");
-            for (Shedule sheduleItem : sheduleList) {
+            for (JournalView sheduleItem : sheduleList) {
 
-                String keyClazz = sheduleItem.getClazz().toString();
 
-                TreeMap<String, Object> dateShedule = null;
 
-                if (resultData.containsKey(keyClazz)) {
-                    dateShedule = (TreeMap) resultData.get(keyClazz);
-                    if (dateShedule == null) dateShedule = new TreeMap<>();
-                }else {
-                    dateShedule = new TreeMap<>();
-                }
-
-                String keyDate = formatter.format(sheduleItem.getDate());
-
-                TreeSet<Shedule> setShedule;
-                if (dateShedule.containsKey(keyDate)) {
-                    setShedule = (TreeSet) dateShedule.get(keyDate);
-                    if (setShedule == null) setShedule = new TreeSet<>();
-                }else {
-                    setShedule = new TreeSet<>();
-                }
-                setShedule.add(sheduleItem);
-                dateShedule.put(keyDate, setShedule);
-
-                resultData.put(keyClazz, dateShedule);
             };
+//            for (Shedule sheduleItem : sheduleList) {
+//
+//                String keyClazz = sheduleItem.getClazz().toString();
+//
+//                TreeMap<String, Object> dateShedule = null;
+//
+//                if (resultData.containsKey(keyClazz)) {
+//                    dateShedule = (TreeMap) resultData.get(keyClazz);
+//                    if (dateShedule == null) dateShedule = new TreeMap<>();
+//                }else {
+//                    dateShedule = new TreeMap<>();
+//                }
+//
+//                String keyDate = formatter.format(sheduleItem.getDate());
+//
+//                TreeSet<Shedule> setShedule;
+//                if (dateShedule.containsKey(keyDate)) {
+//                    setShedule = (TreeSet) dateShedule.get(keyDate);
+//                    if (setShedule == null) setShedule = new TreeSet<>();
+//                }else {
+//                    setShedule = new TreeSet<>();
+//                }
+//                setShedule.add(sheduleItem);
+//                dateShedule.put(keyDate, setShedule);
+//
+//                resultData.put(keyClazz, dateShedule);
+//            };
 
             jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
@@ -176,9 +182,7 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<Shedule> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
-
-//        List<Shedule> sheduleList = sheduleService.getSheduleBeetwenInterval(startDate, endDate);
+        List<Object[]> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();

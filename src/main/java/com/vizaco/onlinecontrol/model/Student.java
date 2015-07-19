@@ -1,10 +1,14 @@
 package com.vizaco.onlinecontrol.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Simple business object representing a schoolboy.
@@ -20,9 +24,13 @@ public class Student extends Person {
     private List<Parent> parents;
 
     @NotNull
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "clazz_id")
     private Clazz clazz;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student", fetch = FetchType.EAGER)
+    private Set<Grade> grades;
 
     public List<Parent> getParents() {
         return parents;
@@ -40,5 +48,12 @@ public class Student extends Person {
         this.clazz = clazz;
     }
 
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
+    }
 }
 

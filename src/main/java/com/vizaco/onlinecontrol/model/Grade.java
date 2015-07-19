@@ -1,6 +1,8 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,13 +17,13 @@ import java.util.Date;
 @Table(name = "grades")
 public class Grade extends BaseEntity{
 
-    @JsonBackReference
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "shedule_id")
     private Shedule shedule;
 
     @NotNull
-    @OneToOne(fetch=FetchType.EAGER)
+    @JsonIgnore
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="student_id")
     private Student student;
 

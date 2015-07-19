@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,10 +27,6 @@ public class Clazz extends BaseEntity{
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
     private Set<Student> students;
-
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clazz", fetch = FetchType.EAGER)
-    private Set<Shedule> shedule;
 
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="school_id")
@@ -65,14 +62,6 @@ public class Clazz extends BaseEntity{
 
     public void setSchool(School school) {
         this.school = school;
-    }
-
-    public Set<Shedule> getShedule() {
-        return shedule;
-    }
-
-    public void setShedule(Set<Shedule> shedule) {
-        this.shedule = shedule;
     }
 
     @Override
