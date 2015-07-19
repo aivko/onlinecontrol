@@ -26,8 +26,8 @@ p{ margin: 0; }
 p img.left{ float: left; padding: 0; }
 p img.right{ float: right;  }
 
-a, a:link, a:active{ color: #009; text-decoration: underline; }
-a:focus, a:hover{ color: #000; }
+a, a:link, a:active{ color: #000; text-decoration: none; }
+a:focus, a:hover{ color: #0000FF; }
 
 blockquote  { color: #666; font-style: italic; }
 strong      { font-weight: bold; }

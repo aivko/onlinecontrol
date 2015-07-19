@@ -79,10 +79,6 @@ body{
     color: #fff;
     margin: 5px 0;
 }
-.header-button .button:hover {
-    background-color: #383838;
-    border: 3px solid #cccccc;
-}
 .header-list {
     text-align: center;
 }
@@ -171,7 +167,6 @@ body{
     display: block;
     width: 340px;
     margin: 20px auto;
-    height: 440px;
     text-align: center;
     border: 2px solid #000;
     border-radius: 20px;
@@ -182,7 +177,7 @@ body{
 }
 .data-author {
     padding: 0 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .data-user {
     display: block;
@@ -240,5 +235,14 @@ body{
 .userAccount-link:hover {
     font-size: 18px;
     font-weight: bold;
+}
+/*Users page*/
+.users-wrapperHeader {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px maroon;
+    margin-top: -30px;
 }
 
