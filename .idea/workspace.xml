@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="break word">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parents/createOrUpdateParentForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parents/createOrUpdateParentForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/dataTables_1_10_7/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/dataTables_1_10_7/css/jquery.dataTables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/frontend/css/reset.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/frontend/css/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/frontend/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/frontend/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users/users.jsp" />
+    <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="pages!">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -1070,13 +1064,7 @@
       <workItem from="1436695246446" duration="8283000" />
       <workItem from="1436803276542" duration="2609000" />
       <workItem from="1436894728288" duration="9933000" />
-      <workItem from="1437062148784" duration="11664000" />
-    </task>
-    <task id="LOCAL-00040" summary="security">
-      <created>1433343751577</created>
-      <option name="number" value="00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1433343751577</updated>
+      <workItem from="1437062148784" duration="12618000" />
     </task>
     <task id="LOCAL-00041" summary="security">
       <created>1433430173380</created>
@@ -1366,11 +1354,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437062268183</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="pages">
+      <created>1437307124325</created>
+      <option name="number" value="00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1437307124325</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1371181000" />
+    <option name="totallyTimeSpent" value="1372135000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1477,8 +1471,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added exception handler" />
-    <MESSAGE value="CRUD User" />
     <MESSAGE value="Logger" />
     <MESSAGE value="Tests Student, User" />
     <MESSAGE value="Tests exceptions" />
@@ -1502,7 +1494,9 @@
     <MESSAGE value="account page" />
     <MESSAGE value="account page last" />
     <MESSAGE value="break word" />
-    <option name="LAST_COMMIT_MESSAGE" value="break word" />
+    <MESSAGE value="pages" />
+    <MESSAGE value="pages!" />
+    <option name="LAST_COMMIT_MESSAGE" value="pages!" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1762,7 +1756,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/SheduleController.java</url>
-          <line>369</line>
+          <line>373</line>
           <properties />
           <option name="timeStamp" value="860" />
         </line-breakpoint>
@@ -2110,7 +2104,7 @@
         <state vertical-scroll-proportion="13.618101">
           <caret line="5970" column="61" selection-start-line="5970" selection-start-column="53" selection-end-line="5970" selection-end-column="61" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
