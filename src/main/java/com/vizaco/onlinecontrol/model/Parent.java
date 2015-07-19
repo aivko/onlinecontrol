@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Simple business object representing a user.
@@ -16,13 +17,13 @@ public class Parent extends Person {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "parents_students", joinColumns = @JoinColumn(name = "parent_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private List<Student> students;
+    private Set<Student> students;
 
-    public List<Student> getStudents() {
+    public Set<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(Set<Student> students) {
         this.students = students;
     }
 

@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class ParentController extends BaseController{
@@ -152,7 +153,7 @@ public class ParentController extends BaseController{
 
         Parent parent = utils.getParent(parentIdStr);
         Student student = utils.getStudent(studentIdStr);
-        List<Student> students = parent.getStudents();
+        Set<Student> students = parent.getStudents();
         if (!students.contains(student)) {
             students.add(student);
         }
@@ -166,7 +167,7 @@ public class ParentController extends BaseController{
 
         Parent parent = utils.getParent(parentIdStr);
         Student student = utils.getStudent(studentIdStr);
-        List<Student> students = parent.getStudents();
+        Set<Student> students = parent.getStudents();
         students.remove(student);
 
         parentService.saveParent(parent);

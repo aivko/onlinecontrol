@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  *  Simple business object representing a teacher.
@@ -18,27 +19,27 @@ public class Teacher extends Person{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "teachers_subjects", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
-    private List<Subject> subjects;
+    private Set<Subject> subjects;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "teachers_clazzes", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "clazz_id"))
-    private List<Clazz> clazzes;
+    private Set<Clazz> clazzes;
 
-    public List<Subject> getSubjects() {
+    public Set<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<Subject> subjects) {
+    public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
     }
 
-    public List<Clazz> getClazzes() {
+    public Set<Clazz> getClazzes() {
         return clazzes;
     }
 
-    public void setClazzes(List<Clazz> clazzes) {
+    public void setClazzes(Set<Clazz> clazzes) {
         this.clazzes = clazzes;
     }
 

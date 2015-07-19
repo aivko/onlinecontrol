@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController extends BaseController{
@@ -175,7 +176,7 @@ public class UserController extends BaseController{
 
         User user = utils.getUser(userIdStr);
         Role role = utils.getRole(roleIdStr);
-        List<Role> roles = user.getRoles();
+        Set<Role> roles = user.getRoles();
         if (!roles.contains(role)) {
             roles.add(role);
         }
@@ -189,7 +190,7 @@ public class UserController extends BaseController{
 
         User user = utils.getUser(userIdStr);
         Role role = utils.getRole(roleIdStr);
-        List<Role> roles = user.getRoles();
+        Set<Role> roles = user.getRoles();
         roles.remove(role);
 
         userService.saveUser(user);

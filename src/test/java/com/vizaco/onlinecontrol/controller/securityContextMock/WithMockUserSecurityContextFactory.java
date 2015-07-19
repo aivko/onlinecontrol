@@ -22,7 +22,7 @@ public class WithMockUserSecurityContextFactory implements WithSecurityContextFa
     @Override
     public SecurityContext createSecurityContext(WithMockUser customUser) {
 
-        List<Role> authorities = new ArrayList<>();
+        Set<Role> authorities = new HashSet<>();
         for(String role : customUser.roles()) {
 
             Role roleNew = new Role();

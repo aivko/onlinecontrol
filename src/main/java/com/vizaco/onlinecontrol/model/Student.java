@@ -21,7 +21,7 @@ public class Student extends Person {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "parents_students", joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "parent_id"))
-    private List<Parent> parents;
+    private Set<Parent> parents;
 
     @NotNull
     @JsonIgnore
@@ -32,11 +32,11 @@ public class Student extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student", fetch = FetchType.EAGER)
     private Set<Grade> grades;
 
-    public List<Parent> getParents() {
+    public Set<Parent> getParents() {
         return parents;
     }
 
-    public void setParents(List<Parent> parents) {
+    public void setParents(Set<Parent> parents) {
         this.parents = parents;
     }
 

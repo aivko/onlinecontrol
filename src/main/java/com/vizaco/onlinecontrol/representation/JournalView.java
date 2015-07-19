@@ -24,14 +24,12 @@ public class JournalView {
 
     private Student student;
 
-    private String task;
-
-    private Integer mark;
+    private Grade grade;
 
     public JournalView() {
     }
 
-    public JournalView(Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student, String task, Integer mark) {
+    public JournalView(Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student, Grade grade) {
         this.date = date;
         this.period = period;
         this.subject = subject;
@@ -39,8 +37,7 @@ public class JournalView {
         this.teacher = teacher;
         this.job = job;
         this.student = student;
-        this.task = task;
-        this.mark = mark;
+        this.grade = grade;
     }
 
     public Date getDate() {
@@ -99,19 +96,11 @@ public class JournalView {
         this.student = student;
     }
 
-    public String getTask() {
-        return task;
+    public Grade getGrade() {
+        return grade;
     }
 
-    public void setTask(String task) {
-        this.task = task;
-    }
-
-    public Integer getMark() {
-        return mark;
-    }
-
-    public void setMark(Integer mark) {
-        this.mark = mark;
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 }
