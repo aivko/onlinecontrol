@@ -25,7 +25,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @MappedSuperclass
-public abstract class Person extends BaseEntity {
+public abstract class Person extends BaseEntity implements Comparable<Person> {
 
     @NotEmpty
     @Column(name = "first_name")
@@ -128,5 +128,49 @@ public abstract class Person extends BaseEntity {
         return result;
     }
 
+    @Override
+    public int compareTo(Person person) {
+        int result = 0;
 
+        if (this == person) return 0;
+        if (person == null) return 1;
+
+        if (lastName != null && person.lastName != null) {
+            result = lastName.compareTo(person.lastName);
+        }else if(lastName != null && person.lastName == null){
+            result = 1;
+        }else if(lastName == null && person.lastName != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (firstName != null && person.firstName != null) {
+            result = firstName.compareTo(person.firstName);
+        }else if(firstName != null && person.firstName == null){
+            result = 1;
+        }else if(firstName == null && person.firstName != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (middleName != null && person.middleName != null) {
+            result = middleName.compareTo(person.middleName);
+        }else if(middleName != null && person.middleName == null){
+            result = 1;
+        }else if(middleName == null && person.middleName != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (dateOfBirth != null && person.dateOfBirth != null) {
+            result = dateOfBirth.compareTo(person.dateOfBirth);
+        }else if(dateOfBirth != null && person.dateOfBirth == null){
+            result = 1;
+        }else if(dateOfBirth == null && person.dateOfBirth != null){
+            result = -1;
+        }
+
+        return result;
+
+    }
 }

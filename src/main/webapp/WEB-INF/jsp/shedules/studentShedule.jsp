@@ -77,13 +77,13 @@
 
                             text = text +
                                     "<div>" + keyClazz
-                            "</div>";
+                                    "</div>";
 
                             for (var keyDate in data[keyClazz]) {
 
                                 text = text +
                                         "<div>" + keyDate
-                                "</div>";
+                                        "</div>";
 
                                 text = text +
                                         "<table id='studentsResult' class='display' cellspacing='0' border='1' width='35%'>" +
@@ -107,7 +107,7 @@
                                             "<td>" + currentShedule.subject.name + "</td>" +
                                             "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + "</td>" +
                                             "<td>";
-                                    var countMark = currentShedule.grades.length;
+                                    var countMark = currentShedule.grade.length;
                                     for (var keyGrade in currentShedule.grades) {
                                         text = text +
                                                 (currentShedule.grades[keyGrade].student == null ? "" : (currentShedule.grades[keyGrade].student.lastName + currentShedule.grades[keyGrade].student.firstName + " : ")) +

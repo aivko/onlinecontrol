@@ -1,17 +1,10 @@
 package com.vizaco.onlinecontrol.controller;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.core.sym.Name;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
-import com.vizaco.onlinecontrol.service.StudentService;
-import com.vizaco.onlinecontrol.service.UserService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
@@ -23,12 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.io.*;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.*;
-import java.util.zip.GZIPOutputStream;
 
 @Controller
 public class SheduleController extends BaseController {
@@ -44,6 +36,9 @@ public class SheduleController extends BaseController {
 
     @Autowired
     private JsonUtil jsonUtil;
+
+    @Autowired
+    private Utils utils;
 
     @Autowired
     private TimeZone timeZone;
@@ -104,9 +99,32 @@ public class SheduleController extends BaseController {
         Map<String, Object> resultData = new TreeMap<>();
         try {
             resultData.put("result", "true");
-            for (JournalView sheduleItem : sheduleList) {
+            for (JournalView journalView : sheduleList) {
 
-
+//                String keyClazz = sheduleItem.getClazz().toString();
+//
+//                TreeMap<Date, Object> dateShedule;
+//
+//                if (resultData.containsKey(keyClazz)) {
+//                    dateShedule = (TreeMap<Date, Object>) resultData.get(keyClazz);
+//                    if (dateShedule == null) dateShedule = new TreeMap<>();
+//                }else {
+//                    dateShedule = new TreeMap<>();
+//                }
+//
+//                Date keyDate = sheduleItem.getDate();
+//
+//                TreeSet<JournalView> setShedule;
+//                if (dateShedule.containsKey(keyDate)) {
+//                    setShedule = (TreeSet<JournalView>) dateShedule.get(keyDate);
+//                    if (setShedule == null) setShedule = new TreeSet<>();
+//                }else {
+//                    setShedule = new TreeSet<>();
+//                }
+//                setShedule.add(sheduleItem);
+//                dateShedule.put(keyDate, setShedule);
+//
+//                resultData.put(keyClazz, dateShedule);
 
             };
 //            for (Shedule sheduleItem : sheduleList) {

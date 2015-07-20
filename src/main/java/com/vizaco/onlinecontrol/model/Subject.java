@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "subjects")
-public class Subject extends BaseEntity{
+public class Subject extends BaseEntity implements Comparable<Subject>{
 
     @Column(name = "name")
     private String name;
@@ -44,5 +44,24 @@ public class Subject extends BaseEntity{
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Subject subject) {
+        int result = 0;
+
+        if (this == subject) return 0;
+        if (subject == null) return 1;
+
+        if (name != null && subject.name != null) {
+            result = name.compareTo(subject.name);
+        }else if(name != null && subject.name == null){
+            result = 1;
+        }else if(name == null && subject.name != null){
+            result = -1;
+        }
+
+        return result;
+
     }
 }

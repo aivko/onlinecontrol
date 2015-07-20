@@ -14,7 +14,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "clazzes")
-public class Clazz extends BaseEntity{
+public class Clazz extends BaseEntity implements Comparable<Clazz>{
 
     @NotEmpty
     @Column(name = "number")
@@ -90,5 +90,33 @@ public class Clazz extends BaseEntity{
         final StringBuilder sb = new StringBuilder("");
         sb.append(number).append(" - ").append(letter);
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Clazz clazz) {
+        int result = 0;
+
+        if (this == clazz) return 0;
+        if (clazz == null) return 1;
+
+        if (number != null && clazz.number != null) {
+            result = number.compareTo(clazz.number);
+        }else if(number != null && clazz.number == null){
+            result = 1;
+        }else if(number == null && clazz.number != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (letter != null && clazz.letter != null) {
+            result = letter.compareTo(clazz.letter);
+        }else if(letter != null && clazz.letter == null){
+            result = 1;
+        }else if(letter == null && clazz.letter != null){
+            result = -1;
+        }
+
+        return result;
+
     }
 }

@@ -8,7 +8,7 @@ import java.util.Date;
  *  Simple business object representing a gradles.
  *
  */
-public class JournalView {
+public class JournalView implements Comparable<JournalView>{
 
     private Date date;
 
@@ -20,9 +20,9 @@ public class JournalView {
 
     private Teacher teacher;
 
-    private String job;
-
     private Student student;
+
+    private String job;
 
     private Grade grade;
 
@@ -102,5 +102,116 @@ public class JournalView {
 
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        JournalView that = (JournalView) o;
+
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (period != null ? !period.equals(that.period) : that.period != null) return false;
+        if (subject != null ? !subject.equals(that.subject) : that.subject != null) return false;
+        if (clazz != null ? !clazz.equals(that.clazz) : that.clazz != null) return false;
+        if (teacher != null ? !teacher.equals(that.teacher) : that.teacher != null) return false;
+        if (student != null ? !student.equals(that.student) : that.student != null) return false;
+        return !(grade != null ? !grade.equals(that.grade) : that.grade != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (period != null ? period.hashCode() : 0);
+        result = 31 * result + (subject != null ? subject.hashCode() : 0);
+        result = 31 * result + (clazz != null ? clazz.hashCode() : 0);
+        result = 31 * result + (teacher != null ? teacher.hashCode() : 0);
+        result = 31 * result + (student != null ? student.hashCode() : 0);
+        result = 31 * result + (grade != null ? grade.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public int compareTo(JournalView journalView) {
+        int result = 0;
+
+        if (this == journalView) return 0;
+        if (journalView == null) return 1;
+
+        if (date != null && journalView.date != null) {
+            result = date.compareTo(journalView.date);
+        }else if(date != null && journalView.date == null){
+            result = 1;
+        }else if(date == null && journalView.date != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (period != null && journalView.period != null) {
+            result = period.compareTo(journalView.period);
+        }else if(period != null && journalView.period == null){
+            result = 1;
+        }else if(period == null && journalView.period != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (subject != null && journalView.subject != null) {
+            result = subject.compareTo(journalView.subject);
+        }else if(subject != null && journalView.subject == null){
+            result = 1;
+        }else if(subject == null && journalView.subject != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (teacher != null && journalView.teacher != null) {
+            result = teacher.compareTo(journalView.teacher);
+        }else if(teacher != null && journalView.teacher == null){
+            result = 1;
+        }else if(teacher == null && journalView.teacher != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (student != null && journalView.student != null) {
+            result = student.compareTo(journalView.student);
+        }else if(student != null && journalView.student == null){
+            result = 1;
+        }else if(student == null && journalView.student != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (clazz != null && journalView.clazz != null) {
+            result = clazz.compareTo(journalView.clazz);
+        }else if(clazz != null && journalView.clazz == null){
+            result = 1;
+        }else if(clazz == null && journalView.clazz != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (grade != null && journalView.grade != null) {
+            result = grade.compareTo(journalView.grade);
+        }else if(grade != null && journalView.grade == null){
+            result = 1;
+        }else if(grade == null && journalView.grade != null){
+            result = -1;
+        }
+        if (result != 0) return result;
+
+        if (job != null && journalView.job != null) {
+            result = job.compareTo(journalView.job);
+        }else if(job != null && journalView.job == null){
+            result = 1;
+        }else if(job == null && journalView.job != null){
+            result = -1;
+        }
+
+        return result;
+
     }
 }
