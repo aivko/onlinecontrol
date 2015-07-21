@@ -58,8 +58,8 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(lastName);
-        sb.append(" ").append(firstName).append(" ").append(middleName);
+        StringBuilder sb = new StringBuilder("");
+        sb.append(lastName).append(" ").append(firstName).append(" ").append(middleName);
         return sb.toString();
     }
 }
