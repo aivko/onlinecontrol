@@ -51,5 +51,11 @@ public class Teacher extends Person{
         this.gender = gender;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(lastName);
+        sb.append(" ").append(firstName).append(" ").append(middleName);
+        return sb.toString();
+    }
 
 }

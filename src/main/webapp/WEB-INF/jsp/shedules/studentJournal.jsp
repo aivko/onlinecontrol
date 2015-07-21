@@ -18,16 +18,21 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
-    <!-- Include jQuery Cookie plugin -->
-    <script src='//cdn.jsdelivr.net/jquery.cookie/1.4.0/jquery.cookie.js' type="text/javascript"></script>
+    <!-- Include jQuery booklet plugin -->
+    <spring:url value="/resources/booklet/jquery.booklet.latest.css" var="bookletCss1"/>
+    <link href="${bookletCss1}" rel="stylesheet" media="screen"/>
 
-    <!-- Include jQuery Cynteka Pivot plugin -->
-    <spring:url value="/resources/pivot-0.9.1/css/jquery.cy-pivot.css" var="pivotCss"/>
-    <link href="${pivotCss}" rel="stylesheet" media="screen"/>
+    <spring:url value="/resources/booklet/jquery.booklet.1.1.0.css" var="bookletCss"/>
+    <link href="${bookletCss}" rel="stylesheet" media="screen"/>
 
-    <spring:url value="/resources/pivot-0.9.1/js/jquery.cy-pivot.js" var="pivotJs"/>
-    <script src="${pivotJs}"></script>
+    <spring:url value="/resources/booklet/jquery.booklet.1.1.0.js" var="bookletJs"/>
+    <script src="${bookletJs}"></script>
 
+    <spring:url value="/resources/booklet/jquery.easing.1.3.js" var="bookletJs1"/>
+    <script src="${bookletJs1}"></script>
+
+    <spring:url value="/resources/booklet/jquery.booklet.latest.js" var="bookletJs2"/>
+    <script src="${bookletJs2}"></script>
     <script type="text/javascript">
 
         $(function () {
@@ -75,38 +80,8 @@
                 },
                 success: function (data) {
                     if (data.result == "true") {
-                            $.each(data.shedules, function(idx, value){
-                                value.total = 1;
-                            });
-                            var dimensions = {
-                                date : {
-                                    label :'Дата',
-                                },
-                                period : {
-                                    label :'Период',
-                                },
-                                subject : {
-                                    label :'Предмет',
-                                },
-                                clazz : {
-                                    label :'Класс',
-                                },
-                                teacher : {
-                                    label :'Учитель',
-                                },
-                                job : {
-                                    label :'Задание',
-                                },
-                            };
-                            $("#pivot").cypivot({
-                                data : data.shedules,
-                                dimensions : dimensions,
-                                verticalDimensions : ["period", "subject", "clazz", "teacher"],
-                                horizontalDimensions : ["date", "job"],
-                                resizable : true,
-                                resizableWidth : true,
-                                resizableHeight : false,
-                            });
+
+
                     }
                     else {
                         $("#result").text("Нет данных");
@@ -120,7 +95,6 @@
         }
 
     </script>
-
 </head>
 <body>
 
@@ -137,8 +111,6 @@
         </div>
         <button onclick="studentReport()">Сформировать</button>
         <br/>
-
-        <div id="pivot"></div>
 
     </div>
 

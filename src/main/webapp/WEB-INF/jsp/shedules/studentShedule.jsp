@@ -71,66 +71,97 @@
 
                         $('#result').text(""); //delete old data
                         var text = "<br>";
-                        for (var keyClazz in data) {
-
-                            if (keyClazz == "result") continue;
+                        var dataShedule = data.shedule;
+                        for (var keyClazz in dataShedule) {
 
                             text = text +
                                     "<div>" + keyClazz
+                            "</div>";
+
+                            for (var keyStudent in dataShedule[keyClazz]) {
+
+                                text = text +
+                                        "<div>" + keyStudent
+                                "</div>";
+
+                                for (var keyDate in dataShedule[keyClazz][keyStudent]) {
+
+                                    text = text +
+                                            "<div>" + keyDate
                                     "</div>";
 
-                            for (var keyDate in data[keyClazz]) {
-
-                                text = text +
-                                        "<div>" + keyDate
-                                        "</div>";
-
-                                text = text +
-                                        "<table id='studentsResult' class='display' cellspacing='0' border='1' width='35%'>" +
-                                        "<thead>" +
-                                        "<tr>" +
-                                        "<th>Период</th>" +
-                                        "<th>Предмет</th>" +
-                                        "<th>Задание</th>" +
-                                        "<th>Оценка</th>" +
-                                        "<th>Преподаватель</th>" +
-                                        "</tr>" +
-                                        "</thead>" +
-                                        "<tbody>";
-                                for (var keyShedule in data[keyClazz][keyDate]) {
-
-                                    var currentShedule = data[keyClazz][keyDate][keyShedule];
-
                                     text = text +
+                                            "<table id='studentsResult' class='display' cellspacing='0' border='1' width='50%'>" +
+                                            "<thead>" +
                                             "<tr>" +
-                                            "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
-                                            "<td>" + currentShedule.subject.name + "</td>" +
-                                            "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + "</td>" +
-                                            "<td>";
-                                    var countMark = currentShedule.grade.length;
-                                    for (var keyGrade in currentShedule.grades) {
-                                        text = text +
-                                                (currentShedule.grades[keyGrade].student == null ? "" : (currentShedule.grades[keyGrade].student.lastName + currentShedule.grades[keyGrade].student.firstName + " : ")) +
-                                                (currentShedule.grades[keyGrade].task == null ? "" : (currentShedule.grades[keyGrade].task + " - ")) +
-                                                (currentShedule.grades[keyGrade].mark == null ? "" : ("Оценка - " + currentShedule.grades[keyGrade].mark)) +
-                                                (countMark == 0 ? "" : "<br/>");
-                                        countMark--;
+                                            "<th>Период</th>" +
+                                            "<th>Предмет</th>" +
+                                            "<th>Задание</th>" +
+                                            "<th>Оценка</th>" +
+                                            "<th>Преподаватель</th>" +
+                                            "</tr>" +
+                                            "</thead>" +
+                                            "<tbody>";
+                                    for (var keyPeriod in dataShedule[keyClazz][keyStudent][keyDate]) {
+
+                                        for (var keySubject in dataShedule[keyClazz][keyStudent][keyDate][keyPeriod]) {
+
+                                            for (var keyTeacher in dataShedule[keyClazz][keyStudent][keyDate][keyPeriod][keySubject]) {
+
+                                                var sheduleData = dataShedule[keyClazz][keyStudent][keyDate][keyPeriod][keySubject][keyTeacher];
+                                                var extraHome = "";
+                                                var markJob = "";
+
+                                                if (sheduleData.length > 0) {
+
+                                                    var countMark = sheduleData.length;
+                                                    for (var journalView in sheduleData) {
+
+                                                        if (sheduleData[journalView].grade == null) {
+                                                            countMark--;
+                                                            continue;
+                                                        }
+
+                                                        if (sheduleData[journalView].grade.mark == null & sheduleData[journalView].grade.task != null) {
+                                                            extraHome = extraHome + sheduleData[journalView].grade.task + (countMark == 0 ? "" : "<br/>");
+                                                        } else if (sheduleData[journalView].grade.mark != null & sheduleData[journalView].grade.task == null) {
+                                                            markJob = markJob + sheduleData[journalView].grade.mark + (countMark == 0 ? "" : "<br/>");
+                                                        } else {
+                                                            markJob = markJob +
+                                                                    sheduleData[journalView].grade.task + ": " + sheduleData[journalView].grade.mark +
+                                                                    (countMark == 0 ? "" : "<br/>");
+                                                        }
+                                                        countMark--;
+                                                    }
+                                                    ;
+
+                                                }
+                                                text = text +
+                                                        "<tr>" +
+                                                        "<td>" + sheduleData[0].period.startTime + " - " + sheduleData[0].period.endTime + "</td>" +
+                                                        "<td>" + sheduleData[0].subject.name + "</td>" +
+                                                        "<td>" + (sheduleData[0].job == null ? "" : sheduleData[0].job) + (extraHome == "" ? "" : "<br/>" + extraHome) +
+                                                        "</td>" +
+                                                        "<td>" +
+                                                        markJob +
+                                                        "</td>" +
+                                                        "<td>" + sheduleData[0].teacher.lastName + " " + sheduleData[0].teacher.firstName + " " + sheduleData[0].teacher.middleName + "</td>" +
+                                                        "</tr>";
+
+                                            }
+                                            ;
+                                        }
+                                        ;
                                     }
+                                    ;
                                     text = text +
-                                            "</td>" +
-                                            "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
-                                            "</tr>";
-
+                                            "</tbody>" +
+                                            "</table>" +
+                                            "<br>";
                                 }
-
-                                text = text +
-                                        "</tbody>" +
-                                        "</table>" +
-                                        "<br>";
-
-
+                                ;
                             }
-
+                            ;
                         }
                         ;
 
