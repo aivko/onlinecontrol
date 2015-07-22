@@ -44,6 +44,7 @@ public class SheduleController extends BaseController {
     private TimeZone timeZone;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("F/dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
 
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
@@ -76,7 +77,8 @@ public class SheduleController extends BaseController {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setTimeZone(timeZone);
-        mapper.setDateFormat(formatter);
+        dateFormatJson.setTimeZone(timeZone);
+        mapper.setDateFormat(dateFormatJson);
         mapper.setLocale(locale);
 
         Map<String, Object> mapFromJsonElement;
@@ -100,61 +102,8 @@ public class SheduleController extends BaseController {
         try {
             resultData.put("result", "true");
             for (JournalView journalView : sheduleList) {
-
-//                String keyClazz = sheduleItem.getClazz().toString();
-//
-//                TreeMap<Date, Object> dateShedule;
-//
-//                if (resultData.containsKey(keyClazz)) {
-//                    dateShedule = (TreeMap<Date, Object>) resultData.get(keyClazz);
-//                    if (dateShedule == null) dateShedule = new TreeMap<>();
-//                }else {
-//                    dateShedule = new TreeMap<>();
-//                }
-//
-//                Date keyDate = sheduleItem.getDate();
-//
-//                TreeSet<JournalView> setShedule;
-//                if (dateShedule.containsKey(keyDate)) {
-//                    setShedule = (TreeSet<JournalView>) dateShedule.get(keyDate);
-//                    if (setShedule == null) setShedule = new TreeSet<>();
-//                }else {
-//                    setShedule = new TreeSet<>();
-//                }
-//                setShedule.add(sheduleItem);
-//                dateShedule.put(keyDate, setShedule);
-//
-//                resultData.put(keyClazz, dateShedule);
-
+                utils.convertToTree(journalView, resultData);
             };
-//            for (Shedule sheduleItem : sheduleList) {
-//
-//                String keyClazz = sheduleItem.getClazz().toString();
-//
-//                TreeMap<String, Object> dateShedule = null;
-//
-//                if (resultData.containsKey(keyClazz)) {
-//                    dateShedule = (TreeMap) resultData.get(keyClazz);
-//                    if (dateShedule == null) dateShedule = new TreeMap<>();
-//                }else {
-//                    dateShedule = new TreeMap<>();
-//                }
-//
-//                String keyDate = formatter.format(sheduleItem.getDate());
-//
-//                TreeSet<Shedule> setShedule;
-//                if (dateShedule.containsKey(keyDate)) {
-//                    setShedule = (TreeSet) dateShedule.get(keyDate);
-//                    if (setShedule == null) setShedule = new TreeSet<>();
-//                }else {
-//                    setShedule = new TreeSet<>();
-//                }
-//                setShedule.add(sheduleItem);
-//                dateShedule.put(keyDate, setShedule);
-//
-//                resultData.put(keyClazz, dateShedule);
-//            };
-
             jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
             return badResponse;
@@ -200,7 +149,7 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<Object[]> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
+        List<JournalView> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();

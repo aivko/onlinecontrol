@@ -139,13 +139,21 @@ public class Utils {
         return news;
     }
 
-    public void convertToTree(JournalView journalView, Map<Clazz, Object> resultData) throws NoSuchFieldException, IllegalAccessException {
+    public void convertToTree(JournalView journalView, Map<String, Object> resultData) {
+
+        Map<Clazz, Object> clazzShedule;
+        if (resultData.containsKey("shedule")) {
+            clazzShedule = (Map<Clazz, Object>) resultData.get("shedule");
+            if (clazzShedule == null) clazzShedule = new TreeMap<>();
+        } else {
+            clazzShedule = new TreeMap<>();
+        }
 
         Clazz keyClazz = journalView.getClazz();
 
         TreeMap<Student, Object> studentShedule;
-        if (resultData.containsKey(keyClazz)) {
-            studentShedule = (TreeMap<Student, Object>) resultData.get(keyClazz);
+        if (clazzShedule.containsKey(keyClazz)) {
+            studentShedule = (TreeMap<Student, Object>) clazzShedule.get(keyClazz);
             if (studentShedule == null) studentShedule = new TreeMap<>();
         } else {
             studentShedule = new TreeMap<>();
@@ -161,11 +169,21 @@ public class Utils {
             dateShedule = new TreeMap<>();
         }
 
+        Date keyDate = journalView.getDate();
+
+        TreeMap<Period, Object> periodShedule;
+        if (dateShedule.containsKey(keyDate)) {
+            periodShedule = (TreeMap<Period, Object>) dateShedule.get(keyDate);
+            if (periodShedule == null) periodShedule = new TreeMap<>();
+        } else {
+            periodShedule = new TreeMap<>();
+        }
+
         Period keyPeriod = journalView.getPeriod();
 
         TreeMap<Subject, Object> subjectShedule;
-        if (dateShedule.containsKey(keyPeriod)) {
-            subjectShedule = (TreeMap<Subject, Object>) dateShedule.get(keyPeriod);
+        if (periodShedule.containsKey(keyPeriod)) {
+            subjectShedule = (TreeMap<Subject, Object>) periodShedule.get(keyPeriod);
             if (subjectShedule == null) subjectShedule = new TreeMap<>();
         } else {
             subjectShedule = new TreeMap<>();
@@ -174,8 +192,8 @@ public class Utils {
         Subject keySubject = journalView.getSubject();
 
         TreeMap<Teacher, Object> teacherShedule;
-        if (subjectShedule.containsKey(keyPeriod)) {
-            teacherShedule = (TreeMap<Teacher, Object>) subjectShedule.get(keyPeriod);
+        if (subjectShedule.containsKey(keySubject)) {
+            teacherShedule = (TreeMap<Teacher, Object>) subjectShedule.get(keySubject);
             if (teacherShedule == null) teacherShedule = new TreeMap<>();
         } else {
             teacherShedule = new TreeMap<>();
@@ -191,10 +209,14 @@ public class Utils {
             setShedule = new TreeSet<>();
         }
         setShedule.add(journalView);
-//        dateShedule.put(keyDate, setShedule);
+        teacherShedule.put(keyTeacher, setShedule);
+        subjectShedule.put(keySubject, teacherShedule);
+        periodShedule.put(keyPeriod, subjectShedule);
+        dateShedule.put(keyDate, periodShedule);
+        studentShedule.put(keyStudent, dateShedule);
+        clazzShedule.put(keyClazz, studentShedule);
 
-        resultData.put(keyClazz, dateShedule);
-
+        resultData.put("shedule", clazzShedule);
 
     }
 

@@ -3,19 +3,22 @@ package com.vizaco.onlinecontrol.utils;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
 
-import java.util.Date;
-import java.util.TreeMap;
+import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by super on 7/20/15.
  */
 public class TestMain {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-
-//        JournalView journalView = new JournalView(new Date(), new Period(), new Subject(), new Clazz(), new Teacher(), "11111", new Student(), new Grade());
-//        Utils utils = new Utils();
-//
-//        utils.convertToTree(journalView, new String[]{"clazz", "student", "date", "period", "subject", "teacher"}, new TreeMap<>());
+        TimeZone timeZone = TimeZone.getTimeZone("Europe/Kiev");
+        Locale locale = new Locale("ru", "Ru");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("F/dd.MM.yyyy/EEEE", locale);
+        simpleDateFormat.setTimeZone(timeZone);
+        Calendar instance = Calendar.getInstance(timeZone, locale);
+        instance.set(2015, 06, 01);
+        System.out.println(simpleDateFormat.format(instance.getTime()));
 
     }
 }

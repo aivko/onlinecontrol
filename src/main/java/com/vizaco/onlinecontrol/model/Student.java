@@ -55,5 +55,12 @@ public class Student extends Person {
     public void setGrades(Set<Grade> grades) {
         this.grades = grades;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("");
+        sb.append(lastName).append(" ").append(firstName).append(" ").append(middleName);
+        return sb.toString();
+    }
 }
 
