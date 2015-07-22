@@ -45,6 +45,111 @@
             });
         });
 
+        function expandTree(key, data, level) {
+
+            for (var varKey in data) {
+
+                if (data[varKey] instanceof Array) {
+
+                    if (data[varKey].length <= 0) {
+                        //not understand data
+                        continue;
+                    }
+                    var extraHome = "";
+                    var markJob = "";
+                    var countMark = data[varKey].length;
+                    for (var journalView in data[varKey]) {
+
+                        if (data[varKey][journalView].grade == null) {
+                            countMark--;
+                            continue;
+                        }
+
+                        if (data[varKey][journalView].grade.mark == null & data[varKey][journalView].grade.task != null) {
+                            extraHome = extraHome + data[varKey][journalView].grade.task + (countMark == 0 ? "" : "<br/>");
+                        } else if (data[varKey][journalView].grade.mark != null & data[varKey][journalView].grade.task == null) {
+                            markJob = markJob + data[varKey][journalView].grade.mark + (countMark == 0 ? "" : "<br/>");
+                        } else {
+                            markJob = markJob +
+                                    data[varKey][journalView].grade.task + ": " + data[varKey][journalView].grade.mark +
+                                    (countMark == 0 ? "" : "<br/>");
+                        }
+                        countMark--;
+                    }
+                    ;
+
+                    tempClazz = "" +
+                            "<div>" + data[varKey][0].clazz.number + " - " + data[varKey][0].clazz.letter +
+                            "</div>";
+                    tempStudent = "" +
+                            "<div>" + data[varKey][0].student.lastName + " " + data[varKey][0].student.firstName + " " + data[varKey][0].student.middleName +
+                            "</div>";
+
+                    var arrayDate = data[varKey][0].date.split("/");
+                    weekNumber = arrayDate[0];
+                    tempDate = "" +
+                            "<div>" + arrayDate[1] + "/" + arrayDate[2].charAt(0).toUpperCase() + arrayDate[2].substr(1).toLowerCase() +
+                            "</div>";
+
+                    textBefore = "" +
+                            "<table cellspacing='0' border='1' width='50%'>" +
+                            "<thead>" +
+                            "<tr>" +
+                            "<th>Период</th>" +
+                            "<th>Предмет</th>" +
+                            "<th>Задание</th>" +
+                            "<th>Оценка</th>" +
+                            "<th>Преподаватель</th>" +
+                            "</tr>" +
+                            "</thead>" +
+                            "<tbody>";
+                    text = "" +
+                            "<tr>" +
+                            "<td>" + data[varKey][0].period.startTime + " - " + data[varKey][0].period.endTime + "</td>" +
+                            "<td>" + data[varKey][0].subject.name + "</td>" +
+                            "<td>" + (data[varKey][0].job == null ? "" : data[varKey][0].job) + (extraHome == "" ? "" : "<br/>" + extraHome) +
+                            "</td>" +
+                            "<td>" +
+                            markJob +
+                            "</td>" +
+                            "<td>" + data[varKey][0].teacher.lastName + " " + data[varKey][0].teacher.firstName + " " + data[varKey][0].teacher.middleName + "</td>" +
+                            "</tr>";
+                    textAfter = "" +
+                            "</tbody>" +
+                            "</table>" +
+                            "<br>";
+
+                } else {
+                    expandTree(varKey, data[varKey], ++level);
+                    if (level == 2) {
+                        textClazz = textClazz + tempStudent + textStudent;
+                        textStudent = "";
+                    }else if (level == 3) {
+                        alert(parseInt(weekNumber,10));
+                        textStudent = textStudent + tempDate + textBefore + textTemp + textAfter;
+                        textTemp = "";
+                    } else if(level == 5){
+                        textTemp = textTemp + text;
+                    }
+                    level--;
+                }
+                ;
+            }
+
+        }
+
+        var textClazz = "";
+        var tempClazz = "";
+        var textStudent = "";
+        var tempStudent = "";
+        var tempDate = "";
+        var weekNumber = "";
+        var textBefore = "";
+        var text = "";
+        var textTemp = "";
+        var textAfter = "";
+        var resultText = "";
+
         function studentReport() {
 
             var token = $("meta[name='_csrf']").attr("content");
@@ -68,104 +173,18 @@
                 success: function (data) {
 
                     if (data.result == "true") {
-
-                        $('#result').text(""); //delete old data
-                        var text = "<br>";
-                        var dataShedule = data.shedule;
-                        for (var keyClazz in dataShedule) {
-
-                            text = text +
-                                    "<div>" + keyClazz
-                            "</div>";
-
-                            for (var keyStudent in dataShedule[keyClazz]) {
-
-                                text = text +
-                                        "<div>" + keyStudent
-                                "</div>";
-
-                                for (var keyDate in dataShedule[keyClazz][keyStudent]) {
-
-                                    text = text +
-                                            "<div>" + keyDate
-                                    "</div>";
-
-                                    text = text +
-                                            "<table id='studentsResult' class='display' cellspacing='0' border='1' width='50%'>" +
-                                            "<thead>" +
-                                            "<tr>" +
-                                            "<th>Период</th>" +
-                                            "<th>Предмет</th>" +
-                                            "<th>Задание</th>" +
-                                            "<th>Оценка</th>" +
-                                            "<th>Преподаватель</th>" +
-                                            "</tr>" +
-                                            "</thead>" +
-                                            "<tbody>";
-                                    for (var keyPeriod in dataShedule[keyClazz][keyStudent][keyDate]) {
-
-                                        for (var keySubject in dataShedule[keyClazz][keyStudent][keyDate][keyPeriod]) {
-
-                                            for (var keyTeacher in dataShedule[keyClazz][keyStudent][keyDate][keyPeriod][keySubject]) {
-
-                                                var sheduleData = dataShedule[keyClazz][keyStudent][keyDate][keyPeriod][keySubject][keyTeacher];
-                                                var extraHome = "";
-                                                var markJob = "";
-
-                                                if (sheduleData.length > 0) {
-
-                                                    var countMark = sheduleData.length;
-                                                    for (var journalView in sheduleData) {
-
-                                                        if (sheduleData[journalView].grade == null) {
-                                                            countMark--;
-                                                            continue;
-                                                        }
-
-                                                        if (sheduleData[journalView].grade.mark == null & sheduleData[journalView].grade.task != null) {
-                                                            extraHome = extraHome + sheduleData[journalView].grade.task + (countMark == 0 ? "" : "<br/>");
-                                                        } else if (sheduleData[journalView].grade.mark != null & sheduleData[journalView].grade.task == null) {
-                                                            markJob = markJob + sheduleData[journalView].grade.mark + (countMark == 0 ? "" : "<br/>");
-                                                        } else {
-                                                            markJob = markJob +
-                                                                    sheduleData[journalView].grade.task + ": " + sheduleData[journalView].grade.mark +
-                                                                    (countMark == 0 ? "" : "<br/>");
-                                                        }
-                                                        countMark--;
-                                                    }
-                                                    ;
-
-                                                }
-                                                text = text +
-                                                        "<tr>" +
-                                                        "<td>" + sheduleData[0].period.startTime + " - " + sheduleData[0].period.endTime + "</td>" +
-                                                        "<td>" + sheduleData[0].subject.name + "</td>" +
-                                                        "<td>" + (sheduleData[0].job == null ? "" : sheduleData[0].job) + (extraHome == "" ? "" : "<br/>" + extraHome) +
-                                                        "</td>" +
-                                                        "<td>" +
-                                                        markJob +
-                                                        "</td>" +
-                                                        "<td>" + sheduleData[0].teacher.lastName + " " + sheduleData[0].teacher.firstName + " " + sheduleData[0].teacher.middleName + "</td>" +
-                                                        "</tr>";
-
-                                            }
-                                            ;
-                                        }
-                                        ;
-                                    }
-                                    ;
-                                    text = text +
-                                            "</tbody>" +
-                                            "</table>" +
-                                            "<br>";
-                                }
-                                ;
-                            }
-                            ;
+                        resultText = "<br>";
+                        var level = 1;
+                        for (var key in data.shedule) {
+                            expandTree(key, data.shedule[key], level);
+                            resultText = resultText + tempClazz + textClazz;
+                            textClazz = "";
                         }
                         ;
 
-                        $('#result').append(text);
+                        var $result = $('#result');
+                        $result.text("");
+                        $result.append(resultText); //delete old data and add new
 
                     }
                     else {
@@ -175,7 +194,7 @@
 
                 },
                 error: function (data, status, er) {
-                    alert("Не удалось сформировать отчет");
+                    $('#result').text("Не удалось сформировать отчет");
                 }
             });
         }

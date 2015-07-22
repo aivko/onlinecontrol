@@ -44,7 +44,7 @@ public class SheduleController extends BaseController {
     private TimeZone timeZone;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
+    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("F/dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
 
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
@@ -77,6 +77,7 @@ public class SheduleController extends BaseController {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setTimeZone(timeZone);
+        dateFormatJson.setTimeZone(timeZone);
         mapper.setDateFormat(dateFormatJson);
         mapper.setLocale(locale);
 
