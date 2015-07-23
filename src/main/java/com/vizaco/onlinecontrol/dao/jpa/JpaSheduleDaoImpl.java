@@ -1,6 +1,5 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
-import com.vizaco.onlinecontrol.dao.ClazzDao;
 import com.vizaco.onlinecontrol.dao.SheduleDao;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
@@ -8,11 +7,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
-import java.beans.Expression;
-import java.time.DayOfWeek;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         if (resultList.isEmpty()) {
             return null; // handle no-results case
         } else {
-            return (Shedule)resultList.get(0);
+            return (Shedule) resultList.get(0);
         }
     }
 
@@ -100,7 +98,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         if (resultList.isEmpty()) {
             return null; // handle no-results case
         } else {
-            return (Period)resultList.get(0);
+            return (Period) resultList.get(0);
         }
 
     }
@@ -120,7 +118,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         if (resultList.isEmpty()) {
             return null; // handle no-results case
         } else {
-            return (Subject)resultList.get(0);
+            return (Subject) resultList.get(0);
         }
 
     }
@@ -140,7 +138,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         if (resultList.isEmpty()) {
             return null; // handle no-results case
         } else {
-            return (Teacher)resultList.get(0);
+            return (Teacher) resultList.get(0);
         }
 
     }
@@ -154,14 +152,13 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     @Override
     public void saveShedule(Shedule shedule) {
 
-        if (shedule == null){
+        if (shedule == null) {
             return;
         }
 
         if (shedule.getId() == null) {
             this.em.persist(shedule);
-        }
-        else {
+        } else {
             this.em.merge(shedule);
         }
 

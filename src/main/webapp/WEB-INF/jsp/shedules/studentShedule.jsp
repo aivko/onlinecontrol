@@ -20,6 +20,11 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
+    <style>
+        .leftColumn {float:left;}
+        .rightColumn {float:left;}
+    </style>
+
     <script type="text/javascript">
 
         $(function () {
@@ -86,9 +91,9 @@
                             "</div>";
 
                     var arrayDate = data[varKey][0].date.split("/");
-                    weekNumber = arrayDate[0];
+                    weekNumber = data[varKey][0].dayOfWeek;
                     tempDate = "" +
-                            "<div>" + arrayDate[1] + "/" + arrayDate[2].charAt(0).toUpperCase() + arrayDate[2].substr(1).toLowerCase() +
+                            "<div>" + arrayDate[0] + "/" + arrayDate[1].charAt(0).toUpperCase() + arrayDate[1].substr(1).toLowerCase() +
                             "</div>";
 
                     textBefore = "" +
@@ -120,13 +125,29 @@
                             "<br>";
 
                 } else {
-                    expandTree(varKey, data[varKey], ++level);
+
+                    level++;
+
+                    expandTree(varKey, data[varKey], level);
+
                     if (level == 2) {
-                        textClazz = textClazz + tempStudent + textStudent;
-                        textStudent = "";
+                        textStudent = textStudent + tempStudent + textDate;
+                        textDate = "";
                     }else if (level == 3) {
-                        alert(parseInt(weekNumber,10));
-                        textStudent = textStudent + tempDate + textBefore + textTemp + textAfter;
+                        var weekNumberInt = parseInt(weekNumber, 10);
+                        var textColumnBegin = "";
+                        var textColumnEnd = "";
+                        if(weekNumberInt == 1){
+                            textColumnBegin = "<div class='leftColumn'>";
+                        }else if(weekNumberInt == 3){
+                            textColumnEnd = "</div>";
+                        }else if(weekNumberInt == 4){
+                            textColumnBegin = "<div class='rightColumn'>";
+                        }else if(weekNumberInt == 5){
+                            textColumnEnd = "</div>";
+                        }
+
+                        textDate = textDate + textColumnBegin + tempDate + textBefore + textTemp + textAfter + textColumnEnd;
                         textTemp = "";
                     } else if(level == 5){
                         textTemp = textTemp + text;
@@ -138,10 +159,10 @@
 
         }
 
-        var textClazz = "";
         var tempClazz = "";
         var textStudent = "";
         var tempStudent = "";
+        var textDate = "";
         var tempDate = "";
         var weekNumber = "";
         var textBefore = "";
@@ -177,8 +198,8 @@
                         var level = 1;
                         for (var key in data.shedule) {
                             expandTree(key, data.shedule[key], level);
-                            resultText = resultText + tempClazz + textClazz;
-                            textClazz = "";
+                            resultText = resultText + tempClazz + textStudent;
+                            textStudent = "";
                         }
                         ;
 

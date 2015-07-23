@@ -1,8 +1,11 @@
 package com.vizaco.onlinecontrol.representation;
 
 import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.utils.DateUtils;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *  Simple business object representing a gradles.
@@ -11,6 +14,8 @@ import java.util.Date;
 public class JournalView implements Comparable<JournalView>{
 
     private Date date;
+
+    private Integer dayOfWeek;
 
     private Period period;
 
@@ -26,11 +31,16 @@ public class JournalView implements Comparable<JournalView>{
 
     private Grade grade;
 
+    private DateUtils dateUtils = new DateUtils();
+
     public JournalView() {
     }
 
     public JournalView(Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student, Grade grade) {
         this.date = date;
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        this.dayOfWeek = dateUtils.getNumberDayOfWeek(instance);
         this.period = period;
         this.subject = subject;
         this.clazz = clazz;
@@ -102,6 +112,14 @@ public class JournalView implements Comparable<JournalView>{
 
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    public Integer getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(Integer dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
     @Override
