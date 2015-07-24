@@ -27,13 +27,6 @@ public class JpaRoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public List<Role> findByName(String name) {
-        Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.name LIKE :name");
-        query.setParameter("name", name + "%");
-        return query.getResultList();
-    }
-
-    @Override
     public Role findById(Long id) {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role WHERE role.id =:id");
         query.setParameter("id", id);

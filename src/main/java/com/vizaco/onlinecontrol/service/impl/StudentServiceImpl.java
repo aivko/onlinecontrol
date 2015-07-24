@@ -37,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<Student> findStudentByLastName(String lastName) throws DataAccessException {
+    public List<Student> findStudentByLastName(String lastName) throws DataAccessException {
         return studentDao.findByLastName(lastName);
     }
 

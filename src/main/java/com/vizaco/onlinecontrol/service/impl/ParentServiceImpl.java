@@ -37,12 +37,6 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<Parent> findParentByLastName(String lastName) throws DataAccessException {
-        return parentDao.findByLastName(lastName);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public List<Parent> getAllParents() throws DataAccessException {
         return parentDao.getAllParents();
     }

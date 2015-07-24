@@ -15,8 +15,6 @@ public interface RoleService {
 
     Role findRoleById(Long id) throws DataAccessException;
 
-    Collection<Role> findRoleByName(String name) throws DataAccessException;
-
     List<Role> getAllRoles() throws DataAccessException;
 
     void saveRole(Role role) throws DataAccessException;

@@ -16,8 +16,6 @@ public interface ClazzService {
 
     Clazz findClazzById(Long id) throws DataAccessException;
 
-    Collection<Clazz> findClazzByName(String number, String letter) throws DataAccessException;
-
     List<Clazz> getAllClazzes() throws DataAccessException;
 
     void saveClazz(Clazz clazz) throws DataAccessException;

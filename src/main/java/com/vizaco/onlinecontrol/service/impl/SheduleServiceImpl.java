@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.service.impl;
 import com.vizaco.onlinecontrol.dao.ClazzDao;
 import com.vizaco.onlinecontrol.dao.SheduleDao;
 import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,26 +30,14 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Shedule> getAllShedule() throws DataAccessException {
-        return sheduleDao.getAllShedule();
+    public List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+        return sheduleDao.getSheduleBeetwenAnyCriteria(start, end, clazz, period, subject, teacher);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException {
-        return sheduleDao.getSheduleBeetwenIntervalAndClass(start, end, clazz);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Shedule> getSheduleBeetwenInterval(Date start, Date end) throws DataAccessException {
-        return sheduleDao.getSheduleBeetwenInterval(start, end);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List getSheduleByCriteria(Date start, Date end) throws DataAccessException {
-        return sheduleDao.getSheduleByCriteria(start, end);
+    public List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException {
+        return sheduleDao.getJournalByCriteria(start, end);
     }
 
     @Override
@@ -91,6 +80,16 @@ public class SheduleServiceImpl implements SheduleService {
     @Transactional
     public void saveShedule(Shedule shedule) throws DataAccessException {
         sheduleDao.saveShedule(shedule);
+    }
+
+    @Override
+    @Transactional
+    public void deleteShedule(Long id) throws DataAccessException {
+        Shedule shedule = sheduleDao.findSheduleById(id);
+        if (shedule == null){
+            return;
+        }
+        sheduleDao.deleteShedule(shedule);
     }
 
 }

@@ -51,7 +51,7 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
 
-        List<Shedule> shedules = sheduleService.getAllShedule();
+        List<Shedule> shedules = sheduleService.getSheduleBeetwenAnyCriteria(null, null, null, null, null, null);
 
         mav.addObject("shedules", shedules);
 
@@ -95,7 +95,7 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<JournalView> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
+        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();
@@ -149,7 +149,7 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<JournalView> sheduleList = sheduleService.getSheduleByCriteria(startDate, endDate);
+        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();
@@ -357,7 +357,7 @@ public class SheduleController extends BaseController {
 
         }
 
-        List<Shedule> shedulesInDB = sheduleService.getSheduleBeetwenIntervalAndClass(startDate.getTime(), endDate.getTime(), clazz);
+        List<Shedule> shedulesInDB = sheduleService.getSheduleBeetwenAnyCriteria(startDate.getTime(), endDate.getTime(), clazz, null, null, null);
 
         for (Shedule shedule : shedules) {
 

@@ -106,14 +106,14 @@ public abstract class Person extends BaseEntity implements Comparable<Person> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Student student = (Student) o;
+        Person person = (Person) o;
 
-        if (id != null ? !id.equals(student.id) : student.id != null) return false;
-        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(student.lastName) : student.lastName != null) return false;
-        if (middleName != null ? !middleName.equals(student.middleName) : student.middleName != null) return false;
-        if (dateOfBirth != null ? !dateOfBirth.equals(student.dateOfBirth) : student.dateOfBirth != null) return false;
-        return gender == student.gender;
+        if (id != null ? !id.equals(person.id) : person.id != null) return false;
+        if (firstName != null ? !firstName.equals(person.firstName) : person.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(person.lastName) : person.lastName != null) return false;
+        if (middleName != null ? !middleName.equals(person.middleName) : person.middleName != null) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(person.dateOfBirth) : person.dateOfBirth != null) return false;
+        return gender == person.gender;
 
     }
 

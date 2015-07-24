@@ -11,6 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,30 +35,45 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<Shedule> getAllShedule() throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule");
-        return query.getResultList();
+    public List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+
+        CriteriaBuilder cb = this.em.getCriteriaBuilder();
+        CriteriaQuery criteriaQuery = cb.createQuery();
+        Root<Shedule> shedule = criteriaQuery.from(Shedule.class);
+        criteriaQuery.select(shedule);
+
+        List<Predicate> predicates = new ArrayList<Predicate>();
+
+        if (start != null | end != null) {
+            predicates.add(cb.between(shedule.get("date"), start, end));
+        }
+
+        if (clazz != null) {
+            predicates.add(cb.equal(shedule.get("clazz"), clazz));
+        }
+
+        if (period != null) {
+            predicates.add(cb.equal(shedule.get("period"), period));
+        }
+
+        if (subject != null) {
+            predicates.add(cb.equal(shedule.get("subject"), subject));
+        }
+
+        if (teacher != null) {
+            predicates.add(cb.equal(shedule.get("teacher"), teacher));
+        }
+
+        criteriaQuery.where(predicates.toArray(new Predicate[]{}));
+        Query query = em.createQuery(criteriaQuery);
+        List<Shedule> resultList = query.getResultList();
+
+        return resultList;
+
     }
 
     @Override
-    public List<Shedule> getSheduleBeetwenIntervalAndClass(Date start, Date end, Clazz clazz) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule WHERE Shedule.clazz =:clazz AND Shedule.date between :startDate and :endDate");
-        query.setParameter("clazz", clazz);
-        query.setParameter("startDate", start);
-        query.setParameter("endDate", end);
-        return query.getResultList();
-    }
-
-    @Override
-    public List<Shedule> getSheduleBeetwenInterval(Date start, Date end) throws DataAccessException {
-        Query query = this.em.createQuery("SELECT DISTINCT Shedule FROM Shedule Shedule WHERE Shedule.date between :startDate and :endDate");
-        query.setParameter("startDate", start);
-        query.setParameter("endDate", end);
-        return query.getResultList();
-    }
-
-    @Override
-    public List getSheduleByCriteria(Date start, Date end) throws DataAccessException {
+    public List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException {
 
         //Similarly:
         //  SELECT DISTINCT
@@ -150,7 +166,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public void saveShedule(Shedule shedule) {
+    public void saveShedule(Shedule shedule) throws DataAccessException{
 
         if (shedule == null) {
             return;
@@ -164,5 +180,14 @@ public class JpaSheduleDaoImpl implements SheduleDao {
 
     }
 
+    @Override
+    public void deleteShedule(Shedule shedule) throws DataAccessException {
+
+        if (shedule == null){
+            return;
+        }
+        this.em.remove(shedule);
+
+    }
 
 }

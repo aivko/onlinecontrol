@@ -12,13 +12,25 @@ import java.util.*;
  */
 public class TestMain {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        TimeZone timeZone = TimeZone.getTimeZone("Europe/Kiev");
-        Locale locale = new Locale("ru", "Ru");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("F/dd.MM.yyyy/EEEE", locale);
-        simpleDateFormat.setTimeZone(timeZone);
-        Calendar instance = Calendar.getInstance(timeZone, locale);
-        instance.set(2015, 06, 01);
-        System.out.println(simpleDateFormat.format(instance.getTime()));
+
+        A a = new A();
+        a.item1 = 10;
+        a.item2 = 100;
+
+        A returnVal = mathodA(a);
+
+        System.out.println(a == returnVal);
 
     }
+
+    public static A mathodA(A b) {
+        b.item1 = 1;
+        return b;
+    }
+
+}
+
+class A {
+    int item1;
+    Integer item2;
 }

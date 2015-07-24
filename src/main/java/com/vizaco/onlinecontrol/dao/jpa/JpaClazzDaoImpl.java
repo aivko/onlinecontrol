@@ -25,13 +25,6 @@ public class JpaClazzDaoImpl implements ClazzDao {
         this.em = em;
     }
 
-    public List<Clazz> findByName(String number, String letter) {
-        Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.number = :number and clazz.letter = :letter");
-        query.setParameter("number", number);
-        query.setParameter("letter", letter);
-        return query.getResultList();
-    }
-
     @Override
     public Clazz findById(Long id) {
         Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.id =:id");

@@ -11,7 +11,7 @@ public interface StudentDao {
 
     List<Student> findByLastName(String lastName) throws DataAccessException;
 
-    List getAllStudents() throws DataAccessException;
+    List<Student> getAllStudents() throws DataAccessException;
 
     void save(Student student) throws DataAccessException;
 

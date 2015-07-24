@@ -40,12 +40,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<Role> findRoleByName(String name) throws DataAccessException {
-        return roleDao.findByName(name);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public List<Role> getAllRoles() throws DataAccessException {
         return roleDao.getAllRoles();
     }

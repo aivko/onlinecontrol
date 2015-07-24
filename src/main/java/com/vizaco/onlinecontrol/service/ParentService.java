@@ -16,8 +16,6 @@ public interface ParentService {
 
     Parent findParentById(Long id) throws DataAccessException;
 
-    Collection<Parent> findParentByLastName(String lastName) throws DataAccessException;
-    
     List<Parent> getAllParents() throws DataAccessException;
 
     void saveParent(Parent parent) throws DataAccessException;

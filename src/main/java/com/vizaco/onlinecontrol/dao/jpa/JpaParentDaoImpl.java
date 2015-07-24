@@ -25,12 +25,6 @@ public class JpaParentDaoImpl implements ParentDao {
         this.em = em;
     }
 
-    public List<Parent> findByLastName(String lastName) {
-        Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students WHERE parent.lastName LIKE :lastName");
-        query.setParameter("lastName", lastName);
-        return query.getResultList();
-    }
-
     @Override
     public Parent findById(Long id) {
         Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students WHERE parent.id =:id");

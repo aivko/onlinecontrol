@@ -11,8 +11,6 @@ public interface RoleDao {
 
     Role findById(Long id) throws DataAccessException;
 
-    List<Role> findByName(String name) throws DataAccessException;
-
     List<Role> getAllRoles() throws DataAccessException;
 
     void save(Role role) throws DataAccessException;
