@@ -142,23 +142,23 @@
                     if (level == 2) {
                         textStudent = textStudent + tempStudent + textDate;
                         textDate = "";
-                    }else if (level == 3) {
+                    } else if (level == 3) {
                         var weekNumberInt = parseInt(weekNumber, 10);
                         var textColumnBegin = "";
                         var textColumnEnd = "";
-                        if(weekNumberInt == 1){
+                        if (weekNumberInt == 1) {
                             textColumnBegin = "<div class='leftColumn'>";
-                        }else if(weekNumberInt == 3){
+                        } else if (weekNumberInt == 3) {
                             textColumnEnd = "</div>";
-                        }else if(weekNumberInt == 4){
+                        } else if (weekNumberInt == 4) {
                             textColumnBegin = "<div class='rightColumn'>";
-                        }else if(weekNumberInt == 5){
+                        } else if (weekNumberInt == 5) {
                             textColumnEnd = "</div>";
                         }
 
                         textDate = textDate + textColumnBegin + tempDate + textBefore + textTemp + textAfter + textColumnEnd;
                         textTemp = "";
-                    } else if(level == 5){
+                    } else if (level == 5) {
                         textTemp = textTemp + text;
                     }
                     level--;
@@ -212,19 +212,19 @@
                         }
                         ;
 
-                        var $result = $('#result');
+                        var $result = $('.flipbook');
                         $result.text("");
                         $result.append(resultText); //delete old data and add new
 
                     }
                     else {
-                        $('#result').text("Нет данных");
+                        $('.flipbook').text("Нет данных");
                     }
                     ;
 
                 },
                 error: function (data, status, er) {
-                    $('#result').text("Не удалось сформировать отчет");
+                    $('.flipbook').text("Не удалось сформировать отчет");
                 }
             });
         }
@@ -270,39 +270,21 @@
 <script type="text/javascript">
 
     function loadApp() {
-
-        // Create the flipbook
-
         $('.flipbook').turn({
-            // Width
-
-            width:922,
-
-            // Height
-
-            height:600,
-
-            // Elevation
-
+            width: 922,
+            height: 600,
             elevation: 50,
-
-            // Enable gradients
-
             gradients: true,
-
-            // Auto center this flipbook
-
             autoCenter: true
-
         });
     }
 
     // Load the HTML4 version if there's not CSS transform
 
     yepnope({
-        test : Modernizr.csstransforms,
-        yep: ['${turnJs}'],
-        nope: ['${html4Js}'],
+        test: Modernizr.csstransforms,
+        yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
+        nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
         both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
         complete: loadApp
     });
