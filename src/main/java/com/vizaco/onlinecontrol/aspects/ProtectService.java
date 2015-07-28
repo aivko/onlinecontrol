@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-
+//TODO: refactor
 @Component
 @Aspect
 public class ProtectService {
@@ -43,7 +43,7 @@ public class ProtectService {
     @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.Student> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
     public void filterStudentsList(List<Student> retVal) {
 
-        if (retVal == null){
+        if (retVal == null) {
             return;
         }
 
@@ -69,54 +69,115 @@ public class ProtectService {
 
     private void filterStudentsListResult(List<Student> currentVal, Person currentPerson) {
 
-//        if (currentPerson instanceof Student) {
-//
-//            Student student = (Student) currentPerson;
-//
-//            Iterator<Student> iterator = currentVal.iterator();
-//            while (iterator.hasNext()) {
-//                Student journalView = iterator.next();
-//                if (journalView.getStudent() == null || !journalView.getStudent().equals(student)) {
-//                    iterator.remove();
-//                }
-//            }
-//
-//        } else if (currentPerson instanceof Teacher) {
-//
-//            Teacher teacher = (Teacher) currentPerson;
-//
-//            Iterator<Student> iterator = currentVal.iterator();
-//            while (iterator.hasNext()) {
-//                JournalView journalView = iterator.next();
-//                if (journalView.getTeacher() == null || !journalView.getTeacher().equals(teacher)) {
-//                    iterator.remove();
-//                }
-//            }
-//
-//        } else if (currentPerson instanceof Parent) {
-//
-//            Parent parent = (Parent) currentPerson;
-//            Set<Student> accessStudents = parent.getStudents();
-//            if (accessStudents == null) {
-//                currentVal = null;
-//            }
-//
-//            Iterator<Student> iterator = currentVal.iterator();
-//            while (iterator.hasNext()) {
-//                JournalView journalView = iterator.next();
-//                if (journalView.getStudent() == null || !accessStudents.contains(journalView.getStudent())) {
-//                    iterator.remove();
-//                }
-//            }
-//
-//        }
+        if (currentPerson instanceof Student) {
 
+            Student student = (Student) currentPerson;
+
+            Iterator<Student> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                Student studentData = iterator.next();
+                if (studentData == null || !studentData.equals(student)) {
+                    iterator.remove();
+                }
+            }
+
+        } else if (currentPerson instanceof Teacher) {
+
+            Teacher teacher = (Teacher) currentPerson;
+
+            Iterator<Student> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                Student studentData = iterator.next();
+                if (studentData == null || !teacher.getClazzes().contains(studentData.getClazz())) {
+                    iterator.remove();
+                }
+            }
+
+        } else if (currentPerson instanceof Parent) {
+
+            Parent parent = (Parent) currentPerson;
+            Set<Student> accessStudents = parent.getStudents();
+            if (accessStudents == null) {
+                currentVal = null;
+            }
+
+            Iterator<Student> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                Student student = iterator.next();
+                if (student == null || !accessStudents.contains(student)) {
+                    iterator.remove();
+                }
+            }
+
+        }
+
+    }
+
+    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.Student com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    public void filterStudent(Student retVal) {
+
+        if (retVal == null) {
+            return;
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!correctAuthentication(authentication)) {
+            retVal = null;
+            return;
+        }
+
+        if (haveFullAccess(authentication)) return;
+
+        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+
+        if (currentPerson == null) {
+            retVal = null;
+            return;
+        }
+
+        retVal = filterStudentResult(retVal, currentPerson);
+
+    }
+
+    private Student filterStudentResult(Student currentVal, Person currentPerson) {
+
+        if (currentPerson instanceof Student) {
+
+            Student student = (Student) currentPerson;
+
+            if (currentVal == null || !currentVal.equals(student)) {
+                return null;
+            }
+
+        } else if (currentPerson instanceof Teacher) {
+
+            Teacher teacher = (Teacher) currentPerson;
+
+            if (currentVal == null || !teacher.getClazzes().contains(currentVal.getClazz())) {
+                return null;
+            }
+
+        } else if (currentPerson instanceof Parent) {
+
+            Parent parent = (Parent) currentPerson;
+            Set<Student> accessStudents = parent.getStudents();
+            if (accessStudents == null) {
+                return null;
+            }
+
+            if (currentVal == null || !accessStudents.contains(currentVal)) {
+                return null;
+            }
+        }
+
+        return currentVal;
     }
 
     @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
     public void filterJournalViewList(List<JournalView> retVal) {
 
-        if (retVal == null){
+        if (retVal == null) {
             return;
         }
 
