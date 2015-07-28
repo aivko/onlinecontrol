@@ -5,6 +5,9 @@ import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +41,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void saveUser(User user) throws DataAccessException {
         userDao.save(user);
+
+        //refresh authentication
+        SecurityContext context = SecurityContextHolder.getContext();
+        if (user.getId() == ((User) context.getAuthentication().getPrincipal()).getId()){
+            context.setAuthentication(new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities()));
+        }
+
     }
 
     @Override
@@ -47,7 +57,12 @@ public class UserServiceImpl implements UserService {
         if (user == null){
             return;
         }
-        userDao.delete(user);
+        //check authentication
+        SecurityContext context = SecurityContextHolder.getContext();
+        if (user.getId() != ((User) context.getAuthentication().getPrincipal()).getId()){
+            userDao.delete(user);
+        }
+
     }
 
 }

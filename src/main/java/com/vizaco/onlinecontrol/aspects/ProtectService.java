@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -37,6 +38,33 @@ public class ProtectService {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         accessDecisionManager.decide(authentication, null, SecurityConfig.createList("ROLE_ADMIN"));
+
+    }
+
+    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    public void filterJournalViewList(List<JournalView> retVal) {
+
+        if (retVal == null) {
+            return;
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!correctAuthentication(authentication)) {
+            retVal = null;
+            return;
+        }
+
+        if (haveFullAccess(authentication)) return;
+
+        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+
+        if (currentPerson == null) {
+            retVal = null;
+            return;
+        }
+
+        filterJournalResult(retVal, currentPerson);
 
     }
 
@@ -64,6 +92,87 @@ public class ProtectService {
         }
 
         filterStudentsListResult(retVal, currentPerson);
+
+    }
+
+    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.Student com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    public void filterStudent(Student retVal) {
+
+        if (retVal == null) {
+            return;
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!correctAuthentication(authentication)) {
+            retVal = null;
+            return;
+        }
+
+        if (haveFullAccess(authentication)) return;
+
+        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+
+        if (currentPerson == null) {
+            retVal = null;
+            return;
+        }
+
+        retVal = filterStudentResult(retVal, currentPerson);
+
+    }
+
+    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.User> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    public void filterUsersList(List<User> retVal) {
+
+        if (retVal == null) {
+            return;
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!correctAuthentication(authentication)) {
+            retVal = null;
+            return;
+        }
+
+        if (haveFullAccess(authentication)) return;
+
+        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+
+        if (currentPerson == null) {
+            retVal = null;
+            return;
+        }
+
+        filterUsersListResult(retVal, currentPerson);
+
+    }
+
+    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.User com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    public void filterUser(User retVal) {
+
+        if (retVal == null) {
+            return;
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!correctAuthentication(authentication)) {
+            retVal = null;
+            return;
+        }
+
+        if (haveFullAccess(authentication)) return;
+
+        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+
+        if (currentPerson == null) {
+            retVal = null;
+            return;
+        }
+
+        retVal = filterUserResult(retVal, currentPerson);
 
     }
 
@@ -113,33 +222,6 @@ public class ProtectService {
 
     }
 
-    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.Student com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
-    public void filterStudent(Student retVal) {
-
-        if (retVal == null) {
-            return;
-        }
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (!correctAuthentication(authentication)) {
-            retVal = null;
-            return;
-        }
-
-        if (haveFullAccess(authentication)) return;
-
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
-
-        if (currentPerson == null) {
-            retVal = null;
-            return;
-        }
-
-        retVal = filterStudentResult(retVal, currentPerson);
-
-    }
-
     private Student filterStudentResult(Student currentVal, Person currentPerson) {
 
         if (currentPerson instanceof Student) {
@@ -174,31 +256,90 @@ public class ProtectService {
         return currentVal;
     }
 
-    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
-    public void filterJournalViewList(List<JournalView> retVal) {
+    private void filterUsersListResult(List<User> currentVal, Person currentPerson) {
 
-        if (retVal == null) {
-            return;
+        if (currentPerson instanceof Student) {
+
+            Student student = (Student) currentPerson;
+
+            Iterator<User> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                User userData = iterator.next();
+                if (userData == null || !userData.equals(student.getUser())) {
+                    iterator.remove();
+                }
+            }
+
+        } else if (currentPerson instanceof Teacher) {
+
+            Teacher teacher = (Teacher) currentPerson;
+
+            Iterator<User> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                User userData = iterator.next();
+                if (userData == null || !userData.equals(teacher.getUser())) {
+                    iterator.remove();
+                }
+            }
+
+        } else if (currentPerson instanceof Parent) {
+
+            Parent parent = (Parent) currentPerson;
+            Set<User> accessUsers = new HashSet<>();
+            if (parent.getUser() != null) accessUsers.add(parent.getUser());
+            if (parent.getStudents() != null){
+                for (Student student : parent.getStudents()) {
+                    if (student.getUser() != null) accessUsers.add(student.getUser());
+                }
+            }
+
+            Iterator<User> iterator = currentVal.iterator();
+            while (iterator.hasNext()) {
+                User user = iterator.next();
+                if (user == null || !accessUsers.contains(user)) {
+                    iterator.remove();
+                }
+            }
+
         }
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    }
 
-        if (!correctAuthentication(authentication)) {
-            retVal = null;
-            return;
+    private User filterUserResult(User currentVal, Person currentPerson) {
+
+        if (currentPerson instanceof Student) {
+
+            Student student = (Student) currentPerson;
+
+            if (currentVal == null || !currentVal.equals(student.getUser())) {
+                return null;
+            }
+
+        } else if (currentPerson instanceof Teacher) {
+
+            Teacher teacher = (Teacher) currentPerson;
+
+            if (currentVal == null || !currentVal.equals(teacher.getUser())) {
+                return null;
+            }
+
+        } else if (currentPerson instanceof Parent) {
+
+            Parent parent = (Parent) currentPerson;
+            Set<User> accessUsers = new HashSet<>();
+            if (parent.getUser() != null) accessUsers.add(parent.getUser());
+            if (parent.getStudents() != null){
+                for (Student student : parent.getStudents()) {
+                    if (student.getUser() != null) accessUsers.add(student.getUser());
+                }
+            }
+
+            if (currentVal == null || !accessUsers.contains(currentVal)) {
+                return null;
+            }
         }
 
-        if (haveFullAccess(authentication)) return;
-
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
-
-        if (currentPerson == null) {
-            retVal = null;
-            return;
-        }
-
-        filterJournalResult(retVal, currentPerson);
-
+        return currentVal;
     }
 
     private boolean haveFullAccess(Authentication authentication) {

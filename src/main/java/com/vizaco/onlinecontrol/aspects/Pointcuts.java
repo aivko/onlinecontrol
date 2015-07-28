@@ -16,9 +16,9 @@ import java.util.List;
  * Created by super on 7/24/15.
  */
 @Aspect
-public abstract class Pointcuts {
+public class Pointcuts {
 
     @Pointcut("execution(* com.vizaco.onlinecontrol.service.SheduleService.saveShedule(..)) || execution(* com.vizaco.onlinecontrol.service.SheduleService.deleteShedule(..))")
-    public abstract void checkPermissionsSaveDeleteShedule();
+    public void checkPermissionsSaveDeleteShedule(){};
 
 }

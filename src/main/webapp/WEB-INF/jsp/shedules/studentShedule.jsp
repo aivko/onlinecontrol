@@ -20,10 +20,19 @@
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
-    <style>
-        .leftColumn {float:left;}
-        .rightColumn {float:left;}
-    </style>
+    <spring:url value="/resources/turnjs4/extras/jquery.mousewheel.min.js" var="mousewheelJs"/>
+    <script src="${mousewheelJs}"></script>
+    <spring:url value="/resources/turnjs4/extras/modernizr.2.5.3.min.js" var="modernizrJs"/>
+    <script src="${modernizrJs}"></script>
+    <spring:url value="/resources/turnjs4/lib/hash.js" var="hashJs"/>
+    <script src="${hashJs}"></script>
+
+    <spring:url value="/resources/turnjs4/lib/turn.min.js" var="turnJs"/>
+    <script src="${turnJs}"></script>
+    <spring:url value="/resources/turnjs4/lib/turn.html4.min.js" var="html4Js"/>
+    <script src="${html4Js}"></script>
+    <spring:url value="/resources/css/jquery-ui.css" var="jqueryCss"/>
+    <script src="${jqueryCss}"></script>
 
     <script type="text/javascript">
 
@@ -244,7 +253,61 @@
         </div>
     </div>
 
+    <div class="flipbook-viewport">
+        <div class="container">
+            <div class="flipbook">
+                <div>Первая</div>
+                <div>Вторая</div>
+                <div>Третья</div>
+                <div>Четвертая</div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
+<script type="text/javascript">
+
+    function loadApp() {
+
+        // Create the flipbook
+
+        $('.flipbook').turn({
+            // Width
+
+            width:922,
+
+            // Height
+
+            height:600,
+
+            // Elevation
+
+            elevation: 50,
+
+            // Enable gradients
+
+            gradients: true,
+
+            // Auto center this flipbook
+
+            autoCenter: true
+
+        });
+    }
+
+    // Load the HTML4 version if there's not CSS transform
+
+    yepnope({
+        test : Modernizr.csstransforms,
+        yep: ['${turnJs}'],
+        nope: ['${html4Js}'],
+        both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
+        complete: loadApp
+    });
+
+</script>
 
 </body>
 </html>
