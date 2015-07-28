@@ -27,13 +27,6 @@
     <spring:url value="/resources/turnjs4/lib/hash.js" var="hashJs"/>
     <script src="${hashJs}"></script>
 
-    <spring:url value="/resources/turnjs4/lib/turn.min.js" var="turnJs"/>
-    <script src="${turnJs}"></script>
-    <spring:url value="/resources/turnjs4/lib/turn.html4.min.js" var="html4Js"/>
-    <script src="${html4Js}"></script>
-    <spring:url value="/resources/css/jquery-ui.css" var="jqueryCss"/>
-    <script src="${jqueryCss}"></script>
-
     <script type="text/javascript">
 
         $(function () {
@@ -146,15 +139,15 @@
                         var weekNumberInt = parseInt(weekNumber, 10);
                         var textColumnBegin = "";
                         var textColumnEnd = "";
-                        if (weekNumberInt == 1) {
-                            textColumnBegin = "<div class='leftColumn'>";
-                        } else if (weekNumberInt == 3) {
-                            textColumnEnd = "</div>";
-                        } else if (weekNumberInt == 4) {
-                            textColumnBegin = "<div class='rightColumn'>";
-                        } else if (weekNumberInt == 5) {
-                            textColumnEnd = "</div>";
-                        }
+//                        if (weekNumberInt == 1) {
+//                            textColumnBegin = "<div class='leftColumn'>";
+//                        } else if (weekNumberInt == 3) {
+//                            textColumnEnd = "</div>";
+//                        } else if (weekNumberInt == 4) {
+//                            textColumnBegin = "<div class='rightColumn'>";
+//                        } else if (weekNumberInt == 5) {
+//                            textColumnEnd = "</div>";
+//                        }
 
                         textDate = textDate + textColumnBegin + tempDate + textBefore + textTemp + textAfter + textColumnEnd;
                         textTemp = "";
@@ -215,6 +208,13 @@
                         var $result = $('.flipbook');
                         $result.text("");
                         $result.append(resultText); //delete old data and add new
+                        yepnope({
+                            test: Modernizr.csstransforms,
+                            yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
+                            nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
+                            both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
+                            complete: loadApp
+                        });
 
                     }
                     else {
@@ -256,10 +256,10 @@
     <div class="flipbook-viewport">
         <div class="container">
             <div class="flipbook">
-                <div>Первая</div>
-                <div>Вторая</div>
-                <div>Третья</div>
-                <div>Четвертая</div>
+                <%--<div>Первая</div>--%>
+                <%--<div>Вторая</div>--%>
+                <%--<div>Третья</div>--%>
+                <%--<div>Четвертая</div>--%>
             </div>
         </div>
     </div>
@@ -281,13 +281,13 @@
 
     // Load the HTML4 version if there's not CSS transform
 
-    yepnope({
-        test: Modernizr.csstransforms,
-        yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
-        nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
-        both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
-        complete: loadApp
-    });
+//    yepnope({
+//        test: Modernizr.csstransforms,
+//        yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
+//        nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
+//        both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
+//        complete: loadApp
+//    });
 
 </script>
 
