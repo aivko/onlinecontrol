@@ -31,7 +31,6 @@
 
         $(function () {
             $("#startDate").datepicker({
-                defaultDate: "+1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',
@@ -41,7 +40,6 @@
                 }
             });
             $("#endDate").datepicker({
-                defaultDate: "+1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',
@@ -139,15 +137,15 @@
                         var weekNumberInt = parseInt(weekNumber, 10);
                         var textColumnBegin = "";
                         var textColumnEnd = "";
-//                        if (weekNumberInt == 1) {
-//                            textColumnBegin = "<div class='leftColumn'>";
-//                        } else if (weekNumberInt == 3) {
-//                            textColumnEnd = "</div>";
-//                        } else if (weekNumberInt == 4) {
-//                            textColumnBegin = "<div class='rightColumn'>";
-//                        } else if (weekNumberInt == 5) {
-//                            textColumnEnd = "</div>";
-//                        }
+                        if (weekNumberInt == 1) {
+                            textColumnBegin = "<div class='leftColumn'>";
+                        } else if (weekNumberInt == 3) {
+                            textColumnEnd = "</div>";
+                        } else if (weekNumberInt == 4) {
+                            textColumnBegin = "<div class='rightColumn'>";
+                        } else if (weekNumberInt == 5) {
+                            textColumnEnd = "</div>";
+                        }
 
                         textDate = textDate + textColumnBegin + tempDate + textBefore + textTemp + textAfter + textColumnEnd;
                         textTemp = "";
@@ -198,6 +196,7 @@
                     if (data.result == "true") {
                         resultText = "<br>";
                         var level = 1;
+
                         for (var key in data.shedule) {
                             expandTree(key, data.shedule[key], level);
                             resultText = resultText + tempClazz + textStudent;
@@ -207,6 +206,7 @@
 
                         var $result = $('.flipbook');
                         $result.text("");
+                        console.log(resultText);
                         $result.append(resultText); //delete old data and add new
                         yepnope({
                             test: Modernizr.csstransforms,
@@ -264,14 +264,13 @@
         </div>
     </div>
 
-
 </div>
 
 <script type="text/javascript">
 
     function loadApp() {
         $('.flipbook').turn({
-            width: 922,
+            width: 1050,
             height: 600,
             elevation: 50,
             gradients: true,
