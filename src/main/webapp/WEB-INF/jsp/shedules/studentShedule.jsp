@@ -131,19 +131,27 @@
                     expandTree(varKey, data[varKey], level);
 
                     if (level == 2) {
+                        beforeCount = count;
+                        alert("222varKey: " + varKey + " count: " + count + " beforeCount: " + beforeCount);
+                        count = 0;
                         textStudent = textStudent + tempStudent + textDate;
                         textDate = "";
                     } else if (level == 3) {
+                        count++;
+//                        alert("varKey: " + varKey + " count: " + count + " beforeCount: " + beforeCount);
                         var weekNumberInt = parseInt(weekNumber, 10);
                         var textColumnBegin = "";
                         var textColumnEnd = "";
-                        if (weekNumberInt == 1) {
+                        if (count == 1 & beforeCount == 0){
                             textColumnBegin = "<div class='leftColumn'>";
-                        } else if (weekNumberInt == 3) {
+                        }else if (count == 1) {
+                            alert("333varKey: " + varKey + " count: " + count + " beforeCount: " + beforeCount);
+                            textColumnBegin = "</div><div class='leftColumn'>";
+                        } else if (count == 3) {
                             textColumnEnd = "</div>";
-                        } else if (weekNumberInt == 4) {
+                        } else if (count == 4) {
                             textColumnBegin = "<div class='rightColumn'>";
-                        } else if (weekNumberInt == 5) {
+                        } else if (weekNumberInt == 6) {
                             textColumnEnd = "</div>";
                         }
 
@@ -159,6 +167,8 @@
 
         }
 
+        var count = 0;
+        var beforeCount = 0;
         var tempClazz = "";
         var textStudent = "";
         var tempStudent = "";
@@ -208,13 +218,13 @@
                         $result.text("");
                         console.log(resultText);
                         $result.append(resultText); //delete old data and add new
-                        yepnope({
-                            test: Modernizr.csstransforms,
-                            yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
-                            nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
-                            both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
-                            complete: loadApp
-                        });
+//                        yepnope({
+//                            test: Modernizr.csstransforms,
+//                            yep: ['/onlinecontrol/resources/turnjs4/lib/turn.min.js'],
+//                            nope: ['/onlinecontrol/resources/turnjs4/lib/turn.html4.min.js'],
+//                            both: ['/onlinecontrol/resources/turnjs4/samples/basic/css/basic.css'],
+//                            complete: loadApp
+//                        });
 
                     }
                     else {

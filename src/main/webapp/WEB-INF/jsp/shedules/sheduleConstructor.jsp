@@ -235,7 +235,6 @@
 
         $(function () {
             $("#startDate").datepicker({
-                defaultDate: "+1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',
@@ -245,7 +244,6 @@
                 }
             });
             $("#endDate").datepicker({
-                defaultDate: "+1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',

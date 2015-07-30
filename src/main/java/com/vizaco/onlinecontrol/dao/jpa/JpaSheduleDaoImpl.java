@@ -83,12 +83,13 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         //          INNER JOIN clazz.students students
         //          LEFT JOIN shedule.grades grade
         //  WHERE (grade.id IS NULL OR grade.shedule.id = shedule.id) and (shedule.date BETWEEN :startDate and :endDate)
+
         CriteriaBuilder cb = this.em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = cb.createQuery();
         Root<Shedule> shedule = criteriaQuery.from(Shedule.class);
         Join clazz = shedule.join("clazz", JoinType.INNER);
         Join student = clazz.join("students", JoinType.INNER);
-        Join grade = student.join("grades", JoinType.LEFT);
+        Join grade = shedule.join("grades", JoinType.LEFT);
         criteriaQuery.select(cb.construct(JournalView.class,
                 shedule.get("date"),
                 shedule.get("period"),
@@ -98,7 +99,8 @@ public class JpaSheduleDaoImpl implements SheduleDao {
                 shedule.get("job"),
                 student,
                 grade));
-        criteriaQuery.where(cb.or(cb.isNull(grade), cb.equal(shedule.get("id"), grade.get("shedule"))), cb.between(shedule.get("date"), start, end));
+        criteriaQuery.where(cb.or(cb.isNull(grade), cb.equal(student.get("id"), grade.get("student"))), cb.between(shedule.get("date"), start, end));
+        criteriaQuery.orderBy(cb.asc(shedule.get("clazz")), cb.asc(student), cb.asc(shedule.get("date")), cb.asc(shedule.get("period")));
         Query query = em.createQuery(criteriaQuery);
         List<JournalView> resultList = query.getResultList();
 
