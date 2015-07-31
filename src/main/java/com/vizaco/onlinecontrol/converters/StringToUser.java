@@ -24,6 +24,6 @@ public class StringToUser implements Converter<String, User> {
 
     @Override
     public User convert(String userId) {
-        return userService.findUserById(Long.parseLong(userId));
+        return userService.findUserById(Integer.parseInt(userId));
     }
 }

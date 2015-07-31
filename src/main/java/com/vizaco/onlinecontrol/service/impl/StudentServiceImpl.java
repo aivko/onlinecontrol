@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Student findStudentById(Long id) throws DataAccessException {
+    public Student findStudentById(Integer id) throws DataAccessException {
         return studentDao.findById(id);
     }
 
@@ -55,7 +55,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public void deleteStudent(Long id) throws DataAccessException {
+    public void deleteStudent(Integer id) throws DataAccessException {
         Student student = studentDao.findById(id);
         if (student == null){
             return;

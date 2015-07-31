@@ -26,7 +26,7 @@ public class JpaNewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public News findById(Long id) {
+    public News findById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT News FROM News News WHERE News.id =:id");
         query.setParameter("id", id);
 

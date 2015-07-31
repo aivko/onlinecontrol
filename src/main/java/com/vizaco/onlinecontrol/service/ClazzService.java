@@ -14,12 +14,12 @@ import java.util.List;
  */
 public interface ClazzService {
 
-    Clazz findClazzById(Long id) throws DataAccessException;
+    Clazz findClazzById(Integer id) throws DataAccessException;
 
     List<Clazz> getAllClazzes() throws DataAccessException;
 
     void saveClazz(Clazz clazz) throws DataAccessException;
 
-    void deleteClazz(Long id) throws DataAccessException;
+    void deleteClazz(Integer id) throws DataAccessException;
 
 }

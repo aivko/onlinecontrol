@@ -26,7 +26,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
     }
 
     @Override
-    public Clazz findById(Long id) {
+    public Clazz findById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz WHERE clazz.id =:id");
         query.setParameter("id", id);
 

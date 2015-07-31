@@ -1,20 +1,18 @@
 package com.vizaco.onlinecontrol.service.impl;
 
-import com.vizaco.onlinecontrol.dao.ClazzDao;
 import com.vizaco.onlinecontrol.dao.SheduleDao;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
-import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.DayOfWeek;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Service
 public class SheduleServiceImpl implements SheduleService {
@@ -24,7 +22,7 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Shedule findSheduleById(Long id) throws DataAccessException {
+    public Shedule findSheduleById(Integer id) throws DataAccessException {
         return sheduleDao.findSheduleById(id);
     }
 
@@ -37,12 +35,26 @@ public class SheduleServiceImpl implements SheduleService {
     @Override
     @Transactional(readOnly = true)
     public List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException {
-        return sheduleDao.getJournalByCriteria(start, end);
+        List<JournalView> journalByCriteria = sheduleDao.getJournalByCriteria(start, end);
+        for (JournalView deleteJournalView : journalByCriteria) {
+            TreeSet<Grade> correctGrades = new TreeSet<>();
+            Set<Grade> grades;
+            if (deleteJournalView.getStudent() == null || (grades = deleteJournalView.getStudent().getGrades()) == null){
+                continue;
+            }
+            for (Grade grade : grades) {
+                if (grade.getShedule() != null && deleteJournalView.getSheduleId() == grade.getShedule().getId()){
+                    correctGrades.add(grade);
+                }
+            }
+            deleteJournalView.setGrades(correctGrades);
+        }
+        return journalByCriteria;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Period findPeriodById(Long id) throws DataAccessException {
+    public Period findPeriodById(Integer id) throws DataAccessException {
         return sheduleDao.findPeriodById(id);
     }
 
@@ -54,7 +66,7 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Subject findSubjectById(Long id) throws DataAccessException {
+    public Subject findSubjectById(Integer id) throws DataAccessException {
         return sheduleDao.findSubjectById(id);
     }
 
@@ -66,7 +78,7 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Teacher findTeacherById(Long id) throws DataAccessException {
+    public Teacher findTeacherById(Integer id) throws DataAccessException {
         return sheduleDao.findTeacherById(id);
     }
 
@@ -84,7 +96,7 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional
-    public void deleteShedule(Long id) throws DataAccessException {
+    public void deleteShedule(Integer id) throws DataAccessException {
         Shedule shedule = sheduleDao.findSheduleById(id);
         if (shedule == null){
             return;

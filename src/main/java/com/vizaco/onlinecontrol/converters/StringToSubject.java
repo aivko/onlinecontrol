@@ -23,6 +23,6 @@ public class StringToSubject implements Converter<String, Subject> {
 
     @Override
     public Subject convert(String subjectId) {
-        return sheduleService.findSubjectById(Long.parseLong(subjectId));
+        return sheduleService.findSubjectById(Integer.parseInt(subjectId));
     }
 }

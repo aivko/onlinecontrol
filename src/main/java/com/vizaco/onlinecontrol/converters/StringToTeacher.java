@@ -23,6 +23,6 @@ public class StringToTeacher implements Converter<String, Teacher> {
 
     @Override
     public Teacher convert(String teacherId) {
-        return sheduleService.findTeacherById(Long.parseLong(teacherId));
+        return sheduleService.findTeacherById(Integer.parseInt(teacherId));
     }
 }

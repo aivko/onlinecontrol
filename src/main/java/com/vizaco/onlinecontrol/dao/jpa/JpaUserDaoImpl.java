@@ -43,7 +43,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findById(Long id) {
+    public User findById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user WHERE user.id =:id");
         query.setParameter("id", id);
 

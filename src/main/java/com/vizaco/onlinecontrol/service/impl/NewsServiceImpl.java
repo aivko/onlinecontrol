@@ -22,7 +22,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional(readOnly = true)
-    public News findNewsById(Long id) throws DataAccessException {
+    public News findNewsById(Integer id) throws DataAccessException {
         return newsDao.findById(id);
     }
 
@@ -46,7 +46,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     @Transactional
-    public void deleteNews(Long id) throws DataAccessException {
+    public void deleteNews(Integer id) throws DataAccessException {
         News news = newsDao.findById(id);
         if (news == null){
             return;

@@ -31,7 +31,7 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Parent findParentById(Long id) throws DataAccessException {
+    public Parent findParentById(Integer id) throws DataAccessException {
         return parentDao.findById(id);
     }
 
@@ -49,7 +49,7 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     @Transactional
-    public void deleteParent(Long id) throws DataAccessException {
+    public void deleteParent(Integer id) throws DataAccessException {
         Parent parent = parentDao.findById(id);
         if (parent == null){
             return;

@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface ParentService {
 
-    Parent findParentById(Long id) throws DataAccessException;
+    Parent findParentById(Integer id) throws DataAccessException;
 
     List<Parent> getAllParents() throws DataAccessException;
 
     void saveParent(Parent parent) throws DataAccessException;
 
-    void deleteParent(Long id) throws DataAccessException;
+    void deleteParent(Integer id) throws DataAccessException;
 
 
 }

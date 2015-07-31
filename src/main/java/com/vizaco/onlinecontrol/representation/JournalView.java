@@ -3,15 +3,15 @@ package com.vizaco.onlinecontrol.representation;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  *  Simple business object representing a gradles.
  *
  */
 public class JournalView implements Comparable<JournalView>{
+
+    private Integer sheduleId;
 
     private Date date;
 
@@ -29,14 +29,15 @@ public class JournalView implements Comparable<JournalView>{
 
     private String job;
 
-    private Grade grade;
+    private TreeSet<Grade> grades;
 
     private DateUtils dateUtils = new DateUtils();
 
     public JournalView() {
     }
 
-    public JournalView(Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student, Grade grade) {
+    public JournalView(Integer sheduleId, Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student, TreeSet<Grade> grades) {
+        this.sheduleId = sheduleId;
         this.date = date;
         Calendar instance = Calendar.getInstance();
         instance.setTime(date);
@@ -47,7 +48,29 @@ public class JournalView implements Comparable<JournalView>{
         this.teacher = teacher;
         this.job = job;
         this.student = student;
-        this.grade = grade;
+        this.grades = grades;
+    }
+
+    public JournalView(Integer sheduleId, Date date, Period period, Subject subject, Clazz clazz, Teacher teacher, String job, Student student) {
+        this.sheduleId = sheduleId;
+        this.date = date;
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        this.dayOfWeek = dateUtils.getNumberDayOfWeek(instance);
+        this.period = period;
+        this.subject = subject;
+        this.clazz = clazz;
+        this.teacher = teacher;
+        this.student = student;
+        this.job = job;
+    }
+
+    public Integer getSheduleId() {
+        return sheduleId;
+    }
+
+    public void setSheduleId(Integer sheduleId) {
+        this.sheduleId = sheduleId;
     }
 
     public Date getDate() {
@@ -106,12 +129,12 @@ public class JournalView implements Comparable<JournalView>{
         this.student = student;
     }
 
-    public Grade getGrade() {
-        return grade;
+    public TreeSet<Grade> getGrades() {
+        return grades;
     }
 
-    public void setGrade(Grade grade) {
-        this.grade = grade;
+    public void setGrades(TreeSet<Grade> grades) {
+        this.grades = grades;
     }
 
     public Integer getDayOfWeek() {
@@ -135,7 +158,7 @@ public class JournalView implements Comparable<JournalView>{
         if (clazz != null ? !clazz.equals(that.clazz) : that.clazz != null) return false;
         if (teacher != null ? !teacher.equals(that.teacher) : that.teacher != null) return false;
         if (student != null ? !student.equals(that.student) : that.student != null) return false;
-        return !(grade != null ? !grade.equals(that.grade) : that.grade != null);
+        return !(grades != null ? !grades.equals(that.grades) : that.grades != null);
 
     }
 
@@ -147,7 +170,7 @@ public class JournalView implements Comparable<JournalView>{
         result = 31 * result + (clazz != null ? clazz.hashCode() : 0);
         result = 31 * result + (teacher != null ? teacher.hashCode() : 0);
         result = 31 * result + (student != null ? student.hashCode() : 0);
-        result = 31 * result + (grade != null ? grade.hashCode() : 0);
+        result = 31 * result + (grades != null ? grades.hashCode() : 0);
         return result;
     }
 
@@ -212,11 +235,22 @@ public class JournalView implements Comparable<JournalView>{
         }
         if (result != 0) return result;
 
-        if (grade != null && journalView.grade != null) {
-            result = grade.compareTo(journalView.grade);
-        }else if(grade != null && journalView.grade == null){
+        if (grades != null && journalView.grades != null) {
+            if (grades.size() > journalView.grades.size()){
+                result = 1;
+            }else if (grades.size() < journalView.grades.size()){
+                result = -1;
+            }else {
+                Grade[] gradesLeft = (Grade[]) grades.toArray();
+                Grade[] gradesRight = (Grade[]) journalView.grades.toArray();
+                for (int i = 0; i < gradesLeft.length; i++) {
+                    result = gradesLeft[i].compareTo(gradesRight[i]);
+                    if (result != 0) break;
+                }
+            }
+        }else if(grades != null && journalView.grades == null){
             result = 1;
-        }else if(grade == null && journalView.grade != null){
+        }else if(grades == null && journalView.grades != null){
             result = -1;
         }
         if (result != 0) return result;

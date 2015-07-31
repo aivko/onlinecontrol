@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ClazzDao {
 
-    Clazz findById(Long id) throws DataAccessException;
+    Clazz findById(Integer id) throws DataAccessException;
 
     List<Clazz> getAllClazzes() throws DataAccessException;
 

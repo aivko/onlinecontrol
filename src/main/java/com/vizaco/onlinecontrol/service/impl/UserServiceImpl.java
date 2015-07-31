@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User findUserById(Long id) throws DataAccessException {
+    public User findUserById(Integer id) throws DataAccessException {
         return userDao.findById(id);
     }
 
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void deleteUser(Long id) throws DataAccessException {
+    public void deleteUser(Integer id) throws DataAccessException {
         User user = userDao.findById(id);
         if (user == null){
             return;

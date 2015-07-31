@@ -23,6 +23,6 @@ public class StringToRole implements Converter<String, Role> {
 
     @Override
     public Role convert(String roleId) {
-        return roleService.findRoleById(Long.parseLong(roleId));
+        return roleService.findRoleById(Integer.parseInt(roleId));
     }
 }

@@ -17,7 +17,7 @@ import java.util.Set;
 @WithSecurityContext(factory = WithMockUserSecurityContextFactory.class)
 public @interface WithMockUser {
 
-    long id() default 1L;
+    int id() default 1;
 
     String email() default "email";
 

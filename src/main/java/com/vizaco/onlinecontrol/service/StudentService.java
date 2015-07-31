@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    Student findStudentById(Long id) throws DataAccessException;
+    Student findStudentById(Integer id) throws DataAccessException;
 
     List<Student> findStudentByLastName(String lastName) throws DataAccessException;
 
@@ -21,6 +21,6 @@ public interface StudentService {
 
     void saveStudent(Student student) throws DataAccessException;
 
-    void deleteStudent(Long id) throws DataAccessException;
+    void deleteStudent(Integer id) throws DataAccessException;
 
 }

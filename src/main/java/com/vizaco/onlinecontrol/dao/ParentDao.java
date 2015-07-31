@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ParentDao {
 
-    Parent findById(Long id) throws DataAccessException;
+    Parent findById(Integer id) throws DataAccessException;
     
     List<Parent> getAllParents() throws DataAccessException;
 
