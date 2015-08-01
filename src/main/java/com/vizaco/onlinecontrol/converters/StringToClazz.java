@@ -24,6 +24,6 @@ public class StringToClazz implements Converter<String, Clazz> {
 
     @Override
     public Clazz convert(String clazzId) {
-        return clazzService.findClazzById(Long.parseLong(clazzId));
+        return clazzService.findClazzById(Integer.parseInt(clazzId));
     }
 }

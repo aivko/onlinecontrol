@@ -227,19 +227,19 @@ public class SheduleController extends BaseController {
                 numberOfWeek.add(currentWeek);
             } else if (param.startsWith("period")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Long.parseLong(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 periods.put(keyValue[0], currentPeriod);
             } else if (param.startsWith("subject")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Long.parseLong(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 subjects.put(keyValue[0], currentSubject);
             } else if (param.startsWith("teacher")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Long.parseLong(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 teachers.put(keyValue[0], currentTeacher);
@@ -270,7 +270,7 @@ public class SheduleController extends BaseController {
                 if (emptyValue(keyValue, 1)) {
                     continue;
                 }
-                clazz = clazzService.findClazzById(Long.parseLong(keyValue[1]));
+                clazz = clazzService.findClazzById(Integer.parseInt(keyValue[1]));
             }
 
         }

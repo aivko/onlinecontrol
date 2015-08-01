@@ -22,6 +22,6 @@ public class StringToStudent implements Converter<String, Student> {
 
     @Override
     public Student convert(String studentId) {
-        return studentService.findStudentById(Long.parseLong(studentId));
+        return studentService.findStudentById(Integer.parseInt(studentId));
     }
 }

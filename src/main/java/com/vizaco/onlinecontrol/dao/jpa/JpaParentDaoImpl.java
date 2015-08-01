@@ -26,7 +26,7 @@ public class JpaParentDaoImpl implements ParentDao {
     }
 
     @Override
-    public Parent findById(Long id) {
+    public Parent findById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students WHERE parent.id =:id");
         query.setParameter("id", id);
 

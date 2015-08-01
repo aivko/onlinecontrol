@@ -33,7 +33,7 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Override
     @Transactional(readOnly = true)
-    public Clazz findClazzById(Long id) throws DataAccessException {
+    public Clazz findClazzById(Integer id) throws DataAccessException {
         return clazzDao.findById(id);
     }
 
@@ -51,7 +51,7 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Override
     @Transactional
-    public void deleteClazz(Long id) throws DataAccessException {
+    public void deleteClazz(Integer id) throws DataAccessException {
         Clazz clazz = clazzDao.findById(id);
         if (clazz == null){
             return;

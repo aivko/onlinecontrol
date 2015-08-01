@@ -31,7 +31,7 @@ public class JpaStudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student findById(Long id) {
+    public Student findById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents WHERE student.id =:id");
         query.setParameter("id", id);
 

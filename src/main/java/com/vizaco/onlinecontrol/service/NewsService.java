@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface NewsService {
 
-    News findNewsById(Long id) throws DataAccessException;
+    News findNewsById(Integer id) throws DataAccessException;
 
     List<News> getAllNews() throws DataAccessException;
 
@@ -22,6 +22,6 @@ public interface NewsService {
 
     void saveNews(News news) throws DataAccessException;
 
-    void deleteNews(Long id) throws DataAccessException;
+    void deleteNews(Integer id) throws DataAccessException;
 
 }

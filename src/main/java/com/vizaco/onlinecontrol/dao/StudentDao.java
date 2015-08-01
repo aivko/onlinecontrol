@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StudentDao {
 
-    Student findById(Long id) throws DataAccessException;
+    Student findById(Integer id) throws DataAccessException;
 
     List<Student> findByLastName(String lastName) throws DataAccessException;
 

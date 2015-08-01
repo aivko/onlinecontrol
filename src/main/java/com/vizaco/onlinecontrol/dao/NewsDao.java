@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface NewsDao {
 
-    News findById(Long id) throws DataAccessException;
+    News findById(Integer id) throws DataAccessException;
 
     List<News> getAllNews() throws DataAccessException;
 

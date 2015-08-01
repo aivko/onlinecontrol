@@ -34,7 +34,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Role findRoleById(Long id) throws DataAccessException {
+    public Role findRoleById(Integer id) throws DataAccessException {
         return roleDao.findById(id);
     }
 
@@ -52,7 +52,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional
-    public void deleteRole(Long id) throws DataAccessException {
+    public void deleteRole(Integer id) throws DataAccessException {
         Role role = roleDao.findById(id);
         if (role == null){
             return;

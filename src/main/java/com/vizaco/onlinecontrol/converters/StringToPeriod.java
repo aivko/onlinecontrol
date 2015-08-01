@@ -24,6 +24,6 @@ public class StringToPeriod implements Converter<String, Period> {
 
     @Override
     public Period convert(String periodId) {
-        return sheduleService.findPeriodById(Long.parseLong(periodId));
+        return sheduleService.findPeriodById(Integer.parseInt(periodId));
     }
 }

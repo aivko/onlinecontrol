@@ -9,7 +9,7 @@ public interface UserDao {
 
     User findByEmail(String email) throws DataAccessException;
 
-    User findById(Long id) throws DataAccessException;
+    User findById(Integer id) throws DataAccessException;
     
     List<User> getAllUsers() throws DataAccessException;
 

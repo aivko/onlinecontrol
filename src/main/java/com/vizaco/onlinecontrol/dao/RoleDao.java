@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface RoleDao {
 
-    Role findById(Long id) throws DataAccessException;
+    Role findById(Integer id) throws DataAccessException;
 
     List<Role> getAllRoles() throws DataAccessException;
 

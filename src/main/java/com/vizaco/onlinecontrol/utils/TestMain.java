@@ -1,12 +1,5 @@
 package com.vizaco.onlinecontrol.utils;
 
-import com.vizaco.onlinecontrol.model.*;
-import com.vizaco.onlinecontrol.representation.JournalView;
-
-import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 /**
  * Created by super on 7/20/15.
  */

@@ -13,12 +13,12 @@ import java.util.List;
  */
 public interface RoleService {
 
-    Role findRoleById(Long id) throws DataAccessException;
+    Role findRoleById(Integer id) throws DataAccessException;
 
     List<Role> getAllRoles() throws DataAccessException;
 
     void saveRole(Role role) throws DataAccessException;
 
-    void deleteRole(Long id) throws DataAccessException;
+    void deleteRole(Integer id) throws DataAccessException;
 
 }

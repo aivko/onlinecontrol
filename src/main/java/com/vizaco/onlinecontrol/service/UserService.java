@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    User findUserById(Long id) throws DataAccessException;
+    User findUserById(Integer id) throws DataAccessException;
 
     User findUserByEmail(String email) throws DataAccessException;
 
@@ -20,7 +20,7 @@ public interface UserService {
 
     void saveUser(User user) throws DataAccessException;
 
-    void deleteUser(Long id) throws DataAccessException;
+    void deleteUser(Integer id) throws DataAccessException;
 
 
 }
