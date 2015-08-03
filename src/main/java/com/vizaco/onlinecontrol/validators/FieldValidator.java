@@ -20,7 +20,7 @@ public class FieldValidator implements Validator {
         String field = (String) obj;
 
         if (obj == null || !StringUtils.hasText(field)){
-            errors.rejectValue(field, field + ".required");
+            errors.rejectValue("startDate", "startDate.required");
         }
 
     }

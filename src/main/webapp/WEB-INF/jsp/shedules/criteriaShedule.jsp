@@ -50,8 +50,8 @@
 
     <h1>Отбор:</h1>
 
-    <form:form action="${action}" method="get">
-        <form:errors path="errors" cssStyle="color:red;" cssclass="error"/>
+    <form:form modelAttribute="object" action="${action}" method="get">
+        <form:errors path="" cssStyle="color:red;" cssclass="error"/>
         <div>
             <label for="startDate">Дата начала</label>
             <input type="text" id="startDate" name="startDate"/>
