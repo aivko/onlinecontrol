@@ -81,7 +81,7 @@ public class SheduleController extends BaseController {
     @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
     public String generateStudentShedule(@RequestParam("startDate") String startDateStr,
                                          @RequestParam("endDate") String endDateStr,
-                                         @RequestParam("student") String studentId, Model model, BindingResult result) {
+                                         @RequestParam("student") String studentId, BindingResult result, Model model) {
 
         Student student;
         Date startDate;
