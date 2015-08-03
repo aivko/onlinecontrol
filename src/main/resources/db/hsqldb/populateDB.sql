@@ -73,7 +73,7 @@ INSERT INTO parents_students VALUES (3, 1);
 INSERT INTO parents_students VALUES (3, 2);
 
 INSERT INTO users_roles VALUES (1, 1);
-INSERT INTO users_roles VALUES (1, 2);
+-- INSERT INTO users_roles VALUES (1, 2);
 INSERT INTO users_roles VALUES (2, 1);
 INSERT INTO users_roles VALUES (3, 1);
 INSERT INTO users_roles VALUES (4, 3);

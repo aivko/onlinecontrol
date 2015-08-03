@@ -5,13 +5,17 @@ import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.ClazzService;
 import com.vizaco.onlinecontrol.service.SheduleService;
+import com.vizaco.onlinecontrol.service.StudentService;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
+import com.vizaco.onlinecontrol.validators.FieldValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +33,9 @@ public class SheduleController extends BaseController {
     private SheduleService sheduleService;
 
     @Autowired
+    private StudentService studentService;
+
+    @Autowired
     private ClazzService clazzService;
 
     @Autowired
@@ -41,10 +48,14 @@ public class SheduleController extends BaseController {
     private Utils utils;
 
     @Autowired
+    @Qualifier("fieldValidator")
+    private Validator fieldValidator;
+
+    @Autowired
     private TimeZone timeZone;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
+//    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
 
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
@@ -58,58 +69,55 @@ public class SheduleController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
+    @RequestMapping(value = "/shedules/criteriaShedule", method = RequestMethod.GET)
     public ModelAndView studentShedule() {
 
-        ModelAndView mav = new ModelAndView("shedules/studentShedule");
+        ModelAndView mav = new ModelAndView("shedules/criteriaShedule");
+        mav.addObject("students", studentService.getAllStudents());
         return mav;
 
     }
 
-    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.POST, headers = "content-type=application/json")
-    @ResponseBody
-    public String generateStudentShedule(Locale locale, @RequestBody String json) {
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
+    public String generateStudentShedule(@RequestParam("startDate") String startDateStr,
+                                         @RequestParam("endDate") String endDateStr,
+                                         @RequestParam("student") String studentId, BindingResult result, Model model) {
 
+        Student student;
         Date startDate;
         Date endDate;
 
-        String badResponse = "{\"result\":\"false\"}";
+        fieldValidator.validate(startDateStr, result);
+        fieldValidator.validate(endDateStr, result);
+        fieldValidator.validate(studentId, result);
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setTimeZone(timeZone);
-        dateFormatJson.setTimeZone(timeZone);
-        mapper.setDateFormat(dateFormatJson);
-        mapper.setLocale(locale);
-
-        Map<String, Object> mapFromJsonElement;
-        try {
-            mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
-        } catch (IOException e) {
-            return badResponse;
+        if (result.hasErrors()) {
+            model.addAttribute("students", studentService.getAllStudents());
+            return "shedules/criteriaShedule";
         }
 
         try {
-            startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
-            endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
-        } catch (ParseException e) {
-            return badResponse;
+            student = utils.getStudent(studentId);
+            startDate = formatter.parse(startDateStr);
+            endDate = formatter.parse(endDateStr);
+        } catch (Exception e) {
+            fieldValidator.validate(null, result);
+            fieldValidator.validate(null, result);
+            fieldValidator.validate(null, result);
+            model.addAttribute("students", studentService.getAllStudents());
+            return "shedules/criteriaShedule";
         }
 
-        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate);
+        List<JournalView> journalViewList = sheduleService.getJournalByCriteria(startDate, endDate, student, null, null, null, null);
 
-        String jsonResponse;
-        Map<String, Object> resultData = new TreeMap<>();
-        try {
-            resultData.put("result", "true");
-            for (JournalView journalView : sheduleList) {
-                utils.convertToTree(journalView, resultData);
-            };
-            jsonResponse = mapper.writeValueAsString(resultData);
-        } catch (IOException e) {
-            return badResponse;
+        Map<Date, Object> resultData = new TreeMap<>();
+        for (JournalView journalView : journalViewList) {
+            utils.convertToTreeDate(journalView, resultData);
         }
 
-        return jsonResponse;
+        model.addAttribute("shedules", resultData);
+
+        return "shedules/studentShedule";
 
     }//generateReport
 
@@ -149,7 +157,7 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
-        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate);
+        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate, null, null, null, null, null);
 
         String jsonResponse;
         Map<String, Object> resultData = new TreeMap<>();

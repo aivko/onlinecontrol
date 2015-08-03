@@ -34,8 +34,8 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException {
-        List<JournalView> journalByCriteria = sheduleDao.getJournalByCriteria(start, end);
+    public List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+        List<JournalView> journalByCriteria = sheduleDao.getJournalByCriteria(start, end, student, clazz, period, subject, teacher);
         for (JournalView deleteJournalView : journalByCriteria) {
             TreeSet<Grade> correctGrades = new TreeSet<>();
             Set<Grade> grades;

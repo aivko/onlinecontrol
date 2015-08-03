@@ -2,13 +2,15 @@ package com.vizaco.onlinecontrol.utils;
 
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.*;
-import com.vizaco.onlinecontrol.representation.DelJournalView;
 import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Created by super on 2/20/15.
@@ -137,7 +139,24 @@ public class Utils {
         return news;
     }
 
-    public void convertToTree(JournalView journalView, Map<String, Object> resultData) {
+    public void convertToTreeDate(JournalView journalView, Map<Date, Object> resultData) {
+
+        Date keyDate = journalView.getDate();
+
+        TreeSet<JournalView> setShedule;
+        if (resultData.containsKey(keyDate)) {
+            setShedule = (TreeSet<JournalView>) resultData.get(keyDate);
+            if (setShedule == null) setShedule = new TreeSet<>();
+        } else {
+            setShedule = new TreeSet<>();
+        }
+        setShedule.add(journalView);
+
+        resultData.put(keyDate, setShedule);
+
+    }
+
+    public void convertToTreeClazzStudentDate(JournalView journalView, Map<String, Object> resultData) {
 
         Map<Clazz, Object> clazzShedule;
         if (resultData.containsKey("shedule")) {
@@ -183,83 +202,6 @@ public class Utils {
 
         resultData.put("shedule", clazzShedule);
 
-//        Map<Clazz, Object> clazzShedule;
-//        if (resultData.containsKey("shedule")) {
-//            clazzShedule = (Map<Clazz, Object>) resultData.get("shedule");
-//            if (clazzShedule == null) clazzShedule = new TreeMap<>();
-//        } else {
-//            clazzShedule = new TreeMap<>();
-//        }
-//
-//        Clazz keyClazz = journalView.getClazz();
-//
-//        TreeMap<Student, Object> studentShedule;
-//        if (clazzShedule.containsKey(keyClazz)) {
-//            studentShedule = (TreeMap<Student, Object>) clazzShedule.get(keyClazz);
-//            if (studentShedule == null) studentShedule = new TreeMap<>();
-//        } else {
-//            studentShedule = new TreeMap<>();
-//        }
-//
-//        Student keyStudent = journalView.getStudent();
-//
-//        TreeMap<Date, Object> dateShedule;
-//        if (studentShedule.containsKey(keyStudent)) {
-//            dateShedule = (TreeMap<Date, Object>) studentShedule.get(keyStudent);
-//            if (dateShedule == null) dateShedule = new TreeMap<>();
-//        } else {
-//            dateShedule = new TreeMap<>();
-//        }
-//
-//        Date keyDate = journalView.getDate();
-//
-//        TreeMap<Period, Object> periodShedule;
-//        if (dateShedule.containsKey(keyDate)) {
-//            periodShedule = (TreeMap<Period, Object>) dateShedule.get(keyDate);
-//            if (periodShedule == null) periodShedule = new TreeMap<>();
-//        } else {
-//            periodShedule = new TreeMap<>();
-//        }
-//
-//        Period keyPeriod = journalView.getPeriod();
-//
-//        TreeMap<Subject, Object> subjectShedule;
-//        if (periodShedule.containsKey(keyPeriod)) {
-//            subjectShedule = (TreeMap<Subject, Object>) periodShedule.get(keyPeriod);
-//            if (subjectShedule == null) subjectShedule = new TreeMap<>();
-//        } else {
-//            subjectShedule = new TreeMap<>();
-//        }
-//
-//        Subject keySubject = journalView.getSubject();
-//
-//        TreeMap<Teacher, Object> teacherShedule;
-//        if (subjectShedule.containsKey(keySubject)) {
-//            teacherShedule = (TreeMap<Teacher, Object>) subjectShedule.get(keySubject);
-//            if (teacherShedule == null) teacherShedule = new TreeMap<>();
-//        } else {
-//            teacherShedule = new TreeMap<>();
-//        }
-//
-//        Teacher keyTeacher = journalView.getTeacher();
-//
-//        TreeSet<JournalView> setShedule;
-//        if (teacherShedule.containsKey(keyTeacher)) {
-//            setShedule = (TreeSet<JournalView>) teacherShedule.get(keyTeacher);
-//            if (setShedule == null) setShedule = new TreeSet<>();
-//        } else {
-//            setShedule = new TreeSet<>();
-//        }
-//        setShedule.add(journalView);
-//        teacherShedule.put(keyTeacher, setShedule);
-//        subjectShedule.put(keySubject, teacherShedule);
-//        periodShedule.put(keyPeriod, subjectShedule);
-//        dateShedule.put(keyDate, periodShedule);
-//        studentShedule.put(keyStudent, dateShedule);
-//        clazzShedule.put(keyClazz, studentShedule);
-//
-//        resultData.put("shedule", clazzShedule);
-//
     }
 
 }

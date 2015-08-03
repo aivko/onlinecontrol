@@ -100,7 +100,7 @@
             <div class="userAccount-blockSize"><a href='<spring:url value="/classes" htmlEscape="true"/>' role="button" class="userAccount-link">Список классов</a></div>
         </div>
     </sec:authorize>
-    <sec:authorize access="hasRole('ROLE_ADMIN')">
+    <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_OPERATOR')">
         <div class="userAccount-block">
             <div class="userAccount-blockSize"><a href='<spring:url value="/news/new" htmlEscape="true"/>' role="button" class="userAccount-link">Добавить новость</a></div>
         </div>
@@ -108,27 +108,25 @@
             <div class="userAccount-blockSize"><a href='<spring:url value="/news" htmlEscape="true"/>' role="button" class="userAccount-link">Список новостей</a></div>
         </div>
     </sec:authorize>
-    <sec:authorize access="hasRole('ROLE_ADMIN')">
+    <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_OPERATOR')">
         <div class="userAccount-block">
             <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/constructor" htmlEscape="true"/>' role="button" class="userAccount-link">Ввести расписание по шаблону</a></div>
         </div>
         <div class="userAccount-block">
             <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/new" htmlEscape="true"/>' role="button" class="userAccount-link">Ввести событие</a></div>
         </div>
-        <div class="userAccount-block">
-            <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentShedule" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть расписание</a></div>
-        </div>
-        <div class="userAccount-block">
-            <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentJournal" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть журнал</a></div>
-        </div>
     </sec:authorize>
+    <div class="userAccount-block">
+        <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/criteriaShedule" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть расписание</a></div>
+    </div>
+    <div class="userAccount-block">
+        <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentJournal" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть журнал</a></div>
+    </div>
     <sec:authorize access="hasRole('ROLE_USER')">
         <div class="userAccount-block">
             <div class="userAccount-blockSize"><a href='<spring:url value="/users/${user.id}/changePassword" htmlEscape="true"/>' class="userAccount-link">Изменить пароль</a></div>
         </div>
     </sec:authorize>
-
-
 </div>
 
 </body>

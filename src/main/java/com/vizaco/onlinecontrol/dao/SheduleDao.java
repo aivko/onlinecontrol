@@ -13,7 +13,7 @@ public interface SheduleDao {
 
     List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException;
 
-    List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException;
+    List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException;
 
     Period findPeriodById(Integer id) throws DataAccessException;
 
