@@ -72,7 +72,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<JournalView> getJournalByCriteria(Date start, Date end) throws DataAccessException {
+    public List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
 
         //Similarly:
 //          SELECT DISTINCT
@@ -86,8 +86,8 @@ public class JpaSheduleDaoImpl implements SheduleDao {
         CriteriaBuilder cb = this.em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = cb.createQuery();
         Root<Shedule> shedule = criteriaQuery.from(Shedule.class);
-        Join clazz = shedule.join("clazz", JoinType.INNER);
-        Join student = clazz.join("students", JoinType.INNER);
+        Join clazzJoin = shedule.join("clazz", JoinType.INNER);
+        Join studentJoin = clazzJoin.join("students", JoinType.INNER);
         criteriaQuery.select(cb.construct(JournalView.class,
                 shedule.get("id"),
                 shedule.get("date"),
@@ -96,9 +96,32 @@ public class JpaSheduleDaoImpl implements SheduleDao {
                 shedule.get("clazz"),
                 shedule.get("teacher"),
                 shedule.get("job"),
-                student));
-        criteriaQuery.where(cb.between(shedule.get("date"), start, end));
-        criteriaQuery.orderBy(cb.asc(shedule.get("clazz")), cb.asc(student), cb.asc(shedule.get("date")), cb.asc(shedule.get("period")));
+                studentJoin));
+
+        List<Predicate> predicates = new ArrayList<Predicate>();
+
+        if (start != null | end != null) {
+            predicates.add(cb.between(shedule.get("date"), start, end));
+        }
+
+        if (clazz != null) {
+            predicates.add(cb.equal(shedule.get("clazz"), clazz));
+        }
+
+        if (period != null) {
+            predicates.add(cb.equal(shedule.get("period"), period));
+        }
+
+        if (subject != null) {
+            predicates.add(cb.equal(shedule.get("subject"), subject));
+        }
+
+        if (teacher != null) {
+            predicates.add(cb.equal(shedule.get("teacher"), teacher));
+        }
+
+        criteriaQuery.where(predicates.toArray(new Predicate[]{}));
+        criteriaQuery.orderBy(cb.asc(shedule.get("clazz")), cb.asc(studentJoin), cb.asc(shedule.get("date")), cb.asc(shedule.get("period")));
         Query query = em.createQuery(criteriaQuery);
         List<JournalView> resultList = query.getResultList();
 
