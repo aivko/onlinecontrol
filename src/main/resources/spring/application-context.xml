@@ -94,8 +94,17 @@
 
     <!-- Validators -->
     <bean id="userValidator" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
+    <bean id="fieldValidator" class="com.vizaco.onlinecontrol.validators.FieldValidator"/>
 
-    <bean id="locale" class="com.vizaco.onlinecontrol.validators.UserValidator"/>
+    <bean id="locale" class="java.util.Locale">
+        <constructor-arg index="0" value="uk"/>
+        <constructor-arg index="1" value="Ua"/>
+    </bean>
+
+    <bean id="timeZone" class="java.util.SimpleTimeZone">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="Europe/Kiev"/>
+    </bean>
 
      <!--Messages -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
@@ -107,14 +116,14 @@
     </bean>
 
      <!--Converters -->
-    <bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>
-                <bean class="com.vizaco.onlinecontrol.converters.StringToUser"/>
-            </set>
-        </property>
-    </bean>
+    <!--<bean id="conversionService"-->
+          <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--<property name="converters">-->
+            <!--<set>-->
+                <!--<bean class="com.vizaco.onlinecontrol.converters.StringToClazz"/>-->
+                <!--<bean class="com.vizaco.onlinecontrol.converters.StringToUser"/>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>
