@@ -117,7 +117,7 @@
         </div>
     </sec:authorize>
     <div class="userAccount-block">
-        <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/criteriaShedule" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть расписание</a></div>
+        <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentShedule" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть расписание</a></div>
     </div>
     <div class="userAccount-block">
         <div class="userAccount-blockSize"><a href='<spring:url value="/shedules/studentJournal" htmlEscape="true"/>' role="button" class="userAccount-link">Посмотреть журнал</a></div>

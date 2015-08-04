@@ -31,128 +31,149 @@ public class Utils {
     @Autowired
     private NewsService newsService;
 
-    public User getUser(String userIdStr) {
+    public User getUser(String userIdStr, RuntimeException e) {
 
         Integer userId;
 
         try {
             userId = Integer.valueOf(userIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the user with the ID " + userIdStr);
         }
 
         User user = userService.findUserById(userId);
 
         if (user == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the user with the ID " + userId);
         }
         return user;
     }
 
-    public Role getRole(String roleIdStr) {
+    public Role getRole(String roleIdStr, RuntimeException e) {
 
         Integer roleId;
 
         try {
             roleId = Integer.valueOf(roleIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the role with the ID " + roleIdStr);
         }
 
         Role role = roleService.findRoleById(roleId);
 
         if (role == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the role with the ID " + roleId);
         }
         return role;
     }
 
-    public Student getStudent(String studentIdStr) {
+    public Student getStudent(String studentIdStr, RuntimeException e) {
 
         Integer studentId;
 
         try {
             studentId = Integer.valueOf(studentIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the student with the ID " + studentIdStr);
         }
 
         Student student = studentService.findStudentById(studentId);
 
         if (student == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the student with the ID " + studentId);
         }
         return student;
     }
 
-    public Parent getParent(String parentIdStr) {
+    public Parent getParent(String parentIdStr, RuntimeException e) {
 
         Integer parentId;
 
         try {
             parentId = Integer.valueOf(parentIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the parent with the ID " + parentIdStr);
         }
 
         Parent parent = parentService.findParentById(parentId);
 
         if (parent == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the parent with the ID " + parentId);
         }
         return parent;
     }
 
-    public Clazz getClazz(String clazzIdStr) {
+    public Clazz getClazz(String clazzIdStr, RuntimeException e) {
 
         Integer clazzId;
 
         try {
             clazzId = Integer.valueOf(clazzIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the class with the ID " + clazzIdStr);
         }
 
         Clazz clazz = clazzService.findClazzById(clazzId);
 
         if (clazz == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the class with the ID " + clazzId);
         }
         return clazz;
     }
 
-    public News getNews(String newsIdStr) {
+    public News getNews(String newsIdStr, RuntimeException e) {
 
         Integer newsId;
 
         try {
             newsId = Integer.valueOf(newsIdStr);
         } catch (NumberFormatException ex) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the news with the ID " + newsIdStr);
         }
 
         News news = newsService.findNewsById(newsId);
 
         if (news == null) {
+            if (e != null) throw e;
             throw new CustomGenericException("404", "Page not found for the news with the ID " + newsId);
         }
         return news;
     }
 
-    public void convertToTreeDate(JournalView journalView, Map<Date, Object> resultData) {
+    public void convertToTreeDate(JournalView journalView, Map<String, Object> resultData) {
+
+        Map<Date, Object> dateShedule;
+        if (resultData.containsKey("shedule")) {
+            dateShedule = (Map<Date, Object>) resultData.get("shedule");
+            if (dateShedule == null) dateShedule = new TreeMap<>();
+        } else {
+            dateShedule = new TreeMap<>();
+        }
 
         Date keyDate = journalView.getDate();
 
         TreeSet<JournalView> setShedule;
-        if (resultData.containsKey(keyDate)) {
-            setShedule = (TreeSet<JournalView>) resultData.get(keyDate);
+        if (dateShedule.containsKey(keyDate)) {
+            setShedule = (TreeSet<JournalView>) dateShedule.get(keyDate);
             if (setShedule == null) setShedule = new TreeSet<>();
         } else {
             setShedule = new TreeSet<>();
         }
         setShedule.add(journalView);
+        dateShedule.put(keyDate, setShedule);
 
-        resultData.put(keyDate, setShedule);
+        resultData.put("shedule", dateShedule);
 
     }
 

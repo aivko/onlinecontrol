@@ -58,7 +58,7 @@ public class SheduleController extends BaseController {
     private TimeZone timeZone;
 
     private SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-//    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
+    private SimpleDateFormat dateFormatJson = new SimpleDateFormat("dd.MM.yyyy/EEEE", new Locale("ru", "Ru"));
 
     @RequestMapping(value = "/shedules")
     public ModelAndView shedules() {
@@ -72,56 +72,62 @@ public class SheduleController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "/shedules/criteriaShedule", method = RequestMethod.GET)
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
     public ModelAndView studentShedule() {
 
-        ModelAndView mav = new ModelAndView("shedules/criteriaShedule");
+        ModelAndView mav = new ModelAndView("shedules/studentShedule");
         mav.addObject("students", studentService.getAllStudents());
-        mav.addObject("object", new Object());
         return mav;
 
     }
 
-    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.GET)
-    public String generateStudentShedule(@ModelAttribute("object") Object object, @RequestParam("startDate") String startDateStr,
-                                         @RequestParam("endDate") String endDateStr,
-                                         @RequestParam("student") String studentId, BindingResult result, Model model) {
+    @RequestMapping(value = "/shedules/studentShedule", method = RequestMethod.POST, headers = "content-type=application/json")
+    @ResponseBody
+    public String generateStudentShedule(Locale locale, @RequestBody String json) {
 
         Student student;
         Date startDate;
         Date endDate;
 
-        fieldValidator.validate(startDateStr, result);
-        fieldValidator.validate(endDateStr, result);
-        fieldValidator.validate(studentId, result);
+        String badResponse = "{\"result\":\"false\"}";
 
-        if (result.hasErrors()) {
-            model.addAttribute("students", studentService.getAllStudents());
-            return "shedules/criteriaShedule";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setTimeZone(timeZone);
+        mapper.setDateFormat(dateFormatJson);
+        mapper.setLocale(locale);
+
+        Map<String, Object> mapFromJsonElement;
+        try {
+            mapFromJsonElement = jsonUtil.getMapFromJsonElement(json);
+        } catch (IOException e) {
+            return badResponse;
         }
 
+
         try {
-            student = utils.getStudent(studentId);
-            startDate = formatter.parse(startDateStr);
-            endDate = formatter.parse(endDateStr);
+            startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
+            endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
+            student = utils.getStudent((String) mapFromJsonElement.get("student"), new IllegalArgumentException());
         } catch (Exception e) {
-            fieldValidator.validate(null, result);
-            fieldValidator.validate(null, result);
-            fieldValidator.validate(null, result);
-            model.addAttribute("students", studentService.getAllStudents());
-            return "shedules/criteriaShedule";
+            return badResponse;
         }
 
         List<JournalView> journalViewList = sheduleService.getJournalByCriteria(startDate, endDate, student, null, null, null, null);
 
-        Map<Date, Object> resultData = new TreeMap<>();
+        Map<String, Object> resultData = new TreeMap<>();
         for (JournalView journalView : journalViewList) {
             utils.convertToTreeDate(journalView, resultData);
         }
 
-        model.addAttribute("shedules", resultData);
+        String jsonResponse;
+        try {
+            resultData.put("result", "true");
+            jsonResponse = mapper.writeValueAsString(resultData);
+        } catch (IOException e) {
+            return badResponse;
+        }
 
-        return "shedules/studentShedule";
+        return jsonResponse;
 
     }//generateReport
 

@@ -62,7 +62,7 @@ public class UserController extends BaseController{
 
         ModelAndView mav = new ModelAndView("account/account");
 
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
 
         mav.addObject("user", user);
 
@@ -111,7 +111,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}")
     public ModelAndView readUser(@PathVariable("userId") String userIdStr) {
 
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
 
         ModelAndView mav = new ModelAndView("/users/userDetails");
 
@@ -125,7 +125,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("userId") String userIdStr) {
 
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
         ModelAndView mav = new ModelAndView("/users/createOrUpdateUserForm");
 
         mav.addObject("user", user);
@@ -136,7 +136,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}/edit", method = RequestMethod.PUT)
     public String editUser(@PathVariable("userId") String userIdStr, @ModelAttribute("user") User user, BindingResult result, Model model) {
 
-        User userEdit = utils.getUser(userIdStr);
+        User userEdit = utils.getUser(userIdStr, null);
 
         new UserValidator(userService).validateEdit(user, result);
 
@@ -155,7 +155,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("userId") String userIdStr) {
 
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
         userService.deleteUser(user.getId());
 
         return new ModelAndView("redirect:/users");
@@ -165,7 +165,7 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "/users/{userId}/roles/add", method = RequestMethod.GET)
     public String addRole(@PathVariable("userId") String userIdStr, Model model) {
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
         model.addAttribute("user", user);
         model.addAttribute("roles", roleService.getAllRoles());
         return "/roles/selectRole";
@@ -174,8 +174,8 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}/roles/{roleId}/add", method = RequestMethod.POST)
     public String addRole(@PathVariable("userId") String userIdStr, @PathVariable("roleId") String roleIdStr) {
 
-        User user = utils.getUser(userIdStr);
-        Role role = utils.getRole(roleIdStr);
+        User user = utils.getUser(userIdStr, null);
+        Role role = utils.getRole(roleIdStr, null);
         Set<Role> roles = user.getRoles();
         if (!roles.contains(role)) {
             roles.add(role);
@@ -188,8 +188,8 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/users/{userId}/roles/{roleId}/delete", method = RequestMethod.DELETE)
     public String deleteRole(@PathVariable("userId") String userIdStr, @PathVariable("roleId") String roleIdStr) {
 
-        User user = utils.getUser(userIdStr);
-        Role role = utils.getRole(roleIdStr);
+        User user = utils.getUser(userIdStr, null);
+        Role role = utils.getRole(roleIdStr, null);
         Set<Role> roles = user.getRoles();
         roles.remove(role);
 
@@ -199,7 +199,7 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "/users/{userId}/changePassword", method = RequestMethod.GET)
     public ModelAndView showChangePasswordPage(@PathVariable("userId") String userIdStr) {
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
 
         ModelAndView mav = new ModelAndView("auth/changePassword");
 
@@ -215,7 +215,7 @@ public class UserController extends BaseController{
                                            BindingResult result, Model model) {
 
         UserValidator userValidator = new UserValidator(userService);
-        User user = utils.getUser(userIdStr);
+        User user = utils.getUser(userIdStr, null);
 
         if(!passwordEncoder.matches(changePassword.getPasswordOld(), user.getPassword())){
             result.rejectValue("passwordOld", "user.passwordOld.passwordDiff");

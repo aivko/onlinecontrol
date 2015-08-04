@@ -129,7 +129,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentsId}")
     public ModelAndView initAccountForm(@PathVariable("studentsId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr);
+        Student student = utils.getStudent(studentIdStr, null);
 
         ModelAndView mav = new ModelAndView("/students/studentDetails");
 
@@ -143,7 +143,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("studentId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr);
+        Student student = utils.getStudent(studentIdStr, null);
         ModelAndView mav = new ModelAndView("/students/createOrUpdateStudentForm");
 
         mav.addObject("student", student);
@@ -156,7 +156,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("studentId") String studentIdStr, @ModelAttribute("student") @Valid Student student, BindingResult result, Model model) {
 
-        Student studentEdit = utils.getStudent(studentIdStr);
+        Student studentEdit = utils.getStudent(studentIdStr, null);
 
         if(result.hasErrors()){
             model.addAttribute("student", student);
@@ -177,7 +177,7 @@ public class StudentController extends BaseController{
     @RequestMapping(value = "/students/{studentId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("studentId") String studentIdStr) {
 
-        Student student = utils.getStudent(studentIdStr);
+        Student student = utils.getStudent(studentIdStr, null);
         studentService.deleteStudent(student.getId());
 
         return new ModelAndView("redirect:/students");

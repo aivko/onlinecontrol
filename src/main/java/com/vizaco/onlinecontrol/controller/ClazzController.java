@@ -70,7 +70,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}")
     public ModelAndView initAccountForm(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr);
+        Clazz clazz = utils.getClazz(clazzIdStr, null);
 
         ModelAndView mav = new ModelAndView("/classes/classDetails");
 
@@ -84,7 +84,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr);
+        Clazz clazz = utils.getClazz(clazzIdStr, null);
         ModelAndView mav = new ModelAndView("/classes/createOrUpdateClassForm");
 
         mav.addObject("clazz", clazz);
@@ -95,7 +95,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("clazzId") String clazzIdStr, @ModelAttribute("clazz") @Valid Clazz clazz, BindingResult result, Model model) {
 
-        Clazz clazzEdit = utils.getClazz(clazzIdStr);
+        Clazz clazzEdit = utils.getClazz(clazzIdStr, null);
 
         if(result.hasErrors()){
             model.addAttribute("clazz", clazz);
@@ -112,7 +112,7 @@ public class ClazzController extends BaseController{
     @RequestMapping(value = "/classes/{clazzId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("clazzId") String clazzIdStr) {
 
-        Clazz clazz = utils.getClazz(clazzIdStr);
+        Clazz clazz = utils.getClazz(clazzIdStr, null);
         clazzService.deleteClazz(clazz.getId());
 
         return new ModelAndView("redirect:/classes");

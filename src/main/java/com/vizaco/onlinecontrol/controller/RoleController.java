@@ -76,7 +76,7 @@ public class RoleController extends BaseController{
     @RequestMapping(value = "/roles/{roleId}")
     public ModelAndView initAccountForm(@PathVariable("roleId") String roleIdStr) {
 
-        Role role = utils.getRole(roleIdStr);
+        Role role = utils.getRole(roleIdStr, null);
 
         ModelAndView mav = new ModelAndView("/roles/roleDetails");
 
@@ -90,7 +90,7 @@ public class RoleController extends BaseController{
     @RequestMapping(value = "/roles/{roleId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("roleId") String roleIdStr) {
 
-        Role role = utils.getRole(roleIdStr);
+        Role role = utils.getRole(roleIdStr, null);
         ModelAndView mav = new ModelAndView("/roles/createOrUpdateRoleForm");
 
         mav.addObject("role", role);
@@ -101,7 +101,7 @@ public class RoleController extends BaseController{
     @RequestMapping(value = "/roles/{roleId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("roleId") String roleIdStr, @ModelAttribute("role") @Valid Role role, BindingResult result, Model model) {
 
-        Role roleEdit = utils.getRole(roleIdStr);
+        Role roleEdit = utils.getRole(roleIdStr, null);
 
         if(result.hasErrors()){
             model.addAttribute("role", role);
@@ -118,7 +118,7 @@ public class RoleController extends BaseController{
     @RequestMapping(value = "/roles/{roleId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@PathVariable("roleId") String roleIdStr) {
 
-        Role role = utils.getRole(roleIdStr);
+        Role role = utils.getRole(roleIdStr, null);
         roleService.deleteRole(role.getId());
 
         return new ModelAndView("redirect:/roles");

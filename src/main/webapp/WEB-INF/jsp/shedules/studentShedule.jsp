@@ -41,7 +41,6 @@
 
         $(function () {
             $("#startDate").datepicker({
-                defaultDate: "-1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',
@@ -51,7 +50,6 @@
                 }
             });
             $("#endDate").datepicker({
-                defaultDate: "-1w",
                 firstDay: 1,
                 changeMonth: true,
                 dateFormat: 'dd.mm.yy',
@@ -64,13 +62,21 @@
 
         function studentReport() {
 
+            var valid = true;
+            valid = valid && validStartDate();
+            valid = valid && validEndDate();
+            valid = valid && validStudent();
+
+            if (!valid) return false;
+
             var token = $("meta[name='_csrf']").attr("content");
             var header = $("meta[name='_csrf_header']").attr("content");
 
             var startDate = $("#startDate").val();
             var endDate = $("#endDate").val();
+            var student = $("#student").val();
 
-            var json = {"startDate": startDate, "endDate": endDate};
+            var json = {"startDate": startDate, "endDate": endDate, "student": student};
 
             $.ajax({
                 url: "${studentsReport}",
@@ -86,120 +92,72 @@
                     var resultText = "";
                     if (data.result == "true") {
 
-                        var weekNumber = "";
-                        var countPages = 0;
-                        for (var keyClazz in data.shedule) {
-                            resultText = resultText +
-                                    "<div>" + keyClazz +
-                                    "</div>";
-                            countPages++;
+                        for (var keyDate in data.shedule) {
 
-                            for (var keyStudent in data.shedule[keyClazz]) {
+                            var detailsShedule = "";
+                            for (var keyShedule in data.shedule[keyDate]) {
 
-                                resultText = resultText +
-                                        "<div>" + keyStudent +
-                                        "</div>";
-                                countPages++;
+                                var currentShedule = data.shedule[keyDate][keyShedule];
 
-                                var countDate = 1;
-                                var beforeWeekNumber = null;
-                                for (var keyDate in data.shedule[keyClazz][keyStudent]) {
-
-                                    countPages++;
-                                    var detailsShedule = "";
-                                    for (var keyShedule in data.shedule[keyClazz][keyStudent][keyDate]) {
-
-                                        var currentShedule = data.shedule[keyClazz][keyStudent][keyDate][keyShedule];
-
-                                        weekNumber = parseInt(currentShedule.dayOfWeek, 10);
-
-                                        var extraHome = "";
-                                        var markJob = "";
-                                        var countMark = currentShedule.grades.length;
-                                        for (var keyGrade in currentShedule.grades) {
-                                            var grade = currentShedule.grades[keyGrade];
-                                            if (grade == null) {
-                                                countMark--;
-                                                continue;
-                                            }
-
-                                            if (grade.mark == null & grade.task != null) {
-                                                extraHome = extraHome + grade.task + (countMark == 0 ? "" : "<br/>");
-                                            } else if (grade.mark != null & grade.task == null) {
-                                                markJob = markJob + grade.mark + (countMark == 0 ? "" : "<br/>");
-                                            } else {
-                                                markJob = markJob + grade.task + ": " + grade.mark + (countMark == 0 ? "" : "<br/>");
-                                            }
-                                            countMark--;
-                                        }
-
-
-                                        detailsShedule = detailsShedule +
-                                                "<tr>" +
-                                                "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
-                                                "<td>" + currentShedule.subject.name + "</td>" +
-                                                "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + (extraHome == "" ? "" : "<br/>" + extraHome) + "</td>" +
-                                                "<td>" + markJob + "</td>" +
-                                                "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
-                                                "</tr>";
+                                var extraHome = "";
+                                var markJob = "";
+                                var countMark = currentShedule.grades.length;
+                                for (var keyGrade in currentShedule.grades) {
+                                    var grade = currentShedule.grades[keyGrade];
+                                    if (grade == null) {
+                                        countMark--;
+                                        continue;
                                     }
 
-                                    var arrayDate = keyDate.split("/");
-
-                                    if ((beforeWeekNumber == null & weekNumber <= 3)){
-                                        if(countPages%2 != 0){
-                                            resultText = resultText + "<div></div>";
-                                        }
-                                        resultText = resultText + "<div class='leftColumn'>";
-                                    }else if((beforeWeekNumber == null & weekNumber >= 4)){
-//                                        alert("beforeWeekNumber: " + beforeWeekNumber + " | weekNumber: " + weekNumber + " | countPages: " + countPages)
-                                        if(countPages%2 == 0){
-                                            resultText = resultText + "<div></div>";
-                                        }
-                                        resultText = resultText + "<div class='rightColumn'>";
-                                    }else if(weekNumber == 1){
-                                        if(countPages%2 != 0){
-                                            resultText = resultText + "<div></div>";
-                                        }
-                                        resultText = resultText + "</div><div class='leftColumn'>";
-                                    }else if(weekNumber == 4){
-                                        if(countPages%2 == 0){
-                                            resultText = resultText + "<div></div>";
-                                        }
-                                        resultText = resultText + "</div><div class='rightColumn'>";
+                                    if (grade.mark == null & grade.task != null) {
+                                        extraHome = extraHome + grade.task + (countMark == 0 ? "" : "<br/>");
+                                    } else if (grade.mark != null & grade.task == null) {
+                                        markJob = markJob + grade.mark + (countMark == 0 ? "" : "<br/>");
+                                    } else {
+                                        markJob = markJob + grade.task + ": " + grade.mark + (countMark == 0 ? "" : "<br/>");
                                     }
-
-                                    resultText = resultText +
-                                            "<div>" + arrayDate[0] + "/" + arrayDate[1].charAt(0).toUpperCase() + arrayDate[1].substr(1).toLowerCase() +
-                                            "</div>";
-
-                                    resultText = resultText +
-                                            "<table cellspacing='0' border='1' width='50%'>" +
-                                            "<thead>" +
-                                            "<tr>" +
-                                            "<th>Период</th>" +
-                                            "<th>Предмет</th>" +
-                                            "<th>Задание</th>" +
-                                            "<th>Оценка</th>" +
-                                            "<th>Преподаватель</th>" +
-                                            "</tr>" +
-                                            "</thead>" +
-                                            "<tbody>";
-
-                                    resultText = resultText + detailsShedule;
-
-                                    resultText = resultText +
-                                            "</tbody>" +
-                                            "</table>" +
-                                            "<br>";
-
-                                    beforeWeekNumber = weekNumber;
-                                    countDate++;
+                                    countMark--;
                                 }
-                                resultText = resultText + "</div>";
+
+
+                                detailsShedule = detailsShedule +
+                                        "<tr>" +
+                                        "<td>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime + "</td>" +
+                                        "<td>" + currentShedule.subject.name + "</td>" +
+                                        "<td>" + (currentShedule.job == null ? "" : currentShedule.job) + (extraHome == "" ? "" : "<br/>" + extraHome) + "</td>" +
+                                        "<td>" + markJob + "</td>" +
+                                        "<td>" + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + "</td>" +
+                                        "</tr>";
                             }
 
+                            var arrayDate = keyDate.split("/");
+
+                            resultText = resultText +
+                                    "<div>" + arrayDate[0] + "/" + arrayDate[1].charAt(0).toUpperCase() + arrayDate[1].substr(1).toLowerCase() +
+                                    "</div>";
+
+                            resultText = resultText +
+                                    "<table cellspacing='0' border='1' width='50%'>" +
+                                    "<thead>" +
+                                    "<tr>" +
+                                    "<th>Период</th>" +
+                                    "<th>Предмет</th>" +
+                                    "<th>Задание</th>" +
+                                    "<th>Оценка</th>" +
+                                    "<th>Преподаватель</th>" +
+                                    "</tr>" +
+                                    "</thead>" +
+                                    "<tbody>";
+
+                            resultText = resultText + detailsShedule;
+
+                            resultText = resultText +
+                                    "</tbody>" +
+                                    "</table>" +
+                                    "<br>";
+
                         }
+
 
                         var $result = $('.flipbook');
                         $result.text("");
@@ -224,7 +182,40 @@
                 }
             });
         }
+        function validStartDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var startDate = $("#startDate").val();
+            if (!dateReg.test(startDate)) {
+                $("#errorStartDate").text("Введите дату начала в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorStartDate").text("");
+            return true;
+        }
+        ;
 
+        function validEndDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var endDate = $("#endDate").val();
+            if (!dateReg.test(endDate)) {
+                $("#errorEndDate").text("Введите дату окончания в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorEndDate").text("");
+            return true;
+        }
+        ;
+
+        function validStudent() {
+            var student = $("#student").val();
+            if (student == "" || student == "0" || student == undefined || student == null) {
+                $("#errorStudent").text("Укажите студента");
+                return false;
+            }
+            $("#errorStudent").text("");
+            return true;
+        }
+        ;
 
     </script>
 
@@ -235,23 +226,33 @@
 
     <h1>Просмотр расписания</h1>
 
-    <div id="content">
-        <div>
-            <label for="startDate">Дата начала</label>
-            <input type="text" id="startDate" name="startDate"/>
-            <label for="endDate">Дата окончания</label>
-            <input type="text" id="endDate" name="endDate"/>
-        </div>
-        <button onclick="studentReport()">Сформировать</button>
-        <br/>
+    <div>
+        <label for="startDate">Дата начала</label>
+        <input type="text" id="startDate" name="startDate" onchange="validStartDate()"/>
+        <label for="endDate">Дата окончания</label>
+        <input type="text" id="endDate" name="endDate" onchange="validEndDate()"/>
 
-        <div class="flipbook-viewport">
-            <div class="container">
-                <div class="flipbook">
+        <div style="color:red;" id="errorStartDate"></div>
+        <div style="color:red;" id="errorEndDate"></div>
+    </div>
 
-                </div>
-            </div>
-        </div>
+    <br/>
+
+    <div>
+        <select id="student" name="student" onchange="validStudent()">
+            <option value="">------Выберите студента------</option>
+            <c:forEach var="varstudent" items="${students}">
+                <option value="${varstudent.id}"><c:out
+                        value="${varstudent.lastName} ${varstudent.firstName} ${varstudent.middleName}"/></option>
+            </c:forEach>
+        </select>
+        <span style="color:red;" id="errorStudent"></span>
+    </div>
+    <br/>
+    <button onclick="return studentReport()">Сформировать</button>
+
+    <div class="flipbook">
+
     </div>
 
 </div>

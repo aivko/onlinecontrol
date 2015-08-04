@@ -14,7 +14,7 @@
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
-    <spring:url value="/shedules/studentShedule" htmlEscape="true" var="action"/>
+    <spring:url value="/shedules/criteriaShedule" htmlEscape="true" var="action"/>
 
     <jsp:include page="../fragments/jQueryLib.jsp"/>
 
@@ -41,6 +41,50 @@
             });
         });
 
+        function onSubmit(f) {
+
+            var valid = true;
+            valid = valid && validStartDate();
+            valid = valid && validEndDate();
+            valid = valid && validStudent();
+
+            if (!valid) return false;
+            f.submit();
+        }
+
+        function validStartDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var startDate = $("#startDate").val();
+            if(!dateReg.test(startDate)){
+                $("#errorStartDate").text("Введите дату начала в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorStartDate").text("");
+            return true;
+        };
+
+        function validEndDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var endDate = $("#endDate").val();
+            if(!dateReg.test(endDate)){
+                $("#errorEndDate").text("Введите дату окончания в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorEndDate").text("");
+            return true;
+        };
+
+        function validStudent() {
+            var student = $("#student").val();
+            if(student == "" || student == "0" || student == undefined || student == null){
+                $("#errorStudent").text("Укажите студента");
+                return false;
+            }
+            $("#errorStudent").text("");
+            return true;
+        }
+        ;
+
     </script>
 
 </head>
@@ -50,23 +94,26 @@
 
     <h1>Отбор:</h1>
 
-    <form:form modelAttribute="object" action="${action}" method="get">
+    <form:form action="${action}" method="post" onsubmit="return onSubmit(this)">
         <form:errors path="" cssStyle="color:red;" cssclass="error"/>
         <div>
             <label for="startDate">Дата начала</label>
-            <input type="text" id="startDate" name="startDate"/>
+            <input type="text" id="startDate" name="startDate" onchange="validStartDate()"/>
             <label for="endDate">Дата окончания</label>
-            <input type="text" id="endDate" name="endDate"/>
+            <input type="text" id="endDate" name="endDate" onchange="validEndDate()"/>
+            <div style="color:red;" id="errorStartDate"></div>
+            <div style="color:red;" id="errorEndDate"></div>
         </div>
 
         <br/>
         <div>
-            <select name="student">
+            <select id="student" name="student" onchange="validStudent()">
                 <option value="">------Выберите студента------</option>
                 <c:forEach var="varstudent" items="${students}">
                     <option value="${varstudent.id}"><c:out value="${varstudent.lastName} ${varstudent.firstName} ${varstudent.middleName}"/></option>
                 </c:forEach>
             </select>
+            <span style="color:red;" id="errorStudent"></span>
         </div>
         <br/>
         <input id="submit" type="submit" value="Сформировать"/>

@@ -16,7 +16,7 @@
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.1.1" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.1" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
-          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.18" />
+          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.24" />
           <element id="library" level="project" name="Maven: org.datanucleus:javax.persistence:2.1.0" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:4.1.0-m4" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-api-jpa:4.1.0-m4" />

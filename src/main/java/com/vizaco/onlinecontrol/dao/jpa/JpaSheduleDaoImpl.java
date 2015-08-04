@@ -108,6 +108,10 @@ public class JpaSheduleDaoImpl implements SheduleDao {
             predicates.add(cb.equal(shedule.get("clazz"), clazz));
         }
 
+        if (student != null) {
+            predicates.add(cb.equal(studentJoin, student));
+        }
+
         if (period != null) {
             predicates.add(cb.equal(shedule.get("period"), period));
         }

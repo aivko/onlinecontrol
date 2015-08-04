@@ -65,7 +65,7 @@ public class NewsController extends BaseController{
     @RequestMapping(value = "/news/{newsId}")
     public ModelAndView readNews(@PathVariable("newsId") String newsIdStr) {
 
-        News news = utils.getNews(newsIdStr);
+        News news = utils.getNews(newsIdStr, null);
 
         ModelAndView mav = new ModelAndView("/news/newsDetails");
 
@@ -79,7 +79,7 @@ public class NewsController extends BaseController{
     @RequestMapping(value = "/news/{newsId}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("newsId") String newsIdStr) {
 
-        News news = utils.getNews(newsIdStr);
+        News news = utils.getNews(newsIdStr, null);
         ModelAndView mav = new ModelAndView("/news/createOrUpdateNewsForm");
 
         mav.addObject("news", news);
@@ -90,7 +90,7 @@ public class NewsController extends BaseController{
     @RequestMapping(value = "/news/{newsId}/edit", method = RequestMethod.PUT)
     public String edit(@PathVariable("newsId") String newsIdStr, @ModelAttribute("news") @Valid News news, BindingResult result, Model model) {
 
-        News newsEdit = utils.getNews(newsIdStr);
+        News newsEdit = utils.getNews(newsIdStr, null);
 
         if(result.hasErrors()){
             model.addAttribute("news", news);
@@ -107,7 +107,7 @@ public class NewsController extends BaseController{
     @RequestMapping(value = "/news/{newsId}/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteNews(@PathVariable("newsId") String newsIdStr) {
 
-        News news = utils.getNews(newsIdStr);
+        News news = utils.getNews(newsIdStr, null);
         newsService.deleteNews(news.getId());
 
         return new ModelAndView("redirect:/news");

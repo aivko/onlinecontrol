@@ -1,7 +1,9 @@
 package com.vizaco.onlinecontrol.representation;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.utils.DateUtils;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
