@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.appengine:appengine-tools-sdk:1.9.24">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-tools-sdk/1.9.24/appengine-tools-sdk-1.9.24.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-tools-sdk/1.9.24/appengine-tools-sdk-1.9.24-javadoc.jar!/" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/docs/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-tools-sdk/1.9.24/appengine-tools-sdk-1.9.24-sources.jar!/" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/guestbook/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloorm/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloorm2/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloservers/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloxmpp/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/jdoexamples/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/mandelbrot/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/mediastore/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/new_project_template/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/shardedcounter/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/sticky/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/taskengine/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/taskqueueexamples/src" />
+      <root url="jar://$USER_HOME$/appengine-java-sdk-1.9.24/lib/appengine-tools-api.jar!/com/google/appengine/repackaged/com/google/common/base/super" />
+      <root url="jar://$USER_HOME$/appengine-java-sdk-1.9.24/src/user/appengine-api-1.0-sdk-1.9.24-src.zip!/" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/guestbook/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloorm/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloorm2/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloservers/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/helloxmpp/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/jdoexamples/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/mandelbrot/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/mediastore/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/new_project_template/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/shardedcounter/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/sticky/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/taskengine/src" />
+      <root url="file://$USER_HOME$/appengine-java-sdk-1.9.24/demos/taskqueueexamples/src" />
+    </SOURCES>
+  </library>
+</component>

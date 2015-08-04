@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7-sources.jar!/" />
+      <root url="jar://$USER_HOME$/appengine-java-sdk-1.9.24/src/user/appengine-api-1.0-sdk-1.9.24-src.zip!/" />
     </SOURCES>
   </library>
 </component>

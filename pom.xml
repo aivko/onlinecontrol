@@ -77,26 +77,26 @@
             <version>2.5.4</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.codehaus.jackson</groupId>-->
-            <!--<artifactId>jackson-jaxrs</artifactId>-->
-            <!--<version>1.9.13</version>-->
+        <!--<groupId>org.codehaus.jackson</groupId>-->
+        <!--<artifactId>jackson-jaxrs</artifactId>-->
+        <!--<version>1.9.13</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.codehaus.jackson</groupId>-->
-            <!--<artifactId>jackson-core-asl</artifactId>-->
-            <!--<version>1.9.13</version>-->
+        <!--<groupId>org.codehaus.jackson</groupId>-->
+        <!--<artifactId>jackson-core-asl</artifactId>-->
+        <!--<version>1.9.13</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.codehaus.jackson</groupId>-->
-            <!--<artifactId>jackson-mapper-asl</artifactId>-->
-            <!--<version>1.9.13</version>-->
+        <!--<groupId>org.codehaus.jackson</groupId>-->
+        <!--<artifactId>jackson-mapper-asl</artifactId>-->
+        <!--<version>1.9.13</version>-->
         <!--</dependency>-->
 
         <!-- Jasper reports -->
         <!--<dependency>-->
-            <!--<groupId>net.sf.jasperreports</groupId>-->
-            <!--<artifactId>jasperreports</artifactId>-->
-            <!--<version>6.1.0</version>-->
+        <!--<groupId>net.sf.jasperreports</groupId>-->
+        <!--<artifactId>jasperreports</artifactId>-->
+        <!--<version>6.1.0</version>-->
         <!--</dependency>-->
 
         <!-- Http client -->
@@ -271,9 +271,9 @@
             <version>2.1.3</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.webjars</groupId>-->
-            <!--<artifactId>datatables</artifactId>-->
-            <!--<version>1.10.7</version>-->
+        <!--<groupId>org.webjars</groupId>-->
+        <!--<artifactId>datatables</artifactId>-->
+        <!--<version>1.10.7</version>-->
         <!--</dependency>-->
 
 
@@ -359,15 +359,116 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
+        <!-- Google AppEngine -->
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
             <version>1.9.8</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.appengine.orm</groupId>
+            <artifactId>datanucleus-appengine</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-maven-plugin</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>1.9.24</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.9.24</version>
+        </dependency>
+
 
     </dependencies>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>google-snapshots</id>
+            <name>Google Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
+
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.1</version>-->
+                <!--<configuration>-->
+                    <!--<compilerVersion>1.8</compilerVersion>-->
+                    <!--<target>1.8</target>-->
+                    <!--<source>1.8</source>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>2.3</version>-->
+                <!--<configuration>-->
+                    <!--<archiveClasses>true</archiveClasses>-->
+                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                    <!--<webResources>-->
+                        <!--&lt;!&ndash; in order to interpolate version from pom into appengine-web.xml &ndash;&gt;-->
+                        <!--<resource>-->
+                            <!--<directory>${basedir}/src/main/webapp/WEB-INF</directory>-->
+                            <!--<filtering>true</filtering>-->
+                            <!--<targetPath>WEB-INF</targetPath>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.datanucleus</groupId>-->
+                <!--<artifactId>datanucleus-maven-plugin</artifactId>-->
+                <!--<version>4.0.1</version>-->
+                <!--<configuration>-->
+                    <!--<api>JPA</api>-->
+                    <!--<persistenceUnitName>jpa.unit</persistenceUnitName>-->
+                    <!--<log4jConfiguration>WEB-INF/logging.properties</log4jConfiguration>-->
+                    <!--<verbose>true</verbose>-->
+                <!--</configuration>-->
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.datanucleus</groupId>-->
+                        <!--<artifactId>datanucleus-core</artifactId>-->
+                        <!--<version>4.1.0-m4</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>process-classes</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>enhance</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>com.google.appengine</groupId>-->
+                <!--<artifactId>appengine-maven-plugin</artifactId>-->
+                <!--<version>1.9.24</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
 
         <plugins>
 
