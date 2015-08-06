@@ -1,18 +1,21 @@
 package com.vizaco.onlinecontrol.utils;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+import java.sql.Connection;
+
 /**
  * Created by super on 7/20/15.
  */
 public class TestMain {
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    public static void main(String[] args) throws Exception {
 
-        A a = new A();
-        a.item1 = 10;
-        a.item2 = 100;
+        MysqlDataSource dataSource = new MysqlDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/onlinecontrol");
+        dataSource.setUser("root");
+        dataSource.setPassword("root");
 
-        A returnVal = mathodA(a);
-
-        System.out.println(a == returnVal);
+        Connection connection = dataSource.getConnection();
 
     }
 

@@ -1,10 +1,9 @@
 package com.vizaco.onlinecontrol.configuration;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.vizaco.onlinecontrol.converters.*;
 import com.vizaco.onlinecontrol.model.*;
-import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -17,7 +16,6 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -36,7 +34,10 @@ import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
 import java.nio.charset.Charset;
-import java.util.*;
+import java.util.List;
+import java.util.Locale;
+import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  * Created by super on 6/5/15.
@@ -94,7 +95,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public DataSource dataSource() {
-        JDBCDataSource dataSource = new JDBCDataSource();
+        MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
@@ -127,13 +128,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         em.setPackagesToScan(new String[]{"com.vizaco.onlinecontrol.model"});
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabase(Database.HSQL);
-        vendorAdapter.setShowSql(true);
+        vendorAdapter.setDatabase(Database.MYSQL);
+        vendorAdapter.setShowSql(Boolean.parseBoolean(environment.getProperty("jpa.showSql")));
 
         em.setJpaVendorAdapter(vendorAdapter);
 
         Properties properties = new Properties();
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+        properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
 
         em.setJpaProperties(properties);
 
@@ -172,7 +173,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .ignoreAcceptHeader(true)
                 .mediaType("html", MediaType.TEXT_HTML)
                 .mediaType("json", MediaType.APPLICATION_JSON)
-//                .defaultContentType(MediaType.APPLICATION_JSON);
                 .defaultContentType(MediaType.TEXT_HTML);
     }
 

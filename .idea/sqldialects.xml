@@ -3,5 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/initDB.sql" dialect="HSQLDB" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/hsqldb/populateDB.sql" dialect="HSQLDB" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/mysql/initDB.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/mysql/populateDB.sql" dialect="MySQL" />
   </component>
 </project>
