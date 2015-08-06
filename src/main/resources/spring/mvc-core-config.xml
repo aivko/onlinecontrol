@@ -1,67 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xmlns:mvc="http://www.springframework.org/schema/mvc"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/mvc-->
+       <!--http://www.springframework.org/schema/mvc/spring-mvc.xsd-->
+       <!--http://www.springframework.org/schema/beans-->
+       <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+       <!--http://www.springframework.org/schema/context-->
+       <!--http://www.springframework.org/schema/context/spring-context.xsd">-->
 
-    <!-- enables scanning for @Controller annotations -->
-    <!--<mvc:annotation-driven conversion-service="conversionService"/>-->
+    <!--&lt;!&ndash; enables scanning for @Controller annotations &ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:annotation-driven conversion-service="conversionService"/>&ndash;&gt;-->
 
-    <mvc:view-resolvers>
-        <mvc:content-negotiation use-not-acceptable="true">
-            <mvc:default-views>
-                <bean class="org.springframework.web.servlet.view.JstlView">
-                    <property name="url" value=""/>
-                </bean>
-            </mvc:default-views>
-        </mvc:content-negotiation>
+    <!--<mvc:view-resolvers>-->
+        <!--<mvc:content-negotiation use-not-acceptable="true">-->
+            <!--<mvc:default-views>-->
+                <!--<bean class="org.springframework.web.servlet.view.JstlView">-->
+                    <!--<property name="url" value=""/>-->
+                <!--</bean>-->
+            <!--</mvc:default-views>-->
+        <!--</mvc:content-negotiation>-->
 
-        <!-- Registering BeanNameViewResolver and InternalViewResolver -->
-        <mvc:bean-name/>
-        <mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp"/>
-    </mvc:view-resolvers>
+        <!--&lt;!&ndash; Registering BeanNameViewResolver and InternalViewResolver &ndash;&gt;-->
+        <!--<mvc:bean-name/>-->
+        <!--<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp"/>-->
+    <!--</mvc:view-resolvers>-->
 
-    <!-- POJOs labeled with the @Controller and @Service annotations are auto-detected -->
-    <context:component-scan base-package="com.vizaco.onlinecontrol.controller"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.security"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.configuration"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.security.impl"/>
-    <context:component-scan base-package="com.vizaco.onlinecontrol.utils"/>
+    <!--&lt;!&ndash; POJOs labeled with the @Controller and @Service annotations are auto-detected &ndash;&gt;-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.controller"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.dao.jpa"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.security"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.configuration"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.security.impl"/>-->
+    <!--<context:component-scan base-package="com.vizaco.onlinecontrol.utils"/>-->
 
-    <!--  all resources <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> folder src/main/webapp/resources are mapped so they can be refered to inside JSP files
-        (see header.jsp for more details) -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!--&lt;!&ndash;  all resources <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> folder src/main/webapp/resources are mapped so they can be refered to inside JSP files-->
+        <!--(see header.jsp for more details) &ndash;&gt;-->
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
-    <!-- uses WebJars so Javascript and CSS libs can be declared as Maven dependencies (Bootstrap, jQuery...) -->
-    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+    <!--&lt;!&ndash; uses WebJars so Javascript and CSS libs can be declared as Maven dependencies (Bootstrap, jQuery...) &ndash;&gt;-->
+    <!--<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>-->
 
-    <!-- serve static resources (*.html, ...) from src/main/webapp/
-    Required when both servlet-mapping is '/' and static resources need to be served -->
-    <mvc:default-servlet-handler/>
+    <!--&lt;!&ndash; serve static resources (*.html, ...) from src/main/webapp/-->
+    <!--Required when both servlet-mapping is '/' and static resources need to be served &ndash;&gt;-->
+    <!--<mvc:default-servlet-handler/>-->
 
 
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
 
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--<ref bean="jsonConverter"/>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
-    <!--&lt;!&ndash;<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"/>&ndash;&gt;-->
-    <!--<bean id="jsonConverter"-->
-          <!--class="org.springframework.http.converter.JsonViewResolver.MappingJackson2HttpMessageConverter">-->
-        <!--<property name="supportedMediaTypes" value="application/JsonViewResolver"/>-->
-    <!--</bean>-->
+    <!--&lt;!&ndash;<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="messageConverters">&ndash;&gt;-->
+            <!--&lt;!&ndash;<list>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ref bean="jsonConverter"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</list>&ndash;&gt;-->
+        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"/>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="jsonConverter"&ndash;&gt;-->
+          <!--&lt;!&ndash;class="org.springframework.http.converter.JsonViewResolver.MappingJackson2HttpMessageConverter">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="supportedMediaTypes" value="application/JsonViewResolver"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
 
-</beans>
+<!--</beans>-->

@@ -7,7 +7,6 @@
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/src/main/webapp/WEB-INF" relative="WEB-INF" />
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
@@ -54,13 +53,14 @@
     <facet type="google-app-engine" name="Google App Engine">
       <configuration>
         <sdk-home-path>$MAVEN_REPOSITORY$/com/google/appengine/appengine-java-sdk/1.9.24/appengine-java-sdk/appengine-java-sdk-1.9.24</sdk-home-path>
-        <run-enhancer-on-make>true</run-enhancer-on-make>
         <files-to-enhance>
           <file path="$MODULE_DIR$/src/main/java" />
           <file path="$MODULE_DIR$/src/main/resources" />
           <file path="$MODULE_DIR$/target/generated-sources/annotations" />
           <file path="$MODULE_DIR$/src/main/webapp/resources" />
+          <file path="$MODULE_DIR$/src/main/java" />
         </files-to-enhance>
+        <persistence-api>JPA2</persistence-api>
       </configuration>
     </facet>
   </component>

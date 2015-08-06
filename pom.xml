@@ -390,23 +390,101 @@
 
     </dependencies>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>google-snapshots</id>
-            <name>Google Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>google-snapshots</id>-->
+            <!--<name>Google Snapshots</name>-->
+            <!--<url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+            <!--<releases>-->
+                <!--<enabled>false</enabled>-->
+            <!--</releases>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 
     <build>
 
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.1</version>-->
+                <!--<configuration>-->
+                    <!--<compilerVersion>1.7</compilerVersion>-->
+                    <!--<target>1.7</target>-->
+                    <!--<source>1.7</source>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>2.3</version>-->
+                <!--<configuration>-->
+                    <!--<archiveClasses>true</archiveClasses>-->
+                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                    <!--<webResources>-->
+                        <!--&lt;!&ndash; in order to interpolate version from pom into appengine-web.xml &ndash;&gt;-->
+                        <!--<resource>-->
+                            <!--<directory>${basedir}/src/main/webapp/WEB-INF</directory>-->
+                            <!--<filtering>true</filtering>-->
+                            <!--<targetPath>WEB-INF</targetPath>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.datanucleus</groupId>-->
+                <!--<artifactId>datanucleus-maven-plugin</artifactId>-->
+                <!--<version>4.0.1</version>-->
+                <!--<configuration>-->
+                    <!--<api>JPA</api>-->
+                    <!--<persistenceUnitName>jpa.unit</persistenceUnitName>-->
+                    <!--<log4jConfiguration>WEB-INF/logging.properties</log4jConfiguration>-->
+                    <!--<verbose>true</verbose>-->
+                <!--</configuration>-->
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.datanucleus</groupId>-->
+                        <!--<artifactId>datanucleus-core</artifactId>-->
+                        <!--<version>4.1.0-m4</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+                <!--&lt;!&ndash;<executions>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<execution>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<phase>process-classes</phase>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<goals>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<goal>enhance</goal>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</goals>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</execution>&ndash;&gt;-->
+                <!--&lt;!&ndash;</executions>&ndash;&gt;-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>com.google.appengine</groupId>-->
+                <!--<artifactId>appengine-maven-plugin</artifactId>-->
+                <!--<version>1.9.24</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+
         <plugins>
+
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.0.M2</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopKey>alpha</stopKey>
+                    <stopPort>9099</stopPort>
+                    <webApp>
+                        <contextPath>/${project.artifactId}</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -417,94 +495,16 @@
                     <source>1.8</source>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <archiveClasses>true</archiveClasses>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <webResources>
-                        <!-- in order to interpolate version from pom into appengine-web.xml -->
-                        <resource>
-                            <directory>${basedir}/src/main/webapp/WEB-INF</directory>
-                            <filtering>true</filtering>
-                            <targetPath>WEB-INF</targetPath>
-                        </resource>
-                    </webResources>
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.datanucleus</groupId>
-                <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>4.0.1</version>
-                <configuration>
-                    <api>JPA</api>
-                    <persistenceUnitName>jpa.unit</persistenceUnitName>
-                    <log4jConfiguration>WEB-INF/logging.properties</log4jConfiguration>
-                    <verbose>true</verbose>
-                </configuration>
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.datanucleus</groupId>-->
-                        <!--<artifactId>datanucleus-core</artifactId>-->
-                        <!--<version>4.1.0-m4</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-                <executions>
-                    <execution>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>1.9.24</version>
-            </plugin>
         </plugins>
-
-        <!--<plugins>-->
-
-            <!--<plugin>-->
-                <!--<groupId>org.eclipse.jetty</groupId>-->
-                <!--<artifactId>jetty-maven-plugin</artifactId>-->
-                <!--<version>9.3.0.M2</version>-->
-                <!--<configuration>-->
-                    <!--<scanIntervalSeconds>10</scanIntervalSeconds>-->
-                    <!--<stopKey>alpha</stopKey>-->
-                    <!--<stopPort>9099</stopPort>-->
-                    <!--<webApp>-->
-                        <!--<contextPath>/${project.artifactId}</contextPath>-->
-                    <!--</webApp>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<version>3.1</version>-->
-                <!--<configuration>-->
-                    <!--<compilerVersion>1.8</compilerVersion>-->
-                    <!--<target>1.8</target>-->
-                    <!--<source>1.8</source>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-war-plugin</artifactId>-->
-                <!--<version>2.3</version>-->
-                <!--<configuration>-->
-                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-
-        <!--</plugins>-->
 
         <finalName>onlinecontrol</finalName>
     </build>
