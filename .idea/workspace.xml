@@ -8,31 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaClazzDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaNewsDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaParentDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaRoleDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaSheduleDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaStudentDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/JpaUserDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_10_2_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_8_2_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/SpringDataBusinessRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaBusinessDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaBusinessDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaNewsDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaNewsDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaParentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaParentDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaRoleDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaRoleDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaSheduleDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaSheduleDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaStudentDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/onlinecontrol.iml" afterPath="$PROJECT_DIR$/onlinecontrol.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/SpringDataBusinessRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/SpringDataBusinessRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b12035db-2bd2-4426-a0b6-f35a1a11cd46" name="studentShedule" comment="" />
@@ -173,11 +149,31 @@
       <file leaf-file-name="SpringDataBusinessRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/SpringDataBusinessRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.280837">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.37995595">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.10.2.RELEASE/spring-data-commons-1.10.2.RELEASE-sources.jar!/org/springframework/data/repository/Repository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JpaRepositoriesRegistrar.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.8.2.RELEASE/spring-data-jpa-1.8.2.RELEASE.jar!/org/springframework/data/jpa/repository/config/JpaRepositoriesRegistrar.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1538461">
+              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -197,26 +193,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JpaBusinessDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaBusinessDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JpaClazzDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaClazzDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -435,6 +411,194 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="onlinecontrol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-jpa:1.8.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-jpa-1.8.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-jpa:1.8.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-jpa-1.8.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-jpa:1.8.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-jpa-1.8.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-commons-1.10.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-commons-1.10.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-commons-1.10.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transaction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-commons-1.10.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onlinecontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-data-commons-1.10.2.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1132,7 +1296,7 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/webapp/resources/css/jquery-2.1.3.js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="SearchEverywhereHistoryKey" value="JacksonAnnotationIntrospector&#9;PSI&#9;JAVA://com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector&#10;JsonPro&#9;PSI&#9;JAVA://org.codehaus.jackson.annotate.JsonProperty&#10;JsonDeserializer&#9;PSI&#9;JAVA://com.fasterxml.jackson.databind.JsonDeserializer&#10;Stream&#9;PSI&#9;JAVA://java.util.stream.Stream&#10;StringHttpMessageConverter&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE-sources.jar!/org/springframework/http/converter/StringHttpMessageConverter.java&#10;AbstractHttpMessageConverter&#9;PSI&#9;JAVA://org.springframework.http.converter.AbstractHttpMessageConverter&#10;Times&#9;PSI&#9;JAVA://java.sql.Timestamp&#10;GregorianCalendar&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/util/GregorianCalendar.java&#10;DateFormat&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/text/SimpleDateFormat.java&#10;DateFormatSymbols&#9;PSI&#9;JAVA://java.text.DateFormatSymbols&#10;GC&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/util/GregorianCalendar.java&#10;LocalTime&#9;PSI&#9;JAVA://com.google.appengine.repackaged.org.joda.time.LocalTime&#10;ChronoLocalDate&#9;PSI&#9;JAVA://java.time.chrono.ChronoLocalDate&#10;Chronology&#9;PSI&#9;JAVA://java.time.chrono.Chronology&#10;Formatter&#9;PSI&#9;JAVA://java.util.Formatter&#10;Compar&#9;PSI&#9;JAVA://java.lang.Comparable&#10;AffirmativeBased&#9;PSI&#9;JAVA://org.springframework.security.access.vote.AffirmativeBased&#10;Voter&#9;PSI&#9;JAVA://org.springframework.security.access.vote.AbstractAclVoter&#10;ProtectPointcutPostProcessor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/security/spring-security-config/3.2.5.RELEASE/spring-security-config-3.2.5.RELEASE-sources.jar!/org/springframework/security/config/method/ProtectPointcutPostProcessor.java&#10;PointcutPostProcessor&#9;PSI&#9;JAVA://org.springframework.security.config.method.ProtectPointcutPostProcessor&#10;PostProcessor&#9;PSI&#9;JAVA://org.springframework.aop.framework.AbstractAdvisingBeanPostProcessor&#10;AnnotationConfigWebApplicationContext&#9;PSI&#9;JAVA://org.springframework.web.context.support.AnnotationConfigWebApplicationContext&#10;WebMvcConfigurationSupport&#9;PSI&#9;JAVA://org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport&#10;FormattingConversionService&#9;PSI&#9;JAVA://org.springframework.format.support.FormattingConversionService&#10;AutowiredAnnotationBeanPostProcessor&#9;PSI&#9;JAVA://org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor&#10;AAAAPC&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE-sources.jar!/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java&#10;PriorityOrdered&#9;PSI&#9;JAVA://org.springframework.core.PriorityOrdered&#10;BeanPostProcessor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-beans/4.1.6.RELEASE/spring-beans-4.1.6.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java&#10;PostProcessorRegistrationDelegate&#9;PSI&#9;JAVA://org.springframework.context.support.PostProcessorRegistrationDelegate&#10;AnnotationBeanConfigurerAspect&#9;null&#9;null&#10;AnnotationTransactionAttributeSource&#9;PSI&#9;JAVA://org.springframework.transaction.annotation.AnnotationTransactionAttributeSource&#10;transactioninterceptor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.java&#10;FrameworkServlet&#9;PSI&#9;JAVA://org.springframework.web.servlet.FrameworkServlet&#10;ResourceDatabasePopulator&#9;PSI&#9;JAVA://org.springframework.jdbc.datasource.init.ResourceDatabasePopulator&#10;TransactionManagementConfigurer&#9;PSI&#9;JAVA://org.springframework.transaction.annotation.TransactionManagementConfigurer&#10;AbstractLifeCycle&#9;FILE&#9;jar:///home/super/.m2/repository/org/eclipse/jetty/jetty-util/9.2.11.v20150529/jetty-util-9.2.11.v20150529-sources.jar!/org/eclipse/jetty/util/component/AbstractLifeCycle.java&#10;PathResourceResolver&#9;PSI&#9;JAVA://org.springframework.web.servlet.resource.PathResourceResolver&#10;JuliLog&#9;PSI&#9;JAVA://org.eclipse.jetty.apache.jsp.JuliLog&#10;MethodSecurityMetadataSourceAdvisor&#9;PSI&#9;JAVA://org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor&#10;MethodSecurityMetadataSource&#9;PSI&#9;JAVA://org.springframework.security.access.method.MethodSecurityMetadataSource&#10;AbstractJpaVendorAdapter&#9;PSI&#9;JAVA://org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter&#10;HSQLDialect&#9;FILE&#9;jar:///home/super/.m2/repository/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final.jar!/org/hibernate/dialect/HSQLDialect.class&#10;HSQL&#9;PSI&#9;JAVA://org.hibernate.dialect.HSQLDialect&#10;ResourceBundleViewResolver&#9;PSI&#9;JAVA://org.springframework.web.servlet.view.ResourceBundleViewResolver&#10;BeanNameViewResolver&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-webmvc/4.1.6.RELEASE/spring-webmvc-4.1.6.RELEASE-sources.jar!/org/springframework/web/servlet/view/BeanNameViewResolver.java&#10;UsernamePasswordAuthenticationFilter&#9;PSI&#9;JAVA://org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter&#10;DefaultMethodSecurityExpressionHandler&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE-sources.jar!/org/springframework/security/access/expression/method/DefaultMethodSecurityExpressionHandler.java&#10;DefaultSecurityFilterChain&#9;PSI&#9;JAVA://org.springframework.security.web.DefaultSecurityFilterChain&#10;ExpressionBasedFilterInvocationSecurityMetadataSource&#9;PSI&#9;JAVA://org.springframework.security.web.access.expression.ExpressionBasedFilterInvocationSecurityMetadataSource&#10;SecurityExpressionRoot&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE-sources.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.java" />
+    <property name="SearchEverywhereHistoryKey" value="JpaRepo&#9;PSI&#9;JAVA://org.springframework.data.jpa.repository.config.JpaRepositoriesRegistrar&#10;JacksonAnnotationIntrospector&#9;PSI&#9;JAVA://com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector&#10;JsonPro&#9;PSI&#9;JAVA://org.codehaus.jackson.annotate.JsonProperty&#10;JsonDeserializer&#9;PSI&#9;JAVA://com.fasterxml.jackson.databind.JsonDeserializer&#10;Stream&#9;PSI&#9;JAVA://java.util.stream.Stream&#10;StringHttpMessageConverter&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE-sources.jar!/org/springframework/http/converter/StringHttpMessageConverter.java&#10;AbstractHttpMessageConverter&#9;PSI&#9;JAVA://org.springframework.http.converter.AbstractHttpMessageConverter&#10;Times&#9;PSI&#9;JAVA://java.sql.Timestamp&#10;GregorianCalendar&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/util/GregorianCalendar.java&#10;DateFormat&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/text/SimpleDateFormat.java&#10;DateFormatSymbols&#9;PSI&#9;JAVA://java.text.DateFormatSymbols&#10;GC&#9;FILE&#9;jar:///home/super/jdk1.8.0_31/src.zip!/java/util/GregorianCalendar.java&#10;LocalTime&#9;PSI&#9;JAVA://com.google.appengine.repackaged.org.joda.time.LocalTime&#10;ChronoLocalDate&#9;PSI&#9;JAVA://java.time.chrono.ChronoLocalDate&#10;Chronology&#9;PSI&#9;JAVA://java.time.chrono.Chronology&#10;Formatter&#9;PSI&#9;JAVA://java.util.Formatter&#10;Compar&#9;PSI&#9;JAVA://java.lang.Comparable&#10;AffirmativeBased&#9;PSI&#9;JAVA://org.springframework.security.access.vote.AffirmativeBased&#10;Voter&#9;PSI&#9;JAVA://org.springframework.security.access.vote.AbstractAclVoter&#10;ProtectPointcutPostProcessor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/security/spring-security-config/3.2.5.RELEASE/spring-security-config-3.2.5.RELEASE-sources.jar!/org/springframework/security/config/method/ProtectPointcutPostProcessor.java&#10;PointcutPostProcessor&#9;PSI&#9;JAVA://org.springframework.security.config.method.ProtectPointcutPostProcessor&#10;PostProcessor&#9;PSI&#9;JAVA://org.springframework.aop.framework.AbstractAdvisingBeanPostProcessor&#10;AnnotationConfigWebApplicationContext&#9;PSI&#9;JAVA://org.springframework.web.context.support.AnnotationConfigWebApplicationContext&#10;WebMvcConfigurationSupport&#9;PSI&#9;JAVA://org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport&#10;FormattingConversionService&#9;PSI&#9;JAVA://org.springframework.format.support.FormattingConversionService&#10;AutowiredAnnotationBeanPostProcessor&#9;PSI&#9;JAVA://org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor&#10;AAAAPC&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-aop/4.1.6.RELEASE/spring-aop-4.1.6.RELEASE-sources.jar!/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java&#10;PriorityOrdered&#9;PSI&#9;JAVA://org.springframework.core.PriorityOrdered&#10;BeanPostProcessor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-beans/4.1.6.RELEASE/spring-beans-4.1.6.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java&#10;PostProcessorRegistrationDelegate&#9;PSI&#9;JAVA://org.springframework.context.support.PostProcessorRegistrationDelegate&#10;AnnotationBeanConfigurerAspect&#9;null&#9;null&#10;AnnotationTransactionAttributeSource&#9;PSI&#9;JAVA://org.springframework.transaction.annotation.AnnotationTransactionAttributeSource&#10;transactioninterceptor&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.java&#10;FrameworkServlet&#9;PSI&#9;JAVA://org.springframework.web.servlet.FrameworkServlet&#10;ResourceDatabasePopulator&#9;PSI&#9;JAVA://org.springframework.jdbc.datasource.init.ResourceDatabasePopulator&#10;TransactionManagementConfigurer&#9;PSI&#9;JAVA://org.springframework.transaction.annotation.TransactionManagementConfigurer&#10;AbstractLifeCycle&#9;FILE&#9;jar:///home/super/.m2/repository/org/eclipse/jetty/jetty-util/9.2.11.v20150529/jetty-util-9.2.11.v20150529-sources.jar!/org/eclipse/jetty/util/component/AbstractLifeCycle.java&#10;PathResourceResolver&#9;PSI&#9;JAVA://org.springframework.web.servlet.resource.PathResourceResolver&#10;JuliLog&#9;PSI&#9;JAVA://org.eclipse.jetty.apache.jsp.JuliLog&#10;MethodSecurityMetadataSourceAdvisor&#9;PSI&#9;JAVA://org.springframework.security.access.intercept.aopalliance.MethodSecurityMetadataSourceAdvisor&#10;MethodSecurityMetadataSource&#9;PSI&#9;JAVA://org.springframework.security.access.method.MethodSecurityMetadataSource&#10;AbstractJpaVendorAdapter&#9;PSI&#9;JAVA://org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter&#10;HSQLDialect&#9;FILE&#9;jar:///home/super/.m2/repository/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final.jar!/org/hibernate/dialect/HSQLDialect.class&#10;HSQL&#9;PSI&#9;JAVA://org.hibernate.dialect.HSQLDialect&#10;ResourceBundleViewResolver&#9;PSI&#9;JAVA://org.springframework.web.servlet.view.ResourceBundleViewResolver&#10;BeanNameViewResolver&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/spring-webmvc/4.1.6.RELEASE/spring-webmvc-4.1.6.RELEASE-sources.jar!/org/springframework/web/servlet/view/BeanNameViewResolver.java&#10;UsernamePasswordAuthenticationFilter&#9;PSI&#9;JAVA://org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter&#10;DefaultMethodSecurityExpressionHandler&#9;FILE&#9;jar:///home/super/.m2/repository/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE-sources.jar!/org/springframework/security/access/expression/method/DefaultMethodSecurityExpressionHandler.java&#10;DefaultSecurityFilterChain&#9;PSI&#9;JAVA://org.springframework.security.web.DefaultSecurityFilterChain&#10;ExpressionBasedFilterInvocationSecurityMetadataSource&#9;PSI&#9;JAVA://org.springframework.security.web.access.expression.ExpressionBasedFilterInvocationSecurityMetadataSource" />
     <property name="UNSCRAMBLE_LOG_FILE_LAST_URL" value="" />
   </component>
   <component name="RecentsManager">
@@ -1788,13 +1952,7 @@
       <workItem from="1438845230480" duration="708000" />
       <workItem from="1438857705116" duration="2005000" />
       <workItem from="1438863169570" duration="26024000" />
-      <workItem from="1438947699011" duration="7212000" />
-    </task>
-    <task id="LOCAL-00053" summary="java config">
-      <created>1434725990726</created>
-      <option name="number" value="00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1434725990726</updated>
+      <workItem from="1438947699011" duration="7403000" />
     </task>
     <task id="LOCAL-00054" summary="java config">
       <created>1434985617091</created>
@@ -2084,11 +2242,17 @@
       <option name="project" value="LOCAL" />
       <updated>1438952030165</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="mysql">
+      <created>1438955598503</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1438955598503</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1805618000" />
+    <option name="totallyTimeSpent" value="1805809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2491,45 +2655,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/openjpa/openjpa/2.4.0/openjpa-2.4.0-sources.jar!/org/apache/openjpa/lib/conf/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
-          <folding>
-            <element signature="e#2215#2216#0" expanded="false" />
-            <element signature="e#2248#2249#0" expanded="false" />
-            <element signature="e#2592#2593#0" expanded="false" />
-            <element signature="e#2624#2625#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/openjpa/openjpa/2.4.0/openjpa-2.4.0-sources.jar!/org/apache/openjpa/lib/conf/ConfigurationImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34131736">
-          <caret line="1103" column="0" selection-start-line="1103" selection-start-column="0" selection-end-line="1103" selection-end-column="0" />
-          <folding>
-            <element signature="e#4687#4694#0" expanded="false" />
-            <element signature="e#4750#4758#0" expanded="false" />
-            <element signature="e#7798#7799#0" expanded="false" />
-            <element signature="e#7829#7830#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc7c9641/a27787c6-e7f6-4c37-a46e-a8feaff198e4/onlinecontrol..news">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/bc7c9641/a27787c6-e7f6-4c37-a46e-a8feaff198e4/onlinecontrol..clazzes">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -2943,14 +3068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/RoleDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2959,10 +3076,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.10.2.RELEASE/spring-data-commons-1.10.2.RELEASE.jar!/org/springframework/data/repository/Repository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4615386">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.10.2.RELEASE/spring-data-commons-1.10.2.RELEASE-sources.jar!/org/springframework/data/repository/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.8.2.RELEASE/spring-data-jpa-1.8.2.RELEASE.jar!/org/springframework/data/jpa/repository/config/JpaRepositoriesRegistrar.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1538461">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaUserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/springdatajpa/SpringDataBusinessRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.280837">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.37995595">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
