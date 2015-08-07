@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.context.weaving.DefaultContextLoadTimeWeaver;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -16,6 +17,9 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
+import org.springframework.instrument.classloading.LoadTimeWeaver;
+import org.springframework.instrument.classloading.SimpleLoadTimeWeaver;
 import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -23,6 +27,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -99,6 +104,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
+        dataSource.setCharacterEncoding(environment.getProperty("jdbc.charset"));
         return dataSource;
     }
 
@@ -113,9 +119,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         ResourceDatabasePopulator resourceDatabasePopulatorInit = new ResourceDatabasePopulator(false, false, "utf8", resourceInit);
         compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorInit);
 
-        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
-        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
-        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
+//        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
+//        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
+//        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
 
         dataSourceInitializer.setDatabasePopulator(compositeDatabasePopulator);
         return dataSourceInitializer;
@@ -128,7 +134,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         em.setPackagesToScan(new String[]{"com.vizaco.onlinecontrol.model"});
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabase(Database.MYSQL);
+        vendorAdapter.setDatabase(Database.valueOf(environment.getProperty("jpa.database")));
         vendorAdapter.setShowSql(Boolean.parseBoolean(environment.getProperty("jpa.showSql")));
 
         em.setJpaVendorAdapter(vendorAdapter);

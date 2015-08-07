@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS onlinecontrol;
+CREATE DATABASE IF NOT EXISTS onlinecontrol CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 GRANT ALL PRIVILEGES ON onlinecontrol.* TO root@localhost IDENTIFIED BY 'root';
 
 USE onlinecontrol;
