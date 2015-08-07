@@ -45,7 +45,7 @@ public class JpaStudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public List<Student> getAllStudents() throws DataAccessException {
+    public List<Student> getAllStudents() {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents");
         return query.getResultList();
     }

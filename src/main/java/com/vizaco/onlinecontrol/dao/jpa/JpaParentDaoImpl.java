@@ -39,7 +39,7 @@ public class JpaParentDaoImpl implements ParentDao {
     }
 
     @Override
-    public List<Parent> getAllParents() throws DataAccessException {
+    public List<Parent> getAllParents() {
         Query query = this.em.createQuery("SELECT DISTINCT parent FROM Parent parent left join fetch parent.students");
         return query.getResultList();
     }
@@ -60,7 +60,7 @@ public class JpaParentDaoImpl implements ParentDao {
     }
 
     @Override
-    public void delete(Parent parent) throws DataAccessException {
+    public void delete(Parent parent) {
         if (parent == null){
             return;
         }

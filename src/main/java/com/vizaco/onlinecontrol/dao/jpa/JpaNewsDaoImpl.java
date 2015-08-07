@@ -39,13 +39,13 @@ public class JpaNewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public List<News> getAllNews() throws DataAccessException {
+    public List<News> getAllNews() {
         Query query = this.em.createQuery("SELECT DISTINCT News FROM News News");
         return query.getResultList();
     }
 
     @Override
-    public List<News> getSomeNews(int maxResult) throws DataAccessException {
+    public List<News> getSomeNews(int maxResult) {
         Query query = this.em.createQuery("SELECT DISTINCT News FROM News News order by News.date desc");
         query.setMaxResults(maxResult);
         return query.getResultList();
@@ -68,7 +68,7 @@ public class JpaNewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public void delete(News news) throws DataAccessException {
+    public void delete(News news) {
         if (news == null){
             return;
         }

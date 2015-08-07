@@ -40,7 +40,7 @@ public class JpaRoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public List<Role> getAllRoles() throws DataAccessException {
+    public List<Role> getAllRoles() {
         Query query = this.em.createQuery("SELECT DISTINCT role FROM Role role");
         return query.getResultList();
     }
@@ -63,7 +63,7 @@ public class JpaRoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public void delete(Role role) throws DataAccessException {
+    public void delete(Role role) {
         if (role == null){
             return;
         }

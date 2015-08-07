@@ -39,7 +39,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
     }
 
     @Override
-    public List<Clazz> getAllClazzes() throws DataAccessException {
+    public List<Clazz> getAllClazzes() {
         Query query = this.em.createQuery("SELECT DISTINCT clazz FROM Clazz clazz");
         return query.getResultList();
     }
@@ -62,7 +62,7 @@ public class JpaClazzDaoImpl implements ClazzDao {
     }
 
     @Override
-    public void delete(Clazz clazz) throws DataAccessException {
+    public void delete(Clazz clazz) {
         if (clazz == null){
             return;
         }

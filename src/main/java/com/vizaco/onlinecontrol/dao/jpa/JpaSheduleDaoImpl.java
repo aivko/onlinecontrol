@@ -34,7 +34,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+    public List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) {
 
         CriteriaBuilder cb = this.em.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = cb.createQuery();
@@ -72,7 +72,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+    public List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) {
 
         //Similarly:
 //          SELECT DISTINCT
@@ -176,7 +176,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public Period findPeriodById(Integer id) throws DataAccessException {
+    public Period findPeriodById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT Period FROM Period Period WHERE Period.id =:id");
         query.setParameter("id", id);
 
@@ -190,13 +190,13 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<Period> getAllPeriods() throws DataAccessException {
+    public List<Period> getAllPeriods() {
         Query query = this.em.createQuery("SELECT DISTINCT period FROM Period period");
         return query.getResultList();
     }
 
     @Override
-    public Subject findSubjectById(Integer id) throws DataAccessException {
+    public Subject findSubjectById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT Subject FROM Subject Subject WHERE Subject.id =:id");
         query.setParameter("id", id);
 
@@ -210,13 +210,13 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<Subject> getAllSubjects() throws DataAccessException {
+    public List<Subject> getAllSubjects() {
         Query query = this.em.createQuery("SELECT DISTINCT subject FROM Subject subject");
         return query.getResultList();
     }
 
     @Override
-    public Teacher findTeacherById(Integer id) throws DataAccessException {
+    public Teacher findTeacherById(Integer id) {
         Query query = this.em.createQuery("SELECT DISTINCT Teacher FROM Teacher Teacher WHERE Teacher.id =:id");
         query.setParameter("id", id);
 
@@ -230,13 +230,13 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public List<Teacher> getAllTeachers() throws DataAccessException {
+    public List<Teacher> getAllTeachers() {
         Query query = this.em.createQuery("SELECT DISTINCT teacher FROM Teacher teacher");
         return query.getResultList();
     }
 
     @Override
-    public void saveShedule(Shedule shedule) throws DataAccessException {
+    public void saveShedule(Shedule shedule) {
 
         if (shedule == null) {
             return;
@@ -251,7 +251,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public void deleteShedule(Shedule shedule) throws DataAccessException {
+    public void deleteShedule(Shedule shedule) {
 
         if (shedule == null) {
             return;

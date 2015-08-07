@@ -27,7 +27,7 @@ public class JpaBusinessDaoImpl implements BusinessDao {
     }
 
     @Override
-    public Person getCurrentPerson(User user) throws DataAccessException {
+    public Person getCurrentPerson(User user) {
 
         //TODO: need optimisation
         Query query;

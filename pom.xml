@@ -94,43 +94,6 @@
             <version>4.1.1</version>
         </dependency>
 
-        <!-- Datanucleus -->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>javax.persistence</artifactId>-->
-            <!--<version>2.1.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-core</artifactId>-->
-            <!--<version>4.1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-api-jpa</artifactId>-->
-            <!--<version>4.1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-jpa-query</artifactId>-->
-            <!--<version>4.0.4</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-enhancer</artifactId>-->
-            <!--<version>3.1.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-api-jdo</artifactId>-->
-            <!--<version>4.1.0-m4</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-rdbms</artifactId>-->
-            <!--<version>4.1.2</version>-->
-        <!--</dependency>-->
-
 
         <!-- JETTY -->
         <dependency>
@@ -230,6 +193,18 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.8.2.RELEASE</version><exclusions>
+            <exclusion>
+                <groupId>org.springframework</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+            <!--  because Spring Data usually comes with a slightly older version of Spring -->
+        </exclusions>
+        </dependency>
+
 
 
         <!-- Webjars (static dependencies distributed as JAR files) -->
@@ -340,106 +315,9 @@
             <version>${log4j.version}</version>
         </dependency>
 
-        <!-- Google AppEngine -->
-        <!--<dependency>-->
-            <!--<groupId>com.google.appengine</groupId>-->
-            <!--<artifactId>appengine-api-1.0-sdk</artifactId>-->
-            <!--<version>1.9.24</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.google.appengine</groupId>-->
-            <!--<artifactId>appengine-api-stubs</artifactId>-->
-            <!--<version>1.9.8</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.google.appengine.orm</groupId>-->
-            <!--<artifactId>datanucleus-appengine</artifactId>-->
-            <!--<version>2.1.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>datanucleus-maven-plugin</artifactId>-->
-            <!--<version>4.0.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.google.appengine</groupId>-->
-            <!--<artifactId>appengine-maven-plugin</artifactId>-->
-            <!--<version>1.9.24</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.google.appengine</groupId>-->
-            <!--<artifactId>appengine-tools-sdk</artifactId>-->
-            <!--<version>1.9.24</version>-->
-        <!--</dependency>-->
-
-
     </dependencies>
 
     <build>
-
-        <!--<plugins>-->
-        <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-compiler-plugin</artifactId>-->
-        <!--<version>3.1</version>-->
-        <!--<configuration>-->
-        <!--<compilerVersion>1.7</compilerVersion>-->
-        <!--<target>1.7</target>-->
-        <!--<source>1.7</source>-->
-        <!--</configuration>-->
-        <!--</plugin>-->
-
-        <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-war-plugin</artifactId>-->
-        <!--<version>2.3</version>-->
-        <!--<configuration>-->
-        <!--<archiveClasses>true</archiveClasses>-->
-        <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
-        <!--<webResources>-->
-        <!--&lt;!&ndash; in order to interpolate version from pom into appengine-web.xml &ndash;&gt;-->
-        <!--<resource>-->
-        <!--<directory>${basedir}/src/main/webapp/WEB-INF</directory>-->
-        <!--<filtering>true</filtering>-->
-        <!--<targetPath>WEB-INF</targetPath>-->
-        <!--</resource>-->
-        <!--</webResources>-->
-        <!--</configuration>-->
-        <!--</plugin>-->
-
-        <!--<plugin>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-maven-plugin</artifactId>-->
-        <!--<version>4.0.1</version>-->
-        <!--<configuration>-->
-        <!--<api>JPA</api>-->
-        <!--<persistenceUnitName>jpa.unit</persistenceUnitName>-->
-        <!--<log4jConfiguration>WEB-INF/logging.properties</log4jConfiguration>-->
-        <!--<verbose>true</verbose>-->
-        <!--</configuration>-->
-        <!--<dependencies>-->
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-core</artifactId>-->
-        <!--<version>4.1.0-m4</version>-->
-        <!--</dependency>-->
-        <!--</dependencies>-->
-        <!--&lt;!&ndash;<executions>&ndash;&gt;-->
-        <!--&lt;!&ndash;<execution>&ndash;&gt;-->
-        <!--&lt;!&ndash;<phase>process-classes</phase>&ndash;&gt;-->
-        <!--&lt;!&ndash;<goals>&ndash;&gt;-->
-        <!--&lt;!&ndash;<goal>enhance</goal>&ndash;&gt;-->
-        <!--&lt;!&ndash;</goals>&ndash;&gt;-->
-        <!--&lt;!&ndash;</execution>&ndash;&gt;-->
-        <!--&lt;!&ndash;</executions>&ndash;&gt;-->
-        <!--</plugin>-->
-
-        <!--<plugin>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-maven-plugin</artifactId>-->
-        <!--<version>1.9.24</version>-->
-        <!--</plugin>-->
-        <!--</plugins>-->
 
         <plugins>
 

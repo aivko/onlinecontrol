@@ -28,7 +28,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findByEmail(String email) throws DataAccessException {
+    public User findByEmail(String email) {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user WHERE user.email =:email");
         query.setParameter("email", email);
 
@@ -56,7 +56,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAllUsers() throws DataAccessException {
+    public List<User> getAllUsers() {
         Query query = this.em.createQuery("SELECT DISTINCT user FROM User user");
         return query.getResultList();
     }
@@ -77,7 +77,7 @@ public class JpaUserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(User user) throws DataAccessException {
+    public void delete(User user) {
         if (user == null){
             return;
         }
