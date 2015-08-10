@@ -7,19 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.weaving.DefaultContextLoadTimeWeaver;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
-import org.springframework.instrument.classloading.LoadTimeWeaver;
-import org.springframework.instrument.classloading.SimpleLoadTimeWeaver;
 import org.springframework.jdbc.datasource.init.CompositeDatabasePopulator;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -27,7 +24,6 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -48,11 +44,12 @@ import java.util.TimeZone;
  * Created by super on 6/5/15.
  */
 @Configuration
-@ComponentScan({
+@EnableJpaRepositories("com.vizaco.onlinecontrol.dao")
+@ComponentScan(value = {
         "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.service",
         "com.vizaco.onlinecontrol.controller",
-        "com.vizaco.onlinecontrol.dao",
+//        "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.utils",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
@@ -136,6 +133,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setDatabase(Database.valueOf(environment.getProperty("jpa.database")));
         vendorAdapter.setShowSql(Boolean.parseBoolean(environment.getProperty("jpa.showSql")));
+        vendorAdapter.setGenerateDdl(true);
 
         em.setJpaVendorAdapter(vendorAdapter);
 

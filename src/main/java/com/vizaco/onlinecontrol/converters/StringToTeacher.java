@@ -3,6 +3,8 @@ package com.vizaco.onlinecontrol.converters;
 import com.vizaco.onlinecontrol.model.Subject;
 import com.vizaco.onlinecontrol.model.Teacher;
 import com.vizaco.onlinecontrol.service.SheduleService;
+import com.vizaco.onlinecontrol.service.SubjectService;
+import com.vizaco.onlinecontrol.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
@@ -19,10 +21,10 @@ import org.springframework.stereotype.Service;
 public class StringToTeacher implements Converter<String, Teacher> {
 
     @Autowired
-    private SheduleService sheduleService;
+    private TeacherService teacherService;
 
     @Override
     public Teacher convert(String teacherId) {
-        return sheduleService.findTeacherById(Integer.parseInt(teacherId));
+        return teacherService.findTeacherById(Integer.parseInt(teacherId));
     }
 }

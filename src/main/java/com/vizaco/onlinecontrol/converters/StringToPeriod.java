@@ -2,6 +2,7 @@ package com.vizaco.onlinecontrol.converters;
 
 import com.vizaco.onlinecontrol.model.Period;
 import com.vizaco.onlinecontrol.model.Role;
+import com.vizaco.onlinecontrol.service.PeriodService;
 import com.vizaco.onlinecontrol.service.RoleService;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,10 @@ import org.springframework.stereotype.Service;
 public class StringToPeriod implements Converter<String, Period> {
 
     @Autowired
-    private SheduleService sheduleService;
+    private PeriodService periodService;
 
     @Override
     public Period convert(String periodId) {
-        return sheduleService.findPeriodById(Integer.parseInt(periodId));
+        return periodService.findPeriodById(Integer.parseInt(periodId));
     }
 }

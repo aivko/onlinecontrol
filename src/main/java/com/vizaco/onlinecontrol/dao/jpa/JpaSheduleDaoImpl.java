@@ -176,67 +176,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public Period findPeriodById(Integer id) {
-        Query query = this.em.createQuery("SELECT DISTINCT Period FROM Period Period WHERE Period.id =:id");
-        query.setParameter("id", id);
-
-        List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
-            return (Period) resultList.get(0);
-        }
-
-    }
-
-    @Override
-    public List<Period> getAllPeriods() {
-        Query query = this.em.createQuery("SELECT DISTINCT period FROM Period period");
-        return query.getResultList();
-    }
-
-    @Override
-    public Subject findSubjectById(Integer id) {
-        Query query = this.em.createQuery("SELECT DISTINCT Subject FROM Subject Subject WHERE Subject.id =:id");
-        query.setParameter("id", id);
-
-        List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
-            return (Subject) resultList.get(0);
-        }
-
-    }
-
-    @Override
-    public List<Subject> getAllSubjects() {
-        Query query = this.em.createQuery("SELECT DISTINCT subject FROM Subject subject");
-        return query.getResultList();
-    }
-
-    @Override
-    public Teacher findTeacherById(Integer id) {
-        Query query = this.em.createQuery("SELECT DISTINCT Teacher FROM Teacher Teacher WHERE Teacher.id =:id");
-        query.setParameter("id", id);
-
-        List resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return null; // handle no-results case
-        } else {
-            return (Teacher) resultList.get(0);
-        }
-
-    }
-
-    @Override
-    public List<Teacher> getAllTeachers() {
-        Query query = this.em.createQuery("SELECT DISTINCT teacher FROM Teacher teacher");
-        return query.getResultList();
-    }
-
-    @Override
-    public void saveShedule(Shedule shedule) {
+    public void save(Shedule shedule) {
 
         if (shedule == null) {
             return;
@@ -251,7 +191,7 @@ public class JpaSheduleDaoImpl implements SheduleDao {
     }
 
     @Override
-    public void deleteShedule(Shedule shedule) {
+    public void delete(Shedule shedule) {
 
         if (shedule == null) {
             return;

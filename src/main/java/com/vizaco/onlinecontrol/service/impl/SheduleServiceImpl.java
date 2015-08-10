@@ -53,45 +53,9 @@ public class SheduleServiceImpl implements SheduleService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Period findPeriodById(Integer id) throws DataAccessException {
-        return sheduleDao.findPeriodById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Period> getAllPeriods() throws DataAccessException {
-        return sheduleDao.getAllPeriods();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Subject findSubjectById(Integer id) throws DataAccessException {
-        return sheduleDao.findSubjectById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Subject> getAllSubjects() throws DataAccessException {
-        return sheduleDao.getAllSubjects();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Teacher findTeacherById(Integer id) throws DataAccessException {
-        return sheduleDao.findTeacherById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Teacher> getAllTeachers() throws DataAccessException {
-        return sheduleDao.getAllTeachers();
-    }
-
-    @Override
     @Transactional
     public void saveShedule(Shedule shedule) throws DataAccessException {
-        sheduleDao.saveShedule(shedule);
+        sheduleDao.save(shedule);
     }
 
     @Override
@@ -101,7 +65,7 @@ public class SheduleServiceImpl implements SheduleService {
         if (shedule == null){
             return;
         }
-        sheduleDao.deleteShedule(shedule);
+        sheduleDao.delete(shedule);
     }
 
 }

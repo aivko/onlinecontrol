@@ -3,9 +3,7 @@ package com.vizaco.onlinecontrol.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
-import com.vizaco.onlinecontrol.service.ClazzService;
-import com.vizaco.onlinecontrol.service.SheduleService;
-import com.vizaco.onlinecontrol.service.StudentService;
+import com.vizaco.onlinecontrol.service.*;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
@@ -34,6 +32,15 @@ public class SheduleController extends BaseController {
 
     @Autowired
     private SheduleService sheduleService;
+
+    @Autowired
+    private TeacherService teacherService;
+
+    @Autowired
+    private SubjectService subjectService;
+
+    @Autowired
+    private PeriodService periodService;
 
     @Autowired
     private StudentService studentService;
@@ -187,10 +194,10 @@ public class SheduleController extends BaseController {
     public String registerTemplate(Model model) {
 
         model.addAttribute("clazzes", clazzService.getAllClazzes());
-        model.addAttribute("periods", sheduleService.getAllPeriods());
-        model.addAttribute("subjects", sheduleService.getAllSubjects());
+        model.addAttribute("periods", periodService.getAllPeriods());
+        model.addAttribute("subjects", subjectService.getAllSubjects());
         model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
-        model.addAttribute("teachers", sheduleService.getAllTeachers());
+        model.addAttribute("teachers", teacherService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
         return "/shedules/sheduleConstructor";
@@ -201,10 +208,10 @@ public class SheduleController extends BaseController {
 
         if (json == null) {
             model.addAttribute("clazzes", clazzService.getAllClazzes());
-            model.addAttribute("periods", sheduleService.getAllPeriods());
-            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("periods", periodService.getAllPeriods());
+            model.addAttribute("subjects", subjectService.getAllSubjects());
             model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
-            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("teachers", teacherService.getAllTeachers());
             model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         }
@@ -245,19 +252,19 @@ public class SheduleController extends BaseController {
                 numberOfWeek.add(currentWeek);
             } else if (param.startsWith("period")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentPeriod = sheduleService.findPeriodById(Integer.parseInt(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentPeriod = periodService.findPeriodById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 periods.put(keyValue[0], currentPeriod);
             } else if (param.startsWith("subject")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentSubject = sheduleService.findSubjectById(Integer.parseInt(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentSubject = subjectService.findSubjectById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 subjects.put(keyValue[0], currentSubject);
             } else if (param.startsWith("teacher")) {
                 String[] keyValue = param.split("=");
-                if (emptyValue(keyValue, 1) || (currentTeacher = sheduleService.findTeacherById(Integer.parseInt(keyValue[1]))) == null) {
+                if (emptyValue(keyValue, 1) || (currentTeacher = teacherService.findTeacherById(Integer.parseInt(keyValue[1]))) == null) {
                     continue;
                 }
                 teachers.put(keyValue[0], currentTeacher);
@@ -295,18 +302,18 @@ public class SheduleController extends BaseController {
 
         if (startDate == null || endDate == null || clazz == null || numberOfWeek.size() <= 0) {
             model.addAttribute("clazzes", clazzService.getAllClazzes());
-            model.addAttribute("periods", sheduleService.getAllPeriods());
-            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("periods", periodService.getAllPeriods());
+            model.addAttribute("subjects", subjectService.getAllSubjects());
             model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
-            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("teachers", teacherService.getAllTeachers());
             model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         } else if (startDate.compareTo(endDate) > 0) {
             model.addAttribute("clazzes", clazzService.getAllClazzes());
-            model.addAttribute("periods", sheduleService.getAllPeriods());
-            model.addAttribute("subjects", sheduleService.getAllSubjects());
+            model.addAttribute("periods", periodService.getAllPeriods());
+            model.addAttribute("subjects", subjectService.getAllSubjects());
             model.addAttribute("daysOfWeek", dateUtils.getAllDaysOfTheWeek());
-            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("teachers", teacherService.getAllTeachers());
             model.addAttribute("shedule", new Shedule());
             return "/shedules/sheduleConstructor";
         }
@@ -406,9 +413,9 @@ public class SheduleController extends BaseController {
     public String register(Model model) {
 
         model.addAttribute("clazzes", clazzService.getAllClazzes());
-        model.addAttribute("periods", sheduleService.getAllPeriods());
-        model.addAttribute("subjects", sheduleService.getAllSubjects());
-        model.addAttribute("teachers", sheduleService.getAllTeachers());
+        model.addAttribute("periods", periodService.getAllPeriods());
+        model.addAttribute("subjects", subjectService.getAllSubjects());
+        model.addAttribute("teachers", teacherService.getAllTeachers());
         model.addAttribute("shedule", new Shedule());
 
         return "/shedules/createOrUpdateSheduleForm";
@@ -420,9 +427,9 @@ public class SheduleController extends BaseController {
         if (result.hasErrors()) {
             model.addAttribute(shedule);
             model.addAttribute("clazzes", clazzService.getAllClazzes());
-            model.addAttribute("periods", sheduleService.getAllPeriods());
-            model.addAttribute("subjects", sheduleService.getAllSubjects());
-            model.addAttribute("teachers", sheduleService.getAllTeachers());
+            model.addAttribute("periods", periodService.getAllPeriods());
+            model.addAttribute("subjects", subjectService.getAllSubjects());
+            model.addAttribute("teachers", teacherService.getAllTeachers());
             return "/shedules/createOrUpdateSheduleForm";
         }
 

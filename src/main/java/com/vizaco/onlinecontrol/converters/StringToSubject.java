@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.converters;
 import com.vizaco.onlinecontrol.model.Period;
 import com.vizaco.onlinecontrol.model.Subject;
 import com.vizaco.onlinecontrol.service.SheduleService;
+import com.vizaco.onlinecontrol.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,10 @@ import org.springframework.stereotype.Service;
 public class StringToSubject implements Converter<String, Subject> {
 
     @Autowired
-    private SheduleService sheduleService;
+    private SubjectService subjectService;
 
     @Override
     public Subject convert(String subjectId) {
-        return sheduleService.findSubjectById(Integer.parseInt(subjectId));
+        return subjectService.findSubjectById(Integer.parseInt(subjectId));
     }
 }
