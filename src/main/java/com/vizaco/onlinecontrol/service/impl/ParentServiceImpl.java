@@ -2,6 +2,8 @@ package com.vizaco.onlinecontrol.service.impl;
 
 import com.vizaco.onlinecontrol.dao.ParentDao;
 import com.vizaco.onlinecontrol.model.Parent;
+import com.vizaco.onlinecontrol.model.Teacher;
+import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.ParentService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,12 @@ public class ParentServiceImpl implements ParentService {
     @Transactional(readOnly = true)
     public Parent findParentById(Integer id) throws DataAccessException {
         return parentDao.findById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Parent findParentByUser(User user) throws DataAccessException {
+        return parentDao.findParentByUser(user);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.StudentDao;
 import com.vizaco.onlinecontrol.model.Student;
+import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
@@ -28,6 +29,20 @@ public class JpaStudentDaoImpl implements StudentDao {
         Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student left join fetch student.parents WHERE student.lastName LIKE :lastName");
         query.setParameter("lastName", lastName + "%");
         return query.getResultList();
+    }
+
+    @Override
+    public Student findStudentByUser(User user) {
+
+        Query query = this.em.createQuery("SELECT DISTINCT student FROM Student student where student.user =:user");
+        query.setParameter("user", user);
+
+        List resultList = query.getResultList();
+        if (resultList.isEmpty()) {
+            return null; // handle no-results case
+        } else {
+            return (Student)resultList.get(0);
+        }
     }
 
     @Override

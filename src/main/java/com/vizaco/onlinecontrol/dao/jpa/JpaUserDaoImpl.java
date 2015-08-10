@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.dao.jpa;
 
 import com.vizaco.onlinecontrol.dao.UserDao;
+import com.vizaco.onlinecontrol.model.Person;
 import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;

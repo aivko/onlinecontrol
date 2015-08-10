@@ -2,7 +2,7 @@ package com.vizaco.onlinecontrol.aspects;
 
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
-import com.vizaco.onlinecontrol.service.BusinessService;
+import com.vizaco.onlinecontrol.service.UserService;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -28,7 +28,7 @@ public class ProtectService {
     AccessDecisionManager accessDecisionManager;
 
     @Autowired
-    BusinessService businessService;
+    UserService userService;
 
 
     @Before("(execution(* com.vizaco.onlinecontrol.service.*.save*(..)) " +
@@ -57,7 +57,7 @@ public class ProtectService {
 
         if (haveFullAccess(authentication)) return;
 
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+        Person currentPerson = userService.getCurrentPerson((User) authentication.getPrincipal());
 
         if (currentPerson == null) {
             retVal = null;
@@ -84,7 +84,7 @@ public class ProtectService {
 
         if (haveFullAccess(authentication)) return;
 
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+        Person currentPerson = userService.getCurrentPerson((User) authentication.getPrincipal());
 
         if (currentPerson == null) {
             retVal = null;
@@ -111,7 +111,7 @@ public class ProtectService {
 
         if (haveFullAccess(authentication)) return;
 
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+        Person currentPerson = userService.getCurrentPerson((User) authentication.getPrincipal());
 
         if (currentPerson == null) {
             retVal = null;
@@ -138,7 +138,7 @@ public class ProtectService {
 
         if (haveFullAccess(authentication)) return;
 
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+        Person currentPerson = userService.getCurrentPerson((User) authentication.getPrincipal());
 
         if (currentPerson == null) {
             retVal = null;
@@ -165,7 +165,7 @@ public class ProtectService {
 
         if (haveFullAccess(authentication)) return;
 
-        Person currentPerson = businessService.getCurrentPerson((User) authentication.getPrincipal());
+        Person currentPerson = userService.getCurrentPerson((User) authentication.getPrincipal());
 
         if (currentPerson == null) {
             retVal = null;

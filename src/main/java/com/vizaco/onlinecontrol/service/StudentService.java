@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.service;
 
 import com.vizaco.onlinecontrol.model.Student;
+import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
 
 import java.util.Collection;
@@ -16,6 +17,8 @@ public interface StudentService {
     Student findStudentById(Integer id) throws DataAccessException;
 
     List<Student> findStudentByLastName(String lastName) throws DataAccessException;
+
+    Student findStudentByUser(User user) throws DataAccessException;
 
     List<Student> getAllStudents() throws DataAccessException;
 

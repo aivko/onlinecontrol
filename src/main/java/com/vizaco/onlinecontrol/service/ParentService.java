@@ -1,6 +1,7 @@
 package com.vizaco.onlinecontrol.service;
 
 import com.vizaco.onlinecontrol.model.Parent;
+import com.vizaco.onlinecontrol.model.Teacher;
 import com.vizaco.onlinecontrol.model.User;
 import org.springframework.dao.DataAccessException;
 
@@ -15,6 +16,8 @@ import java.util.List;
 public interface ParentService {
 
     Parent findParentById(Integer id) throws DataAccessException;
+
+    Parent findParentByUser(User user) throws DataAccessException;
 
     List<Parent> getAllParents() throws DataAccessException;
 

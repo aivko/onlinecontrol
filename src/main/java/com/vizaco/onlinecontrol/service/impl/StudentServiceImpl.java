@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.service.impl;
 import com.vizaco.onlinecontrol.dao.StudentDao;
 import com.vizaco.onlinecontrol.model.Role;
 import com.vizaco.onlinecontrol.model.Student;
+import com.vizaco.onlinecontrol.model.User;
 import com.vizaco.onlinecontrol.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -39,6 +40,12 @@ public class StudentServiceImpl implements StudentService {
     @Transactional(readOnly = true)
     public List<Student> findStudentByLastName(String lastName) throws DataAccessException {
         return studentDao.findByLastName(lastName);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Student findStudentByUser(User user) throws DataAccessException {
+        return studentDao.findStudentByUser(user);
     }
 
     @Override

@@ -1,7 +1,10 @@
 package com.vizaco.onlinecontrol.service.impl;
 
 import com.vizaco.onlinecontrol.dao.UserDao;
-import com.vizaco.onlinecontrol.model.User;
+import com.vizaco.onlinecontrol.model.*;
+import com.vizaco.onlinecontrol.service.ParentService;
+import com.vizaco.onlinecontrol.service.StudentService;
+import com.vizaco.onlinecontrol.service.TeacherService;
 import com.vizaco.onlinecontrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
 import java.util.List;
 
 @Service
@@ -18,6 +22,15 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private TeacherService teacherService;
+
+    @Autowired
+    private StudentService studentService;
+
+    @Autowired
+    private ParentService parentService;
 
     @Override
     @Transactional(readOnly = true)
@@ -29,6 +42,25 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public User findUserByEmail(String email) throws DataAccessException {
         return userDao.findByEmail(email);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Person getCurrentPerson(User user) throws DataAccessException {
+
+        Student studentByUser = studentService.findStudentByUser(user);
+        if (studentByUser != null) {
+            return studentByUser;
+        }
+        Teacher teacherByUser = teacherService.findTeacherByUser(user);
+        if (teacherByUser != null) {
+            return teacherByUser;
+        }
+        Parent parentByUser = parentService.findParentByUser(user);
+        if (parentByUser != null) {
+            return parentByUser;
+        }
+        return null;
     }
 
     @Override
