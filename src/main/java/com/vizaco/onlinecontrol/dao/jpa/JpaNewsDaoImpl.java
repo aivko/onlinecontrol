@@ -6,6 +6,7 @@ import com.vizaco.onlinecontrol.model.News;
 import com.vizaco.onlinecontrol.model.Role;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Pageable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,26 +46,26 @@ public class JpaNewsDaoImpl implements NewsDao {
     }
 
     @Override
-    public List<News> getSomeNews(int maxResult) {
+    public List<News> findSome(Pageable pageable) {
         Query query = this.em.createQuery("SELECT DISTINCT News FROM News News order by News.date desc");
-        query.setMaxResults(maxResult);
+        query.setMaxResults(pageable.getPageSize());
         return query.getResultList();
     }
 
     @Override
-    public void save(News news) {
+    public News save(News news) {
 
         if (news == null){
-            return;
+            return null;
         }
 
     	if (news.getId() == null) {
     		this.em.persist(news);
     	}
     	else {
-    		this.em.merge(news);
+    		return this.em.merge(news);
     	}
-
+        return news;
     }
 
     @Override

@@ -17,11 +17,11 @@ public interface SpringDataSheduleRepository extends SheduleDao, Repository<Shed
     Shedule findSheduleById(@Param("id") Integer id) throws DataAccessException;
 
     @Override
-    @Query("SELECT shedule FROM Shedule shedule")
+//    @Query("SELECT shedule FROM Shedule shedule")
     List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException;
 
     @Override
-    @Query("SELECT shedule FROM Shedule shedule")
+//    @Query("SELECT shedule FROM Shedule shedule")
     List<JournalView> getJournalByCriteria(Date start, Date end, Student student, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException;
 
 }

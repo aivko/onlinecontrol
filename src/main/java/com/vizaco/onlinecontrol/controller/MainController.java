@@ -3,6 +3,7 @@ package com.vizaco.onlinecontrol.controller;
 import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class MainController extends BaseController{
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String start(Model model) {
-        model.addAttribute("news", newsService.getSomeNews(3));
+        model.addAttribute("news", newsService.findSome(new PageRequest(0, 3)));
         return "index";
     }
 
