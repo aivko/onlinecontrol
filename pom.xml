@@ -222,9 +222,9 @@
 
         <!-- Databases - Uses HSQL by default -->
         <!--<dependency>-->
-        <!--<groupId>org.hsqldb</groupId>-->
-        <!--<artifactId>hsqldb</artifactId>-->
-        <!--<version>${hsqldb.version}</version>-->
+            <!--<groupId>org.hsqldb</groupId>-->
+            <!--<artifactId>hsqldb</artifactId>-->
+            <!--<version>${hsqldb.version}</version>-->
         <!--</dependency>-->
 
         <!-- For MySql only -->

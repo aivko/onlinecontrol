@@ -59,7 +59,7 @@ CREATE INDEX period_id ON periods (id);
 
 CREATE TABLE shedule (
   id         INTEGER IDENTITY PRIMARY KEY,
-  date       DATE   NOT NULL,
+  date       DATE    NOT NULL,
   period_id  INTEGER NOT NULL,
   subject_id INTEGER NOT NULL,
   clazz_id   INTEGER NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE students (
   middle_name   VARCHAR(30),
   date_of_birth DATE,
   gender        VARCHAR(30) NOT NULL,
-  clazz_id      INTEGER      NOT NULL,
+  clazz_id      INTEGER     NOT NULL,
   user_id       INTEGER
 );
 CREATE INDEX students_id ON students (id);
@@ -147,7 +147,7 @@ CREATE TABLE grades (
   id         INTEGER IDENTITY PRIMARY KEY,
   shedule_id INTEGER NOT NULL,
   student_id INTEGER NOT NULL,
-  task VARCHAR(100),
+  task       VARCHAR(100),
   mark       INTEGER
 );
 CREATE INDEX grades_student_id ON grades (student_id);

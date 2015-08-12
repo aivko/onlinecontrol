@@ -49,7 +49,7 @@ import java.util.TimeZone;
         "com.vizaco.onlinecontrol.aspects",
         "com.vizaco.onlinecontrol.service",
         "com.vizaco.onlinecontrol.controller",
-//        "com.vizaco.onlinecontrol.dao",
+        "com.vizaco.onlinecontrol.dao",
         "com.vizaco.onlinecontrol.utils",
         "com.vizaco.onlinecontrol.model",
         "com.vizaco.onlinecontrol.validators",
@@ -98,6 +98,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public DataSource dataSource() {
         MysqlDataSource dataSource = new MysqlDataSource();
+//        JDBCDataSource dataSource = new JDBCDataSource();
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));

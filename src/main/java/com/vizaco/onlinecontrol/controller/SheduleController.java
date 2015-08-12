@@ -7,16 +7,12 @@ import com.vizaco.onlinecontrol.service.*;
 import com.vizaco.onlinecontrol.utils.DateUtils;
 import com.vizaco.onlinecontrol.utils.JsonUtil;
 import com.vizaco.onlinecontrol.utils.Utils;
-import com.vizaco.onlinecontrol.validators.FieldValidator;
-import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.DataBinder;
 import org.springframework.validation.Validator;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -72,7 +68,7 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("shedules/shedules");
 
-        List<Shedule> shedules = sheduleService.getSheduleBeetwenAnyCriteria(null, null, null, null, null, null);
+        List<Shedule> shedules = sheduleService.getSheduleByCriteria(null, null, null, null, null, null);
 
         mav.addObject("shedules", shedules);
 
@@ -382,7 +378,7 @@ public class SheduleController extends BaseController {
 
         }
 
-        List<Shedule> shedulesInDB = sheduleService.getSheduleBeetwenAnyCriteria(startDate.getTime(), endDate.getTime(), clazz, null, null, null);
+        List<Shedule> shedulesInDB = sheduleService.getSheduleByCriteria(startDate.getTime(), endDate.getTime(), clazz, null, null, null);
 
         for (Shedule shedule : shedules) {
 

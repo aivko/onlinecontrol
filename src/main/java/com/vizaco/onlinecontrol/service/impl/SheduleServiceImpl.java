@@ -6,6 +6,7 @@ import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.SheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,8 +29,8 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Shedule> getSheduleBeetwenAnyCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
-        return sheduleDao.getSheduleBeetwenAnyCriteria(start, end, clazz, period, subject, teacher);
+    public List<Shedule> getSheduleByCriteria(Date start, Date end, Clazz clazz, Period period, Subject subject, Teacher teacher) throws DataAccessException {
+        return sheduleDao.getSheduleByCriteria(start, end, clazz, period, subject, teacher);
     }
 
     @Override
@@ -54,8 +55,8 @@ public class SheduleServiceImpl implements SheduleService {
 
     @Override
     @Transactional
-    public void saveShedule(Shedule shedule) throws DataAccessException {
-        sheduleDao.save(shedule);
+    public Shedule saveShedule(Shedule shedule) throws DataAccessException {
+        return sheduleDao.save(shedule);
     }
 
     @Override

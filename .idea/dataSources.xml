@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3493223705">
+  <component name="DataSourceManagerImpl" format="xml" hash="1200944085">
     <data-source source="LOCAL" name="HSQLDB - onlinecontrol" uuid="0710958b-4fbb-4c2c-a457-36c576e22474">
       <driver-ref>hsqldb.in-memory</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
       <jdbc-url>jdbc:hsqldb:mem:http://localhost:10201/onlinecontrol</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="MySQL - onlinecontrol@localhost" uuid="a27787c6-e7f6-4c37-a46e-a8feaff198e4">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/onlinecontrol</jdbc-url>
-      <driver-properties>
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
       <libraries />
     </data-source>
   </component>
