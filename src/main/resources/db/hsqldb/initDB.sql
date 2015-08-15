@@ -1,38 +1,21 @@
-DROP TABLE users_roles
-IF EXISTS;
-DROP TABLE parents_students
-IF EXISTS;
-DROP TABLE teachers_subjects
-IF EXISTS;
-DROP TABLE teachers_clazzes
-IF EXISTS;
+DROP TABLE users_roles IF EXISTS;
+DROP TABLE parents_students IF EXISTS;
+DROP TABLE teachers_subjects IF EXISTS;
+DROP TABLE teachers_clazzes IF EXISTS;
 
-DROP TABLE persistent_logins
-IF EXISTS;
-DROP TABLE users
-IF EXISTS;
-DROP TABLE parents
-IF EXISTS;
-DROP TABLE students
-IF EXISTS;
-DROP TABLE teachers
-IF EXISTS;
-DROP TABLE roles
-IF EXISTS;
-DROP TABLE clazzes
-IF EXISTS;
-DROP TABLE shedule
-IF EXISTS;
-DROP TABLE subjects
-IF EXISTS;
-DROP TABLE schools
-IF EXISTS;
-DROP TABLE periods
-IF EXISTS;
-DROP TABLE news
-IF EXISTS;
-DROP TABLE grades
-IF EXISTS;
+DROP TABLE persistent_logins IF EXISTS;
+DROP TABLE parents IF EXISTS;
+DROP TABLE roles IF EXISTS;
+DROP TABLE shedule IF EXISTS;
+DROP TABLE subjects IF EXISTS;
+DROP TABLE schools IF EXISTS;
+DROP TABLE periods IF EXISTS;
+DROP TABLE news IF EXISTS;
+DROP TABLE grades IF EXISTS;
+DROP TABLE students IF EXISTS;
+DROP TABLE clazzes IF EXISTS;
+DROP TABLE teachers IF EXISTS;
+DROP TABLE users IF EXISTS;
 
 
 CREATE TABLE persistent_logins (

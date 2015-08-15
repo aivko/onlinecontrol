@@ -1,8 +1,8 @@
 package com.vizaco.onlinecontrol.configuration;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.vizaco.onlinecontrol.converters.*;
 import com.vizaco.onlinecontrol.model.*;
+import org.hsqldb.jdbc.JDBCDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
@@ -97,12 +97,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public DataSource dataSource() {
-        MysqlDataSource dataSource = new MysqlDataSource();
-//        JDBCDataSource dataSource = new JDBCDataSource();
+//        MysqlDataSource dataSource = new MysqlDataSource();
+        JDBCDataSource dataSource = new JDBCDataSource();
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
-        dataSource.setCharacterEncoding(environment.getProperty("jdbc.charset"));
+//        dataSource.setCharacterEncoding(environment.getProperty("jdbc.charset"));
         return dataSource;
     }
 
@@ -117,9 +117,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         ResourceDatabasePopulator resourceDatabasePopulatorInit = new ResourceDatabasePopulator(false, false, "utf8", resourceInit);
         compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorInit);
 
-//        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
-//        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
-//        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
+        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
+        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
+        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
 
         dataSourceInitializer.setDatabasePopulator(compositeDatabasePopulator);
         return dataSourceInitializer;
@@ -133,8 +133,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setDatabase(Database.valueOf(environment.getProperty("jpa.database")));
-        vendorAdapter.setShowSql(Boolean.parseBoolean(environment.getProperty("jpa.showSql")));
-        vendorAdapter.setGenerateDdl(true);
+        vendorAdapter.setShowSql(true);
 
         em.setJpaVendorAdapter(vendorAdapter);
 
