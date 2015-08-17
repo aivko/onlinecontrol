@@ -79,14 +79,117 @@
                     xhr.setRequestHeader(header, token);
                 },
                 success: function (data) {
+                    var resultText = "";
                     if (data.result == "true") {
 
+                        for (var keyDate in data.shedule) {
+
+                            var arrayDate = keyDate.split("/");
+                            resultText = resultText +
+                                    "<div>" + arrayDate[0] + "/" + arrayDate[1].charAt(0).toUpperCase() + arrayDate[1].substr(1).toLowerCase() +
+                                    "</div>";
+
+
+                            for (var keySubject in data.shedule[keyDate]) {
+
+                                for (var keyTeacher in data.shedule[keyDate][keySubject]) {
+
+                                    for (var keyPeriod in data.shedule[keyDate][keySubject][keyTeacher]) {
+
+                                        var detailsShedule = "";
+                                        var homeWork = "";
+                                        for (var keyShedule in data.shedule[keyDate][keySubject][keyTeacher][keyPeriod]) {
+
+                                            var currentShedule = data.shedule[keyDate][keySubject][keyTeacher][keyPeriod][keyShedule];
+
+                                            var extraHome = "";
+                                            var markJob = "";
+                                            for (var keyGrade in currentShedule.grades) {
+                                                var grade = currentShedule.grades[keyGrade];
+                                                if (grade == null) {
+                                                    continue;
+                                                }
+
+                                                var tempEditGrade = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/students/" + currentShedule.student.id + "/grades/" + grade.id + "/edit>";
+
+                                                if (grade.mark == null & grade.task != null) {
+                                                    extraHome = extraHome + tempEditGrade + grade.task + "<br/></a>";
+                                                } else if (grade.mark != null & grade.task == null) {
+                                                    markJob = markJob + tempEditGrade + "Оценка: " + grade.mark + "<br/></a>";
+                                                } else {
+                                                    markJob = markJob + tempEditGrade + grade.task + ": " + grade.mark + "<br/></a>";
+                                                }
+                                            }
+
+                                            homeWork = currentShedule.job;
+                                            if (homeWork == "" || homeWork == null) {
+                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/edit>\<ввести домашнее задание\></a>";
+                                            } else {
+                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/edit>" + homeWork + "</a><br/>";
+                                            }
+
+                                            extraHome = extraHome +
+                                                    "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/students/" + currentShedule.student.id + "/grades/new>\<добавить задание\></a>";
+
+                                            markJob = markJob +
+                                                    "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/students/" + currentShedule.student.id + "/grades/new>\<добавить оценку\></a>";
+
+                                            detailsShedule = detailsShedule +
+                                                    "<tr>" +
+                                                    "<td>" + currentShedule.student.lastName + " " + currentShedule.student.firstName + " " + currentShedule.student.middleName + "</td>" +
+                                                    "<td>" + extraHome + "</td>" +
+                                                    "<td>" + markJob + "</td>" +
+                                                    "</tr>";
+
+
+                                        }
+
+                                        resultText = resultText +
+                                                "<div>"
+                                                + " | " + currentShedule.subject.name + " | "
+                                                + currentShedule.teacher.lastName + " " + currentShedule.teacher.firstName + " " + currentShedule.teacher.middleName + " | "
+                                                + "<br/>" + currentShedule.period.startTime + " - " + currentShedule.period.endTime +
+                                                "<br/>" + " Домашнее задание: " + homeWork
+                                                "</div>";
+
+                                        resultText = resultText +
+                                                "<table cellspacing='0' border='1' width='50%'>" +
+                                                "<thead>" +
+                                                "<tr>" +
+                                                "<th>Студент</th>" +
+                                                "<th>Дополнительное задание</th>" +
+                                                "<th>Оценка</th>" +
+                                                "</tr>" +
+                                                "</thead>" +
+                                                "<tbody>";
+
+                                        resultText = resultText + detailsShedule;
+
+                                        resultText = resultText +
+                                                "</tbody>" +
+                                                "</table>" +
+                                                "<br>";
+
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+
+                        var $result = $('.flipbook');
+                        $result.text("");
+                        $result.append(resultText); //delete old data and add new
 
                     }
                     else {
-                        $("#result").text("Нет данных");
+                        $('.flipbook').text("Нет данных");
                     }
                     ;
+
                 },
                 error: function (data, status, er) {
                     alert("Не удалось сформировать отчет");
@@ -94,24 +197,54 @@
             });
         }
 
+        function validStartDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var startDate = $("#startDate").val();
+            if (!dateReg.test(startDate)) {
+                $("#errorStartDate").text("Введите дату начала в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorStartDate").text("");
+            return true;
+        }
+        ;
+
+        function validEndDate() {
+            var dateReg = /^\d{2}[.]\d{2}[.]\d{4}$/;
+            var endDate = $("#endDate").val();
+            if (!dateReg.test(endDate)) {
+                $("#errorEndDate").text("Введите дату окончания в формате DD.MM.YYYY");
+                return false;
+            }
+            $("#errorEndDate").text("");
+            return true;
+        }
+        ;
+
     </script>
 </head>
 <body>
 
 <div>
 
-    <h1>Просмотр расписания</h1>
+    <h1>Просмотр журнала</h1>
 
     <div id="content">
         <div>
             <label for="startDate">Дата начала</label>
-            <input type="text" id="startDate" name="startDate"/>
+            <input type="text" id="startDate" name="startDate" onchange="validStartDate()"/>
             <label for="endDate">Дата окончания</label>
-            <input type="text" id="endDate" name="endDate"/>
+            <input type="text" id="endDate" name="endDate" onchange="validEndDate()"/>
+
+            <div style="color:red;" id="errorStartDate"></div>
+            <div style="color:red;" id="errorEndDate"></div>
         </div>
         <button onclick="studentReport()">Сформировать</button>
         <br/>
 
+        <div class="flipbook">
+
+        </div>
     </div>
 
 </div>

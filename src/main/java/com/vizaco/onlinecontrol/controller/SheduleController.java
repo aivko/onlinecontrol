@@ -30,6 +30,9 @@ public class SheduleController extends BaseController {
     private SheduleService sheduleService;
 
     @Autowired
+    private GradeService gradeService;
+
+    @Autowired
     private TeacherService teacherService;
 
     @Autowired
@@ -153,7 +156,7 @@ public class SheduleController extends BaseController {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setTimeZone(timeZone);
-        mapper.setDateFormat(formatter);
+        mapper.setDateFormat(dateFormatJson);
         mapper.setLocale(locale);
 
         Map<String, Object> mapFromJsonElement;
@@ -163,20 +166,24 @@ public class SheduleController extends BaseController {
             return badResponse;
         }
 
+
         try {
             startDate = formatter.parse((String) mapFromJsonElement.get("startDate"));
             endDate = formatter.parse((String) mapFromJsonElement.get("endDate"));
-        } catch (ParseException e) {
+        } catch (Exception e) {
             return badResponse;
         }
 
-        List<JournalView> sheduleList = sheduleService.getJournalByCriteria(startDate, endDate, null, null, null, null, null);
+        List<JournalView> journalViewList = sheduleService.getJournalByCriteria(startDate, endDate, null, null, null, null, null);
+
+        Map<String, Object> resultData = new TreeMap<>();
+        for (JournalView journalView : journalViewList) {
+            utils.convertToTreeDateSubjectTeacherPeriod(journalView, resultData);
+        }
 
         String jsonResponse;
-        Map<String, Object> resultData = new TreeMap<>();
         try {
             resultData.put("result", "true");
-            resultData.put("shedules", sheduleList);
             jsonResponse = mapper.writeValueAsString(resultData);
         } catch (IOException e) {
             return badResponse;
@@ -441,6 +448,9 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("/shedules/sheduleDetails");
 
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        mav.addObject("shedule", shedule);
+
         return mav;
     }
 
@@ -451,11 +461,24 @@ public class SheduleController extends BaseController {
 
         ModelAndView mav = new ModelAndView("/shedules/createOrUpdateSheduleForm");
 
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        mav.addObject("shedule", shedule);
+
         return mav;
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/edit", method = RequestMethod.PUT)
-    public String edit(BindingResult result, Model model) {
+    public String edit(@PathVariable("sheduleId") String sheduleIdStr, @ModelAttribute("shedule") Shedule shedule, BindingResult result, Model model) {
+
+        Shedule sheduleDB = utils.getShedule(sheduleIdStr, null);
+
+        shedule.setId(sheduleDB.getId());
+        shedule.setClazz(sheduleDB.getClazz());
+        shedule.setDate(sheduleDB.getDate());
+        shedule.setGrades(sheduleDB.getGrades());
+        shedule.setPeriod(sheduleDB.getPeriod());
+        shedule.setSubject(sheduleDB.getSubject());
+        shedule.setTeacher(sheduleDB.getTeacher());
 
         return "redirect:/shedules/";
     }
@@ -470,4 +493,75 @@ public class SheduleController extends BaseController {
     }
 
     //</editor-fold>
+
+    @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/new", method = RequestMethod.GET)
+    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, Model model) {
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        Student student = utils.getStudent(studentIdStr, null);
+        Grade grade = new Grade();
+        grade.setShedule(shedule);
+        grade.setStudent(student);
+        model.addAttribute("grade", grade);
+        return "/grades/createOrUpdateGradeForm";
+    }
+
+    @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/new", method = RequestMethod.POST)
+    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @ModelAttribute("grade") Grade grade) {
+
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        Student student = utils.getStudent(studentIdStr, null);
+
+        grade.setStudent(student);
+        grade.setShedule(shedule);
+
+        gradeService.saveGrade(grade);
+        return "redirect:/shedules/studentJournal";
+    }
+
+    @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/edit", method = RequestMethod.GET)
+    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr, Model model) {
+        Grade grade = utils.getGrade(gradeIdStr, null);
+        model.addAttribute("grade", grade);
+        return "/grades/createOrUpdateGradeForm";
+    }
+
+    @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/edit", method = RequestMethod.PUT)
+    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr, @ModelAttribute("grade") Grade grade) {
+
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        Student student = utils.getStudent(studentIdStr, null);
+        Grade gradeDB = utils.getGrade(gradeIdStr, null);
+
+        grade.setStudent(student);
+        grade.setShedule(shedule);
+        grade.setId(gradeDB.getId());
+
+        gradeService.saveGrade(grade);
+        return "redirect:/shedules/studentJournal";
+    }
+
+    @RequestMapping(value = "/shedules/{sheduleId}/job/edit", method = RequestMethod.GET)
+    public String editJob(@PathVariable("sheduleId") String sheduleIdStr, Model model) {
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        model.addAttribute("shedule", shedule);
+        return "/shedules/updateJob";
+    }
+
+    @RequestMapping(value = "/shedules/{sheduleId}/job/edit", method = RequestMethod.PUT)
+    public String editJob(@PathVariable("sheduleId") String sheduleIdStr, @ModelAttribute("shedule") Shedule shedule) {
+
+        Shedule sheduleDB = utils.getShedule(sheduleIdStr, null);
+
+        shedule.setId(sheduleDB.getId());
+        shedule.setClazz(sheduleDB.getClazz());
+        shedule.setDate(sheduleDB.getDate());
+        shedule.setGrades(sheduleDB.getGrades());
+        shedule.setPeriod(sheduleDB.getPeriod());
+        shedule.setSubject(sheduleDB.getSubject());
+        shedule.setTeacher(sheduleDB.getTeacher());
+
+        sheduleService.saveShedule(shedule);
+        return "redirect:/shedules/studentJournal";
+    }
+
 }

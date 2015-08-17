@@ -41,7 +41,8 @@ public class ProtectService {
 
     }
 
-    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsFindByUser()", returning = "retVal")
     public void filterJournalViewList(List<JournalView> retVal) {
 
         if (retVal == null) {
@@ -64,11 +65,12 @@ public class ProtectService {
             return;
         }
 
-//        filterJournalResult(retVal, currentPerson);
+        filterJournalResult(retVal, currentPerson);
 
     }
 
-    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.Student> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.Student> com.vizaco.onlinecontrol.service..*(..))" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsFindByUser()", returning = "retVal")
     public void filterStudentsList(List<Student> retVal) {
 
         if (retVal == null) {
@@ -95,7 +97,8 @@ public class ProtectService {
 
     }
 
-    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.Student com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.Student com.vizaco.onlinecontrol.service..*(..))" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsFindByUser()", returning = "retVal")
     public void filterStudent(Student retVal) {
 
         if (retVal == null) {
@@ -122,7 +125,8 @@ public class ProtectService {
 
     }
 
-    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.User> com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.model.User> com.vizaco.onlinecontrol.service..*(..))" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsFindByUser()", returning = "retVal")
     public void filterUsersList(List<User> retVal) {
 
         if (retVal == null) {
@@ -149,7 +153,8 @@ public class ProtectService {
 
     }
 
-    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.User com.vizaco.onlinecontrol.service..*(..))", returning = "retVal")
+    @AfterReturning(pointcut = "execution(com.vizaco.onlinecontrol.model.User com.vizaco.onlinecontrol.service..*(..))" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsFindByUser()", returning = "retVal")
     public void filterUser(User retVal) {
 
         if (retVal == null) {

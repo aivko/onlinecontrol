@@ -30,6 +30,10 @@ public class Utils {
     private ClazzService clazzService;
     @Autowired
     private NewsService newsService;
+    @Autowired
+    private SheduleService sheduleService;
+    @Autowired
+    private GradeService gradeService;
 
     public User getUser(String userIdStr, RuntimeException e) {
 
@@ -151,6 +155,46 @@ public class Utils {
         return news;
     }
 
+    public Shedule getShedule(String sheduleIdStr, RuntimeException e) {
+
+        Integer sheduleId;
+
+        try {
+            sheduleId = Integer.valueOf(sheduleIdStr);
+        } catch (NumberFormatException ex) {
+            if (e != null) throw e;
+            throw new CustomGenericException("404", "Page not found for the shedule with the ID " + sheduleIdStr);
+        }
+
+        Shedule shedule = sheduleService.findSheduleById(sheduleId);
+
+        if (shedule == null) {
+            if (e != null) throw e;
+            throw new CustomGenericException("404", "Page not found for the shedule with the ID " + sheduleId);
+        }
+        return shedule;
+    }
+
+    public Grade getGrade(String gradeIdStr, RuntimeException e) {
+
+        Integer gradeId;
+
+        try {
+            gradeId = Integer.valueOf(gradeIdStr);
+        } catch (NumberFormatException ex) {
+            if (e != null) throw e;
+            throw new CustomGenericException("404", "Page not found for the grade with the ID " + gradeIdStr);
+        }
+
+        Grade grade = gradeService.findGradeById(gradeId);
+
+        if (grade == null) {
+            if (e != null) throw e;
+            throw new CustomGenericException("404", "Page not found for the grade with the ID " + gradeId);
+        }
+        return grade;
+    }
+
     public void convertToTreeDate(JournalView journalView, Map<String, Object> resultData) {
 
         Map<Date, Object> dateShedule;
@@ -172,6 +216,66 @@ public class Utils {
         }
         setShedule.add(journalView);
         dateShedule.put(keyDate, setShedule);
+
+        resultData.put("shedule", dateShedule);
+
+    }
+
+    public void convertToTreeDateSubjectTeacherPeriod(JournalView journalView, Map<String, Object> resultData) {
+
+        Map<Date, Object> dateShedule;
+        if (resultData.containsKey("shedule")) {
+            dateShedule = (Map<Date, Object>) resultData.get("shedule");
+            if (dateShedule == null) dateShedule = new TreeMap<>();
+        } else {
+            dateShedule = new TreeMap<>();
+        }
+
+        Date keyDate = journalView.getDate();
+
+        TreeMap<Subject, Object> subjectShedule;
+        if (dateShedule.containsKey(keyDate)) {
+            subjectShedule = (TreeMap<Subject, Object>) dateShedule.get(keyDate);
+            if (subjectShedule == null) subjectShedule = new TreeMap<>();
+        } else {
+            subjectShedule = new TreeMap<>();
+        }
+
+        Subject keySubject = journalView.getSubject();
+
+        TreeMap<Teacher, Object> teacherShedule;
+        if (subjectShedule.containsKey(keySubject)) {
+            teacherShedule = (TreeMap<Teacher, Object>) subjectShedule.get(keySubject);
+            if (teacherShedule == null) teacherShedule = new TreeMap<>();
+        } else {
+            teacherShedule = new TreeMap<>();
+        }
+
+        Teacher keyTeacher = journalView.getTeacher();
+
+        TreeMap<Period, Object> periodShedule;
+        if (teacherShedule.containsKey(keyTeacher)) {
+            periodShedule = (TreeMap<Period, Object>) teacherShedule.get(keyTeacher);
+            if (periodShedule == null) periodShedule = new TreeMap<>();
+        } else {
+            periodShedule = new TreeMap<>();
+        }
+
+        Period keyPeriod = journalView.getPeriod();
+
+        TreeSet<JournalView> setShedule;
+        if (periodShedule.containsKey(keyPeriod)) {
+            setShedule = (TreeSet<JournalView>) periodShedule.get(keyPeriod);
+            if (setShedule == null) setShedule = new TreeSet<>();
+        } else {
+            setShedule = new TreeSet<>();
+        }
+
+        setShedule.add(journalView);
+        periodShedule.put(keyPeriod, setShedule);
+        teacherShedule.put(keyTeacher, periodShedule);
+        subjectShedule.put(keySubject, teacherShedule);
+        dateShedule.put(keyDate, subjectShedule);
 
         resultData.put("shedule", dateShedule);
 

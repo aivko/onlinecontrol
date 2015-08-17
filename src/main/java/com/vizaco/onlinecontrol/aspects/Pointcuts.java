@@ -21,4 +21,7 @@ public class Pointcuts {
     @Pointcut("execution(* com.vizaco.onlinecontrol.service.SheduleService.saveShedule(..)) || execution(* com.vizaco.onlinecontrol.service.SheduleService.deleteShedule(..))")
     public void checkPermissionsSaveDeleteShedule(){};
 
+    @Pointcut("execution(* com.vizaco.onlinecontrol.service.*.*ByUser(..))")
+    public void checkPermissionsFindByUser(){};
+
 }

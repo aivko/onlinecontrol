@@ -51,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/", "/index", "/login", "/registration/facebook", "/registration/google", "/callback/google/registration").permitAll()
+                .antMatchers("/shedules/studentJournal").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_OPERATOR') or hasRole('ROLE_TEACHER')")
                 .antMatchers("/registration").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/**").access("hasRole('ROLE_USER')")
                 .and()

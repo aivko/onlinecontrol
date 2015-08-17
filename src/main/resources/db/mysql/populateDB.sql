@@ -22,15 +22,16 @@ INSERT INTO shedule VALUES (5, '2015-07-03', 1, 1, 1, 1, 'shedule5');
 INSERT INTO roles VALUES (1, 'ROLE_USER',     'Пользователь');
 INSERT INTO roles VALUES (2, 'ROLE_ADMIN',    'Администратор');
 INSERT INTO roles VALUES (3, 'ROLE_OPERATOR', 'Оператор');
+INSERT INTO roles VALUES (4, 'ROLE_TEACHER',  'Преподаватель');
 
-INSERT INTO users VALUES (1, 'petr@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (2, 'petr2@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (3, 'petr3@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (4, 'petr4@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+INSERT INTO users VALUES (1, 'teacher@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+INSERT INTO users VALUES (2, 'parent@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+INSERT INTO users VALUES (3, 'admin@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+INSERT INTO users VALUES (4, 'student@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
 INSERT INTO users VALUES (5, 'petr5@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
 
 INSERT INTO parents VALUES (1, 'Петр', 'ПЕРВЫЙ',      'Петрович',     '2008-01-07', 'MALE',   2);
-INSERT INTO parents VALUES (2, 'Петр', 'ВТОРОЙ',      'Петрович',     '2008-01-07', 'MALE',   3);
+INSERT INTO parents VALUES (2, 'Петр', 'ВТОРОЙ',      'Петрович',     '2008-01-07', 'MALE',   null);
 INSERT INTO parents VALUES (3, 'Петр', 'ТРЕТИЙ',      'Петрович',     '2008-01-07', 'FEMALE', null);
 INSERT INTO parents VALUES (4, 'Петр', 'ЧЕТВЕРТЫЙ',   'Петрович',     '2008-01-07', 'MALE',   null);
 INSERT INTO parents VALUES (5, 'Петр', 'ПЯТЫЙ',       'Петрович',     '2008-01-07', 'MALE',   null);
@@ -41,7 +42,7 @@ INSERT INTO students VALUES (3, 'Иван', 'ТРЕТИЙ',      'Иванови
 INSERT INTO students VALUES (4, 'Иван', 'ЧЕТВЕРТЫЙ',   'Иванович',    '2009-07-16', 'MALE',   1, NULL);
 
 INSERT INTO teachers VALUES (1, 'Мария', 'Коваленко',  'Васильевна',    '2008-01-07', 'FEMALE',   1);
-INSERT INTO teachers VALUES (2, 'Ольга', 'Дуб',        'Валентиновна',  '2008-01-07', 'FEMALE',   NULL);
+INSERT INTO teachers VALUES (2, 'Ольга', 'Дуб',        'Валентиновна',  '2008-01-07', 'FEMALE',   3);
 INSERT INTO teachers VALUES (3, 'Павел', 'Коротченко', 'Денисович',     '2008-01-07', 'MALE',     NULL);
 
 INSERT INTO schools VALUES (1, 'Общеобразовательная школа №5', 'Иванов Иван Иванович', 'Школа №5');
@@ -73,12 +74,13 @@ INSERT INTO parents_students VALUES (3, 1);
 INSERT INTO parents_students VALUES (3, 2);
 
 INSERT INTO users_roles VALUES (1, 1);
-INSERT INTO users_roles VALUES (1, 2);
+INSERT INTO users_roles VALUES (1, 4);
 INSERT INTO users_roles VALUES (2, 1);
 INSERT INTO users_roles VALUES (3, 1);
-INSERT INTO users_roles VALUES (4, 3);
-INSERT INTO users_roles VALUES (5, 2);
+INSERT INTO users_roles VALUES (3, 2);
+INSERT INTO users_roles VALUES (4, 1);
 INSERT INTO users_roles VALUES (5, 1);
+INSERT INTO users_roles VALUES (5, 3);
 
 INSERT INTO teachers_subjects VALUES (1, 1);
 INSERT INTO teachers_subjects VALUES (1, 2);
