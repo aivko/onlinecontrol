@@ -114,7 +114,7 @@
 
                                                 if (grade.mark == null & grade.task != null) {
                                                     extraHome = extraHome + tempEditGrade + grade.task + "<br/></a>";
-                                                } else if (grade.mark != null & grade.task == null) {
+                                                } else if (grade.mark != null & (grade.task == null || grade.task == "")) {
                                                     markJob = markJob + tempEditGrade + "Оценка: " + grade.mark + "<br/></a>";
                                                 } else {
                                                     markJob = markJob + tempEditGrade + grade.task + ": " + grade.mark + "<br/></a>";
@@ -123,9 +123,9 @@
 
                                             homeWork = currentShedule.job;
                                             if (homeWork == "" || homeWork == null) {
-                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/edit>\<ввести домашнее задание\></a>";
+                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/job/edit>\<ввести домашнее задание\></a>";
                                             } else {
-                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/edit>" + homeWork + "</a><br/>";
+                                                homeWork = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/job/edit>" + homeWork + "</a><br/>";
                                             }
 
                                             extraHome = extraHome +
