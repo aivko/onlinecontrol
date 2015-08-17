@@ -33,11 +33,12 @@ public class ProtectService {
 
     @Before("(execution(* com.vizaco.onlinecontrol.service.*.save*(..)) " +
             "|| execution(* com.vizaco.onlinecontrol.service.*.delete*(..))) " +
-            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsSaveDeleteShedule()")
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsSaveDeleteShedule()" +
+            "&& !com.vizaco.onlinecontrol.aspects.Pointcuts.checkPermissionsSaveDeleteGrade()")
     public void checkPermissionsSaveDelete() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        accessDecisionManager.decide(authentication, null, SecurityConfig.createList("ROLE_ADMIN"));
+        accessDecisionManager.decide(authentication, null, SecurityConfig.createList("ROLE_ADMIN", "ROLE_TEACHER", "ROLE_OPERATOR"));
 
     }
 

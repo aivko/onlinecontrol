@@ -14,9 +14,9 @@ INSERT INTO clazzes VALUES (3, '2', 'В', 1);
 INSERT INTO clazzes VALUES (4, '2', 'Г', 1);
 
 INSERT INTO shedule VALUES (1, '2015-07-01', 1, 1, 1, 1, 'shedule1');
-INSERT INTO shedule VALUES (2, '2015-07-01', 2, 1, 1, 1, 'shedule2');
+INSERT INTO shedule VALUES (2, '2015-07-01', 2, 1, 1, 3, 'shedule2');
 INSERT INTO shedule VALUES (3, '2015-07-02', 1, 1, 1, 1, null);
-INSERT INTO shedule VALUES (4, '2015-07-02', 2, 1, 1, 1, 'shedule4');
+INSERT INTO shedule VALUES (4, '2015-07-02', 2, 1, 1, 3, 'shedule4');
 INSERT INTO shedule VALUES (5, '2015-07-03', 1, 1, 1, 1, 'shedule5');
 
 INSERT INTO roles VALUES (1, 'ROLE_USER',     'Пользователь');
