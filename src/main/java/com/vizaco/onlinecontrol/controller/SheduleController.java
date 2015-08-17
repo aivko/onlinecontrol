@@ -495,7 +495,8 @@ public class SheduleController extends BaseController {
     //</editor-fold>
 
     @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/new", method = RequestMethod.GET)
-    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, Model model) {
+    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr,
+                            @PathVariable("studentId") String studentIdStr, Model model) {
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
         Student student = utils.getStudent(studentIdStr, null);
         Grade grade = new Grade();
@@ -506,7 +507,21 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/new", method = RequestMethod.POST)
-    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @ModelAttribute("grade") Grade grade) {
+    public String addGrades(@PathVariable("sheduleId") String sheduleIdStr,
+                            @PathVariable("studentId") String studentIdStr,
+                            @ModelAttribute("grade") Grade grade,
+                            BindingResult result, Model model) {
+
+        if (grade.getMark() == null & "".equals(grade.getTask())){
+            result.rejectValue("", "grade.markOrTaskRequired");
+            Shedule shedule = utils.getShedule(sheduleIdStr, null);
+            Student student = utils.getStudent(studentIdStr, null);
+            grade.setShedule(shedule);
+            grade.setStudent(student);
+
+            model.addAttribute("grade", grade);
+            return "/grades/createOrUpdateGradeForm";
+        }
 
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
         Student student = utils.getStudent(studentIdStr, null);
@@ -519,14 +534,19 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/edit", method = RequestMethod.GET)
-    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr, Model model) {
+    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr,
+                             @PathVariable("studentId") String studentIdStr,
+                             @PathVariable("gradeId") String gradeIdStr, Model model) {
         Grade grade = utils.getGrade(gradeIdStr, null);
         model.addAttribute("grade", grade);
         return "/grades/createOrUpdateGradeForm";
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/edit", method = RequestMethod.PUT)
-    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr, @ModelAttribute("grade") Grade grade) {
+    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr,
+                             @PathVariable("studentId") String studentIdStr,
+                             @PathVariable("gradeId") String gradeIdStr,
+                             @ModelAttribute("grade") Grade grade) {
 
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
         Student student = utils.getStudent(studentIdStr, null);
@@ -540,6 +560,22 @@ public class SheduleController extends BaseController {
         return "redirect:/shedules/studentJournal";
     }
 
+    @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/delete", method = RequestMethod.DELETE)
+    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr,
+                             @PathVariable("studentId") String studentIdStr,
+                             @PathVariable("gradeId") String gradeIdStr) {
+
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        Student student = utils.getStudent(studentIdStr, null);
+        Grade grade = utils.getGrade(gradeIdStr, null);
+
+        Set<Grade> grades = shedule.getGrades();
+        grades.remove(grade);
+
+        sheduleService.saveShedule(shedule);
+        return "redirect:/shedules/studentJournal";
+    }
+
     @RequestMapping(value = "/shedules/{sheduleId}/job/edit", method = RequestMethod.GET)
     public String editJob(@PathVariable("sheduleId") String sheduleIdStr, Model model) {
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
@@ -548,7 +584,8 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/job/edit", method = RequestMethod.PUT)
-    public String editJob(@PathVariable("sheduleId") String sheduleIdStr, @ModelAttribute("shedule") Shedule shedule) {
+    public String editJob(@PathVariable("sheduleId") String sheduleIdStr,
+                          @ModelAttribute("shedule") Shedule shedule) {
 
         Shedule sheduleDB = utils.getShedule(sheduleIdStr, null);
 

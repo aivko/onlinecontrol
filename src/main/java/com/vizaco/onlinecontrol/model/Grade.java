@@ -17,6 +17,7 @@ import java.util.Date;
 @Table(name = "grades")
 public class Grade extends BaseEntity implements Comparable<Grade>{
 
+    @NotNull
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "shedule_id")
     private Shedule shedule;

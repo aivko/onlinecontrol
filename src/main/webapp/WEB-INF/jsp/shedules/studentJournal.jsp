@@ -110,14 +110,17 @@
                                                     continue;
                                                 }
 
-                                                var tempEditGrade = "<a href=/onlinecontrol/shedules/" + currentShedule.sheduleId + "/students/" + currentShedule.student.id + "/grades/" + grade.id + "/edit>";
+                                                var pathGrade = "/onlinecontrol/shedules/" + currentShedule.sheduleId + "/students/" + currentShedule.student.id + "/grades/" + grade.id;
+
+                                                var tempEditGrade = "<a href=" + pathGrade + "/edit>";
+                                                var tempDeleteGrade = "<span onclick = deleteGrade('" + pathGrade + "/delete" + "')>(Удалить)</span>";
 
                                                 if (grade.mark == null & grade.task != null) {
-                                                    extraHome = extraHome + tempEditGrade + grade.task + "<br/></a>";
+                                                    extraHome = extraHome + "<div id=" + pathGrade + ">" + tempEditGrade + grade.task + "</a>" + tempDeleteGrade + "</div><br/>";
                                                 } else if (grade.mark != null & (grade.task == null || grade.task == "")) {
-                                                    markJob = markJob + tempEditGrade + "Оценка: " + grade.mark + "<br/></a>";
+                                                    markJob = markJob + tempEditGrade + "Оценка: " + grade.mark + "</a>" + tempDeleteGrade + "<br/>";
                                                 } else {
-                                                    markJob = markJob + tempEditGrade + grade.task + ": " + grade.mark + "<br/></a>";
+                                                    markJob = markJob + tempEditGrade + grade.task + ": " + grade.mark + "</a>" + tempDeleteGrade + "<br/>";
                                                 }
                                             }
 
@@ -218,6 +221,11 @@
             }
             $("#errorEndDate").text("");
             return true;
+        }
+        ;
+
+        function deleteGrade(pathDeleteGrade) {
+            alert(pathDeleteGrade)
         }
         ;
 

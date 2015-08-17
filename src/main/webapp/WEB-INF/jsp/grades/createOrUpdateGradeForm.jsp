@@ -39,7 +39,7 @@
     <h1>Событие</h1>
 
     <form:form modelAttribute="grade" method="${method}" action="${action}">
-
+        <form:errors path="" cssStyle="color:red;" cssclass="error"/>
         <table class="horiz">
 
             <tr>
@@ -50,6 +50,8 @@
                     <fmt:formatDate pattern="dd.MM.yyyy" value="${grade.shedule.date}"/>
                     <c:out value="| ${grade.shedule.period}"/><br/>
                     <c:out value="${grade.shedule.subject}"/> <c:out value="| ${grade.shedule.teacher}"/>
+                    <form:hidden path="shedule.id"/><form:errors path="shedule" cssStyle="color:red;"
+                                                              cssclass="error"/>
                 </td>
             </tr>
             <tr>
@@ -58,17 +60,17 @@
                 </td>
                 <td>
                     <c:out value="${grade.student.lastName} ${grade.student.firstName} ${grade.student.middleName}"/>
+                    <form:hidden path="student.id"/><form:errors path="student" cssStyle="color:red;"
+                                                              cssclass="error"/>
                 </td>
             </tr>
             <tr>
                 <td><form:label path="task">Задание:</form:label></td>
-                <td><form:input path="task" id="task"/><form:errors path="task" cssStyle="color:red;"
-                                                                    cssclass="error"/></td>
+                <td><form:input path="task" id="task"/></td>
             </tr>
             <tr>
                 <td><form:label path="mark">Оценка:</form:label></td>
-                <td><form:input path="mark" id="mark"/><form:errors path="mark" cssStyle="color:red;"
-                                                                    cssclass="error"/></td>
+                <td><form:input path="mark" id="mark"/></td>
             </tr>
 
         </table>
