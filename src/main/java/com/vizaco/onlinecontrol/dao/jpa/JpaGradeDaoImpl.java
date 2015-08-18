@@ -7,6 +7,7 @@
 //import org.springframework.stereotype.Repository;
 //
 //import javax.persistence.EntityManager;
+//import javax.persistence.FlushModeType;
 //import javax.persistence.PersistenceContext;
 //import javax.persistence.Query;
 //import java.util.List;
@@ -65,7 +66,12 @@
 //        if (grade == null){
 //            return;
 //        }
-//        this.em.remove(grade);
+//        em.remove(grade);
+//    }
+//
+//    @Override
+//    public void flush() {
+//        this.em.flush();
 //    }
 //
 //}

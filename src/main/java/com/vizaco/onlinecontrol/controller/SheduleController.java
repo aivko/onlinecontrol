@@ -561,19 +561,20 @@ public class SheduleController extends BaseController {
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/students/{studentId}/grades/{gradeId}/delete", method = RequestMethod.DELETE)
-    public String editGrades(@PathVariable("sheduleId") String sheduleIdStr,
-                             @PathVariable("studentId") String studentIdStr,
-                             @PathVariable("gradeId") String gradeIdStr) {
+    @ResponseBody
+    public String deleteGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr) {
 
+        Grade grade = utils.getGrade(gradeIdStr, null);
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
         Student student = utils.getStudent(studentIdStr, null);
-        Grade grade = utils.getGrade(gradeIdStr, null);
+        String badResponse = "{\"result\":\"false\"}";
+        String goodResponse = "{\"result\":\"true\"}";
 
-        Set<Grade> grades = shedule.getGrades();
-        grades.remove(grade);
+        shedule.getGrades().remove(grade);
+        student.getGrades().remove(grade);
+        gradeService.deleteGrade(grade.getId());
 
-        sheduleService.saveShedule(shedule);
-        return "redirect:/shedules/studentJournal";
+        return goodResponse;
     }
 
     @RequestMapping(value = "/shedules/{sheduleId}/job/edit", method = RequestMethod.GET)

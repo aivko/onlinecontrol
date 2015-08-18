@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.aspects;
 
+import com.vizaco.onlinecontrol.exceptions.CustomGenericException;
 import com.vizaco.onlinecontrol.model.*;
 import com.vizaco.onlinecontrol.representation.JournalView;
 import com.vizaco.onlinecontrol.service.UserService;
@@ -38,8 +39,7 @@ public class ProtectService {
     public void checkPermissionsSaveDelete() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        accessDecisionManager.decide(authentication, null, SecurityConfig.createList("ROLE_ADMIN", "ROLE_TEACHER", "ROLE_OPERATOR"));
-
+        accessDecisionManager.decide(authentication, null, SecurityConfig.createList("ROLE_ADMIN"));
     }
 
     @AfterReturning(pointcut = "execution(java.util.List<com.vizaco.onlinecontrol.representation.JournalView> com.vizaco.onlinecontrol.service..*(..))" +

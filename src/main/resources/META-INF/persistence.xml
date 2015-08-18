@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
-    <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="default">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.vizaco.onlinecontrol.model.BaseEntity</class>
         <class>com.vizaco.onlinecontrol.model.Person</class>
@@ -19,6 +19,5 @@
         <class>com.vizaco.onlinecontrol.model.Period</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
-    
 
 </persistence>

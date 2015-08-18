@@ -29,7 +29,7 @@ public class Student extends Person {
     @JoinColumn(name = "clazz_id")
     private Clazz clazz;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student", fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Grade> grades;
 
     public Set<Parent> getParents() {

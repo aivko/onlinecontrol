@@ -18,13 +18,13 @@ import java.util.Date;
 public class Grade extends BaseEntity implements Comparable<Grade>{
 
     @NotNull
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shedule_id")
     private Shedule shedule;
 
     @NotNull
     @JsonIgnore
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="student_id")
     private Student student;
 

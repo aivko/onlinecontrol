@@ -14,9 +14,9 @@ INSERT INTO clazzes VALUES (3, '2', 'В', 1);
 INSERT INTO clazzes VALUES (4, '2', 'Г', 1);
 
 INSERT INTO shedule VALUES (1, '2015-07-01', 1, 1, 1, 1, 'shedule1');
-INSERT INTO shedule VALUES (2, '2015-07-01', 2, 1, 1, 1, 'shedule2');
-INSERT INTO shedule VALUES (3, '2015-07-02', 1, 1, 1, 1, 'shedule3');
-INSERT INTO shedule VALUES (4, '2015-07-02', 2, 1, 1, 1, 'shedule4');
+INSERT INTO shedule VALUES (2, '2015-07-01', 2, 1, 1, 3, 'shedule2');
+INSERT INTO shedule VALUES (3, '2015-07-02', 1, 1, 1, 1, null);
+INSERT INTO shedule VALUES (4, '2015-07-02', 2, 1, 1, 3, 'shedule4');
 INSERT INTO shedule VALUES (5, '2015-07-03', 1, 1, 1, 1, 'shedule5');
 
 INSERT INTO roles VALUES (1, 'ROLE_USER',     'Пользователь');
@@ -28,7 +28,7 @@ INSERT INTO users VALUES (1, 'teacher@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAu
 INSERT INTO users VALUES (2, 'parent@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
 INSERT INTO users VALUES (3, 'admin@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
 INSERT INTO users VALUES (4, 'student@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (5, 'petr5@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+INSERT INTO users VALUES (5, 'operator@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
 
 INSERT INTO parents VALUES (1, 'Петр', 'ПЕРВЫЙ',      'Петрович',     '2008-01-07', 'MALE',   2);
 INSERT INTO parents VALUES (2, 'Петр', 'ВТОРОЙ',      'Петрович',     '2008-01-07', 'MALE',   null);

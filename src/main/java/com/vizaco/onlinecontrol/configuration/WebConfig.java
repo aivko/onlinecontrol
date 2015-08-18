@@ -1,5 +1,6 @@
 package com.vizaco.onlinecontrol.configuration;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.vizaco.onlinecontrol.converters.*;
 import com.vizaco.onlinecontrol.model.*;
 import org.hsqldb.jdbc.JDBCDataSource;

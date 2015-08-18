@@ -16,4 +16,6 @@ public interface GradeDao {
 
     void delete(Grade grade) throws DataAccessException;
 
+    void flush() throws DataAccessException;
+
 }

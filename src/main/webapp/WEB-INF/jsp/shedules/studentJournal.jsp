@@ -116,7 +116,7 @@
                                                 var tempDeleteGrade = "<span onclick = deleteGrade('" + pathGrade + "/delete" + "')>(Удалить)</span>";
 
                                                 if (grade.mark == null & grade.task != null) {
-                                                    extraHome = extraHome + "<div id=" + pathGrade + ">" + tempEditGrade + grade.task + "</a>" + tempDeleteGrade + "</div><br/>";
+                                                    extraHome = extraHome + "<span id=" + pathGrade + ">" + tempEditGrade + grade.task + "</a>" + tempDeleteGrade + "</span><br/>";
                                                 } else if (grade.mark != null & (grade.task == null || grade.task == "")) {
                                                     markJob = markJob + tempEditGrade + "Оценка: " + grade.mark + "</a>" + tempDeleteGrade + "<br/>";
                                                 } else {
@@ -225,7 +225,32 @@
         ;
 
         function deleteGrade(pathDeleteGrade) {
-            alert(pathDeleteGrade)
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
+
+            $.ajax({
+                url: pathDeleteGrade,
+                type: 'delete',
+                dataType: 'json',
+                data: "",
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success: function (data) {
+                    if (data.result == "true") {
+                        alert("true")
+                        <%--${'#pathDeleteGrade'}.remove();--%>
+                    }else{
+                        alert("Не удалось удалить оценку");
+                    }
+                },
+                error: function (data, status, er) {
+                    alert("Не удалось удалить оценку");
+                }
+            });
+
         }
         ;
 

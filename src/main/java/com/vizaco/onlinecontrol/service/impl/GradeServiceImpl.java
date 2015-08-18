@@ -50,4 +50,10 @@ public class GradeServiceImpl implements GradeService {
         gradeDao.delete(grade);
     }
 
+    @Override
+    @Transactional
+    public void flush() throws DataAccessException {
+        gradeDao.flush();
+    }
+
 }

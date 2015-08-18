@@ -21,4 +21,6 @@ public interface GradeService {
 
     void deleteGrade(Integer id) throws DataAccessException;
 
+    void flush() throws DataAccessException;
+
 }
