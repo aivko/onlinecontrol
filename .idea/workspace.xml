@@ -8,27 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="647df554-f178-411d-a66c-98a2cc151dcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_36.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grade.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Grade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/GradeDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/GradeDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/GradeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/GradeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/GradeServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/GradeServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaGradeDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaGradeDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/aspects/ProtectService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/aspects/ProtectService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/School.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/School.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Shedule.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/SheduleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/SheduleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/model/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/log.txt" afterPath="$PROJECT_DIR$/log/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/onlinecontrol.iml" afterPath="$PROJECT_DIR$/onlinecontrol.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/onlinecontrol_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/mysql/populateDB.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/mysql/populateDB.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shedules/studentJournal.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/shedules/studentJournal.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="b12035db-2bd2-4426-a0b6-f35a1a11cd46" name="studentShedule" comment="" />
@@ -126,16 +107,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WebConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GradeServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/GradeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -179,8 +150,8 @@
       <file leaf-file-name="SheduleController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/SheduleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40528634">
-              <caret line="575" column="0" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7116935">
+              <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
               <folding>
                 <element signature="method#generateStudentShedule#0;class#SheduleController#0" expanded="false" />
                 <element signature="method#save#0;class#SheduleController#0" expanded="false" />
@@ -2271,13 +2242,7 @@
       <workItem from="1439455255912" duration="1335000" />
       <workItem from="1439461430554" duration="1929000" />
       <workItem from="1439792453412" duration="92000" />
-      <workItem from="1439793703150" duration="54459000" />
-    </task>
-    <task id="LOCAL-00061" summary="shedule">
-      <created>1435244528353</created>
-      <option name="number" value="00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1435244528354</updated>
+      <workItem from="1439793703150" duration="54864000" />
     </task>
     <task id="LOCAL-00062" summary="shedule">
       <created>1435330978604</created>
@@ -2567,11 +2532,17 @@
       <option name="project" value="LOCAL" />
       <updated>1439823944281</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="mysql">
+      <created>1439909726042</created>
+      <option name="number" value="00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1439909726043</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1919564000" />
+    <option name="totallyTimeSpent" value="1919969000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2595,7 +2566,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4406417" sideWeight="0.49574015" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4406417" sideWeight="0.49574015" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30160427" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2974,18 +2945,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final-sources.jar!/org/hibernate/action/internal/EntityAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding>
-            <element signature="e#4209#4210#0" expanded="false" />
-            <element signature="e#4232#4233#0" expanded="false" />
-            <element signature="e#4338#4339#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final-sources.jar!/org/hibernate/engine/spi/ExecutableList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3339,17 +3298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/4.1.6.RELEASE/spring-orm-4.1.6.RELEASE-sources.jar!/org/springframework/orm/jpa/JpaTransactionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4233871">
-          <caret line="129" column="11" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
-          <folding>
-            <element signature="e#6659#6660#0" expanded="false" />
-            <element signature="e#6699#6700#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/dao/jpa/JpaGradeDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8326613">
@@ -3380,22 +3328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57459676">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/GradeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -3432,10 +3364,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.6.RELEASE/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/transaction/support/AbstractPlatformTransactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9063877">
+          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/4.1.6.RELEASE/spring-orm-4.1.6.RELEASE-sources.jar!/org/springframework/orm/jpa/JpaTransactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33259913">
+          <caret line="110" column="50" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/configuration/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3469163">
+          <caret line="151" column="22" selection-start-line="151" selection-start-column="22" selection-end-line="151" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/service/impl/GradeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vizaco/onlinecontrol/controller/SheduleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40528634">
-          <caret line="575" column="0" selection-start-line="575" selection-start-column="0" selection-end-line="575" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7116935">
+          <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
           <folding>
             <element signature="method#generateStudentShedule#0;class#SheduleController#0" expanded="false" />
             <element signature="method#save#0;class#SheduleController#0" expanded="false" />

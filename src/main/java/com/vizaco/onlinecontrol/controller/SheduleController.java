@@ -570,8 +570,6 @@ public class SheduleController extends BaseController {
         String badResponse = "{\"result\":\"false\"}";
         String goodResponse = "{\"result\":\"true\"}";
 
-        shedule.getGrades().remove(grade);
-        student.getGrades().remove(grade);
         gradeService.deleteGrade(grade.getId());
 
         return goodResponse;
