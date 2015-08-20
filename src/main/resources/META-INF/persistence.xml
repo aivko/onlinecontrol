@@ -18,6 +18,11 @@
         <class>com.vizaco.onlinecontrol.model.Clazz</class>
         <class>com.vizaco.onlinecontrol.model.Period</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+
     </persistence-unit>
 
 </persistence>

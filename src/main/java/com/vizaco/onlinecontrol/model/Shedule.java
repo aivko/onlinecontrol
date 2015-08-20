@@ -54,7 +54,7 @@ public class Shedule extends BaseEntity implements Comparable<Shedule>{
     private String job;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shedule", fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shedule", fetch = FetchType.EAGER)
     private Set<Grade> grades;
 
     public Date getDate() {

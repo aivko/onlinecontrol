@@ -52,4 +52,24 @@ public class News extends BaseEntity{
         this.text = text;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        News news = (News) o;
+
+        if (date != null ? !date.equals(news.date) : news.date != null) return false;
+        if (topic != null ? !topic.equals(news.topic) : news.topic != null) return false;
+        return !(text != null ? !text.equals(news.text) : news.text != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (topic != null ? topic.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
+        return result;
+    }
 }

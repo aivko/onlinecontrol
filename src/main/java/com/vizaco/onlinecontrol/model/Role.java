@@ -46,16 +46,13 @@ public class Role extends BaseEntity implements GrantedAuthority {
 
         Role role = (Role) o;
 
-        if (id != null ? !id.equals(role.id) : role.id != null) return false;
         return !(name != null ? !name.equals(role.name) : role.name != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return name != null ? name.hashCode() : 0;
     }
 
     @Override

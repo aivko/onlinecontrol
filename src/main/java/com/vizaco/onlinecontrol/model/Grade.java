@@ -19,13 +19,13 @@ public class Grade extends BaseEntity implements Comparable<Grade>{
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "shedule_id")
+    @JoinColumn(name = "shedule_id", nullable = false)
     private Shedule shedule;
 
     @NotNull
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="student_id")
+    @JoinColumn(name="student_id", nullable = false)
     private Student student;
 
     @Column(name = "task")
