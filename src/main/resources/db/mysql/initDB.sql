@@ -1,93 +1,160 @@
-INSERT INTO schools VALUES (1, 'Общеобразовательная школа №5', 'Иванов Иван Иванович', 'Школа №5');
+CREATE DATABASE IF NOT EXISTS onlinecontrol CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL PRIVILEGES ON onlinecontrol.* TO root@localhost IDENTIFIED BY 'root';
 
-INSERT INTO news VALUES (1, '2015-06-16', 'Стартовал онлайн проект по контролю за учениками',
-                         'Теперь вам совсем не составит труда узнать как ваш ребенок учиться, вовремя ли он приходит в учебное заведение, какие оценки он получил сегодня или за последнюю неделю. Также вы можете оставлять онлайн рекомендации учителям и быть всегда спокойны за свое чадо))');
-INSERT INTO news VALUES (2, '2015-06-16', 'Стартовал онлайн проект по контролю за учениками',
-                         'Теперь вам совсем не составит труда узнать как ваш ребенок учиться, вовремя ли он приходит в учебное заведение, какие оценки он получил сегодня или за последнюю неделю. Также вы можете оставлять онлайн рекомендации учителям и быть всегда спокойны за свое чадо))');
-INSERT INTO news VALUES (3, '2015-06-16', 'Стартовал онлайн проект по контролю за учениками',
-                         'Теперь вам совсем не составит труда узнать как ваш ребенок учиться, вовремя ли он приходит в учебное заведение, какие оценки он получил сегодня или за последнюю неделю. Также вы можете оставлять онлайн рекомендации учителям и быть всегда спокойны за свое чадо))');
-INSERT INTO news VALUES (4, '2015-06-16', 'Стартовал онлайн проект по контролю за учениками',
-                         'Теперь вам совсем не составит труда узнать как ваш ребенок учиться, вовремя ли он приходит в учебное заведение, какие оценки он получил сегодня или за последнюю неделю. Также вы можете оставлять онлайн рекомендации учителям и быть всегда спокойны за свое чадо))');
-INSERT INTO news VALUES (5, '2015-06-16', 'Стартовал онлайн проект по контролю за учениками',
-                         'Теперь вам совсем не составит труда узнать как ваш ребенок учиться, вовремя ли он приходит в учебное заведение, какие оценки он получил сегодня или за последнюю неделю. Также вы можете оставлять онлайн рекомендации учителям и быть всегда спокойны за свое чадо))');
+USE onlinecontrol;
 
-INSERT INTO periods VALUES (1, '1970-01-01 08:45:00', '1970-01-01 09:30:00');
-INSERT INTO periods VALUES (2, '1970-01-01 09:40:00', '1970-01-01 10:25:00');
-INSERT INTO periods VALUES (3, '1970-01-01 10:35:00', '1970-01-01 11:15:00');
-INSERT INTO periods VALUES (4, '1970-01-01 11:25:00', '1970-01-01 12:10:00');
+CREATE TABLE IF NOT EXISTS persistent_logins (
+  username  VARCHAR(64) NOT NULL,
+  series    VARCHAR(64) PRIMARY KEY,
+  token     VARCHAR(64) NOT NULL,
+  last_used TIMESTAMP   NOT NULL
+)engine=InnoDB;
 
-INSERT INTO subjects VALUES (1, 'История');
-INSERT INTO subjects VALUES (2, 'Математика');
-INSERT INTO subjects VALUES (3, 'Английский');
-INSERT INTO subjects VALUES (4, 'Литература');
+CREATE TABLE IF NOT EXISTS schools (
+  id          INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name        VARCHAR(100),
+  director    VARCHAR(100),
+  description VARCHAR(500),
+  INDEX(name)
+)engine=InnoDB;
 
-INSERT INTO roles VALUES (1, 'ROLE_USER',     'Пользователь');
-INSERT INTO roles VALUES (2, 'ROLE_ADMIN',    'Администратор');
-INSERT INTO roles VALUES (3, 'ROLE_OPERATOR', 'Оператор');
-INSERT INTO roles VALUES (4, 'ROLE_TEACHER',  'Преподаватель');
+CREATE TABLE IF NOT EXISTS news (
+  id    INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  date  DATE,
+  topic VARCHAR(100),
+  text  VARCHAR(1000),
+  INDEX(topic)
+)engine=InnoDB;
 
-INSERT INTO users VALUES (1, 'teacher@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (2, 'parent@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (3, 'admin@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (4, 'student@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
-INSERT INTO users VALUES (5, 'operator@gmail.com', '$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8.', TRUE);
+CREATE TABLE IF NOT EXISTS periods (
+  id         INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  start_time TIMESTAMP NOT NULL,
+  end_time   TIMESTAMP NOT NULL,
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO clazzes VALUES (1, '1', 'А', 1);
-INSERT INTO clazzes VALUES (2, '1', 'Б', 1);
-INSERT INTO clazzes VALUES (3, '2', 'В', 1);
-INSERT INTO clazzes VALUES (4, '2', 'Г', 1);
+CREATE TABLE IF NOT EXISTS subjects (
+  id   INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30),
+  INDEX(name)
+)engine=InnoDB;
 
-INSERT INTO parents VALUES (1, 'Петр', 'ПЕРВЫЙ',      'Петрович',     '2008-01-07', 'MALE',   2);
-INSERT INTO parents VALUES (2, 'Петр', 'ВТОРОЙ',      'Петрович',     '2008-01-07', 'MALE',   null);
-INSERT INTO parents VALUES (3, 'Петр', 'ТРЕТИЙ',      'Петрович',     '2008-01-07', 'FEMALE', null);
-INSERT INTO parents VALUES (4, 'Петр', 'ЧЕТВЕРТЫЙ',   'Петрович',     '2008-01-07', 'MALE',   null);
-INSERT INTO parents VALUES (5, 'Петр', 'ПЯТЫЙ',       'Петрович',     '2008-01-07', 'MALE',   null);
+CREATE TABLE IF NOT EXISTS roles (
+  id          INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name        VARCHAR(30),
+  description VARCHAR(30),
+  INDEX(name)
+)engine=InnoDB;
 
-INSERT INTO students VALUES (1, 'Иван', 'ПЕРВЫЙ',      'Иванович',    '2008-01-07', 'MALE',   1, 4);
-INSERT INTO students VALUES (2, 'Иван', 'ВТОРОЙ',      'Иванович',    '2008-02-07', 'FEMALE', 1, 5);
-INSERT INTO students VALUES (3, 'Иван', 'ТРЕТИЙ',      'Иванович',    '2009-09-04', 'FEMALE', 3, null);
-INSERT INTO students VALUES (4, 'Иван', 'ЧЕТВЕРТЫЙ',   'Иванович',    '2009-07-16', 'MALE',   1, NULL);
+CREATE TABLE IF NOT EXISTS users (
+  id       INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  email    VARCHAR(50),
+  password VARCHAR(150),
+  enabled  BOOLEAN,
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO teachers VALUES (1, 'Мария', 'Коваленко',  'Васильевна',    '2008-01-07', 'FEMALE',   1);
-INSERT INTO teachers VALUES (2, 'Ольга', 'Дуб',        'Валентиновна',  '2008-01-07', 'FEMALE',   3);
-INSERT INTO teachers VALUES (3, 'Павел', 'Коротченко', 'Денисович',     '2008-01-07', 'MALE',     NULL);
+CREATE TABLE IF NOT EXISTS clazzes (
+  id        INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  number    VARCHAR(80),
+  letter    VARCHAR(80),
+  school_id INT(4) UNSIGNED NOT NULL,
+  FOREIGN KEY (school_id) REFERENCES schools(id),
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO shedule VALUES (1, '2015-07-01', 1, 1, 1, 1, 'shedule1');
-INSERT INTO shedule VALUES (2, '2015-07-01', 2, 1, 1, 3, 'shedule2');
-INSERT INTO shedule VALUES (3, '2015-07-02', 1, 1, 1, 1, null);
-INSERT INTO shedule VALUES (4, '2015-07-02', 2, 1, 1, 3, 'shedule4');
-INSERT INTO shedule VALUES (5, '2015-07-03', 1, 1, 1, 1, 'shedule5');
+CREATE TABLE IF NOT EXISTS parents (
+  id            INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name    VARCHAR(30),
+  last_name     VARCHAR(30),
+  middle_name   VARCHAR(30),
+  date_of_birth DATE,
+  gender        VARCHAR(30) NOT NULL,
+  user_id       INT(4) UNSIGNED,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO grades VALUES (1, 1, 1, 'За стих',              11);
-INSERT INTO grades VALUES (2, 1, 2, 'Домашнее задание1',    NULL);
-INSERT INTO grades VALUES (3, 1, 2, 'Домашнее задание2',    10);
-INSERT INTO grades VALUES (4, 2, 2, 'Домашнее задание3',    null);
-INSERT INTO grades VALUES (5, 2, 2, NULL,                   10);
-INSERT INTO grades VALUES (6, 3, 1, 'Домашнее задание5',    10);
-INSERT INTO grades VALUES (7, 2, 2, 'Уборка в классе',      7);
+CREATE TABLE IF NOT EXISTS students (
+  id            INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name    VARCHAR(30),
+  last_name     VARCHAR(30),
+  middle_name   VARCHAR(30),
+  date_of_birth DATE,
+  gender        VARCHAR(30) NOT NULL,
+  clazz_id      INT(4) UNSIGNED NOT NULL,
+  user_id       INT(4) UNSIGNED,
+  FOREIGN KEY (clazz_id) REFERENCES clazzes(id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO parents_students VALUES (1, 1);
-INSERT INTO parents_students VALUES (1, 2);
-INSERT INTO parents_students VALUES (2, 3);
-INSERT INTO parents_students VALUES (2, 4);
-INSERT INTO parents_students VALUES (3, 1);
-INSERT INTO parents_students VALUES (3, 2);
+CREATE TABLE IF NOT EXISTS teachers (
+  id            INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name    VARCHAR(30),
+  last_name     VARCHAR(30),
+  middle_name   VARCHAR(30),
+  date_of_birth DATE,
+  gender        VARCHAR(30) NOT NULL,
+  user_id       INT(4) UNSIGNED,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO users_roles VALUES (1, 1);
-INSERT INTO users_roles VALUES (1, 4);
-INSERT INTO users_roles VALUES (2, 1);
-INSERT INTO users_roles VALUES (3, 1);
-INSERT INTO users_roles VALUES (3, 2);
-INSERT INTO users_roles VALUES (4, 1);
-INSERT INTO users_roles VALUES (5, 1);
-INSERT INTO users_roles VALUES (5, 3);
+CREATE TABLE IF NOT EXISTS shedule (
+  id         INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  date       DATE   NOT NULL,
+  period_id  INT(4) UNSIGNED NOT NULL,
+  subject_id INT(4) UNSIGNED NOT NULL,
+  clazz_id   INT(4) UNSIGNED NOT NULL,
+  teacher_id INT(4) UNSIGNED NOT NULL,
+  job        VARCHAR(200),
+  FOREIGN KEY (period_id) REFERENCES periods(id),
+  FOREIGN KEY (subject_id) REFERENCES subjects(id),
+  FOREIGN KEY (clazz_id) REFERENCES clazzes(id),
+  FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+  INDEX(clazz_id)
+)engine=InnoDB;
 
-INSERT INTO teachers_subjects VALUES (1, 1);
-INSERT INTO teachers_subjects VALUES (1, 2);
-INSERT INTO teachers_subjects VALUES (2, 3);
-INSERT INTO teachers_subjects VALUES (3, 4);
+CREATE TABLE IF NOT EXISTS grades (
+  id         INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  shedule_id INT(4) UNSIGNED NOT NULL,
+  student_id INT(4) UNSIGNED NOT NULL,
+  task VARCHAR(100),
+  mark       INT(4),
+  FOREIGN KEY (shedule_id) REFERENCES shedule(id) ON DELETE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
+  INDEX(id)
+)engine=InnoDB;
 
-INSERT INTO teachers_clazzes VALUES (1, 1);
-INSERT INTO teachers_clazzes VALUES (1, 2);
-INSERT INTO teachers_clazzes VALUES (2, 3);
-INSERT INTO teachers_clazzes VALUES (3, 4);
+CREATE TABLE IF NOT EXISTS parents_students (
+  parent_id  INT(4) UNSIGNED NOT NULL,
+  student_id INT(4) UNSIGNED NOT NULL,
+  UNIQUE (parent_id,student_id),
+  FOREIGN KEY (parent_id) REFERENCES parents(id) ON DELETE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS users_roles (
+  user_id INT(4) UNSIGNED NOT NULL,
+  role_id INT(4) UNSIGNED NOT NULL,
+  UNIQUE (user_id,role_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS teachers_clazzes (
+  teacher_id INT(4) UNSIGNED NOT NULL,
+  clazz_id   INT(4) UNSIGNED NOT NULL,
+  UNIQUE (teacher_id,clazz_id),
+  FOREIGN KEY (teacher_id) REFERENCES teachers(id) ON DELETE CASCADE,
+  FOREIGN KEY (clazz_id) REFERENCES clazzes(id) ON DELETE CASCADE
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS teachers_subjects (
+  teacher_id INT(4) UNSIGNED NOT NULL,
+  subject_id INT(4) UNSIGNED NOT NULL,
+  UNIQUE (teacher_id,subject_id),
+  FOREIGN KEY (teacher_id) REFERENCES teachers(id) ON DELETE CASCADE,
+  FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
+)engine=InnoDB;

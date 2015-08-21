@@ -99,12 +99,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public DataSource dataSource() {
-//        MysqlDataSource dataSource = new MysqlDataSource();
-        JDBCDataSource dataSource = new JDBCDataSource();
+        MysqlDataSource dataSource = new MysqlDataSource();
+//        JDBCDataSource dataSource = new JDBCDataSource();
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUser(environment.getProperty("jdbc.username"));
         dataSource.setPassword(environment.getProperty("jdbc.password"));
-//        dataSource.setCharacterEncoding(environment.getProperty("jdbc.charset"));
+        dataSource.setCharacterEncoding(environment.getProperty("jdbc.charset"));
         return dataSource;
     }
 
@@ -119,9 +119,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         ResourceDatabasePopulator resourceDatabasePopulatorInit = new ResourceDatabasePopulator(false, false, "utf8", resourceInit);
         compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorInit);
 
-        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
-        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
-        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
+//        Resource resourceData = new DefaultResourceLoader().getResource(environment.getProperty("jdbc.dataLocation"));
+//        ResourceDatabasePopulator resourceDatabasePopulatorData = new ResourceDatabasePopulator(false, false, "utf8", resourceData);
+//        compositeDatabasePopulator.addPopulators(resourceDatabasePopulatorData);
 
         dataSourceInitializer.setDatabasePopulator(compositeDatabasePopulator);
         return dataSourceInitializer;

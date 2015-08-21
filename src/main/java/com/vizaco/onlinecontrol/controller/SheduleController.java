@@ -569,7 +569,13 @@ public class SheduleController extends BaseController {
         String goodResponse = "{\"result\":\"true\"}";
 
         Student student = utils.getStudent(studentIdStr, null);
-        student.getGrades().remove(grade);
+        Set<Grade> grades = student.getGrades();
+        Iterator<Grade> iterator = grades.iterator();
+        while (iterator.hasNext()){
+            if (iterator.next().equals(grade)){
+                iterator.remove();
+            }
+        }
 
         Shedule shedule = utils.getShedule(sheduleIdStr, null);
         shedule.getGrades().remove(grade);
