@@ -565,10 +565,17 @@ public class SheduleController extends BaseController {
     public String deleteGrades(@PathVariable("sheduleId") String sheduleIdStr, @PathVariable("studentId") String studentIdStr, @PathVariable("gradeId") String gradeIdStr) {
 
         Grade grade = utils.getGrade(gradeIdStr, null);
-        Shedule shedule = utils.getShedule(sheduleIdStr, null);
-        Student student = utils.getStudent(studentIdStr, null);
         String badResponse = "{\"result\":\"false\"}";
         String goodResponse = "{\"result\":\"true\"}";
+
+        Student student = utils.getStudent(studentIdStr, null);
+        student.getGrades().remove(grade);
+
+        Shedule shedule = utils.getShedule(sheduleIdStr, null);
+        shedule.getGrades().remove(grade);
+
+        sheduleService.saveShedule(shedule);
+        studentService.saveStudent(student);
 
         gradeService.deleteGrade(grade.getId());
 
